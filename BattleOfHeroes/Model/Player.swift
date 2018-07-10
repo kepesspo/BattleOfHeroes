@@ -9,25 +9,13 @@
 import Foundation
 import UIKit
 
-
-@objcMembers
-class Player: Object {
+struct Player {
+    var playerName = ""
+    var teamId = "Unknown Team"
+    var isSelected = false
     
-    dynamic var playerId = UUID().uuidString
-    dynamic var playerName = ""
-    dynamic var playerRating = 0.0
-    dynamic var playerAge = 0
-    dynamic var teamId = "UnknownTeam"
-    dynamic var isSelected = false
-    dynamic var playerImage = Data()
-    
-    
-    convenience init(playerName: String, playerRating: Double, playerAge: Int, playerTeamId : String , playerImage : Data ) {
-        self.init()
+    init(playerName: String, teamId: String) {
         self.playerName = playerName
-        self.playerRating = playerRating
-        self.playerAge = playerAge
-        self.teamId = playerTeamId
-        self.playerImage = playerImage
+        self.teamId = teamId
     }
 }

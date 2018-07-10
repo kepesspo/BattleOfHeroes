@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 struct SegueIdentifiers {
     static let team = "teamSegue"
     static let person = "personSegue"
     
+}
+
+struct fireBaseRefData {
+    static let playerRef = Database.database().reference().child("Player")
+    static let teamRef = Database.database().reference().child("Team")
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */; };
 		4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230B20EE33C90004C28E /* AppDelegate.swift */; };
 		4DE1230E20EE33C90004C28E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230D20EE33C90004C28E /* FirstViewController.swift */; };
 		4DE1231020EE33C90004C28E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230F20EE33C90004C28E /* SecondViewController.swift */; };
@@ -22,6 +23,8 @@
 		4DE1234620EF71D80004C28E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234520EF71D80004C28E /* Constants.swift */; };
 		4DE1234820F350F90004C28E /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234720F350F90004C28E /* Team.swift */; };
 		4DE1234B20F3512B0004C28E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234A20F3512B0004C28E /* Player.swift */; };
+		4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */; };
+		FC66D0D98542A1F6716F74D9 /* Pods_BattleOfHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001AF14290CFAB459355AE18 /* Pods-BattleOfHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleOfHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes.debug.xcconfig"; sourceTree = "<group>"; };
+		4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSevice.swift; sourceTree = "<group>"; };
 		4DE1230820EE33C90004C28E /* BattleOfHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleOfHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1230B20EE33C90004C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DE1230D20EE33C90004C28E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +68,9 @@
 		4DE1234520EF71D80004C28E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4DE1234720F350F90004C28E /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4DE1234A20F3512B0004C28E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A241C1AA500F81C108BC3C7F /* Pods-BattleOfHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleOfHeroes.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes.release.xcconfig"; sourceTree = "<group>"; };
+		FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BattleOfHeroes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC66D0D98542A1F6716F74D9 /* Pods_BattleOfHeroes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +102,13 @@
 		4DE122FF20EE33C90004C28E = {
 			isa = PBXGroup;
 			children = (
+				4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */,
 				4DE1230A20EE33C90004C28E /* BattleOfHeroes */,
 				4DE1232120EE33C90004C28E /* BattleOfHeroesTests */,
 				4DE1232C20EE33C90004C28E /* BattleOfHeroesUITests */,
 				4DE1230920EE33C90004C28E /* Products */,
+				6D9D53D7CA5AC828268A9787 /* Pods */,
+				735C0B89A7CA0AF85F81874C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,11 +129,13 @@
 				4DE1230B20EE33C90004C28E /* AppDelegate.swift */,
 				4DE1230D20EE33C90004C28E /* FirstViewController.swift */,
 				4DE1230F20EE33C90004C28E /* SecondViewController.swift */,
-				4DE1234420EF6F6D0004C28E /* UI */,
-				4DE1231420EE33C90004C28E /* Assets.xcassets */,
-				4DE1231120EE33C90004C28E /* Main.storyboard */,
 				4DE1234920F3510D0004C28E /* Model */,
+				4DE1234420EF6F6D0004C28E /* UI */,
+				4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */,
+				4DE1234520EF71D80004C28E /* Constants.swift */,
+				4DE1231120EE33C90004C28E /* Main.storyboard */,
 				4DE1231620EE33C90004C28E /* LaunchScreen.storyboard */,
+				4DE1231420EE33C90004C28E /* Assets.xcassets */,
 				4DE1231920EE33C90004C28E /* Info.plist */,
 			);
 			path = BattleOfHeroes;
@@ -159,7 +173,6 @@
 			children = (
 				4DE1234220EF6F5A0004C28E /* SetUpPlayersViewController.swift */,
 				4DE1234020EF615E0004C28E /* GameTypeViewController.swift */,
-				4DE1234520EF71D80004C28E /* Constants.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -173,6 +186,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		6D9D53D7CA5AC828268A9787 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				001AF14290CFAB459355AE18 /* Pods-BattleOfHeroes.debug.xcconfig */,
+				A241C1AA500F81C108BC3C7F /* Pods-BattleOfHeroes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		735C0B89A7CA0AF85F81874C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,9 +210,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DE1233220EE33C90004C28E /* Build configuration list for PBXNativeTarget "BattleOfHeroes" */;
 			buildPhases = (
+				42BD842523C4F0DACF89491D /* [CP] Check Pods Manifest.lock */,
 				4DE1230420EE33C90004C28E /* Sources */,
 				4DE1230520EE33C90004C28E /* Frameworks */,
 				4DE1230620EE33C90004C28E /* Resources */,
+				63ECCEFB4185089F172CF53C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE1231820EE33C90004C28E /* LaunchScreen.storyboard in Resources */,
+				4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */,
 				4DE1231520EE33C90004C28E /* Assets.xcassets in Resources */,
 				4DE1231320EE33C90004C28E /* Main.storyboard in Resources */,
 			);
@@ -302,6 +335,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		42BD842523C4F0DACF89491D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BattleOfHeroes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63ECCEFB4185089F172CF53C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4DE1230420EE33C90004C28E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -314,6 +392,7 @@
 				4DE1234320EF6F5A0004C28E /* SetUpPlayersViewController.swift in Sources */,
 				4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */,
 				4DE1234120EF615E0004C28E /* GameTypeViewController.swift in Sources */,
+				4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */,
 				4DE1230E20EE33C90004C28E /* FirstViewController.swift in Sources */,
 				4DE1234B20F3512B0004C28E /* Player.swift in Sources */,
 				4DE1234620EF71D80004C28E /* Constants.swift in Sources */,
@@ -480,6 +559,7 @@
 		};
 		4DE1233320EE33C90004C28E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 001AF14290CFAB459355AE18 /* Pods-BattleOfHeroes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -495,6 +575,7 @@
 		};
 		4DE1233420EE33C90004C28E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A241C1AA500F81C108BC3C7F /* Pods-BattleOfHeroes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
