@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var createGame: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,16 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func createGameAction(_ sender: Any) {
+        NetworkSevice.sharedInstance.addGameToDatabase { (error) in
+            if error != nil {
+                print("Error")
+            } else {
+                print("Success created Game")
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

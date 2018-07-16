@@ -18,6 +18,21 @@ class NetworkSevice {
     
     let refPlayer = fireBaseRefData.playerRef
     let refTeam = fireBaseRefData.teamRef
+    let refGame = fireBaseRefData.gameRef
+    
+    
+    // Add Game To Database
+    func addGameToDatabase(competionBlock: @escaping(_ error: Error?) -> Void) {
+        var gamePass = "1234"
+        var gameRoomId = "Room"
+        let gameKey = refGame.childByAutoId().key
+        let game = ["id" : gameKey,
+                    "gameRoom" : gameRoomId,
+                    "gamePass" : gamePass]
+        refGame.child(gameKey).setValue(game)
+        competionBlock(nil)
+    }
+    
     
     
     // Add Player To Database
@@ -30,6 +45,9 @@ class NetworkSevice {
         refPlayer.child(playerKey).setValue(player)
         competionBlock(nil)
     }
+    
+    
+    
     
     // Add Team To Database
     func addTeamToDataBase(team: Team, competionBlock: @escaping(_ error: Error?) -> Void) {

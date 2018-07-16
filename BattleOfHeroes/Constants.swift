@@ -18,4 +18,5 @@ struct SegueIdentifiers {
 struct fireBaseRefData {
     static let playerRef = Database.database().reference().child("Player")
     static let teamRef = Database.database().reference().child("Team")
+    static let gameRef = Database.database().reference().child("Game")
 }

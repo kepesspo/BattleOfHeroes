@@ -131,9 +131,12 @@
                                 <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL4-sk-Ya1">
-                                <rect key="frame" x="146" y="570.33333333333337" width="122" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL4-sk-Ya1">
+                                <rect key="frame" x="146" y="570" width="122" height="15"/>
                                 <state key="normal" title="Create new Game"/>
+                                <connections>
+                                    <action selector="createGameAction:" destination="P9y-eN-215" eventType="touchUpInside" id="4Jo-1I-tnj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,10 +161,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3JF-s2-0wU"/>
                     </view>
+                    <connections>
+                        <outlet property="createGame" destination="uL4-sk-Ya1" id="Z05-CU-b3p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZp-d5-bUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4958" y="-850"/>
+            <point key="canvasLocation" x="-4959.420289855073" y="-850.27173913043487"/>
         </scene>
         <!--Game Type View Controller-->
         <scene sceneID="Pnm-74-Zr7">
