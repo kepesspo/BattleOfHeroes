@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="ipad9_7" orientation="landscape">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,18 +16,18 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="QBi-qg-goV">
-                                <rect key="frame" x="372" y="244" width="280" height="280"/>
+                                <rect key="frame" x="47.666666666666657" y="266" width="280" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QBi-qg-goV" secondAttribute="height" multiplier="1:1" id="vs6-Vn-Ldq"/>
                                     <constraint firstAttribute="height" constant="280" id="yZ2-RY-sou"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.63205057379999996" green="0.85568326709999998" blue="0.85692989829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QBi-qg-goV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8a9-st-XhU"/>
                             <constraint firstItem="QBi-qg-goV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PdE-MC-qTQ"/>

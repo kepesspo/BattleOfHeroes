@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D3D096420FCCB2200C74CC6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */; };
+		4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */; };
 		4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */; };
 		4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230B20EE33C90004C28E /* AppDelegate.swift */; };
 		4DE1230E20EE33C90004C28E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230D20EE33C90004C28E /* FirstViewController.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		001AF14290CFAB459355AE18 /* Pods-BattleOfHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleOfHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes.debug.xcconfig"; sourceTree = "<group>"; };
+		4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGameViewController.swift; sourceTree = "<group>"; };
 		4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSevice.swift; sourceTree = "<group>"; };
 		4DE1230820EE33C90004C28E /* BattleOfHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleOfHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1230B20EE33C90004C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,7 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				4DE1234220EF6F5A0004C28E /* SetUpPlayersViewController.swift */,
+				4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */,
 				4DE1234020EF615E0004C28E /* GameTypeViewController.swift */,
+				4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3D096420FCCB2200C74CC6 /* LoginViewController.swift in Sources */,
 				4DE1234820F350F90004C28E /* Team.swift in Sources */,
 				4DE1231020EE33C90004C28E /* SecondViewController.swift in Sources */,
 				4DE1233D20EE45120004C28E /* UIColorExtension.swift in Sources */,
@@ -392,6 +399,7 @@
 				4DE1234320EF6F5A0004C28E /* SetUpPlayersViewController.swift in Sources */,
 				4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */,
 				4DE1234120EF615E0004C28E /* GameTypeViewController.swift in Sources */,
+				4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */,
 				4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */,
 				4DE1230E20EE33C90004C28E /* FirstViewController.swift in Sources */,
 				4DE1234B20F3512B0004C28E /* Player.swift in Sources */,

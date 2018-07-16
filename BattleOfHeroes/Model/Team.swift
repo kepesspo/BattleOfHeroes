@@ -11,9 +11,9 @@ import UIKit
 
 struct Team {
     
+    var id = ""
     var name = ""
     var rating = 0.0
-    var playerList: [Player] = []
     var matchNumber = 0
     var win = 0
     var draw = 0
@@ -22,9 +22,9 @@ struct Team {
     var goalsAgainst = 0
     var point = 0
     
-    init(name: String, rating: Double, playerList : [Player]) {
+    init(id: String, name: String, rating: Double) {
+        self.id = id
         self.name = name
         self.rating = rating
-        self.playerList = playerList
     }
 }

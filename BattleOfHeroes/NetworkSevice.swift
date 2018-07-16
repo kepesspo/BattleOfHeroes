@@ -19,77 +19,79 @@ class NetworkSevice {
     let refPlayer = fireBaseRefData.playerRef
     let refTeam = fireBaseRefData.teamRef
     
-    func addPlayerToDatabase(player: Player) {
+    
+    // Add Player To Database
+    func addPlayerToDatabase(player: Player, competionBlock: @escaping(_ error: Error?) -> Void) {
         let playerKey = refPlayer.childByAutoId().key
         let player = ["id":playerKey,
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String] as [String : Any]
         
         refPlayer.child(playerKey).setValue(player)
+        competionBlock(nil)
     }
     
-    func addTeamToDataBase(team: Team) {
-        //let mok = ["asdfd","afs","DSFSG"]
+    // Add Team To Database
+    func addTeamToDataBase(team: Team, competionBlock: @escaping(_ error: Error?) -> Void) {
         let teamKey = refTeam.childByAutoId().key
-        let team = ["id": teamKey, "teamName": team.name as String, "teamPlayers": []] as [String : Any]
+        let team = ["id": teamKey,
+                    "teamName": team.name as String]
         refTeam.child(teamKey).setValue(team)
+        competionBlock(nil)
     }
     
-    func getTeamList() -> [Team] {
-        var playerList = [Player]()
-        
-        refPlayer.observe(DataEventType.value) { (snapshot) in
-            if snapshot.childrenCount > 0 {
-                self.playerList.removeAll()
-                
-                for team in snapshot.children.allObjects as! [DataSnapshot] {
-                    let teamObject = team.value as? [String: AnyObject]
-                    
-                    let teamName  = teamObject?["teamName"] as? String
-                    let teamPlayers = teamObject!["teamPlayers"] as? [String: AnyObject]
-
-                    
-                    //let team = Team(name: teamName, rating: 0.0, playerList: teamPlayers)
-                    //self.teamList.append(team)
-                    
-                }
-            }
-        }
-        return []
-    }
-    
-    
-    func addPlayerToTeam(player : Player, team : Team) {
-        refTeam.updateChildValues([
-            "playerList": [
-                "test3",
-                "test4"]
-            ])
-    }
-    
-    
-    func getPlayerList() -> [Player] {
+   
+    // Get Player List
+    func getPlayerList(completionBlock: @escaping(_ error : Error?) -> Void) {
         refPlayer.observe(DataEventType.value) { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.playerList.removeAll()
                 
                 for player in snapshot.children.allObjects as! [DataSnapshot] {
                     let playerObject = player.value as? [String: AnyObject]
+                    let playerId = playerObject?["id"] as? String
                     let playerName  = playerObject?["playerName"] as? String
                     let playerTeam = playerObject?["playerTeamId"] as? String
                     
-                    let player = Player(playerName: playerName!, teamId: playerTeam!)
+                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!)
                     self.playerList.append(player)
                     
                 }
-                
-                //reloading the tableview
-                
-                //notification center
-                //setUpTableView.reloadData()
+                completionBlock(nil)
             }
         }
-        return playerList
+    }
+    
+    // Get Team List
+    func getTeamList(completionBlock: @escaping(_ error : Error?) -> Void) {
+        refTeam.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.teamList.removeAll()
+                
+                for team in snapshot.children.allObjects as! [DataSnapshot] {
+                    let teamObject = team.value as? [String: AnyObject]
+                    let teamName  = teamObject?["teamName"] as? String
+                    let teamId = teamObject?["id"] as? String
+
+                    
+                    let team = Team(id: teamId!, name: teamName!, rating: 0)
+                    self.teamList.append(team)
+                    
+                }
+                completionBlock(nil)
+            }
+            
+        }
+    }
+    
+    
+    func addTeamToPlayer(player: Player, team : Team, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let playerData = ["id":player.id,
+                      "playerName": player.playerName as String,
+                      "playerTeamId" : team.id as String] as [String : Any]
+        
+        refPlayer.child(player.id).setValue(playerData)
+        competionBlock(nil)
     }
     
     

@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 
 struct Player {
+    var id = ""
     var playerName = ""
     var teamId = "Unknown Team"
     var isSelected = false
     
-    init(playerName: String, teamId: String) {
+    init(id : String,playerName: String, teamId: String) {
+        self.id = id
         self.playerName = playerName
         self.teamId = teamId
     }
