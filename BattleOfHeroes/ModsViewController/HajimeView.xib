@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HajimeView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ZBY-Lk-4eR"/>
+                <outlet property="hajimeTextLabel" destination="5FW-yd-pxf" id="dw1-YY-q7p"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIZ-I6-T7x">
+                    <rect key="frame" x="166.5" y="40" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hajime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ed-kk-Pvf">
+                    <rect key="frame" x="143" y="71" width="90" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FW-yd-pxf">
+                    <rect key="frame" x="20" y="323" width="335" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.01176470588" green="0.64978107129999996" blue="0.88260410290000002" alpha="0.97600064210000004" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5FW-yd-pxf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Eae-tJ-XKt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5FW-yd-pxf" secondAttribute="trailing" constant="20" id="Jjs-iM-dxd"/>
+                <constraint firstItem="5FW-yd-pxf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Llp-VH-wct"/>
+                <constraint firstItem="5ed-kk-Pvf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WCd-bt-J1k"/>
+                <constraint firstItem="sIZ-I6-T7x" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bZC-4S-SMo"/>
+                <constraint firstItem="5ed-kk-Pvf" firstAttribute="top" secondItem="sIZ-I6-T7x" secondAttribute="bottom" constant="10" id="sgE-QP-GvW"/>
+                <constraint firstItem="5FW-yd-pxf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="vUC-XF-eTj"/>
+                <constraint firstItem="sIZ-I6-T7x" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="wvm-54-ahf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

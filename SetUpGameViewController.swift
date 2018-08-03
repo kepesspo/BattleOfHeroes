@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetUpGameViewController: UIViewController {
+class SetUpGameViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

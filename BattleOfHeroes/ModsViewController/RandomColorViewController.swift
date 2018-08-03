@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  RandomColorViewController.swift
 //  BattleOfHeroes
 //
 //  Created by Mark on 7/5/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class RandomColorViewController: UIViewController {
     
     enum timePeriod : TimeInterval {
         case easy = 3.0
@@ -18,17 +18,16 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var startRoundBtn: UIButton!
     
+    
     var randomColorView  : UIView!
     var randomColorViewButton : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func nextRoundAction(_ sender: Any) {
@@ -83,5 +82,12 @@ class FirstViewController: UIViewController {
 //    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
 //        runTimer()
 //    }
+    @IBAction func showRandView(_ sender: Any) {
+        
+
+//        let trueOrFalse = trueOrFalseView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+//        self.view.addSubview(trueOrFalse)
+    }
+    
 }
 

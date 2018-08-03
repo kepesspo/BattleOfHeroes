@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EverybodyDrinksView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Od6-yV-frz"/>
+                <outlet property="everybodyDrinksTextLabel" destination="qhX-7V-uLo" id="2Bc-64-Puq"/>
+                <outlet property="howDrinksTextLabel" destination="88h-5e-gFC" id="5Rb-15-Wrs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everybody Drinks Once" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNW-fy-EiM">
+                    <rect key="frame" x="36.5" y="84" width="301.5" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phX-jJ-aar">
+                    <rect key="frame" x="166" y="53" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhX-7V-uLo">
+                    <rect key="frame" x="20" y="323" width="335" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88h-5e-gFC">
+                    <rect key="frame" x="166.5" y="374" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.99959510559999998" green="0.88776105640000003" blue="0.37531051040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qhX-7V-uLo" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0Jo-38-uG1"/>
+                <constraint firstItem="YNW-fy-EiM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4KP-ty-Hvm"/>
+                <constraint firstItem="qhX-7V-uLo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7Zf-d7-0V6"/>
+                <constraint firstItem="qhX-7V-uLo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="C8w-jG-qTh"/>
+                <constraint firstItem="88h-5e-gFC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CHU-UM-R37"/>
+                <constraint firstItem="phX-jJ-aar" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MEh-YO-zIH"/>
+                <constraint firstItem="phX-jJ-aar" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Nt7-En-OfC"/>
+                <constraint firstItem="YNW-fy-EiM" firstAttribute="top" secondItem="phX-jJ-aar" secondAttribute="bottom" constant="10" id="QUC-T6-qxm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qhX-7V-uLo" secondAttribute="trailing" constant="20" id="SQd-PY-yoT"/>
+                <constraint firstItem="phX-jJ-aar" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="33" id="WoY-Rd-8VT"/>
+                <constraint firstItem="88h-5e-gFC" firstAttribute="top" secondItem="qhX-7V-uLo" secondAttribute="bottom" constant="30" id="aaH-pi-3Ac"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
