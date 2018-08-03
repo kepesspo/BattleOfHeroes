@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  BattleOfHeroes
+
+  Created by Mark on 7/27/18.
+  Copyright © 2018 Sanoma MDC. All rights reserved.
+*/
+
+"Error" = "Error";
+"Warning" = "Warning";
+"InfoScreen_GameRandomColor" = "Random Color";
+"InfoScreen_GameRandomColorDescription" = "A játék folyamán random időnként megjelenik egy ablak egy random színnel és random alakzattal. Ilyenkor külömbőző cselekvéseket kell csinálni a jatákosnak.";
+
+"InfoScreen_GameHajime" = "Hajime (Egy Kis Matek)";
+"InfoScreen_GameHajimeDescription" = "Itt a jatékosok a jolbevált számolos jatákot fogják játszani. Elkell kezdeni számolni 1-től és ha  5-el vagy 7-el oszható a szám vagy szerepel benne az 5 vagy a 7 akkor hajimet kell mondani aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes hijime után megfordul a kör.";
+
+
