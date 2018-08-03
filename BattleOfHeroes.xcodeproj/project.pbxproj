@@ -21,6 +21,8 @@
 		4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */; };
 		4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D096B210B251E00C74CC6 /* Localizable.strings */; };
 		4D5EB879210B41C50043A7F9 /* TrueOrFalseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5EB878210B41C50043A7F9 /* TrueOrFalseView.swift */; };
+		4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79985C2114813D006FE28B /* UpAndDownView.swift */; };
+		4D79985F21148198006FE28B /* UpAndDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79985E21148198006FE28B /* UpAndDownView.xib */; };
 		4D9B7BC32111BFE4000439AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B7BC22111BFE4000439AB /* GameViewController.swift */; };
 		4D9B7BC52111ED77000439AB /* CategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9B7BC42111ED76000439AB /* CategoriesView.xib */; };
 		4D9B7BC72111EE50000439AB /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B7BC62111EE50000439AB /* CategoriesView.swift */; };
@@ -81,6 +83,8 @@
 		4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4D3D096B210B251E00C74CC6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		4D5EB878210B41C50043A7F9 /* TrueOrFalseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseView.swift; sourceTree = "<group>"; };
+		4D79985C2114813D006FE28B /* UpAndDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpAndDownView.swift; sourceTree = "<group>"; };
+		4D79985E21148198006FE28B /* UpAndDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpAndDownView.xib; sourceTree = "<group>"; };
 		4D9B7BC22111BFE4000439AB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4D9B7BC42111ED76000439AB /* CategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesView.xib; sourceTree = "<group>"; };
 		4D9B7BC62111EE50000439AB /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */,
 				4D1BDED82113215600E51AA9 /* WheelOfFortuneView.swift */,
 				4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */,
+				4D79985C2114813D006FE28B /* UpAndDownView.swift */,
+				4D79985E21148198006FE28B /* UpAndDownView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 				4D27AABF210C87B500716C6D /* TrueOrFalseView.xib in Resources */,
 				4D1BDED721131D9600E51AA9 /* EverybodyDrinksView.xib in Resources */,
 				4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */,
+				4D79985F21148198006FE28B /* UpAndDownView.xib in Resources */,
 				4DE1231520EE33C90004C28E /* Assets.xcassets in Resources */,
 				4DB8BA49210B27D500DAF932 /* CustomInfoTableViewCell.xib in Resources */,
 				4DE1231320EE33C90004C28E /* Main.storyboard in Resources */,
@@ -500,6 +507,7 @@
 				4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */,
 				4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */,
 				4DB8BA43210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift in Sources */,
+				4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */,
 				4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */,
 				4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */,
 				4D3D0968210B246400C74CC6 /* InfoViewController.swift in Sources */,

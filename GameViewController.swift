@@ -43,14 +43,8 @@ class GameViewController: UIViewController {
     func showView() {
         
         let games = [
-            WheelOfFortuneView.init(frame: self.view.frame),
-            WheelOfFortuneView.init(frame: self.view.frame),
-            WheelOfFortuneView.init(frame: self.view.frame),
-            WheelOfFortuneView.init(frame: self.view.frame),
-            WheelOfFortuneView.init(frame: self.view.frame),
-            WheelOfFortuneView.init(frame: self.view.frame),
-            WheelOfFortuneView.init(frame: self.view.frame),
-            WheelOfFortuneView.init(frame: self.view.frame)]
+            UpAndDownView.init(frame: self.view.frame),
+            UpAndDownView.init(frame: self.view.frame)]
         
         
         
