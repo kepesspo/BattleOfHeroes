@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,6 +15,7 @@
                 <outlet property="categoriesLabel" destination="LwR-ng-aRt" id="WYj-Kv-tDa"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="gvI-fI-HAK"/>
                 <outlet property="gameInLevelLabel" destination="0jH-Ig-G2G" id="1dT-zo-id3"/>
+                <outlet property="playerLabel" destination="lt4-OK-t4Q" id="ghg-PE-7Jg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,36 +24,46 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jH-Ig-G2G">
-                    <rect key="frame" x="166" y="40" width="42" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="158" y="70" width="59.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwR-ng-aRt">
-                    <rect key="frame" x="20" y="323" width="335" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="20" y="321.5" width="335" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3Q-BP-UDI">
-                    <rect key="frame" x="117" y="70.5" width="140.5" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lt4-OK-t4Q">
+                    <rect key="frame" x="20" y="395.5" width="335" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kategóriák" translatesAutoresizingMaskIntoConstraints="NO" id="rFM-dw-nR9">
+                    <rect key="frame" x="59" y="132" width="256" height="51"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.62829369310000005" green="0.84790033099999995" blue="0.84498292210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="b3Q-BP-UDI" firstAttribute="top" secondItem="0jH-Ig-G2G" secondAttribute="bottom" constant="10" id="1Oe-UJ-XUF"/>
+                <constraint firstItem="rFM-dw-nR9" firstAttribute="top" secondItem="0jH-Ig-G2G" secondAttribute="bottom" constant="32" id="8LH-Jc-10b"/>
+                <constraint firstItem="lt4-OK-t4Q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="G92-L9-VKx"/>
+                <constraint firstItem="rFM-dw-nR9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Iif-Ml-n8L"/>
                 <constraint firstItem="LwR-ng-aRt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LmS-xl-HLG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lt4-OK-t4Q" secondAttribute="trailing" constant="20" id="M73-P7-RoU"/>
                 <constraint firstItem="LwR-ng-aRt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="MpL-a5-8wO"/>
                 <constraint firstItem="LwR-ng-aRt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Pdh-Z4-nev"/>
-                <constraint firstItem="b3Q-BP-UDI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X0X-WH-A9H"/>
-                <constraint firstItem="0jH-Ig-G2G" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="bmp-Ea-lQB"/>
+                <constraint firstItem="lt4-OK-t4Q" firstAttribute="top" secondItem="LwR-ng-aRt" secondAttribute="bottom" constant="50" id="bcW-9R-ykU"/>
+                <constraint firstItem="0jH-Ig-G2G" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="bmp-Ea-lQB"/>
+                <constraint firstItem="lt4-OK-t4Q" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fzc-7X-OSk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LwR-ng-aRt" secondAttribute="trailing" constant="20" id="oor-Qy-gUu"/>
                 <constraint firstItem="0jH-Ig-G2G" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xNI-T2-IES"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
+    <resources>
+        <image name="kategóriák" width="256" height="51"/>
+    </resources>
 </document>

@@ -15,6 +15,12 @@
 		4D1BDEDB211321AF00E51AA9 /* WheelOfFortuneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */; };
 		4D1BDEDD21133AF100E51AA9 /* CarnivalWheelSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */; };
 		4D27AABF210C87B500716C6D /* TrueOrFalseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D27AABE210C87B400716C6D /* TrueOrFalseView.xib */; };
+		4D3A8E5721241BCC0018C047 /* CheersToTheGovernorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A8E5621241BCC0018C047 /* CheersToTheGovernorView.swift */; };
+		4D3A8E5921241BEA0018C047 /* CheersToTheGovernorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A8E5821241BEA0018C047 /* CheersToTheGovernorView.xib */; };
+		4D3A8E5B212567360018C047 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A8E5A212567360018C047 /* Room.swift */; };
+		4D3A8E5D212591280018C047 /* RandomColorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A8E5C212591280018C047 /* RandomColorPresenter.swift */; };
+		4D3A8E632128C8B50018C047 /* SetUpPlayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3A8E612128C8B50018C047 /* SetUpPlayersTableViewCell.swift */; };
+		4D3A8E642128C8B50018C047 /* SetUpPlayersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A8E622128C8B50018C047 /* SetUpPlayersTableViewCell.xib */; };
 		4D3D096420FCCB2200C74CC6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */; };
 		4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */; };
 		4D3D0968210B246400C74CC6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D0967210B246400C74CC6 /* InfoViewController.swift */; };
@@ -23,6 +29,15 @@
 		4D5EB879210B41C50043A7F9 /* TrueOrFalseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5EB878210B41C50043A7F9 /* TrueOrFalseView.swift */; };
 		4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79985C2114813D006FE28B /* UpAndDownView.swift */; };
 		4D79985F21148198006FE28B /* UpAndDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79985E21148198006FE28B /* UpAndDownView.xib */; };
+		4D79986321149CD3006FE28B /* GameManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79986221149CD3006FE28B /* GameManagement.swift */; };
+		4D7998652115F388006FE28B /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7998642115F388006FE28B /* ScoreViewController.swift */; };
+		4D7998672115F57C006FE28B /* GameTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7998662115F57C006FE28B /* GameTabbarViewController.swift */; };
+		4D79986D21174276006FE28B /* RingOfFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79986C21174276006FE28B /* RingOfFireView.swift */; };
+		4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79986E211742A5006FE28B /* RingOfFireView.xib */; };
+		4D906ECD211A43D200B7B7E0 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ECC211A43D200B7B7E0 /* MemoryView.swift */; };
+		4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D906ECE211A443F00B7B7E0 /* MemoryView.xib */; };
+		4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ED0211B31FA00B7B7E0 /* GameView.swift */; };
+		4D906ED3211B3FBD00B7B7E0 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */; };
 		4D9B7BC32111BFE4000439AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B7BC22111BFE4000439AB /* GameViewController.swift */; };
 		4D9B7BC52111ED77000439AB /* CategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9B7BC42111ED76000439AB /* CategoriesView.xib */; };
 		4D9B7BC72111EE50000439AB /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B7BC62111EE50000439AB /* CategoriesView.swift */; };
@@ -31,9 +46,24 @@
 		4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */; };
 		4DB8BA49210B27D500DAF932 /* CustomInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8BA47210B27D500DAF932 /* CustomInfoTableViewCell.xib */; };
 		4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */; };
+		4DC81963211C511700F09922 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC81962211C511700F09922 /* UIApplication.swift */; };
+		4DC819662120C2AD00F09922 /* HowDrinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC819642120C2AC00F09922 /* HowDrinksTableViewCell.swift */; };
+		4DC819672120C2AD00F09922 /* HowDrinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC819652120C2AC00F09922 /* HowDrinksTableViewCell.xib */; };
+		4DC819692120D46700F09922 /* MusicRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC819682120D46700F09922 /* MusicRecognizerView.swift */; };
+		4DC8196B2120D50800F09922 /* MusicRecognizerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC8196A2120D50800F09922 /* MusicRecognizerView.xib */; };
+		4DC8196D2120E60500F09922 /* SwitchHandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8196C2120E60500F09922 /* SwitchHandView.swift */; };
+		4DC8196F2120E63200F09922 /* SwitchHandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC8196E2120E63200F09922 /* SwitchHandView.xib */; };
+		4DC819712120E8EE00F09922 /* RockPaperScissorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC819702120E8EE00F09922 /* RockPaperScissorsView.swift */; };
+		4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC819722120E90400F09922 /* RockPaperScissorsView.xib */; };
+		4DC819752121099200F09922 /* FingerItView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC819742121099200F09922 /* FingerItView.swift */; };
+		4DC81977212109B000F09922 /* FingerItView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC81976212109B000F09922 /* FingerItView.xib */; };
+		4DCC02EA211B8FFD00D71186 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02E8211B8FFD00D71186 /* ScoreTableViewCell.swift */; };
+		4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC02E9211B8FFD00D71186 /* ScoreTableViewCell.xib */; };
+		4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */; };
+		4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC02ED211B94BA00D71186 /* ScoreHeaderTableViewCell.xib */; };
+		4DCC02F1211B9D2B00D71186 /* DrinkCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */; };
 		4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230B20EE33C90004C28E /* AppDelegate.swift */; };
 		4DE1230E20EE33C90004C28E /* RandomColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230D20EE33C90004C28E /* RandomColorViewController.swift */; };
-		4DE1231020EE33C90004C28E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230F20EE33C90004C28E /* SecondViewController.swift */; };
 		4DE1231320EE33C90004C28E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1231120EE33C90004C28E /* Main.storyboard */; };
 		4DE1231520EE33C90004C28E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1231420EE33C90004C28E /* Assets.xcassets */; };
 		4DE1231820EE33C90004C28E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1231620EE33C90004C28E /* LaunchScreen.storyboard */; };
@@ -47,6 +77,20 @@
 		4DE1234820F350F90004C28E /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234720F350F90004C28E /* Team.swift */; };
 		4DE1234B20F3512B0004C28E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234A20F3512B0004C28E /* Player.swift */; };
 		4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */; };
+		4DFCA2652121C0CA001B2E71 /* SetUpGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCA2632121C0CA001B2E71 /* SetUpGameTableViewCell.swift */; };
+		4DFCA2662121C0CA001B2E71 /* SetUpGameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFCA2642121C0CA001B2E71 /* SetUpGameTableViewCell.xib */; };
+		4DFCA2682122DEB8001B2E71 /* GameDetaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCA2672122DEB8001B2E71 /* GameDetaisViewController.swift */; };
+		4DFFD5B421341C4200A4989B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFD5B321341C4200A4989B /* Game.swift */; };
+		4DFFD5C12135667300A4989B /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5B72135666F00A4989B /* Rubik-Black.ttf */; };
+		4DFFD5C22135667300A4989B /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5B82135666F00A4989B /* Rubik-Light.ttf */; };
+		4DFFD5C32135667300A4989B /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5B92135667000A4989B /* Rubik-BlackItalic.ttf */; };
+		4DFFD5C42135667300A4989B /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5BA2135667000A4989B /* Rubik-Medium.ttf */; };
+		4DFFD5C52135667300A4989B /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5BB2135667000A4989B /* Rubik-LightItalic.ttf */; };
+		4DFFD5C62135667300A4989B /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5BC2135667100A4989B /* Rubik-Bold.ttf */; };
+		4DFFD5C72135667300A4989B /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5BD2135667100A4989B /* Rubik-Regular.ttf */; };
+		4DFFD5C82135667300A4989B /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5BE2135667200A4989B /* Rubik-BoldItalic.ttf */; };
+		4DFFD5C92135667300A4989B /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5BF2135667200A4989B /* Rubik-Italic.ttf */; };
+		4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5C02135667300A4989B /* Rubik-MediumItalic.ttf */; };
 		FC66D0D98542A1F6716F74D9 /* Pods_BattleOfHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +121,12 @@
 		4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WheelOfFortuneView.xib; sourceTree = "<group>"; };
 		4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarnivalWheelSlice.swift; path = BattleOfHeroes/CarnivalWheelSlice.swift; sourceTree = SOURCE_ROOT; };
 		4D27AABE210C87B400716C6D /* TrueOrFalseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseView.xib; sourceTree = "<group>"; };
+		4D3A8E5621241BCC0018C047 /* CheersToTheGovernorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheersToTheGovernorView.swift; sourceTree = "<group>"; };
+		4D3A8E5821241BEA0018C047 /* CheersToTheGovernorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheersToTheGovernorView.xib; sourceTree = "<group>"; };
+		4D3A8E5A212567360018C047 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		4D3A8E5C212591280018C047 /* RandomColorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColorPresenter.swift; sourceTree = "<group>"; };
+		4D3A8E612128C8B50018C047 /* SetUpPlayersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPlayersTableViewCell.swift; sourceTree = "<group>"; };
+		4D3A8E622128C8B50018C047 /* SetUpPlayersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetUpPlayersTableViewCell.xib; sourceTree = "<group>"; };
 		4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGameViewController.swift; sourceTree = "<group>"; };
 		4D3D0967210B246400C74CC6 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +135,15 @@
 		4D5EB878210B41C50043A7F9 /* TrueOrFalseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseView.swift; sourceTree = "<group>"; };
 		4D79985C2114813D006FE28B /* UpAndDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpAndDownView.swift; sourceTree = "<group>"; };
 		4D79985E21148198006FE28B /* UpAndDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpAndDownView.xib; sourceTree = "<group>"; };
+		4D79986221149CD3006FE28B /* GameManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagement.swift; sourceTree = "<group>"; };
+		4D7998642115F388006FE28B /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		4D7998662115F57C006FE28B /* GameTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTabbarViewController.swift; sourceTree = "<group>"; };
+		4D79986C21174276006FE28B /* RingOfFireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingOfFireView.swift; sourceTree = "<group>"; };
+		4D79986E211742A5006FE28B /* RingOfFireView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RingOfFireView.xib; sourceTree = "<group>"; };
+		4D906ECC211A43D200B7B7E0 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
+		4D906ECE211A443F00B7B7E0 /* MemoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoryView.xib; sourceTree = "<group>"; };
+		4D906ED0211B31FA00B7B7E0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		4D9B7BC22111BFE4000439AB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4D9B7BC42111ED76000439AB /* CategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesView.xib; sourceTree = "<group>"; };
 		4D9B7BC62111EE50000439AB /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
@@ -93,10 +152,25 @@
 		4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoTableViewCell.swift; sourceTree = "<group>"; };
 		4DB8BA47210B27D500DAF932 /* CustomInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoTableViewCell.xib; sourceTree = "<group>"; };
 		4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSevice.swift; sourceTree = "<group>"; };
+		4DC81962211C511700F09922 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		4DC819642120C2AC00F09922 /* HowDrinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowDrinksTableViewCell.swift; sourceTree = "<group>"; };
+		4DC819652120C2AC00F09922 /* HowDrinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HowDrinksTableViewCell.xib; sourceTree = "<group>"; };
+		4DC819682120D46700F09922 /* MusicRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecognizerView.swift; sourceTree = "<group>"; };
+		4DC8196A2120D50800F09922 /* MusicRecognizerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicRecognizerView.xib; sourceTree = "<group>"; };
+		4DC8196C2120E60500F09922 /* SwitchHandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchHandView.swift; sourceTree = "<group>"; };
+		4DC8196E2120E63200F09922 /* SwitchHandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchHandView.xib; sourceTree = "<group>"; };
+		4DC819702120E8EE00F09922 /* RockPaperScissorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsView.swift; sourceTree = "<group>"; };
+		4DC819722120E90400F09922 /* RockPaperScissorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RockPaperScissorsView.xib; sourceTree = "<group>"; };
+		4DC819742121099200F09922 /* FingerItView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerItView.swift; sourceTree = "<group>"; };
+		4DC81976212109B000F09922 /* FingerItView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FingerItView.xib; sourceTree = "<group>"; };
+		4DCC02E8211B8FFD00D71186 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		4DCC02E9211B8FFD00D71186 /* ScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableViewCell.xib; sourceTree = "<group>"; };
+		4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4DCC02ED211B94BA00D71186 /* ScoreHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCounterViewController.swift; sourceTree = "<group>"; };
 		4DE1230820EE33C90004C28E /* BattleOfHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleOfHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1230B20EE33C90004C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DE1230D20EE33C90004C28E /* RandomColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColorViewController.swift; sourceTree = "<group>"; };
-		4DE1230F20EE33C90004C28E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4DE1231220EE33C90004C28E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4DE1231420EE33C90004C28E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DE1231720EE33C90004C28E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -115,6 +189,20 @@
 		4DE1234720F350F90004C28E /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4DE1234A20F3512B0004C28E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DFCA2632121C0CA001B2E71 /* SetUpGameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGameTableViewCell.swift; sourceTree = "<group>"; };
+		4DFCA2642121C0CA001B2E71 /* SetUpGameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetUpGameTableViewCell.xib; sourceTree = "<group>"; };
+		4DFCA2672122DEB8001B2E71 /* GameDetaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetaisViewController.swift; sourceTree = "<group>"; };
+		4DFFD5B321341C4200A4989B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4DFFD5B72135666F00A4989B /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
+		4DFFD5B82135666F00A4989B /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		4DFFD5B92135667000A4989B /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
+		4DFFD5BA2135667000A4989B /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		4DFFD5BB2135667000A4989B /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		4DFFD5BC2135667100A4989B /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		4DFFD5BD2135667100A4989B /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		4DFFD5BE2135667200A4989B /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4DFFD5BF2135667200A4989B /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
+		4DFFD5C02135667300A4989B /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		A241C1AA500F81C108BC3C7F /* Pods-BattleOfHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleOfHeroes.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BattleOfHeroes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,7 +236,9 @@
 		4D98B186210B2FE1000893B0 /* ModsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4D906ED0211B31FA00B7B7E0 /* GameView.swift */,
 				4DE1230D20EE33C90004C28E /* RandomColorViewController.swift */,
+				4D3A8E5C212591280018C047 /* RandomColorPresenter.swift */,
 				4D5EB878210B41C50043A7F9 /* TrueOrFalseView.swift */,
 				4D27AABE210C87B400716C6D /* TrueOrFalseView.xib */,
 				4D9B7BC62111EE50000439AB /* CategoriesView.swift */,
@@ -162,6 +252,20 @@
 				4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */,
 				4D79985C2114813D006FE28B /* UpAndDownView.swift */,
 				4D79985E21148198006FE28B /* UpAndDownView.xib */,
+				4D79986C21174276006FE28B /* RingOfFireView.swift */,
+				4D79986E211742A5006FE28B /* RingOfFireView.xib */,
+				4D906ECC211A43D200B7B7E0 /* MemoryView.swift */,
+				4D906ECE211A443F00B7B7E0 /* MemoryView.xib */,
+				4DC819682120D46700F09922 /* MusicRecognizerView.swift */,
+				4DC8196A2120D50800F09922 /* MusicRecognizerView.xib */,
+				4DC8196C2120E60500F09922 /* SwitchHandView.swift */,
+				4DC8196E2120E63200F09922 /* SwitchHandView.xib */,
+				4DC819702120E8EE00F09922 /* RockPaperScissorsView.swift */,
+				4DC819722120E90400F09922 /* RockPaperScissorsView.xib */,
+				4DC819742121099200F09922 /* FingerItView.swift */,
+				4DC81976212109B000F09922 /* FingerItView.xib */,
+				4D3A8E5621241BCC0018C047 /* CheersToTheGovernorView.swift */,
+				4D3A8E5821241BEA0018C047 /* CheersToTheGovernorView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -173,6 +277,16 @@
 				4DB8BA40210B275700DAF932 /* CustomInfoHeaderTableViewCell.xib */,
 				4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */,
 				4DB8BA47210B27D500DAF932 /* CustomInfoTableViewCell.xib */,
+				4DCC02E8211B8FFD00D71186 /* ScoreTableViewCell.swift */,
+				4DCC02E9211B8FFD00D71186 /* ScoreTableViewCell.xib */,
+				4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */,
+				4DCC02ED211B94BA00D71186 /* ScoreHeaderTableViewCell.xib */,
+				4DC819642120C2AC00F09922 /* HowDrinksTableViewCell.swift */,
+				4DC819652120C2AC00F09922 /* HowDrinksTableViewCell.xib */,
+				4DFCA2632121C0CA001B2E71 /* SetUpGameTableViewCell.swift */,
+				4DFCA2642121C0CA001B2E71 /* SetUpGameTableViewCell.xib */,
+				4D3A8E612128C8B50018C047 /* SetUpPlayersTableViewCell.swift */,
+				4D3A8E622128C8B50018C047 /* SetUpPlayersTableViewCell.xib */,
 			);
 			name = CustomCell;
 			path = ../..;
@@ -183,10 +297,13 @@
 			children = (
 				4DE1234220EF6F5A0004C28E /* SetUpPlayersViewController.swift */,
 				4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */,
+				4DFCA2672122DEB8001B2E71 /* GameDetaisViewController.swift */,
 				4DE1234020EF615E0004C28E /* GameTypeViewController.swift */,
 				4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */,
 				4D3D0967210B246400C74CC6 /* InfoViewController.swift */,
 				4D9B7BC22111BFE4000439AB /* GameViewController.swift */,
+				4D7998642115F388006FE28B /* ScoreViewController.swift */,
+				4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -218,15 +335,17 @@
 		4DE1230A20EE33C90004C28E /* BattleOfHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				4DFFD5B62135665F00A4989B /* fonts */,
 				4DE1233B20EE44E90004C28E /* Extension */,
 				4DE1234920F3510D0004C28E /* Model */,
-				4DE1234420EF6F6D0004C28E /* UI */,
-				4DE1230B20EE33C90004C28E /* AppDelegate.swift */,
 				4D98B186210B2FE1000893B0 /* ModsViewController */,
-				4DE1230F20EE33C90004C28E /* SecondViewController.swift */,
+				4DE1234420EF6F6D0004C28E /* UI */,
 				4D3D096B210B251E00C74CC6 /* Localizable.strings */,
+				4D7998662115F57C006FE28B /* GameTabbarViewController.swift */,
+				4D79986221149CD3006FE28B /* GameManagement.swift */,
 				4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */,
 				4DE1234520EF71D80004C28E /* Constants.swift */,
+				4DE1230B20EE33C90004C28E /* AppDelegate.swift */,
 				4DE1231120EE33C90004C28E /* Main.storyboard */,
 				4DE1231620EE33C90004C28E /* LaunchScreen.storyboard */,
 				4DE1231420EE33C90004C28E /* Assets.xcassets */,
@@ -256,9 +375,11 @@
 		4DE1233B20EE44E90004C28E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */,
 				4DE1233E20EE584E0004C28E /* AttributedString.swift */,
 				4DE1233C20EE45120004C28E /* UIColorExtension.swift */,
 				4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */,
+				4DC81962211C511700F09922 /* UIApplication.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -277,8 +398,27 @@
 			children = (
 				4DE1234720F350F90004C28E /* Team.swift */,
 				4DE1234A20F3512B0004C28E /* Player.swift */,
+				4D3A8E5A212567360018C047 /* Room.swift */,
+				4DFFD5B321341C4200A4989B /* Game.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4DFFD5B62135665F00A4989B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4DFFD5B72135666F00A4989B /* Rubik-Black.ttf */,
+				4DFFD5B92135667000A4989B /* Rubik-BlackItalic.ttf */,
+				4DFFD5BC2135667100A4989B /* Rubik-Bold.ttf */,
+				4DFFD5BE2135667200A4989B /* Rubik-BoldItalic.ttf */,
+				4DFFD5BF2135667200A4989B /* Rubik-Italic.ttf */,
+				4DFFD5B82135666F00A4989B /* Rubik-Light.ttf */,
+				4DFFD5BB2135667000A4989B /* Rubik-LightItalic.ttf */,
+				4DFFD5BA2135667000A4989B /* Rubik-Medium.ttf */,
+				4DFFD5C02135667300A4989B /* Rubik-MediumItalic.ttf */,
+				4DFFD5BD2135667100A4989B /* Rubik-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		6D9D53D7CA5AC828268A9787 /* Pods */ = {
@@ -407,19 +547,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */,
 				4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */,
 				4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */,
 				4DB8BA42210B275700DAF932 /* CustomInfoHeaderTableViewCell.xib in Resources */,
 				4D1BDEDB211321AF00E51AA9 /* WheelOfFortuneView.xib in Resources */,
+				4DFFD5C22135667300A4989B /* Rubik-Light.ttf in Resources */,
 				4D9B7BC52111ED77000439AB /* CategoriesView.xib in Resources */,
+				4DFFD5C12135667300A4989B /* Rubik-Black.ttf in Resources */,
+				4DC8196B2120D50800F09922 /* MusicRecognizerView.xib in Resources */,
+				4DFFD5C42135667300A4989B /* Rubik-Medium.ttf in Resources */,
+				4D3A8E642128C8B50018C047 /* SetUpPlayersTableViewCell.xib in Resources */,
+				4DFFD5C92135667300A4989B /* Rubik-Italic.ttf in Resources */,
+				4D3A8E5921241BEA0018C047 /* CheersToTheGovernorView.xib in Resources */,
+				4DFFD5C32135667300A4989B /* Rubik-BlackItalic.ttf in Resources */,
+				4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */,
+				4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */,
 				4DE1231820EE33C90004C28E /* LaunchScreen.storyboard in Resources */,
+				4DFCA2662121C0CA001B2E71 /* SetUpGameTableViewCell.xib in Resources */,
+				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
+				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
+				4DC819672120C2AD00F09922 /* HowDrinksTableViewCell.xib in Resources */,
 				4D27AABF210C87B500716C6D /* TrueOrFalseView.xib in Resources */,
+				4DFFD5C52135667300A4989B /* Rubik-LightItalic.ttf in Resources */,
+				4DFFD5C62135667300A4989B /* Rubik-Bold.ttf in Resources */,
 				4D1BDED721131D9600E51AA9 /* EverybodyDrinksView.xib in Resources */,
+				4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */,
 				4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */,
+				4DC8196F2120E63200F09922 /* SwitchHandView.xib in Resources */,
 				4D79985F21148198006FE28B /* UpAndDownView.xib in Resources */,
 				4DE1231520EE33C90004C28E /* Assets.xcassets in Resources */,
+				4DFFD5C72135667300A4989B /* Rubik-Regular.ttf in Resources */,
 				4DB8BA49210B27D500DAF932 /* CustomInfoTableViewCell.xib in Resources */,
+				4DC81977212109B000F09922 /* FingerItView.xib in Resources */,
 				4DE1231320EE33C90004C28E /* Main.storyboard in Resources */,
+				4DFFD5C82135667300A4989B /* Rubik-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +629,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SBCardPopup/SBCardPopup.framework",
 				"${BUILT_PRODUCTS_DIR}/TTFortuneWheel/TTFortuneWheel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -475,6 +638,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCardPopup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTFortuneWheel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -493,29 +657,51 @@
 			files = (
 				4D3D096420FCCB2200C74CC6 /* LoginViewController.swift in Sources */,
 				4DE1234820F350F90004C28E /* Team.swift in Sources */,
-				4DE1231020EE33C90004C28E /* SecondViewController.swift in Sources */,
 				4DE1233D20EE45120004C28E /* UIColorExtension.swift in Sources */,
 				4DE1233F20EE584E0004C28E /* AttributedString.swift in Sources */,
+				4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */,
 				4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */,
+				4D79986D21174276006FE28B /* RingOfFireView.swift in Sources */,
+				4D7998652115F388006FE28B /* ScoreViewController.swift in Sources */,
+				4DC819752121099200F09922 /* FingerItView.swift in Sources */,
+				4DC81963211C511700F09922 /* UIApplication.swift in Sources */,
+				4D3A8E5B212567360018C047 /* Room.swift in Sources */,
 				4DE1234320EF6F5A0004C28E /* SetUpPlayersViewController.swift in Sources */,
+				4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */,
+				4D7998672115F57C006FE28B /* GameTabbarViewController.swift in Sources */,
+				4D906ECD211A43D200B7B7E0 /* MemoryView.swift in Sources */,
 				4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */,
 				4D1BDEDD21133AF100E51AA9 /* CarnivalWheelSlice.swift in Sources */,
 				4D5EB879210B41C50043A7F9 /* TrueOrFalseView.swift in Sources */,
+				4DFCA2652121C0CA001B2E71 /* SetUpGameTableViewCell.swift in Sources */,
 				4D9B7BC72111EE50000439AB /* CategoriesView.swift in Sources */,
 				4D9B7BC32111BFE4000439AB /* GameViewController.swift in Sources */,
+				4D906ED3211B3FBD00B7B7E0 /* NotificationExtension.swift in Sources */,
+				4DC819662120C2AD00F09922 /* HowDrinksTableViewCell.swift in Sources */,
+				4D79986321149CD3006FE28B /* GameManagement.swift in Sources */,
+				4DCC02EA211B8FFD00D71186 /* ScoreTableViewCell.swift in Sources */,
 				4DE1234120EF615E0004C28E /* GameTypeViewController.swift in Sources */,
 				4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */,
 				4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */,
 				4DB8BA43210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift in Sources */,
+				4DFCA2682122DEB8001B2E71 /* GameDetaisViewController.swift in Sources */,
+				4DC819692120D46700F09922 /* MusicRecognizerView.swift in Sources */,
+				4DC8196D2120E60500F09922 /* SwitchHandView.swift in Sources */,
 				4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */,
 				4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */,
 				4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */,
 				4D3D0968210B246400C74CC6 /* InfoViewController.swift in Sources */,
+				4DCC02F1211B9D2B00D71186 /* DrinkCounterViewController.swift in Sources */,
 				4DE1230E20EE33C90004C28E /* RandomColorViewController.swift in Sources */,
+				4D3A8E632128C8B50018C047 /* SetUpPlayersTableViewCell.swift in Sources */,
+				4D3A8E5D212591280018C047 /* RandomColorPresenter.swift in Sources */,
 				4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */,
 				4DE1234B20F3512B0004C28E /* Player.swift in Sources */,
 				4DE1234620EF71D80004C28E /* Constants.swift in Sources */,
+				4DFFD5B421341C4200A4989B /* Game.swift in Sources */,
+				4DC819712120E8EE00F09922 /* RockPaperScissorsView.swift in Sources */,
 				4D1BDED521131D5500E51AA9 /* EverybodyDrinksView.swift in Sources */,
+				4D3A8E5721241BCC0018C047 /* CheersToTheGovernorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,12 +868,15 @@
 			baseConfigurationReference = 001AF14290CFAB459355AE18 /* Pods-BattleOfHeroes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2TUC8G34ZG;
+				DEVELOPMENT_TEAM = 3GW2228TNR;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,12 +887,15 @@
 			baseConfigurationReference = A241C1AA500F81C108BC3C7F /* Pods-BattleOfHeroes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2TUC8G34ZG;
+				DEVELOPMENT_TEAM = 3GW2228TNR;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

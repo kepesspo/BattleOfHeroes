@@ -10,9 +10,13 @@ import Foundation
 import UIKit
 import TTFortuneWheel
 
-class WheelOfFortuneView: UIView {
+class WheelOfFortuneView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var spinningWheel: TTFortuneWheel!
+    @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var spinnerButton: UIButton!
+    @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var spinLabel: UILabel!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     override init(frame: CGRect) {
@@ -27,13 +31,20 @@ class WheelOfFortuneView: UIView {
     
     
     func commonInit() {
+        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
+        self.tap.isEnabled = false
+
         Bundle.main.loadNibNamed("WheelOfFortuneView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         showFortuneWheel()
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-        contentView.addGestureRecognizer(gestureRecognizer)
+        updateLevelCounterUI()
+    }
+    
+    @objc func updateLevelCounterUI() {
+        
+        gameInLevelLabel.text = self.levelCounter
     }
     
     
@@ -44,25 +55,26 @@ class WheelOfFortuneView: UIView {
             
             
         }
-//        for slicee in slices {
-//            
-//        }
         spinningWheel.slices = slices
         spinningWheel.equalSlices = true
-        
-        
         spinningWheel.frameStroke.width = 1
         spinningWheel.frameStroke.color = .white
+        
     }
     
     @IBAction func rotateButton(_ sender: Any) {
+        spinLabel.text = "pörög..."
         let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
         spinningWheel.startAnimating()
+        self.spinnerButton.isEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.spinningWheel.startAnimating(fininshIndex: randomIndex) { (finished) in
-                print(finished)
-                let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.handleTap))
-                self.contentView.addGestureRecognizer(gestureRecognizer)
+                print(self.playersList[randomIndex].playerName)
+                self.spinnerButton.isHidden = true
+                self.spinLabel.isHidden = true
+                self.tap.isEnabled = true
+                self.playerNameLabel.text = self.playersList[randomIndex].playerName
+
             }
         }
     }

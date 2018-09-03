@@ -14,4 +14,55 @@
 "InfoScreen_GameHajime" = "Hajime (Egy Kis Matek)";
 "InfoScreen_GameHajimeDescription" = "Itt a jatékosok a jolbevált számolos jatákot fogják játszani. Elkell kezdeni számolni 1-től és ha  5-el vagy 7-el oszható a szám vagy szerepel benne az 5 vagy a 7 akkor hajimet kell mondani aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes hijime után megfordul a kör.";
 
+"InfoScreen_WheelOfFortune" = "Szerencsekerék";
+"InfoScreen_WheelOfFortuneDescription" = "Itt az egyszerű szerncsére bizuk a dolgot. Random kisorsulunk egy embert akinek innia kell. Minden név megtalálható.";
+
+"InfoScreen_UpAndDown" = "Up And Down";
+"InfoScreen_UpAndDownDescription" = "Itt a francia kártyák lapjai jelennek meg. Megkell mondanod hogy a következő kártya az kissebb vagy nagyobb. Ha eltaláltad jön a következő ember. Minnél tovább megy a jaták annál többet kell innia annak aki hibázik. Szintek: \n 1 jó válasz : 1 ivás \n3 jó válasz : 2 ivás \n5 jó válasz : 3 ivás \n7 jó válasz : 4 ivás ";
+
+"GameTitle_trueOrFalse" = "Igaz Hamis";
+"GameTitle_categories" = "Categoria";
+"GameTitle_hajime" = "Hajime";
+"GameTitle_everybodyDrinks" = "Mindenki Iszik Egyszer";
+"GameTitle_wheelOfFortune" = "Szerencsekerék";
+"GameTitle_upAndDown" = "Kissebb vagy Nagyobb";
+"GameTitle_ringOfFire" = "Ring of Fire";
+"GameTitle_memory" = "Memoria";
+"GameTitle_musicRecognizer" = "Zene Felismerés";
+"GameTitle_switchHand" = "Switch Hand";
+"GameTitle_rockPaperScissors" = "Kő Papir Olló";
+"GameTitle_fingerIt" = "Finger It";
+"GameTitle_randomColor" = "Random Szín";
+"GameTitle_cheersToTheGovernor" = "Cheers To The Governor";
+
+
+"GameDiscription_trueOrFalse" = "Itt egy állitás fog megjelenni a képernyőn és elkell dönteni hogy az igaz vagy hamis. Ha úgy itéled meg hogy az állítás igaz akkor felkell nyujtanod ak kezed mikor a számláló letelt mindezt egyszerre a többi emberrel. Ekkor az app megmutatja a helyes választ és aki nem találta el az iszik.";
+
+"GameDiscription_categories" = "A játékos választ egy kategóriát és mondani kell rá egy szót ami abba a kategóriába beleillik. Ezután a következő játékosnak az előző szónak az utolsó betűjével kell egy szót mondania. Az aki először hibázik az iszik. 5 másodperc a megengedett gondolkodási időkorlát.";
+
+"GameDiscription_hajime" = "Számolj helyesen. Elkell kezdeni számolni 1-től és ha  5-el vagy 7-el oszható a szám vagy szerepel benne az 5 vagy a 7 akkor hajimét kell mondani aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes hijime után megfordul a kör.";
+
+"GameDiscription_everybodyDrinks" = "A jaták folyamán nem akarjuk azt hogy valaki szomjas maradjon igy minden szinten inni kell valakinek. Ezt a gép sorsolja ki ha elfogytak az emberek akkor előről megy a kör.";
+
+"GameDiscription_wheelOfFortune" = "Itt az egyszerű szerncsére bizuk a dolgot. Az app random kiválaszt egy embert akinek innia kell.
+";
+"GameDiscription_upAndDown" = "Itt az app segítségével francia kártyák lapjai jelennek meg. Megkell mondanod hogy a következő kártya az kissebb vagy nagyobb. Ha eltaláltad jön a következő ember. Minnél tovább megy a jaták annál többet kell innia annak aki hibázik. Szintek: \n1 jó válasz : 1 ivás \n3 jó válasz : 2 ivás \n5 jó válasz : 3 ivás \n7 jó válasz : 4 ivás \n10 jó válasz felett: 5 ivás";
+
+"GameDiscription_ringOfFire" = "A Ring of fire játékban fellelhető dolgokat tartalmazza. Választani kell a kártyák közöl és a kártyának a leírását kell megcsinálni. Ezek az alábbi szabályok:\n2 - is Choose – Válasz valakit aki iszik\n3 - is Me – Én iszok \n4 - is Whore – Összes lány iszik \n5 - Thumb Master - Aki kihuzza ö a jatékmester. Az ujját az asztalra helyezve. Aki utoljára utánnoza az iszik \n6 - is Dicks – Fiuk isznak \n7 - is Heaven – Felkel mutatni az égre aki utoljára utánozza az iszik \n8 - is Mate – Válasz valakit aki iszik veled \n9 - Rhyme  - Aki huzta a lapot annak kell egy szot mondani. Utánna következőnek meg rimelnie kell arra a szora. ha nem siekerul akkor iszik \n10 - Categories - Választni kell egy kategoriát és utánna abba a kategoriába kell mondani szot \nJack - Make a Rule – Hozzni kell egy szabályt amit utánna be kell tartani. \nQueen - Questions –Kérdésekkel kell beszélni egymással \nKing - Pour!- Összekell önteni a piákat. Az utolsó megissza \nA - Waterfall - Addig kell inni ameddig aki kihuzta az ászt ";
+
+"GameDiscription_memory" = "Egy categoriába (Ezt a jaték mondja meg) elkell kezdeni mondani szavakat és utána ismételni kell az előzőeket aki elrondja az iszik. A jaták választja ki ki kezd";
+
+"GameDiscription_musicRecognizer" = "A jaták két csapatra bontja a társaságot. Egy zenéből egy részletet kell meghallgatni és tippelni kell milyen év. Amenyik csapatnak közelebb van tipje a megoldáshoz az oszhat ki annyi piát ahányan vannak a csapatba. Ezt lehet egy embernek is osztani";
+
+"GameDiscription_switchHand" = "A játék ugy kezdődik hogy kereszbe rakjátok a kezeket az asztalon. körbe megy a kör és választani lehet hogy hányat koppintasz \n1 koppintás = folytassa a sorozatot \n2 koppintás = fordított sorrend \n3 koppintás = hiányolja a következő kezét, és folytassa a sorozatot. Fontos hogy felváltott kezek legyenek. Aki ront az iszik. Itt is ahány játékos játszik annyi kört kell játszani.";
+
+"GameDiscription_rockPaperScissors" = "Anyi kört kell játszani ahány játékos játszik. Kell egy kezdő ember aki kihivja a mellete ülőt ezt a játék választja ki. Lejátszod a kört a melleted ülövel. Ha te nyersz akkor ő iszik és az ő mellete ülövel kell játszania. Ha te vesztesz akkor meg a te melleted ülövel kell jatszanod. Ha ugyanaz akkor mind a ketten isztok ";
+
+"GameDiscription_fingerIt" = "A játékot ugy kell kezdeni hogy minden jatákos az asztalra rakja a mutató uját. Aztán számolni kezd az első ember akit a játék választ ki. Ekkor ő azt mondja hogy 1,2,3 és 5 ekkor hirtelen mindenkinek el kell venni az ujját az asztalró ha ugy van vagy rajta hagyja. A jaták lényege hogy pontosan annyi uj maradjon az asztalon ahány szám be lett mondja. Ha eltalálod hogy hány van az asztalon akkor mindenki más iszik rajtad kivűl. Ha nem találod el akkor te iszol Ha eltalálod akkor te neked már nem kell játszanod többet jön a következő kör";
+
+"GameDiscription_randomColor" = "";
+
+"GameDiscription_cheersToTheGovernor" = "1-10-ig kell számolni. Mikor eléritek a 10-et akinél véget ért ott van vége a kör. ilyenkor  mondja mindenki  hogy Cheers. És mindenki iszik. Akinél vége lett a körnek hoz egy szabályt az egyik számra. Onnantol kezdve annál a számnál az adott szabályt kell csinálni. Ha valaki hibázik akkor innia kell és ujra kezdődik a számlálás.";
+
+
 

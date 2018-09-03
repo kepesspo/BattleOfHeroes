@@ -20,3 +20,9 @@ struct fireBaseRefData {
     static let teamRef = Database.database().reference().child("Team")
     static let gameRef = Database.database().reference().child("Game")
 }
+
+extension Notification.Name {
+    static let addCounterValue = Notification.Name("addCounterValue")
+    static let reloadScoreTableView = Notification.Name("reloadScoreTableView")
+    static let dismissGame = Notification.Name("dismissGame")
+}

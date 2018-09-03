@@ -22,13 +22,11 @@ class NetworkSevice {
     
     
     // Add Game To Database
-    func addGameToDatabase(competionBlock: @escaping(_ error: Error?) -> Void) {
-        var gamePass = "1234"
-        var gameRoomId = "Room"
+    func addGameToDatabase(room: Room, competionBlock: @escaping(_ error: Error?) -> Void) {
         let gameKey = refGame.childByAutoId().key
         let game = ["id" : gameKey,
-                    "gameRoom" : gameRoomId,
-                    "gamePass" : gamePass]
+                    "gameRoom" : room.gameRoom,
+                    "gamePass" : room.gamePassword]
         refGame.child(gameKey).setValue(game)
         competionBlock(nil)
     }
@@ -40,12 +38,47 @@ class NetworkSevice {
         let playerKey = refPlayer.childByAutoId().key
         let player = ["id":playerKey,
                       "playerName": player.playerName as String,
-                      "playerTeamId" : player.teamId as String] as [String : Any]
+                      "playerTeamId" : player.teamId as String,
+                      "playerLife" : player.life as Int,
+                      "playerDrinks" : player.allDrink as Int] as [String : Any]
         
         refPlayer.child(playerKey).setValue(player)
+        
         competionBlock(nil)
     }
     
+    // Delete player To Database
+    func deletePlayerToDatabase(player: Player, competionBlock: @escaping(_ error: Error?) -> Void) {
+        FirebaseDatabase.Database.database().reference(withPath: "Player").child(player.id).removeValue()
+        competionBlock(nil)
+    
+    }
+    
+    // UpdatePlayerDrinks
+    func updatePlayerDrinks(player: Player, drinks: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let playerKey = player.id
+        let playerDrinks = player.allDrink + drinks
+        let playerLife = player.life + drinks
+        var playerData: [String:Any]?
+        
+        if drinks < 0 {
+            playerData = ["id":playerKey,
+                      "playerName": player.playerName as String,
+                      "playerTeamId" : player.teamId as String,
+                      "playerLife" : playerLife as Int,
+                      "playerDrinks" : player.allDrink as Int] as [String : Any]
+        } else {
+            playerData = ["id":playerKey,
+                      "playerName": player.playerName as String,
+                      "playerTeamId" : player.teamId as String,
+                      "playerLife" : player.life as Int,
+                      "playerDrinks" : playerDrinks as Int] as [String : Any]
+        }
+        
+        refPlayer.child(playerKey).setValue(playerData)
+        competionBlock(nil)
+        
+    }
     
     
     
@@ -57,6 +90,21 @@ class NetworkSevice {
         refTeam.child(teamKey).setValue(team)
         competionBlock(nil)
     }
+    
+    // check room Autenticate
+    func roomExist(gameName: String, gamePass: String, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let roomKey = refGame.childByAutoId().key
+        
+        refGame.child(roomKey).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChild(gameName){
+                print("user exist")
+                competionBlock(nil)
+            } else{
+                print("user doesn't exist")
+            }
+        })
+    }
+    
     
    
     // Get Player List
@@ -70,8 +118,11 @@ class NetworkSevice {
                     let playerId = playerObject?["id"] as? String
                     let playerName  = playerObject?["playerName"] as? String
                     let playerTeam = playerObject?["playerTeamId"] as? String
+                    let playerLife = playerObject?["playerLife"] as? Int
+                    let playerDrinks = playerObject?["playerDrinks"] as? Int
                     
-                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!)
+                    
+                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, life: playerLife!, allDrink: playerDrinks!)
                     self.playerList.append(player)
                     
                 }

@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
-class CategoriesView: UIView {
+class CategoriesView: GameView {
     
+    let categories = GameManagement.sharedInstance.gamesCategories
+    let playersList = NetworkSevice.sharedInstance.playerList
+
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var categoriesLabel: UILabel!
     
     @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var playerLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,18 +33,25 @@ class CategoriesView: UIView {
     
     
     func commonInit() {
+        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("CategoriesView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        categoriesLabel.text = "Válassz egy kategóriát és körbe megy a kör, mindenkinek kell mondania egy olyan szót, amely illeszkedik a kategoriához. Akinek nem sikerül az iszik"
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-        contentView.addGestureRecognizer(gestureRecognizer)
-        
+        updateUI()
+        updateLevelCounterUI()
     }
     
-    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.removeFromSuperview()
+    @objc func updateLevelCounterUI() {
+        
+        gameInLevelLabel.text = self.levelCounter
+    }
+    
+    @objc func updateUI() {
+        let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
+        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
+        categoriesLabel.text =  "Az kategoria a következő: \(categories[randomIndex])"
+        playerLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName)"
+       
     }
 }

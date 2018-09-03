@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwitchHandView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ZY2-GL-2AH"/>
+                <outlet property="gameInLevelLabel" destination="HWk-Gp-sUI" id="Gsj-2t-C31"/>
+                <outlet property="playerName" destination="1ry-Th-fCR" id="Pza-Qy-poQ"/>
+                <outlet property="switchHandLabel" destination="fMq-Ud-YP5" id="zOZ-gv-hfn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWk-Gp-sUI">
+                    <rect key="frame" x="158" y="70" width="59.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMq-Ud-YP5">
+                    <rect key="frame" x="20" y="322" width="335" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ry-Th-fCR">
+                    <rect key="frame" x="166" y="375" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchhands" translatesAutoresizingMaskIntoConstraints="NO" id="4Mg-DF-g0r">
+                    <rect key="frame" x="107.5" y="120" width="159" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="N8h-QQ-b9l"/>
+                        <constraint firstAttribute="width" secondItem="4Mg-DF-g0r" secondAttribute="height" multiplier="55:69" id="OYe-xw-01v"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.67450980392156867" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HWk-Gp-sUI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6tV-TB-nU5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fMq-Ud-YP5" secondAttribute="trailing" constant="20" id="8BL-ZT-Xuc"/>
+                <constraint firstItem="4Mg-DF-g0r" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DeR-XP-zZ3"/>
+                <constraint firstItem="1ry-Th-fCR" firstAttribute="top" secondItem="fMq-Ud-YP5" secondAttribute="bottom" constant="30" id="Eh9-78-se7"/>
+                <constraint firstItem="fMq-Ud-YP5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FoV-bV-abQ"/>
+                <constraint firstItem="fMq-Ud-YP5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="H4H-PF-RQh"/>
+                <constraint firstItem="4Mg-DF-g0r" firstAttribute="top" secondItem="HWk-Gp-sUI" secondAttribute="bottom" constant="20" id="IOa-rH-KsV"/>
+                <constraint firstItem="HWk-Gp-sUI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="VZR-Sy-Gy5"/>
+                <constraint firstItem="1ry-Th-fCR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="js7-UM-zX3"/>
+                <constraint firstItem="fMq-Ud-YP5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="lxZ-g7-KTU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="switchhands" width="330" height="414"/>
+    </resources>
+</document>

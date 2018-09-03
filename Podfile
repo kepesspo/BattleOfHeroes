@@ -8,4 +8,5 @@ use_frameworks!
   pod 'Firebase/Auth'
   pod 'TTFortuneWheel'
 
+
 end

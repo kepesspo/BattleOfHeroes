@@ -9,20 +9,25 @@
 import Foundation
 import UIKit
 
-class UpAndDownView: UIView {
+class UpAndDownView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var upAndDownTextLabel: UILabel!
     @IBOutlet weak var downBtn: UIButton!
     @IBOutlet weak var upBtn: UIButton!
     @IBOutlet weak var numberTextLabel: UILabel!
     @IBOutlet weak var drinksCounter: UILabel!
+    @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var playerNameLabel: UILabel!
     
-    var cards : [Int] = [2,3,4,5,6,7,8,9,10,11,12,13,14]
-    var randNumbIndex : Int = 0
-    var nextRandNumbIndex : Int = 0
-    var nextButtonValue : Int = 0
-    var drinks : Int = 0
+    var cardWithValue = GameManagement.sharedInstance.cardWithValue
+    let playersList = NetworkSevice.sharedInstance.playerList
+    
+    var randCardIndex: Int = 0
+    var nextRandNumbIndex: Int = 0
+    
+    var nextButtonValue: Int = 0
+    var drinks: Int = 0
+    var isLose: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,43 +41,81 @@ class UpAndDownView: UIView {
     
     
     func commonInit() {
+        self.tap.isEnabled = false
+        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("UpAndDownView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
-        upAndDownTextLabel.text = "Mi lesz a következő szám nagyobb vagy kissebb?"
-        // First Init randNumb
-        randNumbIndex = Int(arc4random_uniform(UInt32(cards.count)))
-        numberTextLabel.text = "\(cards[randNumbIndex])"
-        drinksCounter.text = "A Piák száma"
-        print("Rand Number: \(cards[randNumbIndex])")
-
+        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-        contentView.addGestureRecognizer(gestureRecognizer)
+        //upAndDownTextLabel.text = "Mi lesz a következő szám nagyobb vagy kissebb?"
+        playerNameLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName) \n\n Következő szám kisebb vagy nagyobb lesz,mint:"
+        updateLevelCounterUI()
+        
+        
+        // First Init randNumb
+        randCardIndex = Int(arc4random_uniform(UInt32(cardWithValue.count)))
+        let numberValue = Array(cardWithValue.values)[randCardIndex]
+        let numberValueImage = Array(cardWithValue.keys)[randCardIndex]
+        randCardIndex = numberValue.cardIntValue()
+        
+        drinksCounter.text = "A Piák száma"
+        print("Rand Number: \(numberValue.cardIntValue())")
+        uppdateUI(value: numberValue, image: numberValueImage)
         
     }
     
-    func uppdateUI() {
-        numberTextLabel.text = "\(cards[randNumbIndex])"
-        drinks = drinks + 1
-        drinksCounter.text = "\(drinks)"
+    func uppdateUI(value: CardValue, image : UIImage) {
+        if isLose {
+            numberTextLabel.text = "Lose \(value.cardIntValue())"
+            self.tap.isEnabled = true
+        } else {
+            numberTextLabel.text = "\(value.cardIntValue())"
+            drinks = drinks + 1
+        }
+        
+        switch drinks {
+        case 0 ..< 2:
+            drinksCounter.text = "Piák száma: 1"
+        case 2 ..< 3:
+            drinksCounter.text = "Piák száma: 2"
+        case 3 ..< 5:
+            drinksCounter.text = "Piák száma: 3"
+        case 5 ..< 7:
+            drinksCounter.text = "Piák száma: 4"
+        case 7 ..< 1000:
+            drinksCounter.text = "Piák száma: 5"
+        default:
+            drinksCounter.text = "Az egészet meg kell inni: Szerencséd van"
+        }
+        
     }
+    
+    
     
     func showNextRandomNumber() {
-        nextRandNumbIndex = Int(arc4random_uniform(UInt32(cards.count)))
-        print("Next Rand Number: \(cards[nextRandNumbIndex])")
-        if randNumbIndex > nextRandNumbIndex && nextButtonValue == 1 {
-            randNumbIndex = nextRandNumbIndex
-            uppdateUI()
-        } else if randNumbIndex < nextRandNumbIndex && nextButtonValue == 2 {
-            randNumbIndex = nextRandNumbIndex
-            uppdateUI()
-        } else if randNumbIndex == nextRandNumbIndex {
+        
+        nextRandNumbIndex = Int(arc4random_uniform(UInt32(cardWithValue.count)))
+        let numberValue = Array(cardWithValue.values)[nextRandNumbIndex]
+        let numberValueImage = Array(cardWithValue.keys)[nextRandNumbIndex]
+        nextRandNumbIndex = numberValue.cardIntValue()
+        print("Next Rand Number: \(numberValue.cardIntValue())")
+        
+        
+        
+        if randCardIndex > nextRandNumbIndex && nextButtonValue == 1 {
+            randCardIndex = nextRandNumbIndex
+            uppdateUI(value: numberValue, image: numberValueImage)
+        } else if randCardIndex < nextRandNumbIndex && nextButtonValue == 2 {
+            randCardIndex = nextRandNumbIndex
+            uppdateUI(value: numberValue, image: numberValueImage)
+        } else if randCardIndex == nextRandNumbIndex {
             showNextRandomNumber()
         } else {
-            numberTextLabel.text = "Lose"
+            isLose = true
+            uppdateUI(value: numberValue, image: numberValueImage)
             downBtn.isHidden = true
             upBtn.isHidden = true
         }
@@ -89,9 +132,8 @@ class UpAndDownView: UIView {
         showNextRandomNumber()
     }
     
-    
-    
-    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.removeFromSuperview()
+    @objc func updateLevelCounterUI() {
+        gameInLevelLabel.text = self.levelCounter
     }
+
 }

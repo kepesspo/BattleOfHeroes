@@ -11,19 +11,40 @@ import UIKit
 class InfoViewController: UIViewController {
     
     @IBOutlet weak var infoTableView: UITableView!
+    let headerArray = ["GameTitle_trueOrFalse".localized(),
+                       "GameTitle_categories".localized(),
+                       "GameTitle_hajime".localized(),
+                       "GameTitle_everybodyDrinks".localized(),
+                       "GameTitle_wheelOfFortune".localized(),
+                       "GameTitle_upAndDown".localized(),
+                       "GameTitle_ringOfFire".localized(),
+                       "GameTitle_memory".localized(),
+                       "GameTitle_musicRecognizer".localized(),
+                       "GameTitle_switchHand".localized(),
+                       "GameTitle_rockPaperScissors".localized(),
+                       "GameTitle_fingerIt".localized(),
+                       "GameTitle_cheersToTheGovernor".localized()]
     
-    let headerArray = ["InfoScreen_GameRandomColor".localized(),
-                       "InfoScreen_GameHajime".localized()]
-    
-    let contentArray = ["InfoScreen_GameRandomColorDescription".localized(),
-                        "InfoScreen_GameHajimeDescription".localized()]
+    let contentArray = ["GameDiscription_trueOrFalse".localized(),
+                        "GameDiscription_categories".localized(),
+                        "GameDiscription_hajime".localized(),
+                        "GameDiscription_everybodyDrinks".localized(),
+                        "GameDiscription_wheelOfFortune".localized(),
+                        "GameDiscription_upAndDown".localized(),
+                        "GameDiscription_ringOfFire".localized(),
+                        "GameDiscription_memory".localized(),
+                        "GameDiscription_musicRecognizer".localized(),
+                        "GameDiscription_switchHand".localized(),
+                        "GameDiscription_rockPaperScissors".localized(),
+                        "GameDiscription_fingerIt".localized(),
+                        "GameDiscription_cheersToTheGovernor".localized()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         infoTableView.allowsSelection = false
         infoTableView.separatorStyle = .none
-        
+        infoTableView.rowHeight = UITableViewAutomaticDimension
         // Do any additional setup after loading the view.
     }
     func setUpView() {
@@ -46,7 +67,7 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return UITableViewAutomaticDimension
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50

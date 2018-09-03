@@ -11,24 +11,40 @@ import FirebaseDatabase
 import Firebase
 
 class SetUpPlayersViewController: UIViewController {
-
-    var gameType : Int = 0
     
-    var refPlayer = fireBaseRefData.playerRef
-    
-    var playerList = [Player]()
-    
-    var teamList = [Team]()
-    
+    @IBOutlet weak var startGameBtn: UIButton!
     @IBOutlet weak var setUpTableView: UITableView!
-    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var addPlayerButton: UIButton!
+    
+    @IBOutlet weak var playerNavigationItem: UINavigationItem!
+    
+    var gameType : Int = 2
+    var refPlayer = fireBaseRefData.playerRef
+    var playerList = [Player]()
+    var teamList = [Team]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("gameType : \(gameType)")
-        reloadData()
         
+        setUpTableView.separatorStyle = .none
+        
+        
+
+        GameManagement.sharedInstance.defaultGameSetUp()
+        reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = "JÁTÉKOS HOZZÁADÁSA"
+        playerNavigationItem.prompt = " "
+        let rubikFont = UIFont(name: "Rubik-Regular", size: 25)
+        let attributText = [NSAttributedStringKey.font : rubikFont]
+        self.navigationController?.navigationBar.titleTextAttributes = attributText as? [NSAttributedStringKey : UIFont]
+    }
+    
     
     @IBAction func addPlayer(_ sender: Any) {
         let alert = UIAlertController(title: "",
@@ -39,7 +55,7 @@ class SetUpPlayersViewController: UIViewController {
         let addPlayer = UIAlertAction(title: "Add Player", style: .default) { _ in
             if let textField = alert.textFields, let text = textField[0].text {
                 self.setUpTableView.reloadData()
-                let player = Player(id: "", playerName: text, teamId: "")
+                let player = Player(id: "", playerName: text, teamId: "", life: 3, allDrink: 0)
                 NetworkSevice.sharedInstance.addPlayerToDatabase(player: player, competionBlock: { (error) in
                     if error != nil {
                         print("Nem sikerült az adatbázisba a feltöltés")
@@ -95,6 +111,7 @@ class SetUpPlayersViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+
     
     func reloadData() {
         NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
@@ -130,6 +147,16 @@ class SetUpPlayersViewController: UIViewController {
         }
     }
     
+    
+    
+    
+    @IBAction func startGameButtonAction(_ sender: Any) {
+        if playerList.count < 2 {
+            print("Nem Mehez")
+        }
+    }
+    
+    
     @IBAction func editList(_ sender: Any) {
         if self.setUpTableView.isEditing == true {
             self.setUpTableView.isEditing = false
@@ -158,28 +185,42 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = setUpTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        let player = indexPath.section == 0 ? playersWithoutTeam()[indexPath.row] : players(in: teamList[indexPath.section - 1])[indexPath.row]
-        cell.textLabel?.text = player.playerName
-        return cell
+        if let customCell = Bundle.main.loadNibNamed("SetUpPlayersTableViewCell",
+                                                     owner: self,
+                                                     options: nil)?.first as? SetUpPlayersTableViewCell {
+            if  indexPath.row % 2 == 0 {
+                let lightBlueColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:0.5)
+                customCell.contentView.backgroundColor = lightBlueColor
+                //customCell.backgroundColor = lightBlueColor
+            } else {
+                let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
+                customCell.contentView.backgroundColor = lightYellowColor
+                customCell.playerNameLabel.textColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:1.0)
+            }
+            
+            let player = indexPath.section == 0 ? playersWithoutTeam()[indexPath.row] : players(in: teamList[indexPath.section - 1])[indexPath.row]
+            customCell.playerNameLabel.text = player.playerName
+            
+            return customCell
+        }
+        return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if gameType == 1 {
-            if section == 0 {
-                 return "Players"
-            } else {
-                return teamList[section - 1].name
-            }
-        }
-        return "Players"
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if gameType == 1 {
+//            if section == 0 {
+//                 return "Players"
+//            } else {
+//                return teamList[section - 1].name
+//            }
+//        }
+//        return "Players"
+//    }
     
     
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .none
+        return .delete
     }
     
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
@@ -189,6 +230,13 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
+            
+            NetworkSevice.sharedInstance.deletePlayerToDatabase(player: playerList[indexPath.row], competionBlock: { (error) in
+                if (error != nil) {
+                    print("Hiba")
+                }
+            })
+            
             playerList.remove(at: indexPath.row)
             self.setUpTableView.deleteRows(at: [indexPath], with: .fade)
         default:
@@ -245,7 +293,6 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        
         return true
     }
 }

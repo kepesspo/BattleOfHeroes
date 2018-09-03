@@ -10,51 +10,39 @@ import UIKit
 
 class RandomColorViewController: UIViewController {
     
-    enum timePeriod : TimeInterval {
-        case easy = 3.0
-        case medium = 6.0
-        case hard = 9.0
-    }
-
-    @IBOutlet weak var startRoundBtn: UIButton!
-    
-    
     var randomColorView  : UIView!
     var randomColorViewButton : UIButton!
+    
+    var colorsToGetRandomly : [UIColor] = [UIColor.white,UIColor.white, UIColor.white, UIColor.white, UIColor.white]
+    var randomGestuseImages : [UIImage] = [#imageLiteral(resourceName: "001-like"),#imageLiteral(resourceName: "003-hand"),#imageLiteral(resourceName: "002-clap")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RandomColorPresenter.sharedInstance.isAlreadyPresented = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        RandomColorPresenter.sharedInstance.isAlreadyPresented = false
+        RandomColorPresenter.sharedInstance.canThrow = true
+    }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    @IBAction func nextRoundAction(_ sender: Any) {
-       runTimer()
-        
+    
+    @objc func dismissSelf() {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @objc func runTimer() {
-        self.randomColorView?.removeFromSuperview()
-        
-        let randomNumber = [timePeriod.easy, timePeriod.medium, timePeriod.hard]
-        let index = Int(arc4random_uniform(UInt32(randomNumber.count)))
-        let number = randomNumber[index]
-       
-        _ = Timer.scheduledTimer(timeInterval: number.rawValue, target: self, selector: #selector(generateColorView), userInfo: nil, repeats: false)
-    }
-    
-    @objc func generateColorView() {
-        let colorsToGetRandomly = [UIColor.red, UIColor.blue, UIColor.green]
-        let index = Int(arc4random_uniform(UInt32(colorsToGetRandomly.count)))
-        let color = colorsToGetRandomly[index]
-        
+    @objc func generateColorView(color: UIColor, image: UIImage) {
         randomColorView = UIView()
-        randomColorView.frame = CGRect(x: self.view.frame.origin.x,
-                                       y: self.view.frame.origin.y,
-                                       width: self.view.frame.size.width,
-                                       height: self.view.frame.size.height)
+        randomColorView.frame = view.bounds
         randomColorView.backgroundColor = color
         
         randomColorViewButton = UIButton()
@@ -63,31 +51,25 @@ class RandomColorViewController: UIViewController {
                                              width: 200,
                                              height: 200)
         
-        let text = NSMutableAttributedString()
-        text.appendColored(.white, font: .bold(60), "Stop")
+        randomColorViewButton.setBackgroundImage(image, for: .normal)
         
-        randomColorViewButton.setAttributedTitle(text, for:.normal)
-        
-        
-        randomColorViewButton.addTarget(self, action: #selector(runTimer), for: UIControlEvents.touchUpInside)
-        
-//        let gestureRecognizer = UITapGestureRecognizer(target: self.randomColorView, action:#selector(handleTap))
-//        randomColorView.addGestureRecognizer(gestureRecognizer)
-        
+        randomColorViewButton.addTarget(self, action: #selector(dismissSelf), for: UIControlEvents.touchUpInside)
         randomColorView.addSubview(randomColorViewButton)
         
         self.view.addSubview(randomColorView)
-    }
-    
-//    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-//        runTimer()
-//    }
-    @IBAction func showRandView(_ sender: Any) {
+        if let topController = UIApplication.topViewController() {
+            topController.present(self, animated: true, completion: nil)
+        }
         
-
-//        let trueOrFalse = trueOrFalseView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-//        self.view.addSubview(trueOrFalse)
     }
     
+    @objc func genareateColor() {
+        let indexToColor = Int(arc4random_uniform(UInt32(colorsToGetRandomly.count)))
+        let indexGesture = Int(arc4random_uniform(UInt32(randomGestuseImages.count)))
+        
+        let color = colorsToGetRandomly[indexToColor]
+        let image = randomGestuseImages[indexGesture]
+        generateColorView(color: color, image: image)
+    }
 }
 

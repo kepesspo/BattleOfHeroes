@@ -9,10 +9,14 @@
 import Foundation
 import UIKit
 
-class HajimeView: UIView {
+class HajimeView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var hajimeTextLabel: UILabel!
+    @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var playerName: UILabel!
+    
+    var playerList = NetworkSevice.sharedInstance.playerList
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,19 +30,29 @@ class HajimeView: UIView {
     
     
     func commonInit() {
+        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
+
         Bundle.main.loadNibNamed("HajimeView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        updateUI()
+        updateLevelCounterUI()
         
-        hajimeTextLabel.text = "A jatákosok egy körtbe ülnek, és valaki elkezdi a jatékot. Az első játékos azt mondja: egy, a következő kettő, majd a három, és így tovább. Bizonyos számokat azonban fel kell váltani a Hajime szóval. Nem kimondható számot a következőkre: \n Bármelyik szám, amely tartalmazza a hetes számot. Például. 7., 17., 27., stb. \n A hétes számának többszöröse. Például. 7., 14., 21., 28., stb. \n Bármely kétjegyű szám. Például. 11., 22., 33. stb. \n Illetve ha valaki a Hajime szót kimondja akkor a kör megfordul. Akinek nem sikerül az iszik"
-        
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-        contentView.addGestureRecognizer(gestureRecognizer)
         
     }
     
-    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.removeFromSuperview()
+    @objc func updateLevelCounterUI() {
+        
+        gameInLevelLabel.text = self.levelCounter
     }
+    
+    @objc func updateUI() {
+        hajimeTextLabel.text = "Tiltot számok: \n - Bármelyik szám, amely tartalmazza a 7 , 5 számot.  \n - A 7 és 5 számának többszörösei \n - Illetve ha valaki a Hajime szót kimondja akkor a kör megfordul."
+        let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
+        playerName.text = "Aki a kört kezdi: \(playerList[randomIndex].playerName)"
+        
+    }
+    
+     
 }

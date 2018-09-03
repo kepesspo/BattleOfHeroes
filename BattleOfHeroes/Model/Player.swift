@@ -14,10 +14,14 @@ struct Player {
     var playerName = ""
     var teamId = "Unknown Team"
     var isSelected = false
+    var life = 3
+    var allDrink = 0
     
-    init(id : String,playerName: String, teamId: String) {
+    init(id : String,playerName: String, teamId: String, life: Int, allDrink: Int) {
         self.id = id
         self.playerName = playerName
         self.teamId = teamId
+        self.life = life
+        self.allDrink = allDrink
     }
 }

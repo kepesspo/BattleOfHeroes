@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RingOfFireView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="card1Btn" destination="EOt-aJ-Xaw" id="rI4-nY-Bw0"/>
+                <outlet property="card2Btn" destination="2vJ-N8-kD8" id="ETQ-2g-l0z"/>
+                <outlet property="card3Btn" destination="goW-5n-of8" id="ukJ-IV-rir"/>
+                <outlet property="cardStackView" destination="qWa-f8-3Bv" id="ANa-KP-bwG"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Vle-hC-SbD"/>
+                <outlet property="gameInLevelLabel" destination="BcT-bV-HdE" id="Kg8-6c-dXS"/>
+                <outlet property="nextPlayer" destination="z6b-sA-bCN" id="KL8-0h-Btd"/>
+                <outlet property="ruleLabel" destination="foj-hb-RLD" id="RoU-D5-ubk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcT-bV-HdE">
+                    <rect key="frame" x="158" y="50" width="59.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-f8-3Bv">
+                    <rect key="frame" x="10" y="350.5" width="355" height="180"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOt-aJ-Xaw">
+                            <rect key="frame" x="0.0" y="0.0" width="115" height="180"/>
+                            <connections>
+                                <action selector="card1BtnAction:" destination="-1" eventType="touchUpInside" id="IrD-1M-6zd"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vJ-N8-kD8">
+                            <rect key="frame" x="120" y="0.0" width="115" height="180"/>
+                            <connections>
+                                <action selector="card2BtnAction:" destination="-1" eventType="touchUpInside" id="oeE-fK-UOz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goW-5n-of8">
+                            <rect key="frame" x="240" y="0.0" width="115" height="180"/>
+                            <connections>
+                                <action selector="card3BtnAction:" destination="-1" eventType="touchUpInside" id="oAV-fc-WW7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="2vJ-N8-kD8" firstAttribute="height" secondItem="goW-5n-of8" secondAttribute="height" id="0pR-Ca-W8g"/>
+                        <constraint firstItem="EOt-aJ-Xaw" firstAttribute="width" secondItem="2vJ-N8-kD8" secondAttribute="width" id="BeI-pr-LWt"/>
+                        <constraint firstItem="EOt-aJ-Xaw" firstAttribute="height" secondItem="2vJ-N8-kD8" secondAttribute="height" id="V4S-Qh-Ilg"/>
+                        <constraint firstAttribute="height" constant="180" id="w6i-Qj-0gQ"/>
+                        <constraint firstItem="2vJ-N8-kD8" firstAttribute="width" secondItem="goW-5n-of8" secondAttribute="width" id="x4r-DS-4Gv"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6b-sA-bCN">
+                    <rect key="frame" x="166" y="591" width="42" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ringoffire" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-gx-lXl">
+                    <rect key="frame" x="117" y="100" width="141" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="IOm-gx-lXl" secondAttribute="height" multiplier="301:426" id="Yn4-WK-dca"/>
+                        <constraint firstAttribute="height" constant="200" id="xBd-SD-r8z"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huzz egy lapot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc3-55-RiG">
+                    <rect key="frame" x="130" y="320" width="115" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szabály" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foj-hb-RLD">
+                    <rect key="frame" x="20" y="550.5" width="335" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Tc3-55-RiG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Bp-J5-Y0s"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="foj-hb-RLD" secondAttribute="trailing" constant="20" id="1wt-eH-Q5r"/>
+                <constraint firstItem="qWa-f8-3Bv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="3st-SC-sU9"/>
+                <constraint firstItem="z6b-sA-bCN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9xM-iW-xFg"/>
+                <constraint firstItem="2vJ-N8-kD8" firstAttribute="top" secondItem="Tc3-55-RiG" secondAttribute="bottom" constant="10" id="AB1-gI-V2K"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qWa-f8-3Bv" secondAttribute="trailing" constant="10" id="BI3-pg-xEW"/>
+                <constraint firstItem="BcT-bV-HdE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="ItO-4H-DtZ"/>
+                <constraint firstItem="foj-hb-RLD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="L5j-73-6xE"/>
+                <constraint firstItem="IOm-gx-lXl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TWr-dg-Zlg"/>
+                <constraint firstItem="foj-hb-RLD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dGc-Mz-osi"/>
+                <constraint firstItem="Tc3-55-RiG" firstAttribute="top" secondItem="IOm-gx-lXl" secondAttribute="bottom" constant="20" id="dmN-b4-0Ab"/>
+                <constraint firstItem="foj-hb-RLD" firstAttribute="top" secondItem="2vJ-N8-kD8" secondAttribute="bottom" constant="20" id="hhZ-Ay-FgT"/>
+                <constraint firstItem="z6b-sA-bCN" firstAttribute="top" secondItem="foj-hb-RLD" secondAttribute="bottom" constant="20" id="k6P-PJ-3nP"/>
+                <constraint firstItem="BcT-bV-HdE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rMK-OC-cyA"/>
+                <constraint firstItem="IOm-gx-lXl" firstAttribute="top" secondItem="BcT-bV-HdE" secondAttribute="bottom" constant="20" id="so0-wk-Ys1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ringoffire" width="301" height="426"/>
+    </resources>
+</document>

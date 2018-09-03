@@ -10,11 +10,12 @@ import Foundation
 import UIKit
 
 
-class EverybodyDrinksView: UIView {
+class EverybodyDrinksView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var everybodyDrinksTextLabel: UILabel!
     @IBOutlet weak var howDrinksTextLabel: UILabel!
+    @IBOutlet weak var gameInLevelLabel: UILabel!
     
     var playerList = NetworkSevice.sharedInstance.playerList
     
@@ -30,28 +31,46 @@ class EverybodyDrinksView: UIView {
     
     
     func commonInit() {
+        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
+
         Bundle.main.loadNibNamed("EverybodyDrinksView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        showRandomPlayer()
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-        contentView.addGestureRecognizer(gestureRecognizer)
+        sequencedPlayer()
+        updateUI()
+        updateLevelCounterUI()
         
     }
     
-    func showRandomPlayer() {
-        everybodyDrinksTextLabel.text = "Egyszer mindenki iszik most: "
-        let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
+    @objc func updateUI() {
+        everybodyDrinksTextLabel.text = "Most ő iszik:"
         
+    }
+    
+    @objc func updateLevelCounterUI() {
+        
+        gameInLevelLabel.text = self.levelCounter
+    }
+    
+    func sequencedPlayer() {
         let player = NSMutableAttributedString()
-        player.appendColored(.white, font: .bold(60), "\(playerList[randomIndex].playerName)")
-        howDrinksTextLabel.attributedText = player
+        var playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
+        if playerIndex + 1 > playerList.count {
+            GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = 0
+            
+            playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
+            player.appendColored(.black, font: .bold(60), "\(playerList[playerIndex].playerName)")
+            GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
+            howDrinksTextLabel.attributedText = player
+        } else {
+            player.appendColored(.black, font: .bold(60), "\(playerList[playerIndex].playerName)")
+            GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
+            howDrinksTextLabel.attributedText = player
+        }
     }
     
-    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.removeFromSuperview()
-    }
+     
     
     
 }

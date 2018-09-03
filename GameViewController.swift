@@ -16,8 +16,6 @@ enum gameLevels : Int {
 }
 
 class GameViewController: UIViewController {
-
-    
     
     @IBOutlet weak var startBtn: UIButton!
     
@@ -27,6 +25,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLevelView()
+        GameManagement.sharedInstance.setCopyCardsList()
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -36,26 +37,35 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func startGameAction(_ sender: Any) {
+        if levelCounter == 1 && GameManagement.sharedInstance.randomColorSwitchIsON {
+            let _ = RandomColorPresenter.sharedInstance
+        }
         showView()
     }
     
     
     func showView() {
-        
-        let games = [
-            UpAndDownView.init(frame: self.view.frame),
-            UpAndDownView.init(frame: self.view.frame)]
-        
-        
+        let games = GameManagement.sharedInstance.getGames()
+        for game in games {
+            game.frame = self.view.frame
+        }
         
         let randomIndex = Int(arc4random_uniform(UInt32(games.count)))
         
-//        let currentView = games[randomIndex]
-//        currentView.gameInLevelLabel.text = "\(levelCounter) / \(gameInLevel)"
+        if let game = games[randomIndex] as? GameView {
+            game.levelCounter = "\(levelCounter) / \(gameInLevel)"
+            game.gameInLevel = gameInLevel
+            game.gameInLevel = levelCounter
+            postNotification(name: .addCounterValue)
+            self.view.insertSubview(game, at: 1)
+            //self.view.addSubview(game)
+        }
         
-        self.view.addSubview(games[randomIndex])
         print(index)
         print(levelCounter)
+        
+        
+        
         
         if gameInLevel == levelCounter {
             levelCounter = levelCounter + 1
@@ -65,15 +75,13 @@ class GameViewController: UIViewController {
             gameInLevel = gameInLevel + 1
             showView()
         }
-        
-        
     }
     
     
     func updateLevelView() {
         switch levelCounter {
             // Valami nem jó 
-        case levelCounter ..< gameLevels.five.rawValue:
+        case 0 ..< gameLevels.five.rawValue:
             self.view.backgroundColor = .orange
         case gameLevels.five.rawValue ..< gameLevels.ten.rawValue:
             self.view.backgroundColor = .green

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TrueOrFalseView: UIView {
+class TrueOrFalseView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var trueOrFalseLabel: UILabel!
@@ -17,6 +17,11 @@ class TrueOrFalseView: UIView {
     @IBOutlet weak var startBtn: UIButton!
     
     @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var startLabel: UILabel!
+    
+    
+    @IBOutlet weak var falseBtn: UIButton!
+    @IBOutlet weak var trueBtn: UIButton!
     
     var trueOrFalseText : String?
     
@@ -35,30 +40,43 @@ class TrueOrFalseView: UIView {
     
     
     func commonInit() {
+        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
+        self.tap.isEnabled = false
         Bundle.main.loadNibNamed("TrueOrFalseView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        showRandomText()
+        updateUI()
+        updateLevelCounterUI()
         
     }
     
-    func showRandomText() {
+    @objc func updateLevelCounterUI() {
+        
+        gameInLevelLabel.text = self.levelCounter
+    }
+    
+    func updateUI() {
+        falseBtn.isEnabled = false
+        trueBtn.isEnabled = false
         trueOrFalseLabel.text = "A nyestek csak éjjel vadásznak?"
     }
     
     @IBAction func startBtnAction(_ sender: Any) {
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        falseBtn.isEnabled = true
+        trueBtn.isEnabled = true
+        
         startBtn.isHidden = true
+        startLabel.isHidden = true
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     
     @objc func runTimedCode() {
         if seconds == 0 {
             timer.text = "False"
             stopTimer()
-            let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap))
-            contentView.addGestureRecognizer(gestureRecognizer)
-            
+            self.tap.isEnabled = true
         } else {
             seconds -= 1
             timer.text = "\(seconds)"
@@ -66,17 +84,21 @@ class TrueOrFalseView: UIView {
     }
     
     func stopTimer() {
+        falseBtn.isEnabled = false
+        trueBtn.isEnabled = false
+        
         if gameTimer != nil {
             gameTimer?.invalidate()
             gameTimer = nil
         }
     }
     
-    
-    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.removeFromSuperview()
+    @IBAction func falseBtnAction(_ sender: Any) {
+        
     }
     
-    
+    @IBAction func trueBtnAction(_ sender: Any) {
+        
+    }
     
 }

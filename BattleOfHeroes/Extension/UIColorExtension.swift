@@ -15,6 +15,12 @@ extension UIColor {
         static let red = UIColor.init(hexString: "#FF6978")
         static let green = UIColor.init(hexString: "#BCE784")
         static let blue = UIColor.init(hexString: "#B1DDF1")
+        
+        static let backgroudColor = UIColor.init(hexString: "#f6dddf")
+        static let activButton = UIColor.init(hexString: "#04bfbf")
+        static let lightBule = UIColor.init(hexString: "#10c8cd")
+        static let lightYellow = UIColor.init(hexString: "#f7e967")
+        static let lightOrage = UIColor.init(hexString: "#f4977a")
     }
     
     convenience init(hexString: String) {
