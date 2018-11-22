@@ -23,10 +23,12 @@ class TrueOrFalseView: GameView {
     @IBOutlet weak var falseBtn: UIButton!
     @IBOutlet weak var trueBtn: UIButton!
     
+    var trueOrFalseList = NetworkSevice.sharedInstance.trueOrFalse
     var trueOrFalseText : String?
     
     var gameTimer: Timer?
     var seconds = 6
+    var gameIndex = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +48,9 @@ class TrueOrFalseView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(trueOrFalseList.count)))
+        gameIndex = randomIndex
         updateUI()
         updateLevelCounterUI()
         
@@ -57,9 +62,11 @@ class TrueOrFalseView: GameView {
     }
     
     func updateUI() {
+        
+        trueOrFalseLabel.text = trueOrFalseList[gameIndex].question
+        
         falseBtn.isEnabled = false
         trueBtn.isEnabled = false
-        trueOrFalseLabel.text = "A nyestek csak éjjel vadásznak?"
     }
     
     @IBAction func startBtnAction(_ sender: Any) {
@@ -74,7 +81,7 @@ class TrueOrFalseView: GameView {
     
     @objc func runTimedCode() {
         if seconds == 0 {
-            timer.text = "False"
+            timer.text = trueOrFalseList[gameIndex].answer
             stopTimer()
             self.tap.isEnabled = true
         } else {

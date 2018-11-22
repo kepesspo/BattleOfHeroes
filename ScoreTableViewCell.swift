@@ -13,6 +13,7 @@ class ScoreTableViewCell: UITableViewCell {
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var playerLifeLabel: UILabel!
     @IBOutlet weak var playerDrinksLabel: UILabel!
+    @IBOutlet weak var playerPositionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

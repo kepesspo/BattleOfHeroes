@@ -1,4 +1,4 @@
-//
+ //
 //  GameViewController.swift
 //  BattleOfHeroes
 //
@@ -16,19 +16,24 @@ enum gameLevels : Int {
 }
 
 class GameViewController: UIViewController {
-    
-    @IBOutlet weak var startBtn: UIButton!
-    
     var levelCounter : Int = 1
     var gameInLevel : Int = 1
+    var previousRandomIndex = 100
+    
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var levelImageView: UIImageView!
+    
+    var chosenGames : [Game] = [Game]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLevelView()
         GameManagement.sharedInstance.setCopyCardsList()
+        chosenGames = GameManagement.sharedInstance.chosenGames
         
+        let press = UITapGestureRecognizer(target: self, action: #selector(startGameAction))
+        self.view.addGestureRecognizer(press)
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,65 +41,63 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func startGameAction(_ sender: Any) {
-        if levelCounter == 1 && GameManagement.sharedInstance.randomColorSwitchIsON {
-            let _ = RandomColorPresenter.sharedInstance
-        }
+    @objc func startGameAction() {
+//        self.levelImageView.image = nil
+//        self.view.setNeedsLayout()
+//        self.view.layoutIfNeeded()
         showView()
     }
     
     
     func showView() {
-        let games = GameManagement.sharedInstance.getGames()
-        for game in games {
-            game.frame = self.view.frame
+        let randomIndex = Int(arc4random_uniform(UInt32(chosenGames.count)))
+        if chosenGames.count == 1 {
+            print("Only 1 game")
+            generateView(indexOfGame: randomIndex)
+        } else {
+            print("More than 1 game")
+            if previousRandomIndex == randomIndex {
+                print("Equal Game")
+                showView()
+            } else {
+                previousRandomIndex = randomIndex
+                print("Minden rendbe")
+                generateView(indexOfGame: randomIndex)
+            }
         }
         
-        let randomIndex = Int(arc4random_uniform(UInt32(games.count)))
         
-        if let game = games[randomIndex] as? GameView {
+    }
+    
+    
+    func generateView(indexOfGame : Int) {
+        if let game = chosenGames[indexOfGame].gameMode?.gameView() {
+            game.frame = self.view.bounds
             game.levelCounter = "\(levelCounter) / \(gameInLevel)"
             game.gameInLevel = gameInLevel
             game.gameInLevel = levelCounter
             postNotification(name: .addCounterValue)
             self.view.insertSubview(game, at: 1)
-            //self.view.addSubview(game)
-        }
         
-        print(index)
-        print(levelCounter)
-        
-        
-        
-        
-        if gameInLevel == levelCounter {
-            levelCounter = levelCounter + 1
-            gameInLevel = 1
-            updateLevelView()
-        } else {
-            gameInLevel = gameInLevel + 1
-            showView()
+            print("Game index : \(indexOfGame)")
+            print("Level Counter: \(levelCounter)")
+            
+            if gameInLevel == levelCounter {
+                levelCounter = levelCounter + 1
+                gameInLevel = 1
+                updateLevelView()
+            } else {
+                gameInLevel = gameInLevel + 1
+                showView()
+            }
         }
     }
     
     
     func updateLevelView() {
-        switch levelCounter {
-            // Valami nem jó 
-        case 0 ..< gameLevels.five.rawValue:
-            self.view.backgroundColor = .orange
-        case gameLevels.five.rawValue ..< gameLevels.ten.rawValue:
-            self.view.backgroundColor = .green
-        case gameLevels.ten.rawValue ..< gameLevels.fifty.rawValue:
-            self.view.backgroundColor = .blue
-        case gameLevels.fifty.rawValue ..< gameLevels.twenty.rawValue:
-            self.view.backgroundColor = .red
-        default:
-            self.view.backgroundColor = .white
-        }
-        
-        self.startBtn.setTitle("Level : \(levelCounter)", for: .normal)
-        self.startBtn.setTitleColor(.white, for: .normal)
+        self.levelLabel.text = "Level : \(levelCounter)"
+        self.levelImageView.image = UIImage(named: "level\(levelCounter)") ?? UIImage(named: "level12")
+        self.view.insertSubview(levelImageView, at: 1)
     }
 }
 

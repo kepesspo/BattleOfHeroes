@@ -9,42 +9,112 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import Reachability
 
 class SetUpPlayersViewController: UIViewController {
     
     @IBOutlet weak var startGameBtn: UIButton!
     @IBOutlet weak var setUpTableView: UITableView!
     @IBOutlet weak var addPlayerButton: UIButton!
+    @IBOutlet weak var setupGameBtn: UIButton!
     
     @IBOutlet weak var playerNavigationItem: UINavigationItem!
     
-    var gameType : Int = 2
     var refPlayer = fireBaseRefData.playerRef
     var playerList = [Player]()
     var teamList = [Team]()
     
+    var reachability = Reachability()!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("gameType : \(gameType)")
-        
         setUpTableView.separatorStyle = .none
-        
-        
-
-        GameManagement.sharedInstance.defaultGameSetUp()
-        reloadData()
+        self.setupGameBtn.isEnabled = false
+        self.startGameBtn.isEnabled = false
+        getPlayerData(completionBlock: { (error) in
+            if error != nil {
+                print("hiba")
+            } else {
+                GameManagement.sharedInstance.getGames()
+                self.checkGameParam()
+            }
+        })
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        self.title = "JÁTÉKOS HOZZÁADÁSA"
-        playerNavigationItem.prompt = " "
-        let rubikFont = UIFont(name: "Rubik-Regular", size: 25)
-        let attributText = [NSAttributedStringKey.font : rubikFont]
-        self.navigationController?.navigationBar.titleTextAttributes = attributText as? [NSAttributedStringKey : UIFont]
+        do {
+            try reachability.startNotifier()
+        } catch  {
+            print("Could not start notifier")
+        }
+        
+        // Check Internet Connection
+        reachability.whenReachable = { _ in
+            DispatchQueue.main.async {
+                print("Network works")
+                self.setupGameBtn.isEnabled = true
+                self.startGameBtn.isEnabled = true
+            }
+        }
+        
+        reachability.whenUnreachable = { _ in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "NO Internet", message: "Error problem", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    switch action.style{
+                    case .default:
+                        print("default")
+                        
+                    case .cancel:
+                        print("cancel")
+                        
+                    case .destructive:
+                        print("destructive")
+                    }}))
+                self.present(alert, animated: true, completion: nil)
+                self.setupGameBtn.isEnabled = false
+                self.startGameBtn.isEnabled = false
+                print("Network not works")
+            }
+        }
+        
     }
     
+    
+    
+    @objc func internetChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        if reachability.connection == .none {
+            DispatchQueue.main.async {
+                print("Network works")
+            }
+        } else {
+            DispatchQueue.main.async {
+
+                let alert = UIAlertController(title: "NO Internet", message: "Error", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    switch action.style{
+                    case .default:
+                        print("default")
+
+                    case .cancel:
+                        print("cancel")
+
+                    case .destructive:
+                        print("destructive")
+
+
+                    }}))
+                self.present(alert, animated: true, completion: nil)
+                print("Network not works")
+            }
+        }
+    }
     
     @IBAction func addPlayer(_ sender: Any) {
         let alert = UIAlertController(title: "",
@@ -55,27 +125,13 @@ class SetUpPlayersViewController: UIViewController {
         let addPlayer = UIAlertAction(title: "Add Player", style: .default) { _ in
             if let textField = alert.textFields, let text = textField[0].text {
                 self.setUpTableView.reloadData()
-                let player = Player(id: "", playerName: text, teamId: "", life: 3, allDrink: 0)
+                let player = Player(id: "", playerName: text, teamId: "", life: 3, allDrink: 0, usedBonus: 0)
                 NetworkSevice.sharedInstance.addPlayerToDatabase(player: player, competionBlock: { (error) in
                     if error != nil {
                         print("Nem sikerült az adatbázisba a feltöltés")
                     } else {
+                        self.checkGameParam()
                         self.setUpTableView.reloadData()
-                    }
-                })
-            }
-        }
-        
-        // Add Team
-        let addTeam = UIAlertAction(title: "Add Team", style: .default) { _ in
-            if let textField = alert.textFields, let text = textField[0].text {
-                self.setUpTableView.reloadData()
-                let team = Team(id: "", name: text, rating: 0)
-                NetworkSevice.sharedInstance.addTeamToDataBase(team: team, competionBlock: { (error) in
-                    if error != nil {
-                        print("Nem sikerült hozzáadni az adatbázishoz a Csapataot")
-                    } else {
-                        
                     }
                 })
             }
@@ -94,45 +150,27 @@ class SetUpPlayersViewController: UIViewController {
         }
         
         
-        switch gameType {
-        case 1:
-            alert.title = " Add Team / Player"
-            alert.addAction(addTeam)
-            alert.addAction(addPlayer)
-            alert.addAction(cancel)
-            
-        case 2:
-            alert.title = "Add Player"
-            alert.addAction(addPlayer)
-            alert.addAction(cancel)
-        default:
-            print("")
-        }
+        
+        alert.title = "Add Player"
+        alert.addAction(addPlayer)
+        alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
+        
     }
 
     
-    func reloadData() {
+    func getPlayerData(completionBlock: @escaping(_ error : Error?) -> Void) {
         NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
             if error != nil {
                 print("hiba")
             } else {
                 self.playerList = NetworkSevice.sharedInstance.playerList
                 self.setUpTableView.reloadData()
+                completionBlock(nil)
             }
         })
-        
-        
-        NetworkSevice.sharedInstance.getTeamList { (error) in
-            if error != nil {
-                print("hiba")
-            } else {
-                self.teamList = NetworkSevice.sharedInstance.teamList
-                self.setUpTableView.reloadData()
-            }
-        }
-        
+
         
     }
     
@@ -152,17 +190,11 @@ class SetUpPlayersViewController: UIViewController {
     
     @IBAction func startGameButtonAction(_ sender: Any) {
         if playerList.count < 2 {
-            print("Nem Mehez")
+            print("Nem Mehet")
         }
-    }
-    
-    
-    @IBAction func editList(_ sender: Any) {
-        if self.setUpTableView.isEditing == true {
-            self.setUpTableView.isEditing = false
-            
-        } else {
-            self.setUpTableView.isEditing = true
+        
+        if GameManagement.sharedInstance.chosenGames.count == 0 {
+            GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.games
         }
     }
     
@@ -173,11 +205,23 @@ class SetUpPlayersViewController: UIViewController {
     func players(in team: Team) -> [Player] {
         return playerList.filter { $0.teamId == team.id }
     }
+    
+    func checkGameParam() {
+        if playerList.count <=  1 {
+            self.setupGameBtn.isEnabled = false
+            self.startGameBtn.isEnabled = false
+        } else {
+            self.setupGameBtn.isEnabled = true
+            self.startGameBtn.isEnabled = true
+        }
+        
+    }
+    
 }
 
 extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return gameType == 1 ? teamList.count + 1 : 1
+        return  1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -206,20 +250,7 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
         return UITableViewCell()
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        if gameType == 1 {
-//            if section == 0 {
-//                 return "Players"
-//            } else {
-//                return teamList[section - 1].name
-//            }
-//        }
-//        return "Players"
-//    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
@@ -227,7 +258,7 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
         return false
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             
@@ -236,9 +267,9 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
                     print("Hiba")
                 }
             })
-            
             playerList.remove(at: indexPath.row)
             self.setUpTableView.deleteRows(at: [indexPath], with: .fade)
+            checkGameParam()
         default:
             return
         }

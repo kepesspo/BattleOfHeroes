@@ -11,16 +11,21 @@ import UIKit
 
 struct Game {
     var id = ""
-    var gameName = ""
+    var name = ""
+    var description = ""
     var isSelected = false
-    var gameView = UIView()
+    var gameType : GameType?
+    var gameMode : GameMode?
+    var gameImage : UIImage?
 
     
-    init(id : String, gameName: String, gameView: UIView, isSelected: Bool) {
+    init(id : String, name: String, description: String, isSelected: Bool, gameMode: GameMode, gameType: GameType, gameImage: UIImage) {
         self.id = id
-        self.gameName = gameName
+        self.name = name
+        self.description = description
         self.isSelected = isSelected
-        self.gameView = gameView
-        
+        self.gameMode = gameMode
+        self.gameType = gameType
+        self.gameImage = gameImage
     }
 }

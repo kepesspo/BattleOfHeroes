@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 public func postNotification(name: Notification.Name, object: Any? = nil) {
+//    let not = Notification(name: Notification.Name("asd"), object: nil, userInfo: nil)
     NotificationCenter.default.post(name: name, object: object)
 }
 

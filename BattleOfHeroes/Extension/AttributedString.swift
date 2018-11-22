@@ -38,7 +38,7 @@ public extension NSMutableAttributedString {
      - returns: the original attributed string with the appended bold text
      */
     @discardableResult public func appendBold(_ text: String) -> NSMutableAttributedString {
-        let attributes = [NSAttributedStringKey.font: UIFont.bold()]
+        let attributes = [NSAttributedString.Key.font: UIFont.bold()]
         let boldString = NSMutableAttributedString(string: text, attributes: attributes)
         self.append(boldString)
         return self
@@ -58,7 +58,7 @@ public extension NSMutableAttributedString {
      - returns: the original attributed string with the appended text
      */
     @discardableResult public func appendNormal(_ text: String) -> NSMutableAttributedString {
-        let attributes = [NSAttributedStringKey.font: UIFont.regular()]
+        let attributes = [NSAttributedString.Key.font: UIFont.regular()]
         let normal = NSAttributedString(string: text, attributes: attributes)
         self.append(normal)
         return self
@@ -78,7 +78,7 @@ public extension NSMutableAttributedString {
      - returns: the original attributed string with the appended italic text
      */
     @discardableResult public func appendItalic(_ text: String) -> NSMutableAttributedString {
-        let attributes = [NSAttributedStringKey.font: UIFont.italic()]
+        let attributes = [NSAttributedString.Key.font: UIFont.italic()]
         let normal = NSAttributedString(string: text, attributes: attributes)
         self.append(normal)
         return self
@@ -104,9 +104,9 @@ public extension NSMutableAttributedString {
                                          backgroundColor: UIColor = .clear,
                                          font: UIFont = UIFont.regular(),
                                          _ text: String) -> NSMutableAttributedString {
-        let attributes = [NSAttributedStringKey.font: font,
-                          NSAttributedStringKey.foregroundColor: color,
-                          NSAttributedStringKey.backgroundColor: backgroundColor]
+        let attributes = [NSAttributedString.Key.font: font,
+                          NSAttributedString.Key.foregroundColor: color,
+                          NSAttributedString.Key.backgroundColor: backgroundColor]
         let normal = NSAttributedString(string: text, attributes: attributes)
         self.append(normal)
         return self

@@ -9,17 +9,24 @@
 import Foundation
 import FirebaseDatabase
 import Firebase
+import Alamofire
 
 class NetworkSevice {
     static let sharedInstance = NetworkSevice()
     
     var playerList = [Player]()
     var teamList = [Team]()
+    var famousPerson = [FamousPerson]()
+    var trueOrFalse = [TrueOrFalse]()
+    var haveIEverNever = [HaveIEverNever]()
+    
     
     let refPlayer = fireBaseRefData.playerRef
     let refTeam = fireBaseRefData.teamRef
     let refGame = fireBaseRefData.gameRef
-    
+    let refFamousPerson = fireBaseRefData.famousPerson
+    let refTrueOrFalse = fireBaseRefData.trueOrFalse
+    let refHaveIEverNever = fireBaseRefData.haveIEverNever
     
     // Add Game To Database
     func addGameToDatabase(room: Room, competionBlock: @escaping(_ error: Error?) -> Void) {
@@ -27,7 +34,7 @@ class NetworkSevice {
         let game = ["id" : gameKey,
                     "gameRoom" : room.gameRoom,
                     "gamePass" : room.gamePassword]
-        refGame.child(gameKey).setValue(game)
+        refGame.child(gameKey ?? "").setValue(game)
         competionBlock(nil)
     }
     
@@ -40,9 +47,10 @@ class NetworkSevice {
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String,
                       "playerLife" : player.life as Int,
-                      "playerDrinks" : player.allDrink as Int] as [String : Any]
+                      "playerDrinks" : player.allDrink as Int,
+                      "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
         
-        refPlayer.child(playerKey).setValue(player)
+        refPlayer.child(playerKey ?? "").setValue(player)
         
         competionBlock(nil)
     }
@@ -58,22 +66,43 @@ class NetworkSevice {
     func updatePlayerDrinks(player: Player, drinks: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
         let playerKey = player.id
         let playerDrinks = player.allDrink + drinks
-        let playerLife = player.life + drinks
+        let playerUserBonus = player.usedBonus
         var playerData: [String:Any]?
-        
-        if drinks < 0 {
-            playerData = ["id":playerKey,
-                      "playerName": player.playerName as String,
-                      "playerTeamId" : player.teamId as String,
-                      "playerLife" : playerLife as Int,
-                      "playerDrinks" : player.allDrink as Int] as [String : Any]
-        } else {
-            playerData = ["id":playerKey,
+    
+        playerData = ["id":playerKey,
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String,
                       "playerLife" : player.life as Int,
-                      "playerDrinks" : playerDrinks as Int] as [String : Any]
+                      "playerDrinks" : playerDrinks as Int,
+                      "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
+
+        refPlayer.child(playerKey).setValue(playerData)
+        
+        var playData = player
+        playData.allDrink = playerDrinks
+        
+        
+        if playerDrinks % 10 == 0 {
+            postNotification(name: .showBonus, object: playData)
         }
+        competionBlock(nil)
+        
+    }
+    
+    
+    func updatePlayerLife(player: Player, life: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let playerKey = player.id
+        let playerLife = player.life + life
+        let playerUsedBouns = player.usedBonus + 1
+        var playerData: [String:Any]?
+        
+        
+        playerData = ["id":playerKey,
+                      "playerName": player.playerName as String,
+                      "playerTeamId" : player.teamId as String,
+                      "playerLife" : playerLife as Int,
+                      "playerDrinks" : player.allDrink as Int,
+                      "playerUsedBonus" : playerUsedBouns as Int] as [String : Any]
         
         refPlayer.child(playerKey).setValue(playerData)
         competionBlock(nil)
@@ -87,23 +116,22 @@ class NetworkSevice {
         let teamKey = refTeam.childByAutoId().key
         let team = ["id": teamKey,
                     "teamName": team.name as String]
-        refTeam.child(teamKey).setValue(team)
+        refTeam.child(teamKey ?? "").setValue(team)
         competionBlock(nil)
     }
     
-    // check room Autenticate
-    func roomExist(gameName: String, gamePass: String, competionBlock: @escaping(_ error: Error?) -> Void) {
-        let roomKey = refGame.childByAutoId().key
-        
-        refGame.child(roomKey).observeSingleEvent(of: .value, with: { (snapshot) in
-            if snapshot.hasChild(gameName){
-                print("user exist")
-                competionBlock(nil)
-            } else{
-                print("user doesn't exist")
-            }
-        })
-    }
+//    // check room Autenticate
+//    func roomExist(gameName: String, gamePass: String, competionBlock: @escaping(_ error: Error?) -> Void) {
+//        let roomKey = refGame.childByAutoId().key
+//        refGame.child(roomKey ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
+//            if snapshot.hasChild(gameName){
+//                print("user exist")
+//                competionBlock(nil)
+//            } else{
+//                print("user doesn't exist")
+//            }
+//        })
+//    }
     
     
    
@@ -120,9 +148,10 @@ class NetworkSevice {
                     let playerTeam = playerObject?["playerTeamId"] as? String
                     let playerLife = playerObject?["playerLife"] as? Int
                     let playerDrinks = playerObject?["playerDrinks"] as? Int
+                    let playerUsedBonus = playerObject!["playerUsedBonus"] as? Int
                     
                     
-                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, life: playerLife!, allDrink: playerDrinks!)
+                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, life: playerLife!, allDrink: playerDrinks!, usedBonus: playerUsedBonus!)
                     self.playerList.append(player)
                     
                 }
@@ -153,6 +182,64 @@ class NetworkSevice {
         }
     }
     
+    func getFamousPersons(completionBlock: @escaping(_ error : Error?) -> Void){
+        refFamousPerson.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.famousPerson.removeAll()
+                for famousPerson in snapshot.children.allObjects as! [DataSnapshot] {
+                    let famousPersonObject = famousPerson.value as? [String: AnyObject]
+                    let famousPersonName  = famousPersonObject?["name"] as? String
+                    let famousPersonImage = famousPersonObject?["image"] as? String
+                    let famousPersonOccupation = famousPersonObject?["occupation"] as? String
+                    let famousPersonAge = famousPersonObject?["age"] as? String
+                    
+                    let famousPerson = FamousPerson(name: famousPersonName ?? "Nincs Adat", age: famousPersonAge ?? "Nincs Adat", occupation: famousPersonOccupation ?? "Nincs Adat", image: famousPersonImage ?? "")
+                    self.famousPerson.append(famousPerson)
+                    
+                }
+                completionBlock(nil)
+            }
+        }
+    }
+    
+    func getTrueOrFalse(completionBlock: @escaping(_ error : Error?) -> Void){
+        refTrueOrFalse.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.trueOrFalse.removeAll()
+                for trueOrFalse in snapshot.children.allObjects as! [DataSnapshot] {
+                    let trueOrFalseObject = trueOrFalse.value as? [String: AnyObject]
+                    let question = trueOrFalseObject?["question"] as? String
+                    let answer = trueOrFalseObject?["answer"] as? String
+                    
+                    let trueOrFalseObj = TrueOrFalse(question: question ?? "Nincs Adat", answer: answer ?? "Nincs Adat")
+                    self.trueOrFalse.append(trueOrFalseObj)
+                    
+                }
+                completionBlock(nil)
+            }
+        }
+    }
+    
+    func getHaveIEverNever(completionBlock: @escaping(_ error : Error?) -> Void){
+        refHaveIEverNever.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.haveIEverNever.removeAll()
+                for haveIEverNever in snapshot.children.allObjects as! [DataSnapshot] {
+                    let haveIEverNeverObject = haveIEverNever.value as? [String: AnyObject]
+                    let question = haveIEverNeverObject?["question"] as? String
+                    
+                    let haveIEverNever = HaveIEverNever(question: question ?? "Nincs adat")
+                    self.haveIEverNever.append(haveIEverNever)
+                    
+                }
+                completionBlock(nil)
+            }
+        }
+    }
+    
+    
+    
+    
     
     func addTeamToPlayer(player: Player, team : Team, competionBlock: @escaping(_ error: Error?) -> Void) {
         let playerData = ["id":player.id,
@@ -164,7 +251,16 @@ class NetworkSevice {
     }
     
     
-    
+    func getSongJson(url : String, headers: HTTPHeaders, competionBlock: @escaping(_ error: Error? , _ response: Any?) -> Void) {
+        Alamofire.request(url, headers: headers).response { (response) in
+            if response.error != nil {
+                competionBlock(response.error, nil)
+            } else {
+                competionBlock(nil, response.data)
+            }
+            
+        }
+    }
     
 }
 

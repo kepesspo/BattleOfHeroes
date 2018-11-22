@@ -90,7 +90,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-//        if let name = gameNameTextfield.text, let pass = gamePassTextField.text {
+//        if let name = gameNameTextfield.text,
+//            let pass = gamePassTextField.text {
 //            NetworkSevice.sharedInstance.roomExist(gameName: name,
 //                                                   gamePass: pass) { (error) in
 //                                                    if error != nil {
@@ -100,7 +101,6 @@ class LoginViewController: UIViewController {
 //                                                    }
 //            }
 //        }
-//        
         
     }
     /*

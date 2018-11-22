@@ -24,11 +24,11 @@ class GameTypeViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navVC = segue.destination as? UINavigationController {
-            if let descriptionVC = navVC.viewControllers[0] as? SetUpPlayersViewController {
+            if navVC.viewControllers[0] is SetUpPlayersViewController {
                 if segue.identifier == SegueIdentifiers.team {
-                    descriptionVC.gameType = 1
+                    //descriptionVC.gameType = 1
                 } else {
-                    descriptionVC.gameType = 2
+                    //descriptionVC.gameType = 2
                 }
             }
         }

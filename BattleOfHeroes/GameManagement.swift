@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum GameModes: String, EnumCollection {
+enum GameMode: String {
     case trueOrFalse = "trueOrFalse"
     case categories = "categories"
     case hajime = "hajime"
@@ -23,6 +23,11 @@ enum GameModes: String, EnumCollection {
     case rockPaperScissors = "rockPaperScissors"
     case fingerIt = "fingerIt"
     case cheersToTheGovernor = "cheersToTheGovernor"
+    case haveIEverNever = "haveIEverNever"
+    case whoAmI = "howIAmView"
+    case spoon = "spoonView"
+    case thePeopleChoice = "thePeopleChoiceView"
+    case russianRoulette = "russianRouletteView"
     
     
     func gameTitle() -> String {
@@ -40,6 +45,12 @@ enum GameModes: String, EnumCollection {
         case .rockPaperScissors: return "GameTitle_rockPaperScissors".localized()
         case .fingerIt: return "GameTitle_fingerIt".localized()
         case .cheersToTheGovernor: return "GameTitle_cheersToTheGovernor".localized()
+        case .haveIEverNever: return "GameTitle_haveIEverNever".localized()
+        case .whoAmI: return "GameTitle_whoAmI".localized()
+        case .spoon: return "GameTitle_spoon".localized()
+        case .thePeopleChoice: return "GameTitle_thePeopleChoice".localized()
+        case .russianRoulette: return "GameTitle_russianRoulette".localized()
+            
         }
     }
     
@@ -58,8 +69,60 @@ enum GameModes: String, EnumCollection {
         case .rockPaperScissors: return "GameDiscription_rockPaperScissors".localized()
         case .fingerIt: return "GameDiscription_fingerIt".localized()
         case .cheersToTheGovernor: return "GameDiscription_cheersToTheGovernor".localized()
+        case .haveIEverNever: return "GameDiscription_haveIEverNever".localized()
+        case .whoAmI: return "GameDiscription_whoAmI".localized()
+        case .spoon: return "GameDiscription_spoon".localized()
+        case .thePeopleChoice: return "GameDiscription_thePeopleChoice".localized()
+        case .russianRoulette: return "GameDiscription_russianRoulette".localized()
         }
     }
+    
+    func gameMode() -> GameMode {
+        switch self {
+        case .trueOrFalse: return .trueOrFalse
+        case .categories: return .categories
+        case .hajime: return .hajime
+        case .everybodyDrinks: return .everybodyDrinks
+        case .wheelOfFortune:return .wheelOfFortune
+        case .upAndDown: return .upAndDown
+        case .ringOfFire: return .ringOfFire
+        case .memory: return .memory
+        case .musicRecognizer: return .musicRecognizer
+        case .switchHand: return .switchHand
+        case .rockPaperScissors: return .rockPaperScissors
+        case .fingerIt: return .fingerIt
+        case .cheersToTheGovernor: return .cheersToTheGovernor
+        case .haveIEverNever: return .haveIEverNever
+        case .whoAmI: return .whoAmI
+        case .spoon: return .spoon
+        case .thePeopleChoice: return .thePeopleChoice
+        case .russianRoulette: return .russianRoulette
+        }
+    }
+    
+    func gameType() -> GameType {
+        switch self {
+        case .trueOrFalse: return .normalGame
+        case .categories: return .normalGame
+        case .hajime: return .normalGame
+        case .everybodyDrinks: return .normalGame
+        case .wheelOfFortune:return .normalGame
+        case .upAndDown: return .normalGame
+        case .ringOfFire: return .toolGame
+        case .memory: return .normalGame
+        case .musicRecognizer: return .teamGame
+        case .switchHand: return .toolGame
+        case .rockPaperScissors: return .normalGame
+        case .fingerIt: return .normalGame
+        case .cheersToTheGovernor: return .normalGame
+        case .haveIEverNever: return .normalGame
+        case .whoAmI: return .teamGame
+        case .spoon: return .toolGame
+        case .thePeopleChoice: return .teamGame
+        case .russianRoulette: return .normalGame
+        }
+    }
+    
     
     func gameView() -> GameView {
         switch self {
@@ -76,13 +139,53 @@ enum GameModes: String, EnumCollection {
         case .rockPaperScissors: return RockPaperScissorsView()
         case .fingerIt: return FingerItView()
         case .cheersToTheGovernor: return CheersToTheGovernorView()
+        case .haveIEverNever: return HaveIEverNeverView()
+        case .whoAmI: return WhoAmIView()
+        case .spoon: return SpoonView()
+        case .thePeopleChoice: return ThePeopleChoiceView()
+        case .russianRoulette: return RussianRouletteView()
+        }
+    }
+    
+    
+    func gameImage() -> UIImage {
+        switch self {
+        case .trueOrFalse: return #imageLiteral(resourceName: "035-friend")
+        case .categories: return #imageLiteral(resourceName: "034-chat")
+        case .hajime: return #imageLiteral(resourceName: "016-best-friend")
+        case .everybodyDrinks: return #imageLiteral(resourceName: "024-friendship-1")
+        case .wheelOfFortune: return #imageLiteral(resourceName: "006-loyalty")
+        case .upAndDown: return #imageLiteral(resourceName: "011-friendship")
+        case .ringOfFire: return #imageLiteral(resourceName: "022-bracelet")
+        case .memory: return #imageLiteral(resourceName: "008-puzzle")
+        case .musicRecognizer: return #imageLiteral(resourceName: "021-listener")
+        case .switchHand: return #imageLiteral(resourceName: "041-shaka")
+        case .rockPaperScissors: return #imageLiteral(resourceName: "026-fist")
+        case .fingerIt: return #imageLiteral(resourceName: "014-sharing")
+        case .cheersToTheGovernor: return #imageLiteral(resourceName: "012-beer")
+        case .haveIEverNever: return #imageLiteral(resourceName: "002-mad")
+        case .whoAmI: return #imageLiteral(resourceName: "033-reunion")
+        case .spoon: return #imageLiteral(resourceName: "045-crossed-arrows")
+        case .thePeopleChoice: return #imageLiteral(resourceName: "040-friends.png")
+        case .russianRoulette: return #imageLiteral(resourceName: "030-dependable.png")
         }
     }
     
     
     
-    
 }
+
+
+enum GameType : String {
+    case normalGame = "Normál Játékok"
+    case toolGame = "Eszközös játákok"
+    case teamGame = "Csapat játékok"
+    
+    static let allValues = [normalGame,toolGame,teamGame]
+
+}
+
+
 
 enum CardValue: String {
     case two = "two"
@@ -115,6 +218,7 @@ enum CardValue: String {
         case .king: return "Pour!- Összekell önteni a piákat. Az utolsó megissza"
         case .ace: return "Waterfall-  addig kell inni ameddig aki kihuzta az ászt"
         }
+        
     }
     
     func cardIntValue() -> Int {
@@ -134,12 +238,56 @@ enum CardValue: String {
         case .ace: return 14
         }
     }
+    
+    
+    
 }
+
 
 class GameManagement {
     static let sharedInstance = GameManagement()
     
+    var gamesCategories =  ["Film",
+                            "Zene",
+                            "Sport",
+                            "Gaming",
+                            "Stand",
+                            "Szépség",
+                            "Hiresség",
+                            "Természet",
+                            "Utazás",
+                            "Politika",
+                            "Kaja",
+                            "Űr"]
     
+    // everyBodyDrinks Onece
+    var everyBodyDrinksPlayerCountIndex = 0
+    
+    
+    
+    
+    // Music Recognizer
+    var spotifyToken = UserDefaults.standard.string(forKey: UserDefaultsKeys.spotifyToken) {
+        didSet {
+            UserDefaults.standard.set(spotifyToken, forKey: UserDefaultsKeys.spotifyToken)
+        }
+    }
+    var songTrackIDList = ["26eZSJp30jI0aPdpQL55xC",
+                           "6naxalmIoLFWR0siv8dnQQ",
+                           "1q7VPiBFlBF7PMtmI6mWyM",
+                           "0p34Y0tZFOvG3UpZQizOzv",
+                           "2771LMNxwf62FTAdpJMQfM",
+                           "0Qt4s6DQlOsdhNW64DkZK3",
+                           "400QEuv1HXJcm7gGSya4fn",
+                           "547GSUncZG09Bvfd8s0Cmy",
+                           "6RnkFd8Fqqgk1Uni8RgqCQ",
+                           "344jzKdBGLJYZdhKjj4884"]
+    
+    
+    
+    // Ring of fire
+    var ringOFFirePlayerCounter = 0
+    var ringOfFirePlayerCountIndex = 0
     
     var cards = [#imageLiteral(resourceName: "2_of_clubs"): CardValue.two,#imageLiteral(resourceName: "2_of_spades"):CardValue.two,#imageLiteral(resourceName: "2_of_hearts"):CardValue.two,#imageLiteral(resourceName: "2_of_diamonds"):CardValue.two,
                  #imageLiteral(resourceName: "3_of_clubs"): CardValue.three,#imageLiteral(resourceName: "3_of_hearts"):CardValue.three,#imageLiteral(resourceName: "3_of_spades"):CardValue.three,#imageLiteral(resourceName: "3_of_diamonds"):CardValue.three,
@@ -154,7 +302,7 @@ class GameManagement {
                  #imageLiteral(resourceName: "queen_of_clubs"):CardValue.queen,#imageLiteral(resourceName: "queen_of_hearts"):CardValue.queen,#imageLiteral(resourceName: "queen_of_spades"):CardValue.queen,#imageLiteral(resourceName: "queen_of_diamonds"):CardValue.queen,
                  #imageLiteral(resourceName: "king_of_clubs"):CardValue.king,#imageLiteral(resourceName: "king_of_spades"):CardValue.king,#imageLiteral(resourceName: "king_of_hearts"):CardValue.king,#imageLiteral(resourceName: "king_of_diamonds"):CardValue.king,
                  #imageLiteral(resourceName: "ace_of_clubs"):CardValue.ace,#imageLiteral(resourceName: "ace_of_hearts"):CardValue.ace,#imageLiteral(resourceName: "ace_of_spades"):CardValue.ace,#imageLiteral(resourceName: "ace_of_diamonds"):CardValue.ace]
-//
+    
     var cardWithValue = [#imageLiteral(resourceName: "2_of_hearts"): CardValue.two,
                          #imageLiteral(resourceName: "3_of_hearts"): CardValue.three,
                          #imageLiteral(resourceName: "4_of_hearts"):CardValue.four,
@@ -168,101 +316,63 @@ class GameManagement {
                          #imageLiteral(resourceName: "queen_of_hearts"):CardValue.queen,
                          #imageLiteral(resourceName: "king_of_hearts"): CardValue.king,
                          #imageLiteral(resourceName: "ace_of_hearts"): CardValue.ace]
-    
     var copyCards = [UIImage:CardValue]()
-    
-    var defaultGameModes = ["trueOrFalse",
-                            "categories",
-                            "hajime",
-                            "everybodyDrinks",
-                            "wheelOfFortune",
-                            "upAndDown",
-                            "ringOfFire",
-                            "musicRecognizer",
-                            "switchHand",
-                            "rockPaperScissors",
-                            "fingerIt",
-                            "cheersToTheGovernor"]
-    
-    var GamesView = [TrueOrFalseView(),
-                     CategoriesView(),
-                     HajimeView(),
-                     EverybodyDrinksView(),
-                     WheelOfFortuneView(),
-                     UpAndDownView(),
-                     RingOfFireView(),
-                     MemoryView(),
-                     MusicRecognizerView(),
-                     SwitchHandView(),
-                     RockPaperScissorsView(),
-                     FingerItView(),
-                     CheersToTheGovernorView()]
-    
-    var gamesCategories =  ["Film","Zene","Sport","Gaming","Stand","Szépség","Hiresség","Természet","Utazás","Politika","Kaja","Űr"]
-    
-    var everyBodyDrinksPlayerCountIndex = 0
-    var ringOfFirePlayerCountIndex = 0
-    
-    
-    // Számolja hogy megyik jatékosnál tartotatok
-    var ringOFFirePlayerCounter = 0
-    var gameModes = [String]()
-    var randomColorSwitchIsON = true
-    var randomColorVC = "Random Color"
-    
-    
-    // Game Setup
-    func getGames() -> [GameView] {
-        var games = [GameView]()
-        for gameName in GameManagement.sharedInstance.gameModes {
-            games.append(GameModes.init(rawValue: gameName)!.gameView())
-        }
-        return games
-    }
-    
-    func getAllGameNames() -> [GameModes] {
-        var games = [GameModes]()
-        for game in GameModes.cases() {
-            games.append(game)
-        }
-        return games
-    }
-    
-    func defaultGameSetUp() {
-        GameManagement.sharedInstance.gameModes = defaultGameModes
-    }
-    
-    
     
     //Card Setup
     func setCopyCardsList() -> [UIImage:CardValue] {
         copyCards = cards
         return copyCards
     }
-}
-
-public protocol EnumCollection: Hashable {
-    static func cases() -> AnySequence<Self>
-    static var allValues: [Self] { get }
-}
-
-public extension EnumCollection {
     
-    public static func cases() -> AnySequence<Self> {
-        return AnySequence { () -> AnyIterator<Self> in
-            var raw = 0
-            return AnyIterator {
-                let current: Self = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
-                guard current.hashValue == raw else {
-                    return nil
-                }
-                raw += 1
-                return current
-            }
-        }
+    
+    
+    
+    
+    
+    // Game Setup
+    var chosenGames = [Game]()
+    var gameModes : [GameMode] = [GameMode]()
+    func getChosenGameMode() -> [GameMode] {
+        gameModes = [GameMode.trueOrFalse,
+                     GameMode.categories,
+                     GameMode.hajime,
+                     GameMode.everybodyDrinks,
+                     GameMode.wheelOfFortune,
+                     GameMode.upAndDown,
+                     GameMode.ringOfFire,
+                     GameMode.memory,
+                     GameMode.musicRecognizer,
+                     GameMode.switchHand,
+                     GameMode.rockPaperScissors,
+                     GameMode.fingerIt,
+                     GameMode.cheersToTheGovernor,
+                     GameMode.haveIEverNever,
+                     GameMode.whoAmI,
+                     GameMode.spoon,
+                     GameMode.thePeopleChoice,
+                     GameMode.russianRoulette]
+        
+        return gameModes
     }
     
-    public static var allValues: [Self] {
-        return Array(self.cases())
+    
+    
+    
+    
+    
+    var games = [Game]()
+    func getGames() -> [Game] {
+        getChosenGameMode()
+        games.removeAll()
+        for game in gameModes {
+            let mode = game.gameMode()
+            let name = game.gameTitle()
+            let description = game.gameDiscription()
+            let type = game.gameType()
+            let gameImage = game.gameImage()
+            let gameData = Game(id: "", name: name, description: description, isSelected: false, gameMode: mode, gameType: type, gameImage: gameImage)
+            games.append(gameData)
+        }
+        return games
     }
 }

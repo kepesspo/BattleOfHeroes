@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicRecognizerView" customModule="BattleOfHeroes" customModuleProvider="target">
             <connections>
+                <outlet property="artistLabel" destination="rFI-LY-qBb" id="xLF-KI-NjQ"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Q9G-gj-CS1"/>
+                <outlet property="coverImageView" destination="FgD-AV-73H" id="I7c-e7-Zg4"/>
                 <outlet property="gameInLevelLabel" destination="bRo-lk-Gx8" id="TyU-Yh-dxC"/>
+                <outlet property="musicRecognizerLabel" destination="rzc-yh-y6o" id="hgc-8Y-Z1C"/>
+                <outlet property="playButton" destination="5Wf-3A-YSb" id="3XE-bA-q4L"/>
+                <outlet property="resultButton" destination="Pgj-Nv-dXW" id="c3i-Ni-XBr"/>
+                <outlet property="songLabel" destination="faO-t9-nOx" id="Rqo-pc-QUv"/>
+                <outlet property="soundAnimationView" destination="Q6r-uh-UTe" id="zfS-Eg-fuy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,24 +36,106 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zene Felismerés" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVM-Pq-cYW">
                     <rect key="frame" x="65" y="110" width="245" height="42"/>
                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRo-lk-Gx8">
                     <rect key="frame" x="158" y="70" width="59.5" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-yh-y6o">
+                    <rect key="frame" x="20" y="202" width="335" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wf-3A-YSb">
+                    <rect key="frame" x="147.5" y="245" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Njo-aj-Njc"/>
+                        <constraint firstAttribute="width" constant="80" id="Qba-Hz-1BZ"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="001-multimedia"/>
+                    <connections>
+                        <action selector="playSound:" destination="-1" eventType="touchUpInside" id="JSS-h7-wtY"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6r-uh-UTe" customClass="LOTAnimationView">
+                    <rect key="frame" x="80" y="345" width="215" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Esf-Lt-rOC"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgj-Nv-dXW">
+                    <rect key="frame" x="20" y="557" width="335" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="qZP-id-HSk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
+                    <state key="normal" title="Megfejtés" backgroundImage="hamis_kisebb_gomb">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="result:" destination="-1" eventType="touchUpInside" id="uT6-HF-qry"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-AV-73H">
+                    <rect key="frame" x="87.5" y="245" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="L3Z-UT-6b0"/>
+                        <constraint firstAttribute="width" constant="200" id="coX-Yq-0lK"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-LY-qBb">
+                    <rect key="frame" x="20" y="465" width="335" height="31.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faO-t9-nOx">
+                    <rect key="frame" x="20" y="516.5" width="335" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.18121626973152161" green="0.79812026023864746" blue="0.44165042042732239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Q6r-uh-UTe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1WW-71-sBV"/>
+                <constraint firstItem="FgD-AV-73H" firstAttribute="top" secondItem="rzc-yh-y6o" secondAttribute="bottom" constant="20" id="3x4-dU-dPk"/>
+                <constraint firstItem="rFI-LY-qBb" firstAttribute="top" secondItem="FgD-AV-73H" secondAttribute="bottom" constant="20" id="6hE-27-iAh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pgj-Nv-dXW" secondAttribute="trailing" constant="20" id="70j-Vp-hyl"/>
+                <constraint firstItem="Q6r-uh-UTe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="7eI-Pa-B6o"/>
                 <constraint firstItem="MVM-Pq-cYW" firstAttribute="top" secondItem="bRo-lk-Gx8" secondAttribute="bottom" constant="10" id="Ciy-h1-cds"/>
+                <constraint firstItem="rzc-yh-y6o" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="CwB-E1-PzP"/>
                 <constraint firstItem="bRo-lk-Gx8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="EZc-ap-6Zf"/>
                 <constraint firstItem="MVM-Pq-cYW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="G6Q-JK-IZK"/>
                 <constraint firstItem="bRo-lk-Gx8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="GyR-Bt-k5F"/>
+                <constraint firstItem="rzc-yh-y6o" firstAttribute="top" secondItem="MVM-Pq-cYW" secondAttribute="bottom" constant="50" id="N7u-B8-gPY"/>
+                <constraint firstItem="faO-t9-nOx" firstAttribute="trailing" secondItem="rFI-LY-qBb" secondAttribute="trailing" id="Qcj-UR-roY"/>
+                <constraint firstItem="FgD-AV-73H" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qqs-t1-eqn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rFI-LY-qBb" secondAttribute="trailing" constant="20" id="UNm-lx-RWG"/>
+                <constraint firstItem="faO-t9-nOx" firstAttribute="top" secondItem="rFI-LY-qBb" secondAttribute="bottom" constant="20" id="Wc2-4m-yus"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Q6r-uh-UTe" secondAttribute="trailing" constant="80" id="YW1-St-xpA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Pgj-Nv-dXW" secondAttribute="bottom" constant="60" id="Yfx-Av-Tg1"/>
+                <constraint firstItem="rFI-LY-qBb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="auZ-FN-O6F"/>
+                <constraint firstItem="Pgj-Nv-dXW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="bMv-RJ-2Aq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rzc-yh-y6o" secondAttribute="trailing" constant="20" id="dJH-iS-rAv"/>
+                <constraint firstItem="5Wf-3A-YSb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="fH4-hX-pSI"/>
+                <constraint firstItem="Q6r-uh-UTe" firstAttribute="top" secondItem="5Wf-3A-YSb" secondAttribute="bottom" constant="20" id="gTL-xl-SrM"/>
+                <constraint firstItem="faO-t9-nOx" firstAttribute="centerX" secondItem="rFI-LY-qBb" secondAttribute="centerX" id="k75-kD-cgF"/>
+                <constraint firstItem="faO-t9-nOx" firstAttribute="leading" secondItem="rFI-LY-qBb" secondAttribute="leading" id="kMC-Lt-Q38"/>
+                <constraint firstItem="rFI-LY-qBb" firstAttribute="centerX" secondItem="FgD-AV-73H" secondAttribute="centerX" id="rl3-Qy-Wht"/>
+                <constraint firstItem="5Wf-3A-YSb" firstAttribute="top" secondItem="rzc-yh-y6o" secondAttribute="bottom" constant="20" id="ynA-Nb-mVi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
+    <resources>
+        <image name="001-multimedia" width="46.311557769775391" height="46.311557769775391"/>
+        <image name="hamis_kisebb_gomb" width="339" height="91"/>
+    </resources>
 </document>

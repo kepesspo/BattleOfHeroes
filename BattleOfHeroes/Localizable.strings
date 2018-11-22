@@ -8,8 +8,7 @@
 
 "Error" = "Error";
 "Warning" = "Warning";
-"InfoScreen_GameRandomColor" = "Random Color";
-"InfoScreen_GameRandomColorDescription" = "A játék folyamán random időnként megjelenik egy ablak egy random színnel és random alakzattal. Ilyenkor külömbőző cselekvéseket kell csinálni a jatákosnak.";
+
 
 "InfoScreen_GameHajime" = "Hajime (Egy Kis Matek)";
 "InfoScreen_GameHajimeDescription" = "Itt a jatékosok a jolbevált számolos jatákot fogják játszani. Elkell kezdeni számolni 1-től és ha  5-el vagy 7-el oszható a szám vagy szerepel benne az 5 vagy a 7 akkor hajimet kell mondani aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes hijime után megfordul a kör.";
@@ -19,6 +18,7 @@
 
 "InfoScreen_UpAndDown" = "Up And Down";
 "InfoScreen_UpAndDownDescription" = "Itt a francia kártyák lapjai jelennek meg. Megkell mondanod hogy a következő kártya az kissebb vagy nagyobb. Ha eltaláltad jön a következő ember. Minnél tovább megy a jaták annál többet kell innia annak aki hibázik. Szintek: \n 1 jó válasz : 1 ivás \n3 jó válasz : 2 ivás \n5 jó válasz : 3 ivás \n7 jó válasz : 4 ivás ";
+
 
 "GameTitle_trueOrFalse" = "Igaz Hamis";
 "GameTitle_categories" = "Categoria";
@@ -32,8 +32,12 @@
 "GameTitle_switchHand" = "Switch Hand";
 "GameTitle_rockPaperScissors" = "Kő Papir Olló";
 "GameTitle_fingerIt" = "Finger It";
-"GameTitle_randomColor" = "Random Szín";
 "GameTitle_cheersToTheGovernor" = "Cheers To The Governor";
+"GameTitle_haveIEverNever" = "Én még soha";
+"GameTitle_whoAmI" = "Ki Vagyok Én";
+"GameTitle_spoon" = "Spoon";
+"GameTitle_thePeopleChoice" = "A Nép szava dönt!";
+"GameTitle_russianRoulette" = "Orosz Rulett";
 
 
 "GameDiscription_trueOrFalse" = "Itt egy állitás fog megjelenni a képernyőn és elkell dönteni hogy az igaz vagy hamis. Ha úgy itéled meg hogy az állítás igaz akkor felkell nyujtanod ak kezed mikor a számláló letelt mindezt egyszerre a többi emberrel. Ekkor az app megmutatja a helyes választ és aki nem találta el az iszik.";
@@ -63,6 +67,13 @@
 "GameDiscription_randomColor" = "";
 
 "GameDiscription_cheersToTheGovernor" = "1-10-ig kell számolni. Mikor eléritek a 10-et akinél véget ért ott van vége a kör. ilyenkor  mondja mindenki  hogy Cheers. És mindenki iszik. Akinél vége lett a körnek hoz egy szabályt az egyik számra. Onnantol kezdve annál a számnál az adott szabályt kell csinálni. Ha valaki hibázik akkor innia kell és ujra kezdődik a számlálás.";
+
+
+"GameDiscription_haveIEverNever" = "";
+"GameDiscription_whoAmI" = "";
+"GameDiscription_spoon" = "";
+"GameDiscription_thePeopleChoice" = "";
+"GameDiscription_russianRoulette" = "";
 
 
 

@@ -51,7 +51,7 @@ class UpAndDownView: GameView {
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         
         //upAndDownTextLabel.text = "Mi lesz a következő szám nagyobb vagy kissebb?"
-        playerNameLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName) \n\n Következő szám kisebb vagy nagyobb lesz,mint:"
+        playerNameLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName) \n\n Következő szám kisebb vagy nagyobb lesz,mint: (A számok 2-14-ig vannak)"
         updateLevelCounterUI()
         
         

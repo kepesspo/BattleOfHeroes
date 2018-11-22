@@ -44,7 +44,7 @@ class InfoViewController: UIViewController {
         setUpView()
         infoTableView.allowsSelection = false
         infoTableView.separatorStyle = .none
-        infoTableView.rowHeight = UITableViewAutomaticDimension
+        infoTableView.rowHeight = UITableView.automaticDimension
         // Do any additional setup after loading the view.
     }
     func setUpView() {
@@ -67,7 +67,7 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50

@@ -19,7 +19,6 @@ class GameDetaisViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        
         // Do any additional setup after loading the view.
     }
 
@@ -33,7 +32,10 @@ class GameDetaisViewController: UIViewController {
         gameDescriptionLabel.text = descriptionData
     }
     
-
+    @IBAction func closeDetails(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -43,5 +45,4 @@ class GameDetaisViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

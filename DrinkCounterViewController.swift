@@ -16,14 +16,14 @@ class DrinkCounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        subscribeForNotification(name: .showBonus, selector: #selector(showBonusView(notification:)), object: nil)
+        howDrinksTableView.separatorStyle = .none
         howDrinksTableView.allowsSelection = false
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        RandomColorPresenter.sharedInstance.canThrow = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,11 +32,19 @@ class DrinkCounterViewController: UIViewController {
     }
     
     @IBAction func saveDrinksData(_ sender: Any) {
-        if GameManagement.sharedInstance.randomColorSwitchIsON {
-            RandomColorPresenter.sharedInstance.canThrow = true
-        }
         //postNotification(name: .dismissGame)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @objc func showBonusView(notification : Notification) {
+        let player = notification.object as? Player
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BonusViewController") as! BonusViewController
+        vc.playerForBonus.append(player!)
+        vc.name = player?.playerName
+        self.present(vc, animated: true, completion: nil)
+        
     }
 
 }
@@ -50,6 +58,17 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
         if let customCell = Bundle.main.loadNibNamed("HowDrinksTableViewCell",
                                                      owner: self,
                                                      options: nil)?.first as? HowDrinksTableViewCell {
+            
+            
+            if  indexPath.row % 2 == 0 {
+                let lightBlueColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:0.5)
+                customCell.contentView.backgroundColor = lightBlueColor
+                //customCell.backgroundColor = lightBlueColor
+            } else {
+                let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
+                customCell.contentView.backgroundColor = lightYellowColor
+                customCell.drinksPlayerLabel.textColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:1.0)
+            }
             customCell.player = playersList[indexPath.row]
             return customCell
         }

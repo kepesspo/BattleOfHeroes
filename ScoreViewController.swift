@@ -39,7 +39,7 @@ class ScoreViewController: UIViewController {
             NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
                 if error != nil {
                     print("Error")
-                }
+                } 
                 self.playersList = NetworkSevice.sharedInstance.playerList
                 self.scoreTableView.reloadData()
             })
@@ -63,17 +63,18 @@ extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
         return playersList.count
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = Bundle.main.loadNibNamed("ScoreHeaderTableViewCell",
-//                                                  owner: self,
-//                                                  options: nil)?.first as? ScoreHeaderTableViewCell
-//        return headerView
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = Bundle.main.loadNibNamed("ScoreHeaderTableViewCell",
+                                                  owner: self,
+                                                  options: nil)?.first as? ScoreHeaderTableViewCell
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let customCell = Bundle.main.loadNibNamed("ScoreTableViewCell",
                                                      owner: self,
                                                      options: nil)?.first as? ScoreTableViewCell {
+            
             let playerL = playersList.sorted(by: { $0.allDrink > $1.allDrink })
             
             if  indexPath.row % 2 == 0 {
@@ -88,8 +89,9 @@ extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
             
             
             customCell.playerNameLabel.text = playerL[indexPath.row].playerName
-            //customCell.playerLifeLabel.text = "\(playersList[indexPath.row].life)"
+            customCell.playerLifeLabel.text = "\(playerL[indexPath.row].life)"
             customCell.playerDrinksLabel.text = "\(playerL[indexPath.row].allDrink)"
+            customCell.playerPositionLabel.text = "\(indexPath.row + 1)"
             return customCell
         }
         return UITableViewCell()
