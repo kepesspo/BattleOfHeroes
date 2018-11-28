@@ -11,6 +11,7 @@
 		4D12F7BD21A6BB10004FAB50 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BC21A6BB10004FAB50 /* WelcomeViewController.swift */; };
 		4D12F7BF21A6BB84004FAB50 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BE21A6BB84004FAB50 /* PageViewController.swift */; };
 		4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */; };
+		4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D12F7C421A7007F004FAB50 /* error_cross.json */; };
 		4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED021130BA900E51AA9 /* HajimeView.swift */; };
 		4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BDED221130BEA00E51AA9 /* HajimeView.xib */; };
 		4D1BDED521131D5500E51AA9 /* EverybodyDrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED421131D5500E51AA9 /* EverybodyDrinksView.swift */; };
@@ -119,6 +120,8 @@
 		4DE1234820F350F90004C28E /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234720F350F90004C28E /* Team.swift */; };
 		4DE1234B20F3512B0004C28E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234A20F3512B0004C28E /* Player.swift */; };
 		4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */; };
+		4DF7E65321AEE9FD00BA178F /* MusicRecognizerManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */; };
+		4DF7E65621AEEA6500BA178F /* MusicRecognizerManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF7E65521AEEA6500BA178F /* MusicRecognizerManagerView.xib */; };
 		4DFCA2682122DEB8001B2E71 /* GameDetaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCA2672122DEB8001B2E71 /* GameDetaisViewController.swift */; };
 		4DFFD5B421341C4200A4989B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFD5B321341C4200A4989B /* Game.swift */; };
 		4DFFD5C12135667300A4989B /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5B72135666F00A4989B /* Rubik-Black.ttf */; };
@@ -159,6 +162,7 @@
 		4D12F7BC21A6BB10004FAB50 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4D12F7BE21A6BB84004FAB50 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		4D12F7C421A7007F004FAB50 /* error_cross.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_cross.json; sourceTree = "<group>"; };
 		4D1BDED021130BA900E51AA9 /* HajimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajimeView.swift; sourceTree = "<group>"; };
 		4D1BDED221130BEA00E51AA9 /* HajimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HajimeView.xib; sourceTree = "<group>"; };
 		4D1BDED421131D5500E51AA9 /* EverybodyDrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverybodyDrinksView.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		4DE1234720F350F90004C28E /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4DE1234A20F3512B0004C28E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecognizerManagerView.swift; sourceTree = "<group>"; };
+		4DF7E65521AEEA6500BA178F /* MusicRecognizerManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicRecognizerManagerView.xib; sourceTree = "<group>"; };
 		4DFCA2672122DEB8001B2E71 /* GameDetaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetaisViewController.swift; sourceTree = "<group>"; };
 		4DFFD5B321341C4200A4989B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4DFFD5B72135666F00A4989B /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
@@ -391,6 +397,7 @@
 				4DA36ADF21A421FE00B757BE /* favourite_app_icon.json */,
 				4DA36AE021A421FF00B757BE /* i'm_thirsty!.json */,
 				4DA36AE321A4220B00B757BE /* newAnimation.json */,
+				4D12F7C421A7007F004FAB50 /* error_cross.json */,
 				4DA36AE521A447C500B757BE /* drink.json */,
 			);
 			path = Animations;
@@ -430,7 +437,6 @@
 				4D56D4D2214FF403004A591A /* GameInfoBlurViewController.swift */,
 				4DE1234020EF615E0004C28E /* GameTypeViewController.swift */,
 				4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */,
-				4DA36AE921A565C200B757BE /* PermissionViewController.swift */,
 				4D3D0967210B246400C74CC6 /* InfoViewController.swift */,
 				4D9B7BC22111BFE4000439AB /* GameViewController.swift */,
 				4D7998642115F388006FE28B /* ScoreViewController.swift */,
@@ -438,6 +444,7 @@
 				4D94B6682167A08C002D7B03 /* BonusViewController.swift */,
 				4D12F7BA21A6B07F004FAB50 /* GameManagementViewController.swift */,
 				4D12F7BC21A6BB10004FAB50 /* WelcomeViewController.swift */,
+				4DA36AE921A565C200B757BE /* PermissionViewController.swift */,
 				4D12F7BE21A6BB84004FAB50 /* PageViewController.swift */,
 				4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */,
 			);
@@ -476,7 +483,6 @@
 				4DFFD5B62135665F00A4989B /* fonts */,
 				4DE1233B20EE44E90004C28E /* Extension */,
 				4DE1234920F3510D0004C28E /* Model */,
-				4D98B186210B2FE1000893B0 /* ModsViewController */,
 				4DE1234420EF6F6D0004C28E /* UI */,
 				4D3D096B210B251E00C74CC6 /* Localizable.strings */,
 				4D7998662115F57C006FE28B /* GameTabbarViewController.swift */,
@@ -527,7 +533,9 @@
 			isa = PBXGroup;
 			children = (
 				4DB8BA44210B278C00DAF932 /* CustomCell */,
+				4D98B186210B2FE1000893B0 /* ModsViewController */,
 				4DB8BA45210B27A100DAF932 /* ViewController */,
+				4DF7E65421AEEA0400BA178F /* GameManager */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -545,6 +553,15 @@
 				4DA36B2721A6A54C00B757BE /* Song.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4DF7E65421AEEA0400BA178F /* GameManager */ = {
+			isa = PBXGroup;
+			children = (
+				4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */,
+				4DF7E65521AEEA6500BA178F /* MusicRecognizerManagerView.xib */,
+			);
+			path = GameManager;
 			sourceTree = "<group>";
 		};
 		4DFFD5B62135665F00A4989B /* fonts */ = {
@@ -720,6 +737,7 @@
 				4DFFD5C32135667300A4989B /* Rubik-BlackItalic.ttf in Resources */,
 				4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */,
 				4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */,
+				4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */,
 				4DE1231820EE33C90004C28E /* LaunchScreen.storyboard in Resources */,
 				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
 				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
@@ -728,6 +746,7 @@
 				4DC819672120C2AD00F09922 /* HowDrinksTableViewCell.xib in Resources */,
 				4D56D4DB21513B3A004A591A /* WhoAmIView.xib in Resources */,
 				4DA28408219B1FD100F6D377 /* timmy_trumpet_oracle.mp3 in Resources */,
+				4DF7E65621AEEA6500BA178F /* MusicRecognizerManagerView.xib in Resources */,
 				4D27AABF210C87B500716C6D /* TrueOrFalseView.xib in Resources */,
 				4DFFD5C52135667300A4989B /* Rubik-LightItalic.ttf in Resources */,
 				4DFFD5C62135667300A4989B /* Rubik-Bold.ttf in Resources */,
@@ -880,6 +899,7 @@
 				4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */,
 				4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */,
 				4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */,
+				4DF7E65321AEE9FD00BA178F /* MusicRecognizerManagerView.swift in Sources */,
 				4D3D0968210B246400C74CC6 /* InfoViewController.swift in Sources */,
 				4DCC02F1211B9D2B00D71186 /* DrinkCounterViewController.swift in Sources */,
 				4D3A8E632128C8B50018C047 /* SetUpPlayersTableViewCell.swift in Sources */,

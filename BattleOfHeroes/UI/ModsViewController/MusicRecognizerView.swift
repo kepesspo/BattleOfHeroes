@@ -71,14 +71,20 @@ class MusicRecognizerView: GameView {
         artistLabel.isHidden = true
         coverImageView.isHidden = true
         resultButton.isHidden = true
+        self.tap.isEnabled = false
         
+       startCallMusic()
+        
+        print(tokenForSpotify)
+        
+        
+    }
+    
+    func startCallMusic() {
         let randomIndex = Int(arc4random_uniform(UInt32(songList.count)))
-        
         var searchURL : String = "https://api.spotify.com/v1/tracks/\(songList[randomIndex])"
         print(searchURL)
-        print(tokenForSpotify)
         callAlamo(url: searchURL, header: tokenForSpotify)
-        
     }
     
     
@@ -95,18 +101,33 @@ class MusicRecognizerView: GameView {
     }
     
     func parseData(JSONData : Data) {
+        var image: String?
+        
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             if let songPreviewUrl = readableJSON["preview_url"] ,
                 let songName = readableJSON["name"] {
                 
-                let url = songPreviewUrl as! String
+                guard let url = songPreviewUrl as? String else {
+                    self.startCallMusic()
+                    return
+                }
                 let song = songName as! String
+                
+                if let album = readableJSON["album"] as? JSONStandard {
+                    if let images = album["images"] as? [JSONStandard] {
+                        let imageData = images[0]
+                        let imageString = imageData["url"] as! String
+                        image = imageString
+                    }
+                }
+                
+                
                 
                 if let artistGroup = readableJSON["artists"] as? [JSONStandard] {
                     if let artists = artistGroup[0] as? JSONStandard {
                         let artist = artists["name"] as! String
-                        songObject = Song(mainImage: "", name: song, previewURL: url, artist: artist)
+                        songObject = Song(mainImage: image ?? "", name: song, previewURL: url, artist: artist)
                     }
                     
                 }
@@ -132,6 +153,12 @@ class MusicRecognizerView: GameView {
         playSoundAnimation()
         songLabel.text = songObject?.name ?? "Nincs song name"
         artistLabel.text = songObject?.artist ?? "Nincs artist"
+        
+        let mainImageURL =  URL(string: songObject?.mainImage ?? "")
+        let mainImageData = NSData(contentsOf: mainImageURL!)
+        let mainImage = UIImage(data: mainImageData as! Data)
+        coverImageView.image = mainImage
+        
         if let prevUrl = songObject?.previewURL {
             let url = URL(string: prevUrl)
             downloadFileFromURL(url: url!)
@@ -182,6 +209,8 @@ class MusicRecognizerView: GameView {
         artistLabel.isHidden = false
         coverImageView.isHidden = false
         resultButton.isHidden = true
+        
+        self.tap.isEnabled = true
     }
     
 }

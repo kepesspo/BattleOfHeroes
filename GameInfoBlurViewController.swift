@@ -17,7 +17,7 @@ class GameInfoBlurViewController: UIViewController {
         let press = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         self.view.addGestureRecognizer(press)
         
-        infoLabel.text = "Long tap to show game details screen"
+        infoLabel.text = "Long tap to show game details screen. You can customize the game and you get some information about the game"
         // Do any additional setup after loading the view.
     }
 

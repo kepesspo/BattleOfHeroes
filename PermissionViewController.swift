@@ -31,20 +31,15 @@ class PermissionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
             print("Spotify Token: \(token)")
             if(token != nil) {
                 GameManagement.sharedInstance.spotifyToken = token
                 self?.loginButton?.removeFromSuperview()
-                
             } else {
                 SpotifyLogin.shared.logout()
-            }
-            
+            }      
         }
-        
-    
     }
     
     override func viewWillLayoutSubviews() {

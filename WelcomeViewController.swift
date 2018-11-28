@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Lottie
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet weak var errorView: LOTAnimationView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        errorView.loopAnimation = true
+        errorView.play()
         // Do any additional setup after loading the view.
     }
     
@@ -26,5 +30,4 @@ class WelcomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

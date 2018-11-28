@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "jatekok_ikon_Aktiv@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "jatekok_ikon_Aktiv@1x.png",
       "scale" : "2x"
     },
     {

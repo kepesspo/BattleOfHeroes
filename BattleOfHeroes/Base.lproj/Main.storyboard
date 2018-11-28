@@ -21,7 +21,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Játékok-->
+        <!--Jaták-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="GameViewController" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,7 +54,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Játékok" image="GameTab2Inactive" selectedImage="GameTab2" id="mYV-Wn-SgE"/>
+                    <tabBarItem key="tabBarItem" title="Jaták" image="GameTabInactive" selectedImage="GameTabActive" id="mYV-Wn-SgE">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="eLn-SI-8SW">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="LFf-sZ-5KT"/>
                     </navigationItem>
@@ -103,7 +105,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Információ" image="InfoTab2Inactive" selectedImage="InfoTab2" id="fGn-5l-mqY">
+                    <tabBarItem key="tabBarItem" title="Információ" image="InfoTabInactive" selectedImage="InfoTabActive" id="fGn-5l-mqY">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="qGv-W5-TIR"/>
@@ -118,8 +120,8 @@
         <!--Page View Controller-->
         <scene sceneID="p3L-wV-7bg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SvG-gs-ql2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="por-IZ-rrj" customClass="PageViewController" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SvG-gs-ql2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5213" y="-889"/>
         </scene>
@@ -185,16 +187,41 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46i-Pz-ZaD" customClass="LOTAnimationView">
+                                <rect key="frame" x="157" y="206" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="On8-3V-i9b"/>
+                                    <constraint firstAttribute="height" constant="100" id="Qqj-Dg-RjH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="error_cross.json"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Jatékot kizárolag csak 18. életévét betőltőt személy játszhatja." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-vt-hJH">
+                                <rect key="frame" x="30" y="158" width="354" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.8666666666666667" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PcX-vt-hJH" secondAttribute="trailing" constant="30" id="6Wm-FY-i5e"/>
                             <constraint firstItem="66C-PL-x6n" firstAttribute="trailing" secondItem="LPY-NQ-aVQ" secondAttribute="trailing" constant="30" id="IGL-bn-2jK"/>
                             <constraint firstItem="LPY-NQ-aVQ" firstAttribute="leading" secondItem="66C-PL-x6n" secondAttribute="leading" constant="30" id="IYV-li-HoT"/>
+                            <constraint firstItem="PcX-vt-hJH" firstAttribute="top" secondItem="LPY-NQ-aVQ" secondAttribute="bottom" constant="50" id="JbE-v0-k8N"/>
+                            <constraint firstItem="46i-Pz-ZaD" firstAttribute="centerX" secondItem="66C-PL-x6n" secondAttribute="centerX" id="Opx-Fd-fAG"/>
+                            <constraint firstItem="PcX-vt-hJH" firstAttribute="leading" secondItem="66C-PL-x6n" secondAttribute="leading" constant="30" id="XNZ-RH-ceD"/>
+                            <constraint firstItem="46i-Pz-ZaD" firstAttribute="top" secondItem="PcX-vt-hJH" secondAttribute="bottom" id="fyl-Jt-2L1"/>
                             <constraint firstItem="LPY-NQ-aVQ" firstAttribute="centerX" secondItem="pNp-Kp-dfH" secondAttribute="centerX" id="rx1-F8-fud"/>
                             <constraint firstItem="LPY-NQ-aVQ" firstAttribute="top" secondItem="66C-PL-x6n" secondAttribute="top" constant="40" id="y6q-XU-nlT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="66C-PL-x6n"/>
                     </view>
+                    <connections>
+                        <outlet property="errorView" destination="46i-Pz-ZaD" id="sHm-F1-CuW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXH-Z5-mVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -554,7 +581,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-cT-AlU">
-                                            <rect key="frame" x="18.000000000000004" y="10" width="61.333333333333343" height="30"/>
+                                            <rect key="frame" x="17.999999999999996" y="10" width="62.666666666666657" height="30"/>
                                             <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="25"/>
                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1049,6 +1076,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.86666666670000003" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.96470588239999999" green="0.86666666670000003" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="gUF-fg-0Gr" kind="relationship" relationship="viewControllers" id="zyW-js-zT3"/>
@@ -1131,7 +1159,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iuf-6k-NER"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Eredmények" image="ScoreTab2Inactive" selectedImage="ScoreTab2" id="8WA-dE-dNc"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Eredmények" image="ScoreTabInactive" selectedImage="ScoreTabActive" id="8WA-dE-dNc"/>
                     <navigationItem key="navigationItem" id="vn1-62-HFg"/>
                     <connections>
                         <outlet property="endGameBtn" destination="SEV-gb-Vy7" id="yRB-DI-B34"/>
@@ -1237,16 +1265,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GameTab2" width="30" height="26"/>
-        <image name="GameTab2Inactive" width="30" height="29"/>
-        <image name="GameTabActive" width="65" height="58"/>
-        <image name="InfoTab2" width="30" height="31"/>
-        <image name="InfoTab2Inactive" width="29" height="30"/>
+        <image name="GameTabActive" width="25" height="24"/>
+        <image name="GameTabInactive" width="25" height="24"/>
+        <image name="InfoTabActive" width="25" height="25"/>
+        <image name="InfoTabInactive" width="25" height="25"/>
         <image name="LoginButton" width="1824" height="279"/>
         <image name="LogoNew" width="1392" height="1480"/>
         <image name="ScoreLogo" width="390" height="290.33334350585938"/>
-        <image name="ScoreTab2" width="20" height="30"/>
-        <image name="ScoreTab2Inactive" width="19" height="30"/>
+        <image name="ScoreTabActive" width="16.666666030883789" height="25"/>
+        <image name="ScoreTabInactive" width="16" height="25"/>
         <image name="SetUpButton" width="608" height="93"/>
         <image name="back" width="102.40000152587891" height="102.40000152587891"/>
         <image name="igaz_nagyobb_gomb" width="339" height="91"/>
