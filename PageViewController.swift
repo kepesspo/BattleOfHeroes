@@ -12,8 +12,8 @@ class PageViewController: UIPageViewController {
 
     lazy var pages: [UIViewController] = {
         return [self.newVc(viewController: "Welcome"),
-                self.newVc(viewController: "Permission")]
-    }()
+                self.newVc(viewController: "DataBase"),
+                self.newVc(viewController: "Permission")] }()
     
     var pageControl = UIPageControl()
     var nextButton = UIButton()
@@ -81,6 +81,12 @@ class PageViewController: UIPageViewController {
                                         completion: nil)
                 checkPageView()
             case 1:
+                self.setViewControllers([self.pages[2]],
+                                        direction: .forward,
+                                        animated: true,
+                                        completion: nil)
+                checkPageView()
+            case 2:
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
                 self.present(vc, animated: true, completion: nil)
                 checkPageView()
@@ -96,6 +102,12 @@ class PageViewController: UIPageViewController {
             switch page {
             case 1:
                 self.setViewControllers([self.pages[0]],
+                                        direction: .reverse,
+                                        animated: true,
+                                        completion: nil)
+                checkPageView()
+            case 2:
+                self.setViewControllers([self.pages[1]],
                                         direction: .reverse,
                                         animated: true,
                                         completion: nil)
@@ -117,9 +129,13 @@ class PageViewController: UIPageViewController {
                 backButton.setTitle("", for: .normal)
                 pageControl.currentPage = 0
             case 1:
-                nextButton.setTitle("Start Game", for: .normal)
+                nextButton.setTitle("Next", for: .normal)
                 backButton.setTitle("Back", for: .normal)
                 pageControl.currentPage = 1
+            case 2:
+                nextButton.setTitle("Start Game", for: .normal)
+                backButton.setTitle("Back", for: .normal)
+                pageControl.currentPage = 2
             default:
                 nextButton.setTitle("Next", for: .normal)
                 backButton.setTitle("Back", for: .normal)

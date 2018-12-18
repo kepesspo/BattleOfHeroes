@@ -1,33 +1,32 @@
 //
-//  InfoViewController.swift
+//  LoaderViewController.swift
 //  BattleOfHeroes
 //
-//  Created by Mark on 12/17/18.
+//  Created by Mark on 12/10/18.
 //  Copyright © 2018 Mark. All rights reserved.
 //
 
 import UIKit
+import Lottie
 
-class InfoViewController: UIViewController {
+class LoaderViewController: UIViewController {
 
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var informationLabel: UILabel!
-    @IBOutlet weak var popView: UIView!
-    
-    var infoText :String?
+    @IBOutlet weak var loaderView: LOTAnimationView!
+    @IBOutlet weak var loaderTextLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popView.layer.cornerRadius = 10
-        popView.layer.masksToBounds = true
-        informationLabel.text = infoText
+
         // Do any additional setup after loading the view.
     }
     
-
-    @IBAction func backButtonAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loaderView.loopAnimation = true
+        loaderView.play()
     }
+    
+
     /*
     // MARK: - Navigation
 

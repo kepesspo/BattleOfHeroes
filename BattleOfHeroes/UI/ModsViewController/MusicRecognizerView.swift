@@ -30,7 +30,7 @@ class MusicRecognizerView: GameView {
     var audioPlayer: AVAudioPlayer = AVAudioPlayer()
     var animationView = LOTAnimationView(name: "sound_visualizer")
     
-    var songList = GameManagement.sharedInstance.songTrackIDList
+    var songList = NetworkSevice.sharedInstance.musicRecognizer
     var gameTimer: Timer!
     var playedMusic: Int = 1
     var songObject : Song?
@@ -82,9 +82,17 @@ class MusicRecognizerView: GameView {
     
     func startCallMusic() {
         let randomIndex = Int(arc4random_uniform(UInt32(songList.count)))
-        var searchURL : String = "https://api.spotify.com/v1/tracks/\(songList[randomIndex])"
-        print(searchURL)
-        callAlamo(url: searchURL, header: tokenForSpotify)
+        if let year = Int(songList[randomIndex].releaseDate.prefix(4)) {
+            print(year)
+            if GameManagement.sharedInstance.allowedYears.contains(year) {
+                var searchURL : String = "https://api.spotify.com/v1/tracks/\(songList[randomIndex].id)"
+                print(searchURL)
+                callAlamo(url: searchURL, header: tokenForSpotify)
+            }
+            else {
+                startCallMusic()
+            }
+        }
     }
     
     
@@ -102,7 +110,6 @@ class MusicRecognizerView: GameView {
     
     func parseData(JSONData : Data) {
         var image: String?
-        
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             if let songPreviewUrl = readableJSON["preview_url"] ,
@@ -121,8 +128,6 @@ class MusicRecognizerView: GameView {
                         image = imageString
                     }
                 }
-                
-                
                 
                 if let artistGroup = readableJSON["artists"] as? [JSONStandard] {
                     if let artists = artistGroup[0] as? JSONStandard {

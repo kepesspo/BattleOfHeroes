@@ -12,6 +12,8 @@ class ScoreViewController: UIViewController {
 
     @IBOutlet weak var endGameBtn: UIButton!
     @IBOutlet weak var scoreTableView: UITableView!
+    @IBOutlet weak var popView: UIView!
+    @IBOutlet weak var BackButton: UIButton!
     
     var playersList = NetworkSevice.sharedInstance.playerList
     
@@ -21,6 +23,8 @@ class ScoreViewController: UIViewController {
         super.viewDidLoad()
         subscribeForNotification(name: .reloadScoreTableView, selector: #selector(reloadScoreTableView), object: nil)
         scoreTableView.separatorStyle = .none
+        popView.layer.cornerRadius = 10
+        popView.layer.masksToBounds = true
         // Do any additional setup after loading the view.
     }
 
@@ -29,14 +33,13 @@ class ScoreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func endGameActionBtn(_ sender: Any) {
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.popViewController(animated: true)
-    }
+   
+    
+    
     
     @objc func reloadScoreTableView() {
         DispatchQueue.main.async {
-            NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+        NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
                 if error != nil {
                     print("Error")
                 } 
@@ -44,6 +47,10 @@ class ScoreViewController: UIViewController {
                 self.scoreTableView.reloadData()
             })
         }
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     /*

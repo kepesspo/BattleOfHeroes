@@ -22,6 +22,7 @@ class TrueOrFalseView: GameView {
     
     @IBOutlet weak var falseBtn: UIButton!
     @IBOutlet weak var trueBtn: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
     
     var trueOrFalseList = NetworkSevice.sharedInstance.trueOrFalse
     var trueOrFalseText : String?
@@ -44,6 +45,7 @@ class TrueOrFalseView: GameView {
     func commonInit() {
         subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
+        infoButton = self.buttonInfo
         Bundle.main.loadNibNamed("TrueOrFalseView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -57,8 +59,9 @@ class TrueOrFalseView: GameView {
     }
     
     @objc func updateLevelCounterUI() {
-        
+
         gameInLevelLabel.text = self.levelCounter
+        
     }
     
     func updateUI() {

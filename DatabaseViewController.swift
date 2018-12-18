@@ -1,33 +1,22 @@
 //
-//  InfoViewController.swift
+//  DatabaseViewController.swift
 //  BattleOfHeroes
 //
-//  Created by Mark on 12/17/18.
+//  Created by Mark on 12/6/18.
 //  Copyright © 2018 Mark. All rights reserved.
 //
 
 import UIKit
 
-class InfoViewController: UIViewController {
+class DatabaseViewController: UIViewController {
 
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var informationLabel: UILabel!
-    @IBOutlet weak var popView: UIView!
-    
-    var infoText :String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        popView.layer.cornerRadius = 10
-        popView.layer.masksToBounds = true
-        informationLabel.text = infoText
+
         // Do any additional setup after loading the view.
     }
     
 
-    @IBAction func backButtonAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     /*
     // MARK: - Navigation
 

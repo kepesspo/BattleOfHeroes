@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 
 class MusicRecognizerManagerView: UIView {
+    @IBOutlet weak var switch1980: UISwitch!
+    @IBOutlet weak var switch1990: UISwitch!
+    @IBOutlet weak var switch2000: UISwitch!
+    @IBOutlet weak var switch2010: UISwitch!
+    @IBOutlet weak var switchAll: UISwitch!
+    
+    @IBOutlet var contentView: UIView!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +31,10 @@ class MusicRecognizerManagerView: UIView {
     
     
     func commonInit() {
+        Bundle.main.loadNibNamed("MusicRecognizerManagerView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
     }
 }

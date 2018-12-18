@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,21 +10,101 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicRecognizerManagerView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Fba-Gw-IaD"/>
+                <outlet property="switch1980" destination="tQF-qn-Pub" id="u8C-RI-GpF"/>
+                <outlet property="switch1990" destination="wym-bR-ZGK" id="sxZ-ox-WP1"/>
+                <outlet property="switch2000" destination="4Kq-6v-fMl" id="s8a-SL-VFX"/>
+                <outlet property="switch2010" destination="nYJ-Fh-cvn" id="rza-K8-rVu"/>
+                <outlet property="switchAll" destination="FD4-Oz-gOQ" id="gSn-aY-5kj"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MusicRecognizerManagerView" customModule="BattleOfHeroes" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válasz zenei korszakot" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9g-Wh-5EO">
+                    <rect key="frame" x="20" y="30" width="335" height="29.333333333333329"/>
+                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1980-as évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMm-sa-cFx">
+                    <rect key="frame" x="20" y="99.333333333333329" width="138.66666666666666" height="26.666666666666671"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1990-es évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbh-V6-qfh">
+                    <rect key="frame" x="20" y="146" width="138.66666666666666" height="26.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000-es évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22J-GS-EGb">
+                    <rect key="frame" x="20" y="192.33333333333334" width="141.66666666666666" height="26.666666666666657"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2010-es évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXE-rC-q3b">
+                    <rect key="frame" x="20" y="239" width="138" height="26.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Összes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvD-0g-O9M">
+                    <rect key="frame" x="20" y="295.33333333333331" width="70" height="26.666666666666686"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tQF-qn-Pub">
+                    <rect key="frame" x="258.66666666666669" y="97.333333333333329" width="51" height="30.999999999999986"/>
+                </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Kq-6v-fMl">
+                    <rect key="frame" x="258.66666666666669" y="190.33333333333334" width="51" height="31"/>
+                </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wym-bR-ZGK">
+                    <rect key="frame" x="258.66666666666669" y="143.66666666666666" width="51" height="31"/>
+                </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FD4-Oz-gOQ">
+                    <rect key="frame" x="258.66666666666669" y="293.33333333333331" width="51" height="31"/>
+                </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nYJ-Fh-cvn">
+                    <rect key="frame" x="258.66666666666669" y="236.66666666666666" width="51" height="30.999999999999972"/>
+                </switch>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bbh-V6-qfh" firstAttribute="top" secondItem="FMm-sa-cFx" secondAttribute="bottom" constant="20" id="2qt-fH-sca"/>
+                <constraint firstItem="FD4-Oz-gOQ" firstAttribute="centerY" secondItem="UvD-0g-O9M" secondAttribute="centerY" id="3YX-X8-ZpQ"/>
+                <constraint firstItem="tQF-qn-Pub" firstAttribute="centerY" secondItem="FMm-sa-cFx" secondAttribute="centerY" id="4JD-Nz-uDV"/>
+                <constraint firstItem="nYJ-Fh-cvn" firstAttribute="centerY" secondItem="HXE-rC-q3b" secondAttribute="centerY" id="Dbp-dN-Cfc"/>
+                <constraint firstItem="wym-bR-ZGK" firstAttribute="trailing" secondItem="4Kq-6v-fMl" secondAttribute="trailing" id="HS9-Mw-ccJ"/>
+                <constraint firstItem="UvD-0g-O9M" firstAttribute="top" secondItem="HXE-rC-q3b" secondAttribute="bottom" constant="30" id="IUh-8e-TXW"/>
+                <constraint firstItem="22J-GS-EGb" firstAttribute="top" secondItem="bbh-V6-qfh" secondAttribute="bottom" constant="20" id="JiD-xx-wAa"/>
+                <constraint firstItem="4Kq-6v-fMl" firstAttribute="trailing" secondItem="nYJ-Fh-cvn" secondAttribute="trailing" id="Kw9-PZ-7y4"/>
+                <constraint firstItem="HXE-rC-q3b" firstAttribute="top" secondItem="22J-GS-EGb" secondAttribute="bottom" constant="20" id="M1M-FX-lgF"/>
+                <constraint firstItem="bbh-V6-qfh" firstAttribute="leading" secondItem="FMm-sa-cFx" secondAttribute="leading" id="OIo-fw-DQp"/>
+                <constraint firstItem="FMm-sa-cFx" firstAttribute="leading" secondItem="v9g-Wh-5EO" secondAttribute="leading" id="RTh-vo-iFC"/>
+                <constraint firstItem="tQF-qn-Pub" firstAttribute="leading" secondItem="FMm-sa-cFx" secondAttribute="trailing" constant="100" id="TbQ-hv-yuN"/>
+                <constraint firstItem="tQF-qn-Pub" firstAttribute="trailing" secondItem="wym-bR-ZGK" secondAttribute="trailing" id="Td9-Qc-rjw"/>
+                <constraint firstItem="FMm-sa-cFx" firstAttribute="top" secondItem="v9g-Wh-5EO" secondAttribute="bottom" constant="40" id="h7B-k9-pei"/>
+                <constraint firstItem="v9g-Wh-5EO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="kiR-9X-eTh"/>
+                <constraint firstItem="v9g-Wh-5EO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="oTO-ti-OdE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="v9g-Wh-5EO" secondAttribute="trailing" constant="20" id="oYu-hx-fIq"/>
+                <constraint firstItem="HXE-rC-q3b" firstAttribute="leading" secondItem="22J-GS-EGb" secondAttribute="leading" id="piw-Pt-pnh"/>
+                <constraint firstItem="4Kq-6v-fMl" firstAttribute="centerY" secondItem="22J-GS-EGb" secondAttribute="centerY" id="rRg-gB-ku8"/>
+                <constraint firstItem="UvD-0g-O9M" firstAttribute="leading" secondItem="HXE-rC-q3b" secondAttribute="leading" id="uBx-mu-Zy5"/>
+                <constraint firstItem="wym-bR-ZGK" firstAttribute="centerY" secondItem="bbh-V6-qfh" secondAttribute="centerY" id="wba-Ve-3ib"/>
+                <constraint firstItem="nYJ-Fh-cvn" firstAttribute="trailing" secondItem="FD4-Oz-gOQ" secondAttribute="trailing" id="xjv-qY-Prq"/>
+                <constraint firstItem="22J-GS-EGb" firstAttribute="leading" secondItem="bbh-V6-qfh" secondAttribute="leading" id="yHd-FP-tj1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d52-TJ-WYq">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-678" y="-201"/>
-        </label>
     </objects>
 </document>

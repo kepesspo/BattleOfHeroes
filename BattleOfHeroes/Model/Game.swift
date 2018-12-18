@@ -17,9 +17,11 @@ struct Game {
     var gameType : GameType?
     var gameMode : GameMode?
     var gameImage : UIImage?
+    var gameManagement : UIView?
+    var downloadsData = false
 
     
-    init(id : String, name: String, description: String, isSelected: Bool, gameMode: GameMode, gameType: GameType, gameImage: UIImage) {
+    init(id : String, name: String, description: String, isSelected: Bool, gameMode: GameMode, gameType: GameType, gameImage: UIImage, gameManagement: UIView, downloadsData: Bool = false) {
         self.id = id
         self.name = name
         self.description = description
@@ -27,5 +29,7 @@ struct Game {
         self.gameMode = gameMode
         self.gameType = gameType
         self.gameImage = gameImage
+        self.gameManagement = gameManagement
+        self.downloadsData = downloadsData
     }
 }

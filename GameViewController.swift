@@ -1,24 +1,28 @@
  //
-//  GameViewController.swift
-//  BattleOfHeroes
-//
-//  Created by Mark on 8/1/18.
-//  Copyright © 2018 Mark. All rights reserved.
-//
-
-import UIKit
-
-enum gameLevels : Int {
+ //  GameViewController.swift
+ //  BattleOfHeroes
+ //
+ //  Created by Mark on 8/1/18.
+ //  Copyright © 2018 Mark. All rights reserved.
+ //
+ 
+ import UIKit
+ 
+ enum gameLevels : Int {
     case five = 5
     case ten = 10
     case fifty = 15
     case twenty = 20
-}
-
-class GameViewController: UIViewController {
+ }
+ 
+ class GameViewController: UIViewController {
     var levelCounter : Int = 1
     var gameInLevel : Int = 1
     var previousRandomIndex = 100
+    
+    @IBOutlet weak var endGameTabButton: UIButton!
+    @IBOutlet weak var informationTabButton: UIButton!
+    @IBOutlet weak var scoreTabButton: UIButton!
     
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var levelImageView: UIImageView!
@@ -28,6 +32,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLevelView()
+        subscribeForNotification(name: .endGame, selector: #selector(dismissGame), object: nil)
+        
         GameManagement.sharedInstance.setCopyCardsList()
         chosenGames = GameManagement.sharedInstance.chosenGames
         
@@ -99,10 +105,38 @@ class GameViewController: UIViewController {
         self.levelImageView.image = UIImage(named: "level\(levelCounter)") ?? UIImage(named: "level12")
         self.view.insertSubview(levelImageView, at: 1)
     }
-}
-
-
-
-
-
-
+    
+    func showScoreView() {
+        let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+        scorePopVC.modalPresentationStyle = .overFullScreen
+        self.present(scorePopVC, animated: true, completion: nil)
+    }
+    
+    func showEndGameView() {
+        let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EndGameViewController") as! EndGameViewController
+        scorePopVC.modalPresentationStyle = .overFullScreen
+        self.present(scorePopVC, animated: true, completion: nil)
+    }
+    
+    
+    @objc func dismissGame() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func scoreAction(_ sender: Any) {
+        self.showScoreView()
+    }
+    
+    
+    @IBAction func endGameAction(_ sender: Any) {
+        showEndGameView()
+    }
+    
+ }
+ 
+ 
+ 
+ 
+ 
+ 

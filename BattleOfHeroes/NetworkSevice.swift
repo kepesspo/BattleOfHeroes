@@ -19,6 +19,7 @@ class NetworkSevice {
     var famousPerson = [FamousPerson]()
     var trueOrFalse = [TrueOrFalse]()
     var haveIEverNever = [HaveIEverNever]()
+    var musicRecognizer = [SongParse]()
     
     
     let refPlayer = fireBaseRefData.playerRef
@@ -27,6 +28,7 @@ class NetworkSevice {
     let refFamousPerson = fireBaseRefData.famousPerson
     let refTrueOrFalse = fireBaseRefData.trueOrFalse
     let refHaveIEverNever = fireBaseRefData.haveIEverNever
+    let refMusicRecognizer = fireBaseRefData.musicRecognizer
     
     // Add Game To Database
     func addGameToDatabase(room: Room, competionBlock: @escaping(_ error: Error?) -> Void) {
@@ -230,6 +232,24 @@ class NetworkSevice {
                     
                     let haveIEverNever = HaveIEverNever(question: question ?? "Nincs adat")
                     self.haveIEverNever.append(haveIEverNever)
+                    
+                }
+                completionBlock(nil)
+            }
+        }
+    }
+    
+    
+    func getSongs(completionBlock: @escaping(_ error : Error?) -> Void){
+        refMusicRecognizer.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.musicRecognizer.removeAll()
+                for songs in snapshot.children.allObjects as! [DataSnapshot] {
+                    let songObject = songs.value as? [String: AnyObject]
+                    let id  = songObject?["trackID"] as? String
+                    let releaseDate = songObject?["release_date"] as? String
+                    let song = SongParse(id: id ?? "", releaseDate: releaseDate ?? "")
+                    self.musicRecognizer.append(song)
                     
                 }
                 completionBlock(nil)

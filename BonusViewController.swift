@@ -18,6 +18,7 @@ class BonusViewController: UIViewController {
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var bonusAnimationView: LOTAnimationView!
+    @IBOutlet weak var contentView: UIView!
     
     var playerForBonus = [Player]()
     var playerList = [Player]()
@@ -35,6 +36,9 @@ class BonusViewController: UIViewController {
         resultLabel.isHidden = true
         self.getLifeBtn.isHidden = true
         self.giveDrinksBtn.isHidden = true
+        
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
         
         playerTableView.separatorStyle = .none
         playerTableView.layer.cornerRadius = 10

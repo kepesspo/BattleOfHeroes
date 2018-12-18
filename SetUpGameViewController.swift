@@ -60,34 +60,98 @@ class SetUpGameViewController: UIViewController {
     }
     
     @objc func doneTapped() {
-        GameManagement.sharedInstance.chosenGames = chosenGames
-        for game in chosenGames {
+        if chosenGames.count == 0 {
+            GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.games
+            self.showLoaderView()
+            loadAllGameData { [weak self] in
+                self?.dissmissLoaderView()
+            }
+        } else {
+            GameManagement.sharedInstance.chosenGames = chosenGames
+            self.showLoaderView()
+            loadAllGameData { [weak self] in
+                self?.dissmissLoaderView()
+            }
+        }
+        self.navigationController?.popViewController(animated: true)
+        
+        
+    }
+    
+    func loadAllGameData(completion: (() -> Void)?) {
+        var remainingCompletions = 0
+        var errors = ""
+        
+        for game in GameManagement.sharedInstance.chosenGames {
+            if game.downloadsData {
+                remainingCompletions += 1
+            }
+        }
+        
+        let returnedBlock: ((_ error: Error?) -> Void) = { error in
+            errors.append("\(error?.localizedDescription ?? "")\n")
+            remainingCompletions -= 1
+            if remainingCompletions == 0 {
+                completion?()
+            }
+        }
+        
+        for game in GameManagement.sharedInstance.chosenGames {
             switch game.name {
             case "Ki Vagyok Én":
                 NetworkSevice.sharedInstance.getFamousPersons { (error) in
+                    returnedBlock(error)
                     if error == nil {
                         print("Minden rendben. famous person sikeresen letöltödőt.")
                     }
                 }
             case "Igaz Hamis":
                 NetworkSevice.sharedInstance.getTrueOrFalse { (error) in
+                    returnedBlock(error)
                     if error == nil {
                         print("Minden rendben. Igaz Hamis kérdések sikeresen letöltödőt.")
                     }
                 }
             case "Én még soha":
                 NetworkSevice.sharedInstance.getHaveIEverNever { (error) in
+                    returnedBlock(error)
                     if error == nil {
                         print("Minden rendben. Én még soha kérdések sikeresen letöltödőt.")
                     }
                 }
+            case "Zene Felismerés":
+                
+                NetworkSevice.sharedInstance.getSongs { (error) in
+                    returnedBlock(error)
+                    if error == nil {
+                        print("Minden rendben. Minden zene sikeresen letöltödőt.")
+                    }
+                }
             default:
                 print("Nem kell letölteni semit.")
-            }    
+            }
+            
         }
-        
-        self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    func showLoaderView() {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoaderViewController") as! LoaderViewController
+        popOverVC.modalPresentationStyle = .overFullScreen
+        if let topController = UIApplication.topViewController() {
+            topController.present(popOverVC, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func dissmissLoaderView() {
+        if let topController = UIApplication.topViewController() {
+            topController.dismiss(animated: true, completion: nil)
+           
+            
+        }
+    }
+    
     
     func addGame() {
         toolGame = games.filter { $0.gameType!.rawValue == "Eszközös játákok" }
@@ -207,9 +271,6 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
                     chosenGames.append(teamGame[indexPath.row])
                 }
             }
-            
-            
-            
         default:
             print("Def")
         }

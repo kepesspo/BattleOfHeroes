@@ -195,6 +195,26 @@ class SetUpPlayersViewController: UIViewController {
         
         if GameManagement.sharedInstance.chosenGames.count == 0 {
             GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.games
+            NetworkSevice.sharedInstance.getFamousPersons { (error) in
+                if error == nil {
+                    print("Success FamousPersone Parse")
+                }
+            }
+            NetworkSevice.sharedInstance.getTrueOrFalse { (error) in
+                if error == nil {
+                    print("Success True Or false Parse")
+                }
+            }
+            NetworkSevice.sharedInstance.getSongs { (error) in
+                if error == nil {
+                    print("Success Song Parse")
+                }
+            }
+            NetworkSevice.sharedInstance.getHaveIEverNever { (error) in
+                if error == nil {
+                    print("Success HaveIEverNever Parse")
+                }
+            }
         }
     }
     

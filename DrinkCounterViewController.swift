@@ -12,6 +12,7 @@ class DrinkCounterViewController: UIViewController {
     
     @IBOutlet weak var howDrinksTableView: UITableView!
     
+    @IBOutlet weak var contentView: UIView!
     let playersList = NetworkSevice.sharedInstance.playerList
     
     override func viewDidLoad() {
@@ -19,6 +20,11 @@ class DrinkCounterViewController: UIViewController {
         subscribeForNotification(name: .showBonus, selector: #selector(showBonusView(notification:)), object: nil)
         howDrinksTableView.separatorStyle = .none
         howDrinksTableView.allowsSelection = false
+        
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        
+        
         // Do any additional setup after loading the view.
     }
     

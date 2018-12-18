@@ -23,6 +23,7 @@ struct fireBaseRefData {
     static let famousPerson = Database.database().reference().child("FamousPerson")
     static let trueOrFalse = Database.database().reference().child("TrueOrFalse")
     static let haveIEverNever = Database.database().reference().child("HaveIEverNever")
+    static let musicRecognizer = Database.database().reference().child("Song")
 }
 
 struct UserDefaultsKeys {
@@ -36,5 +37,6 @@ extension Notification.Name {
     static let dismissGame = Notification.Name("dismissGame")
     static let internetChange = Notification.Name("internetChange")
     static let showBonus = Notification.Name("showBonus")
+    static let endGame = Notification.Name("endGame")
     
 }
