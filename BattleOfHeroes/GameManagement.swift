@@ -363,6 +363,9 @@ class GameManagement {
         return gameModes
     }
     
+    
+    var leveLGameDict : [Game] = [Game]()
+    
     func addDefaultChoesenGames() {
         
     }

@@ -45,7 +45,6 @@ class TrueOrFalseView: GameView {
     func commonInit() {
         subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
-        infoButton = self.buttonInfo
         Bundle.main.loadNibNamed("TrueOrFalseView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds

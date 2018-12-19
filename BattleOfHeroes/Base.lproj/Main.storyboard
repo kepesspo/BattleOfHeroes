@@ -42,40 +42,89 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R21-Ft-ulB">
-                                <rect key="frame" x="134" y="666" width="46" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFs-1f-vBv">
+                                <rect key="frame" x="67" y="646" width="80" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R21-Ft-ulB">
+                                        <rect key="frame" x="17" y="20" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="R21-Ft-ulB" secondAttribute="height" multiplier="15:13" id="cIV-dO-TkM"/>
+                                            <constraint firstAttribute="height" constant="40" id="wdN-aL-EAJ"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="GameTabActive"/>
+                                        <connections>
+                                            <action selector="endGameAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Jtr-9C-5ai"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="R21-Ft-ulB" secondAttribute="height" multiplier="15:13" id="cIV-dO-TkM"/>
-                                    <constraint firstAttribute="height" constant="40" id="wdN-aL-EAJ"/>
+                                    <constraint firstAttribute="width" constant="80" id="BTY-E8-UC7"/>
+                                    <constraint firstItem="R21-Ft-ulB" firstAttribute="centerY" secondItem="CFs-1f-vBv" secondAttribute="centerY" id="UaQ-no-j9b"/>
+                                    <constraint firstAttribute="height" constant="80" id="bap-xU-aSi"/>
+                                    <constraint firstItem="R21-Ft-ulB" firstAttribute="centerX" secondItem="CFs-1f-vBv" secondAttribute="centerX" id="c0p-cc-eYJ"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="GameTab2"/>
-                                <connections>
-                                    <action selector="endGameAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Jtr-9C-5ai"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsd-nt-DZS">
-                                <rect key="frame" x="244.33333333333334" y="666" width="25.333333333333343" height="40"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hme-zM-4HK">
+                                <rect key="frame" x="267" y="646" width="80" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsd-nt-DZS">
+                                        <rect key="frame" x="27.333333333333314" y="20" width="25.333333333333329" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Wsd-nt-DZS" secondAttribute="height" multiplier="16:25" id="Vvx-Id-Igv"/>
+                                            <constraint firstAttribute="height" constant="40" id="bxK-I0-sev"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="ScoreTabActive"/>
+                                        <connections>
+                                            <action selector="scoreAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="2VF-xk-wMr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Wsd-nt-DZS" secondAttribute="height" multiplier="16:25" id="Vvx-Id-Igv"/>
-                                    <constraint firstAttribute="height" constant="40" id="bxK-I0-sev"/>
+                                    <constraint firstItem="Wsd-nt-DZS" firstAttribute="centerX" secondItem="hme-zM-4HK" secondAttribute="centerX" id="TKS-3z-hLT"/>
+                                    <constraint firstAttribute="width" constant="80" id="aHc-Dr-jNR"/>
+                                    <constraint firstAttribute="height" constant="80" id="guc-8M-m8L"/>
+                                    <constraint firstItem="Wsd-nt-DZS" firstAttribute="centerY" secondItem="hme-zM-4HK" secondAttribute="centerY" id="iry-bl-XJV"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="ScoreTabActive"/>
-                                <connections>
-                                    <action selector="scoreAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="2VF-xk-wMr"/>
-                                </connections>
-                            </button>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjx-rW-yYU">
+                                <rect key="frame" x="167" y="646" width="80" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7e-XX-gbr">
+                                        <rect key="frame" x="17" y="20" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="2Zw-HO-A56"/>
+                                            <constraint firstAttribute="width" secondItem="q7e-XX-gbr" secondAttribute="height" multiplier="15:13" id="lw8-nq-fNg"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="InfoTabActive"/>
+                                        <connections>
+                                            <action selector="showInfoDesc:" destination="9pv-A4-QxB" eventType="touchUpInside" id="aKe-EW-mfu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="AZP-vQ-5Aq"/>
+                                    <constraint firstItem="q7e-XX-gbr" firstAttribute="centerX" secondItem="Jjx-rW-yYU" secondAttribute="centerX" id="Xim-LQ-Bjt"/>
+                                    <constraint firstAttribute="width" constant="80" id="jUi-7e-NcD"/>
+                                    <constraint firstItem="q7e-XX-gbr" firstAttribute="centerY" secondItem="Jjx-rW-yYU" secondAttribute="centerY" id="xtr-9p-3zq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.82352941180000006" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bYt-o9-PSq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="2PU-ks-HAZ"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="R21-Ft-ulB" secondAttribute="bottom" constant="30" id="IYW-3U-K6f"/>
+                            <constraint firstItem="Jjx-rW-yYU" firstAttribute="leading" secondItem="CFs-1f-vBv" secondAttribute="trailing" constant="20" id="8fg-4u-Zwz"/>
+                            <constraint firstItem="hme-zM-4HK" firstAttribute="leading" secondItem="Jjx-rW-yYU" secondAttribute="trailing" constant="20" id="9c9-kj-ynO"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="CFs-1f-vBv" secondAttribute="bottom" constant="10" id="9kh-ht-CTG"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="Jjx-rW-yYU" secondAttribute="bottom" constant="10" id="EsE-e3-zLJ"/>
                             <constraint firstItem="bgz-3A-Rcm" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="Jlr-FK-Buf"/>
-                            <constraint firstItem="R21-Ft-ulB" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" constant="-50" id="N6x-y2-MdP"/>
+                            <constraint firstItem="Jjx-rW-yYU" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="aBE-i6-Vw4"/>
                             <constraint firstItem="bgz-3A-Rcm" firstAttribute="top" secondItem="bYt-o9-PSq" secondAttribute="bottom" constant="40" id="aze-dG-Htf"/>
                             <constraint firstItem="bYt-o9-PSq" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="-100" id="gcN-kR-l71"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="bgz-3A-Rcm" secondAttribute="trailing" constant="10" id="joE-kF-SHE"/>
-                            <constraint firstItem="Wsd-nt-DZS" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" constant="50" id="lre-9x-0G7"/>
-                            <constraint firstItem="Wsd-nt-DZS" firstAttribute="centerY" secondItem="R21-Ft-ulB" secondAttribute="centerY" id="vcc-db-33p"/>
+                            <constraint firstItem="hme-zM-4HK" firstAttribute="centerY" secondItem="CFs-1f-vBv" secondAttribute="centerY" id="o4B-L5-EaS"/>
                             <constraint firstItem="bgz-3A-Rcm" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="ytG-wp-LNV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -88,8 +137,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="endGameTabButton" destination="R21-Ft-ulB" id="2fe-sB-BFv"/>
+                        <outlet property="gameContainerView" destination="CFs-1f-vBv" id="rd0-S5-HSx"/>
+                        <outlet property="inofContainerView" destination="Jjx-rW-yYU" id="7oz-4M-S8o"/>
                         <outlet property="levelImageView" destination="bYt-o9-PSq" id="Bv7-Vf-phV"/>
                         <outlet property="levelLabel" destination="bgz-3A-Rcm" id="1yX-in-6LX"/>
+                        <outlet property="scoreContainerView" destination="hme-zM-4HK" id="VZp-hp-SMJ"/>
                         <outlet property="scoreTabButton" destination="Wsd-nt-DZS" id="EmX-LX-UrM"/>
                     </connections>
                 </viewController>
@@ -1114,7 +1166,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8t-LZ-Qza" customClass="LOTAnimationView">
                                 <rect key="frame" x="82" y="186" width="250" height="250"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.86666666670000003" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="RZp-QD-aKu"/>
                                     <constraint firstAttribute="height" constant="250" id="T0C-P8-pFu"/>
@@ -1124,7 +1176,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.86666666670000003" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RQy-JE-A2N" firstAttribute="top" secondItem="B8t-LZ-Qza" secondAttribute="bottom" constant="60" id="6oF-tN-AJQ"/>
                             <constraint firstItem="B8t-LZ-Qza" firstAttribute="top" secondItem="6pB-Ow-pRO" secondAttribute="top" constant="166" id="H3T-Ra-s9Q"/>
@@ -1140,7 +1192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgn-AL-opJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="-2003"/>
+            <point key="canvasLocation" x="128" y="-1213"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="Vul-KX-isW">
@@ -1508,9 +1560,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GameTab2" width="30" height="26"/>
         <image name="GameTabActive" width="25" height="24"/>
         <image name="GameTabInactive" width="25" height="24"/>
+        <image name="InfoTabActive" width="25" height="25"/>
         <image name="LoginButton" width="1824" height="279"/>
         <image name="LogoNew" width="1392" height="1480"/>
         <image name="ScoreLogo" width="390" height="290.33334350585938"/>

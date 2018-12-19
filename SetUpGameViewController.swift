@@ -90,10 +90,12 @@ class SetUpGameViewController: UIViewController {
         
         let returnedBlock: ((_ error: Error?) -> Void) = { error in
             errors.append("\(error?.localizedDescription ?? "")\n")
-            remainingCompletions -= 1
             if remainingCompletions == 0 {
                 completion?()
+            } else {
+                remainingCompletions -= 1
             }
+            
         }
         
         for game in GameManagement.sharedInstance.chosenGames {
@@ -129,7 +131,9 @@ class SetUpGameViewController: UIViewController {
                 }
             default:
                 print("Nem kell letölteni semit.")
+                
             }
+            returnedBlock(nil)
             
         }
     }

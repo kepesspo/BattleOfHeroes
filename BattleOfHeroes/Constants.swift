@@ -38,5 +38,5 @@ extension Notification.Name {
     static let internetChange = Notification.Name("internetChange")
     static let showBonus = Notification.Name("showBonus")
     static let endGame = Notification.Name("endGame")
-    
+    static let getGameDescription = Notification.Name("getGameDescription")
 }

@@ -20,7 +20,6 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="fIv-Wi-KOS"/>
                 <outlet property="falseBtn" destination="8Rf-F5-zqc" id="uwH-5Q-xjT"/>
                 <outlet property="gameInLevelLabel" destination="nOL-md-1qK" id="Bun-qW-wEK"/>
-                <outlet property="infoButton" destination="XOH-ch-61A" id="8jN-Jt-DZu"/>
                 <outlet property="startBtn" destination="wkM-ze-8Fj" id="de0-0X-3e6"/>
                 <outlet property="startLabel" destination="rRA-Zm-Avg" id="HzD-sm-n1p"/>
                 <outlet property="timer" destination="YcA-6e-wWU" id="Qpz-Nq-iWt"/>
@@ -120,11 +119,6 @@
                         </mask>
                     </variation>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOH-ch-61A">
-                    <rect key="frame" x="319" y="33" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.92549019607843142" green="0.82352941176470584" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

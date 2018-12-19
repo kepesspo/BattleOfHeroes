@@ -27,7 +27,13 @@
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var levelImageView: UIImageView!
     
+    @IBOutlet weak var scoreContainerView: UIView!
+    @IBOutlet weak var gameContainerView: UIView!
+    
+    @IBOutlet weak var inofContainerView: UIView!
     var chosenGames : [Game] = [Game]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +46,28 @@
         let press = UITapGestureRecognizer(target: self, action: #selector(startGameAction))
         self.view.addGestureRecognizer(press)
         
+        scoreContainerView.layer.cornerRadius = 10
+        scoreContainerView.layer.masksToBounds = true
+        
+        gameContainerView.layer.cornerRadius = 10
+        gameContainerView.layer.masksToBounds = true
+        
+        inofContainerView.layer.cornerRadius = 10
+        inofContainerView.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @objc func startGameAction() {
-//        self.levelImageView.image = nil
-//        self.view.setNeedsLayout()
-//        self.view.layoutIfNeeded()
-        showView()
+        if GameManagement.sharedInstance.leveLGameDict.count != 0 {
+            print("Tap want to work")
+        } else {
+            showView()
+        }
+        
     }
     
     
@@ -83,6 +99,8 @@
             game.gameInLevel = gameInLevel
             game.gameInLevel = levelCounter
             postNotification(name: .addCounterValue)
+            GameManagement.sharedInstance.leveLGameDict.append(chosenGames[indexOfGame])
+            
             self.view.insertSubview(game, at: 1)
         
             print("Game index : \(indexOfGame)")
@@ -92,6 +110,7 @@
                 levelCounter = levelCounter + 1
                 gameInLevel = 1
                 updateLevelView()
+
             } else {
                 gameInLevel = gameInLevel + 1
                 showView()
@@ -118,6 +137,13 @@
         self.present(scorePopVC, animated: true, completion: nil)
     }
     
+    func showInfoView(description: String) {
+        let infoPopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        infoPopVC.infoText = description
+        infoPopVC.modalPresentationStyle = .overFullScreen
+        self.present(infoPopVC, animated: true, completion: nil)
+    }
+    
     
     @objc func dismissGame() {
         self.navigationController?.popViewController(animated: true)
@@ -125,7 +151,7 @@
     
     
     @IBAction func scoreAction(_ sender: Any) {
-        self.showScoreView()
+        showScoreView()
     }
     
     
@@ -133,6 +159,10 @@
         showEndGameView()
     }
     
+    @IBAction func showInfoDesc(_ sender: Any) {
+        var gameDescription = GameManagement.sharedInstance.leveLGameDict.first?.description
+        showInfoView(description: gameDescription ?? "Itt még nem látsz játékot igy nincs is hozzá leírás")
+    }
  }
  
  
