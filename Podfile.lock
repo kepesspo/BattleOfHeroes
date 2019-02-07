@@ -71,6 +71,7 @@ PODS:
   - ReachabilitySwift (4.3.0)
   - SpotifyLogin (0.1.6)
   - TTFortuneWheel (0.1.6)
+  - TTSegmentedControl (0.4.7)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -81,6 +82,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - SpotifyLogin
   - TTFortuneWheel
+  - TTSegmentedControl
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -101,6 +103,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - SpotifyLogin
     - TTFortuneWheel
+    - TTSegmentedControl
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
@@ -120,7 +123,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
   TTFortuneWheel: d0a8a5fd7f9e1960bac81af76f3b62848de3c32e
+  TTSegmentedControl: 422a8fab507a02a60050476d69d577052550f592
 
-PODFILE CHECKSUM: c30a68ec1b031e3a4f0e67ee33d8876beed5b483
+PODFILE CHECKSUM: dee47f18a33d6959694fdf7ce7f111eed09372fb
 
 COCOAPODS: 1.5.3
