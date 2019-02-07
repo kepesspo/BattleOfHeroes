@@ -11,4 +11,5 @@ use_frameworks!
   pod 'lottie-ios'
   pod 'SpotifyLogin'
   pod 'Alamofire', '~> 4.0'
+  pod 'TTSegmentedControl'
 end
