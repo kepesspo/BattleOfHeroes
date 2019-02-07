@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B388C4824D6752DEF764C5A /* Pods_BattleOfHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */; };
 		4D0711D621F0CD62006D4563 /* ShiptripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0711D521F0CD62006D4563 /* ShiptripView.swift */; };
 		4D0711D821F0CD76006D4563 /* ShiptripView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0711D721F0CD76006D4563 /* ShiptripView.xib */; };
 		4D0711DA21F0D84C006D4563 /* HorseRaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0711D921F0D84C006D4563 /* HorseRaceView.xib */; };
@@ -366,6 +367,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B388C4824D6752DEF764C5A /* Pods_BattleOfHeroes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
