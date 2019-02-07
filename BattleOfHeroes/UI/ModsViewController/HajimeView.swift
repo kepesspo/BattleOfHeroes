@@ -15,6 +15,8 @@ class HajimeView: GameView {
     @IBOutlet weak var hajimeTextLabel: UILabel!
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var playerList = NetworkSevice.sharedInstance.playerList
     
@@ -43,14 +45,15 @@ class HajimeView: GameView {
     }
     
     @objc func updateLevelCounterUI() {
-        
         gameInLevelLabel.text = self.levelCounter
     }
     
     @objc func updateUI() {
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerType.text = "Sor játék"
         hajimeTextLabel.text = "Tiltot számok: \n - Bármelyik szám, amely tartalmazza a 7 , 5 számot.  \n - A 7 és 5 számának többszörösei \n - Illetve ha valaki a Hajime szót kimondja akkor a kör megfordul."
         let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
-        playerName.text = "Aki a kört kezdi: \(playerList[randomIndex].playerName)"
+        playerName.text = playerList[randomIndex].playerName
         
     }
     

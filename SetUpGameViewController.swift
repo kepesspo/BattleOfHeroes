@@ -15,11 +15,13 @@ class SetUpGameViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     var games = GameManagement.sharedInstance.games
     var toolGame : [Game] = [Game]()
     var normalGame : [Game] = [Game]()
     var teamGame : [Game] = [Game]()
+    var betaGame : [Game] = [Game]()
     
     var chosenGames : [Game] = [Game]()
     
@@ -45,13 +47,15 @@ class SetUpGameViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        doneTapped()
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         doneTapped()
         
     }
+    
     
     @IBAction func infoButtonTapped(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoBlurViewController") as! GameInfoBlurViewController
@@ -73,7 +77,7 @@ class SetUpGameViewController: UIViewController {
                 self?.dissmissLoaderView()
             }
         }
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
         
         
     }
@@ -129,6 +133,14 @@ class SetUpGameViewController: UIViewController {
                         print("Minden rendben. Minden zene sikeresen letöltödőt.")
                     }
                 }
+            case "Anagramma":
+                
+                NetworkSevice.sharedInstance.getAnagrammaWord { (error) in
+                    returnedBlock(error)
+                    if error == nil {
+                        print("Minden rendben. Minden Anagramma sikeresen letöltödőt.")
+                    }
+                }
             default:
                 print("Nem kell letölteni semit.")
                 
@@ -161,6 +173,7 @@ class SetUpGameViewController: UIViewController {
         toolGame = games.filter { $0.gameType!.rawValue == "Eszközös játákok" }
         teamGame = games.filter { $0.gameType!.rawValue == "Csapat játékok" }
         normalGame = games.filter { $0.gameType!.rawValue == "Normál Játékok" }
+        betaGame = games.filter { $0.gameType!.rawValue == "Beta Game"}
         
     }
     
@@ -204,8 +217,10 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
             return normalGame.count
         } else if section == 1 {
             return toolGame.count
-        } else {
+        } else if section == 2 {
             return teamGame.count
+        } else {
+            return betaGame.count
         }
     }
     
@@ -227,8 +242,10 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
             cell.gameData = normalGame[indexPath.row]
         } else if indexPath.section == 1 {
             cell.gameData = toolGame[indexPath.row]
-        } else {
+        } else if indexPath.section == 2 {
             cell.gameData = teamGame[indexPath.row]
+        } else {
+            cell.gameData = betaGame[indexPath.row]
         }
         return cell
     }
@@ -274,6 +291,14 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
                     teamGame[indexPath.row].isSelected = true
                     chosenGames.append(teamGame[indexPath.row])
                 }
+            }
+        case 3:
+            if betaGame[indexPath.row].isSelected == true {
+                betaGame[indexPath.row].isSelected = false
+                removeGame(item: betaGame[indexPath.row].name)
+            } else {
+                betaGame[indexPath.row].isSelected = true
+                chosenGames.append(betaGame[indexPath.row])
             }
         default:
             print("Def")

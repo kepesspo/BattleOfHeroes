@@ -20,9 +20,10 @@ class WhoAmIView: GameView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var occurationLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var playerLabel: UILabel!
     
     var famousPersonList = NetworkSevice.sharedInstance.famousPerson
-    
+    let playersList = NetworkSevice.sharedInstance.playerList
     
     
     
@@ -44,6 +45,12 @@ class WhoAmIView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        self.howAmIImageView.layer.cornerRadius = 10
+        self.howAmIImageView.clipsToBounds = true
+        
+        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
+        playerLabel.text =  playersList[randomPlayer].playerName
+        
         updateUI()
         updateLevelCounterUI()
         
@@ -58,21 +65,26 @@ class WhoAmIView: GameView {
         occurationLabel.isHidden = true
         ageLabel.isHidden = true
         
-        
         let randomIndex = Int(arc4random_uniform(UInt32(famousPersonList.count)))
-        nameLabel.text = famousPersonList[randomIndex].name
-        occurationLabel.text = famousPersonList[randomIndex].occupation
-        ageLabel.text = famousPersonList[randomIndex].age
-        let imageUrl = NSURL(string: famousPersonList[randomIndex].image)
         
-        downloadImage(from: imageUrl as! URL)
-        self.howAmIImageView.layer.cornerRadius = 10
-        self.howAmIImageView.clipsToBounds = true
+        let personOccupation = famousPersonList[randomIndex].occupation
+        if GameManagement.sharedInstance.allowedPersonOccupation.contains(personOccupation) {
+            nameLabel.text = famousPersonList[randomIndex].name
+            occurationLabel.text = famousPersonList[randomIndex].occupation
+            ageLabel.text = famousPersonList[randomIndex].age
+            let imageUrl = NSURL(string: famousPersonList[randomIndex].image)
+            downloadImage(from: imageUrl as! URL)
+        } else {
+            updateUI()
+        }
+        
+        
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
+    
     
     
     func downloadImage(from url: URL) {

@@ -13,16 +13,23 @@ import Reachability
 
 class SetUpPlayersViewController: UIViewController {
     
-    @IBOutlet weak var startGameBtn: UIButton!
+
     @IBOutlet weak var setUpTableView: UITableView!
     @IBOutlet weak var addPlayerButton: UIButton!
     @IBOutlet weak var setupGameBtn: UIButton!
+    @IBOutlet weak var dataView: UIView!
     
     @IBOutlet weak var playerNavigationItem: UINavigationItem!
+    @IBOutlet weak var roomIdentiferLabel: UILabel!
+    @IBOutlet weak var roomPassLabel: UILabel!
+    
     
     var refPlayer = fireBaseRefData.playerRef
     var playerList = [Player]()
     var teamList = [Team]()
+    
+    var roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName)
+    var roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
     
     var reachability = Reachability()!
     
@@ -30,7 +37,12 @@ class SetUpPlayersViewController: UIViewController {
         super.viewDidLoad()
         setUpTableView.separatorStyle = .none
         self.setupGameBtn.isEnabled = false
-        self.startGameBtn.isEnabled = false
+        dataView.layer.cornerRadius = 5
+        setUpTableView.layer.cornerRadius = 5
+        
+        roomPassLabel.text = "Jelszó: \(roomPass ?? "")"
+        roomIdentiferLabel.text = "Név: \(roomName ?? "")"
+        
         getPlayerData(completionBlock: { (error) in
             if error != nil {
                 print("hiba")
@@ -58,7 +70,7 @@ class SetUpPlayersViewController: UIViewController {
             DispatchQueue.main.async {
                 print("Network works")
                 self.setupGameBtn.isEnabled = true
-                self.startGameBtn.isEnabled = true
+                
             }
         }
         
@@ -78,7 +90,7 @@ class SetUpPlayersViewController: UIViewController {
                     }}))
                 self.present(alert, animated: true, completion: nil)
                 self.setupGameBtn.isEnabled = false
-                self.startGameBtn.isEnabled = false
+                
                 print("Network not works")
             }
         }
@@ -215,6 +227,11 @@ class SetUpPlayersViewController: UIViewController {
                     print("Success HaveIEverNever Parse")
                 }
             }
+            NetworkSevice.sharedInstance.getAnagrammaWord { (error) in
+                if error == nil {
+                    print("Success Annagramma Parse")
+                }
+            }
         }
     }
     
@@ -229,10 +246,10 @@ class SetUpPlayersViewController: UIViewController {
     func checkGameParam() {
         if playerList.count <=  1 {
             self.setupGameBtn.isEnabled = false
-            self.startGameBtn.isEnabled = false
+            
         } else {
             self.setupGameBtn.isEnabled = true
-            self.startGameBtn.isEnabled = true
+            
         }
         
     }
@@ -246,6 +263,10 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? playersWithoutTeam().count : players(in: teamList[section - 1]).count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

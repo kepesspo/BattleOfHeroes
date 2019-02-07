@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WhoAmIManagerView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="actorSwitch" destination="Hq5-G0-vMm" id="plh-z0-Jgx"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="fuc-5G-EBS"/>
+                <outlet property="entrepreneurSwitch" destination="Oaf-q4-VVs" id="az2-K2-h4d"/>
+                <outlet property="footballPlayerSwitch" destination="uRP-hM-BBl" id="B7R-aw-2mn"/>
+                <outlet property="otherPersonSwitch" destination="4ra-qp-vQS" id="pnV-mQ-bVD"/>
+                <outlet property="singerSwitch" destination="SaH-ED-gX8" id="N5z-K3-yFP"/>
+                <outlet property="youtubeAndInstaSwitch" destination="0Md-lK-5x6" id="kzb-Wo-pwv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válasz Foglalkozást" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYd-t1-iTy">
+                    <rect key="frame" x="83" y="30" width="209.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sportolok:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwR-s5-2IK">
+                    <rect key="frame" x="20" y="90" width="216" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uRP-hM-BBl">
+                    <rect key="frame" x="306" y="86.5" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szinésznő / Szinész:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juy-hL-zay">
+                    <rect key="frame" x="20" y="134" width="186" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hq5-G0-vMm">
+                    <rect key="frame" x="306" y="130.5" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram / Youtube Sztár:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-ow-n7I">
+                    <rect key="frame" x="20" y="178" width="266" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-lK-5x6">
+                    <rect key="frame" x="306" y="174.5" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zenei Előadó:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHt-Y8-jtY">
+                    <rect key="frame" x="20" y="222" width="186" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SaH-ED-gX8">
+                    <rect key="frame" x="306" y="218.5" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vállalkozó:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMK-st-X5z">
+                    <rect key="frame" x="20" y="266" width="186" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Oaf-q4-VVs">
+                    <rect key="frame" x="306" y="262.5" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egyéb:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7c-gg-UjZ">
+                    <rect key="frame" x="20" y="310" width="186" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-qp-vQS">
+                    <rect key="frame" x="306" y="306.5" width="51" height="31"/>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2Ct-ow-n7I" firstAttribute="leading" secondItem="Juy-hL-zay" secondAttribute="leading" id="1ZK-IT-aMb"/>
+                <constraint firstItem="Oaf-q4-VVs" firstAttribute="leading" secondItem="aMK-st-X5z" secondAttribute="trailing" constant="100" id="2dI-UC-fzh"/>
+                <constraint firstItem="AYd-t1-iTy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="2pj-oI-kye"/>
+                <constraint firstItem="w7c-gg-UjZ" firstAttribute="leading" secondItem="aMK-st-X5z" secondAttribute="leading" id="34F-hY-uGo"/>
+                <constraint firstItem="vwR-s5-2IK" firstAttribute="top" secondItem="AYd-t1-iTy" secondAttribute="bottom" constant="30" id="6re-hF-0nt"/>
+                <constraint firstItem="4ra-qp-vQS" firstAttribute="trailing" secondItem="Oaf-q4-VVs" secondAttribute="trailing" id="8U3-Et-nAf"/>
+                <constraint firstItem="Oaf-q4-VVs" firstAttribute="trailing" secondItem="SaH-ED-gX8" secondAttribute="trailing" id="9YX-qC-ppF"/>
+                <constraint firstItem="0Md-lK-5x6" firstAttribute="trailing" secondItem="Hq5-G0-vMm" secondAttribute="trailing" id="9qk-jt-Oaw"/>
+                <constraint firstItem="iHt-Y8-jtY" firstAttribute="top" secondItem="2Ct-ow-n7I" secondAttribute="bottom" constant="20" id="APL-75-XIj"/>
+                <constraint firstItem="SaH-ED-gX8" firstAttribute="centerY" secondItem="iHt-Y8-jtY" secondAttribute="centerY" id="B1G-pf-Iiq"/>
+                <constraint firstItem="SaH-ED-gX8" firstAttribute="trailing" secondItem="0Md-lK-5x6" secondAttribute="trailing" id="ID2-24-q87"/>
+                <constraint firstItem="AYd-t1-iTy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RfN-Jf-ikn"/>
+                <constraint firstItem="4ra-qp-vQS" firstAttribute="leading" secondItem="w7c-gg-UjZ" secondAttribute="trailing" constant="100" id="Twe-FK-nb8"/>
+                <constraint firstItem="w7c-gg-UjZ" firstAttribute="top" secondItem="aMK-st-X5z" secondAttribute="bottom" constant="20" id="Vh1-l0-guO"/>
+                <constraint firstItem="Hq5-G0-vMm" firstAttribute="leading" secondItem="Juy-hL-zay" secondAttribute="trailing" constant="100" id="aud-mg-hot"/>
+                <constraint firstItem="Hq5-G0-vMm" firstAttribute="centerY" secondItem="Juy-hL-zay" secondAttribute="centerY" id="cok-dZ-mw2"/>
+                <constraint firstItem="0Md-lK-5x6" firstAttribute="centerY" secondItem="2Ct-ow-n7I" secondAttribute="centerY" id="diB-yy-WQX"/>
+                <constraint firstItem="Oaf-q4-VVs" firstAttribute="centerY" secondItem="aMK-st-X5z" secondAttribute="centerY" id="fAq-Vr-42e"/>
+                <constraint firstItem="uRP-hM-BBl" firstAttribute="centerY" secondItem="vwR-s5-2IK" secondAttribute="centerY" id="ijp-M6-QgN"/>
+                <constraint firstItem="2Ct-ow-n7I" firstAttribute="top" secondItem="Juy-hL-zay" secondAttribute="bottom" constant="20" id="lyl-gU-jFH"/>
+                <constraint firstItem="aMK-st-X5z" firstAttribute="top" secondItem="iHt-Y8-jtY" secondAttribute="bottom" constant="20" id="m6d-Dr-bYl"/>
+                <constraint firstItem="Juy-hL-zay" firstAttribute="top" secondItem="vwR-s5-2IK" secondAttribute="bottom" constant="20" id="nKQ-iA-Sy5"/>
+                <constraint firstItem="aMK-st-X5z" firstAttribute="leading" secondItem="iHt-Y8-jtY" secondAttribute="leading" id="odf-Br-6PI"/>
+                <constraint firstItem="0Md-lK-5x6" firstAttribute="leading" secondItem="2Ct-ow-n7I" secondAttribute="trailing" constant="20" id="rpw-2f-J4U"/>
+                <constraint firstItem="SaH-ED-gX8" firstAttribute="leading" secondItem="iHt-Y8-jtY" secondAttribute="trailing" constant="100" id="td2-U1-L4S"/>
+                <constraint firstItem="Juy-hL-zay" firstAttribute="leading" secondItem="vwR-s5-2IK" secondAttribute="leading" id="utS-v0-yRV"/>
+                <constraint firstItem="uRP-hM-BBl" firstAttribute="leading" secondItem="vwR-s5-2IK" secondAttribute="trailing" constant="70" id="vB2-k5-Yc1"/>
+                <constraint firstItem="vwR-s5-2IK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="w7X-3h-a6x"/>
+                <constraint firstItem="4ra-qp-vQS" firstAttribute="centerY" secondItem="w7c-gg-UjZ" secondAttribute="centerY" id="xgM-Eq-XZH"/>
+                <constraint firstItem="Hq5-G0-vMm" firstAttribute="trailing" secondItem="uRP-hM-BBl" secondAttribute="trailing" id="yjY-9B-E3E"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uRP-hM-BBl" secondAttribute="trailing" constant="20" id="zfn-gT-ziE"/>
+                <constraint firstItem="iHt-Y8-jtY" firstAttribute="leading" secondItem="2Ct-ow-n7I" secondAttribute="leading" id="zpg-X9-lbk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

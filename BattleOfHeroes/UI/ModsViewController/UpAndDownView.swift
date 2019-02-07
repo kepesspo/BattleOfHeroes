@@ -18,6 +18,7 @@ class UpAndDownView: GameView {
     @IBOutlet weak var drinksCounter: UILabel!
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var descriptionText: UILabel!
     
     var cardWithValue = GameManagement.sharedInstance.cardWithValue
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -51,7 +52,8 @@ class UpAndDownView: GameView {
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         
         //upAndDownTextLabel.text = "Mi lesz a következő szám nagyobb vagy kissebb?"
-        playerNameLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName) \n\n Következő szám kisebb vagy nagyobb lesz,mint: (A számok 2-14-ig vannak)"
+        playerNameLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName)"
+        descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint: (A számok 2-14-ig vannak)"
         updateLevelCounterUI()
         
         
@@ -78,15 +80,15 @@ class UpAndDownView: GameView {
         
         switch drinks {
         case 0 ..< 2:
-            drinksCounter.text = "Piák száma: 1"
+            drinksCounter.text = "Piák száma: \(1 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 1))"
         case 2 ..< 3:
-            drinksCounter.text = "Piák száma: 2"
+            drinksCounter.text = "Piák száma: \(2 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 2))"
         case 3 ..< 5:
-            drinksCounter.text = "Piák száma: 3"
+            drinksCounter.text = "Piák száma: \(3 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 3))"
         case 5 ..< 7:
-            drinksCounter.text = "Piák száma: 4"
+            drinksCounter.text = "Piák száma: \(4 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 4))"
         case 7 ..< 1000:
-            drinksCounter.text = "Piák száma: 5"
+            drinksCounter.text = "Piák száma: \(5 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 5))"
         default:
             drinksCounter.text = "Az egészet meg kell inni: Szerencséd van"
         }

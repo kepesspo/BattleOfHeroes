@@ -20,23 +20,23 @@ class NetworkSevice {
     var trueOrFalse = [TrueOrFalse]()
     var haveIEverNever = [HaveIEverNever]()
     var musicRecognizer = [SongParse]()
-    
+    var anagrammaWord =  [Anagramma]()
     
     let refPlayer = fireBaseRefData.playerRef
     let refTeam = fireBaseRefData.teamRef
     let refGame = fireBaseRefData.gameRef
     let refFamousPerson = fireBaseRefData.famousPerson
+    let refAnagrammaWord = fireBaseRefData.anagrammaWord
     let refTrueOrFalse = fireBaseRefData.trueOrFalse
     let refHaveIEverNever = fireBaseRefData.haveIEverNever
     let refMusicRecognizer = fireBaseRefData.musicRecognizer
     
     // Add Game To Database
     func addGameToDatabase(room: Room, competionBlock: @escaping(_ error: Error?) -> Void) {
-        let gameKey = refGame.childByAutoId().key
-        let game = ["id" : gameKey,
+        let game = ["id" : room.gameRoom,
                     "gameRoom" : room.gameRoom,
                     "gamePass" : room.gamePassword]
-        refGame.child(gameKey ?? "").setValue(game)
+        refGame.child(room.gameRoom).setValue(game)
         competionBlock(nil)
     }
     
@@ -44,6 +44,7 @@ class NetworkSevice {
     
     // Add Player To Database
     func addPlayerToDatabase(player: Player, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
         let playerKey = refPlayer.childByAutoId().key
         let player = ["id":playerKey,
                       "playerName": player.playerName as String,
@@ -51,21 +52,20 @@ class NetworkSevice {
                       "playerLife" : player.life as Int,
                       "playerDrinks" : player.allDrink as Int,
                       "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
-        
-        refPlayer.child(playerKey ?? "").setValue(player)
-        
+        refGame.child(roomId).child("Players").child(playerKey ?? "").setValue(player)
         competionBlock(nil)
     }
     
     // Delete player To Database
     func deletePlayerToDatabase(player: Player, competionBlock: @escaping(_ error: Error?) -> Void) {
-        FirebaseDatabase.Database.database().reference(withPath: "Player").child(player.id).removeValue()
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        refGame.child(roomId).child("Players").child(player.id).removeValue()
         competionBlock(nil)
-    
     }
     
     // UpdatePlayerDrinks
     func updatePlayerDrinks(player: Player, drinks: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
         let playerKey = player.id
         let playerDrinks = player.allDrink + drinks
         let playerUserBonus = player.usedBonus
@@ -76,26 +76,27 @@ class NetworkSevice {
                       "playerTeamId" : player.teamId as String,
                       "playerLife" : player.life as Int,
                       "playerDrinks" : playerDrinks as Int,
-                      "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
+                      "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
 
-        refPlayer.child(playerKey).setValue(playerData)
+        refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
         
         var playData = player
         playData.allDrink = playerDrinks
         
         
-        if playerDrinks % 10 == 0 {
+        if playerDrinks % 10 == 0 && playerDrinks != 0 && GameManagement.sharedInstance.showBonusView == true {
             postNotification(name: .showBonus, object: playData)
         }
         competionBlock(nil)
         
     }
     
-    
+    // UpdatePlayerLife
     func updatePlayerLife(player: Player, life: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
         let playerKey = player.id
         let playerLife = player.life + life
-        let playerUsedBouns = player.usedBonus + 1
+        let playerUsedBouns = player.usedBonus
         var playerData: [String:Any]?
         
         
@@ -106,7 +107,7 @@ class NetworkSevice {
                       "playerDrinks" : player.allDrink as Int,
                       "playerUsedBonus" : playerUsedBouns as Int] as [String : Any]
         
-        refPlayer.child(playerKey).setValue(playerData)
+        refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
         competionBlock(nil)
         
     }
@@ -122,24 +123,46 @@ class NetworkSevice {
         competionBlock(nil)
     }
     
-//    // check room Autenticate
-//    func roomExist(gameName: String, gamePass: String, competionBlock: @escaping(_ error: Error?) -> Void) {
-//        let roomKey = refGame.childByAutoId().key
-//        refGame.child(roomKey ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
-//            if snapshot.hasChild(gameName){
-//                print("user exist")
-//                competionBlock(nil)
-//            } else{
-//                print("user doesn't exist")
-//            }
-//        })
-//    }
+    // check room Autenticate
+    func roomExist(gameName: String, gamePass: String, competionBlock: @escaping(_ error: String? , _ success: Bool) -> Void) {
+        self.refGame.queryOrdered(byChild: "gameRoom")
+            .queryEqual(toValue: gameName)
+            .observeSingleEvent(of: .value, with: { (snapshot) in
+                if ( snapshot.value is NSNull ) {
+                    competionBlock("Room doesn't exist",false)
+                } else {
+                    self.refGame.queryOrdered(byChild: "gamePass")
+                        .queryEqual(toValue: gamePass)
+                        .observeSingleEvent(of: .value) { (snapshotForPass) in
+                            if ( snapshotForPass.value is NSNull ) {
+                                competionBlock("Room Pass not correct",false)
+                            } else {
+                                print("Room Pass correct")
+                                competionBlock(nil,true)
+                            }
+                    }
+                }
+            })
+    }
+    
+    func checkCreateExistingRoom(gameName: String, competionBlock: @escaping(_ error: String? , _ success: Bool) -> Void) {
+        self.refGame.queryOrdered(byChild: "gameRoom")
+            .queryEqual(toValue: gameName)
+            .observeSingleEvent(of: .value) { (snapshot) in
+                if ( snapshot.value is NSNull ) {
+                    competionBlock(nil,true)
+                } else {
+                    competionBlock("Room  exist",false)
+                }
+        }
+    }
     
     
    
     // Get Player List
     func getPlayerList(completionBlock: @escaping(_ error : Error?) -> Void) {
-        refPlayer.observe(DataEventType.value) { (snapshot) in
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        refGame.child(roomId).child("Players").observe(DataEventType.value) { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.playerList.removeAll()
                 
@@ -204,6 +227,24 @@ class NetworkSevice {
         }
     }
     
+    func getAnagrammaWord(completionBlock: @escaping(_ error : Error?) -> Void){
+        refAnagrammaWord.observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.anagrammaWord.removeAll()
+                for anagramma in snapshot.children.allObjects as! [DataSnapshot] {
+                    let anagrammaObject = anagramma.value as? [String: AnyObject]
+                    let anagramma = anagrammaObject?["anagramma"] as? String
+                    
+                    let anagrammaData = Anagramma(anagramma: anagramma ?? "Nincs adat")
+                    self.anagrammaWord.append(anagrammaData)
+                    
+                }
+                completionBlock(nil)
+            }
+        }
+    }
+    
+    
     func getTrueOrFalse(completionBlock: @escaping(_ error : Error?) -> Void){
         refTrueOrFalse.observe(DataEventType.value) { (snapshot) in
             if snapshot.childrenCount > 0 {
@@ -250,15 +291,11 @@ class NetworkSevice {
                     let releaseDate = songObject?["release_date"] as? String
                     let song = SongParse(id: id ?? "", releaseDate: releaseDate ?? "")
                     self.musicRecognizer.append(song)
-                    
                 }
                 completionBlock(nil)
             }
         }
     }
-    
-    
-    
     
     
     func addTeamToPlayer(player: Player, team : Team, competionBlock: @escaping(_ error: Error?) -> Void) {
@@ -283,4 +320,3 @@ class NetworkSevice {
     }
     
 }
-

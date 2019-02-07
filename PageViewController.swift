@@ -87,6 +87,7 @@ class PageViewController: UIPageViewController {
                                         completion: nil)
                 checkPageView()
             case 2:
+                UserDefaults.standard.set(true, forKey: UserDefaultsKeys.onboardingClosed)
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
                 self.present(vc, animated: true, completion: nil)
                 checkPageView()

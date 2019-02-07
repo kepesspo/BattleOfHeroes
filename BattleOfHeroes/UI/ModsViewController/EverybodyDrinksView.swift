@@ -16,6 +16,8 @@ class EverybodyDrinksView: GameView {
     @IBOutlet weak var everybodyDrinksTextLabel: UILabel!
     @IBOutlet weak var howDrinksTextLabel: UILabel!
     @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
+    @IBOutlet weak var playerType: UILabel!
     
     var playerList = NetworkSevice.sharedInstance.playerList
     
@@ -44,8 +46,9 @@ class EverybodyDrinksView: GameView {
     }
     
     @objc func updateUI() {
-        everybodyDrinksTextLabel.text = "Most ő iszik:"
-        
+        gameInfoContainerView.layer.cornerRadius = 10
+        everybodyDrinksTextLabel.text = "Fenékig"
+        playerType.text = "Egyéni"
     }
     
     @objc func updateLevelCounterUI() {
@@ -54,19 +57,16 @@ class EverybodyDrinksView: GameView {
     }
     
     func sequencedPlayer() {
-        let player = NSMutableAttributedString()
         var playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
         if playerIndex + 1 > playerList.count {
             GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = 0
             
             playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
-            player.appendColored(.black, font: .bold(60), "\(playerList[playerIndex].playerName)")
             GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
-            howDrinksTextLabel.attributedText = player
+            howDrinksTextLabel.text = playerList[playerIndex].playerName
         } else {
-            player.appendColored(.black, font: .bold(60), "\(playerList[playerIndex].playerName)")
             GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
-            howDrinksTextLabel.attributedText = player
+            howDrinksTextLabel.text = playerList[playerIndex].playerName
         }
     }
     

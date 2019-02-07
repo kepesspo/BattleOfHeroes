@@ -28,6 +28,14 @@ enum GameMode: String {
     case spoon = "spoonView"
     case thePeopleChoice = "thePeopleChoiceView"
     case russianRoulette = "russianRouletteView"
+    case shipTrip = "shipTrip"
+    case horseRace = "horseRace"
+    case anagram = "anagram"
+    case coinFlip = "coinFlip"
+    case fiveThing = "fiveThing"
+    case collectAndBoom = "collectAndBoom"
+    case theBottle = "theBottle"
+    case tapper = "tapper"
     
     
     func gameTitle() -> String {
@@ -50,30 +58,45 @@ enum GameMode: String {
         case .spoon: return "GameTitle_spoon".localized()
         case .thePeopleChoice: return "GameTitle_thePeopleChoice".localized()
         case .russianRoulette: return "GameTitle_russianRoulette".localized()
-            
+        case .shipTrip: return "GameTitle_shipTrip".localized()
+        case .horseRace: return "GameTitle_horseRace".localized()
+        case .anagram: return "GameTitle_anagram".localized()
+        case .coinFlip: return "GameTitle_coinFlip".localized()
+        case .fiveThing: return "GameTitle_fiveThing".localized()
+        case .collectAndBoom: return "GameTitle_collectAndBoom".localized()
+        case .theBottle: return "GameTitle_theBottle".localized()
+        case .tapper: return "GameTitle_tapper".localized()
         }
     }
     
-    func gameDiscription() -> String {
+    func gameDescription() -> String {
         switch self {
-        case .trueOrFalse: return "GameDiscription_trueOrFalse".localized()
-        case .categories: return "GameDiscription_categories".localized()
-        case .hajime: return "GameDiscription_hajime".localized()
-        case .everybodyDrinks: return "GameDiscription_everybodyDrinks".localized()
-        case .wheelOfFortune: return "GameDiscription_wheelOfFortune".localized()
-        case .upAndDown: return "GameDiscription_upAndDown".localized()
-        case .ringOfFire: return "GameDiscription_ringOfFire".localized()
-        case .memory: return "GameDiscription_memory".localized()
-        case .musicRecognizer: return "GameDiscription_musicRecognizer".localized()
-        case .switchHand: return "GameDiscription_switchHand".localized()
-        case .rockPaperScissors: return "GameDiscription_rockPaperScissors".localized()
-        case .fingerIt: return "GameDiscription_fingerIt".localized()
-        case .cheersToTheGovernor: return "GameDiscription_cheersToTheGovernor".localized()
-        case .haveIEverNever: return "GameDiscription_haveIEverNever".localized()
-        case .whoAmI: return "GameDiscription_whoAmI".localized()
-        case .spoon: return "GameDiscription_spoon".localized()
-        case .thePeopleChoice: return "GameDiscription_thePeopleChoice".localized()
-        case .russianRoulette: return "GameDiscription_russianRoulette".localized()
+        case .trueOrFalse: return "GameDescription_trueOrFalse".localized()
+        case .categories: return "GameDescription_categories".localized()
+        case .hajime: return "GameDescription_hajime".localized()
+        case .everybodyDrinks: return "GameDescription_everybodyDrinks".localized()
+        case .wheelOfFortune: return "GameDescription_wheelOfFortune".localized()
+        case .upAndDown: return "GameDescription_upAndDown".localized()
+        case .ringOfFire: return "GameDescription_ringOfFire".localized()
+        case .memory: return "GameDescription_memory".localized()
+        case .musicRecognizer: return "GameDescription_musicRecognizer".localized()
+        case .switchHand: return "GameDescription_switchHand".localized()
+        case .rockPaperScissors: return "GameDescription_rockPaperScissors".localized()
+        case .fingerIt: return "GameDescription_fingerIt".localized()
+        case .cheersToTheGovernor: return "GameDescription_cheersToTheGovernor".localized()
+        case .haveIEverNever: return "GameDescription_haveIEverNever".localized()
+        case .whoAmI: return "GameDescription_whoAmI".localized()
+        case .spoon: return "GameDescription_spoon".localized()
+        case .thePeopleChoice: return "GameDescription_thePeopleChoice".localized()
+        case .russianRoulette: return "GameDescription_russianRoulette".localized()
+        case .shipTrip: return "GameDescription_shipTrip".localized()
+        case .horseRace: return "GameDescription_horseRace".localized()
+        case .anagram: return "GameDescription_anagram".localized()
+        case .coinFlip: return "GameDescription_coinFlip".localized()
+        case .fiveThing: return "GameDescription_fiveThing".localized()
+        case .collectAndBoom: return "GameDescription_collectAndBoom".localized()
+        case .theBottle: return "GameDescription_theBottle".localized()
+        case .tapper: return "GameDescription_tapper".localized()
         }
     }
     
@@ -97,6 +120,14 @@ enum GameMode: String {
         case .spoon: return .spoon
         case .thePeopleChoice: return .thePeopleChoice
         case .russianRoulette: return .russianRoulette
+        case .shipTrip: return .shipTrip
+        case .horseRace: return .horseRace
+        case .anagram: return .anagram
+        case .coinFlip: return .coinFlip
+        case .fiveThing: return .fiveThing
+        case .collectAndBoom: return .collectAndBoom
+        case .theBottle: return .theBottle
+        case .tapper: return .tapper
         }
     }
     
@@ -120,6 +151,14 @@ enum GameMode: String {
         case .spoon: return .toolGame
         case .thePeopleChoice: return .teamGame
         case .russianRoulette: return .normalGame
+        case .shipTrip: return .betaGame
+        case .horseRace: return .betaGame
+        case .anagram: return .betaGame
+        case .coinFlip: return .betaGame
+        case .fiveThing: return .betaGame
+        case .collectAndBoom: return .betaGame
+        case .theBottle: return .betaGame
+            case .tapper: return .betaGame
         }
     }
     
@@ -144,12 +183,22 @@ enum GameMode: String {
         case .spoon: return SpoonView()
         case .thePeopleChoice: return ThePeopleChoiceView()
         case .russianRoulette: return RussianRouletteView()
+        case .shipTrip: return ShiptripView()
+        case .horseRace: return HorseRaceView()
+        case .anagram: return AnagramView()
+        case .coinFlip: return CoinFlipView()
+        case .fiveThing: return FiveThingsView()
+        case .collectAndBoom: return CollectAndBoomView()
+        case .theBottle: return TheBottleView()
+            case .tapper: return TapperView()
         }
     }
     
     func gameManagementView() -> UIView {
         switch self {
         case .musicRecognizer: return MusicRecognizerManagerView()
+        case .whoAmI: return WhoAmIManagerView()
+        case .trueOrFalse: return TrueOrFalseManagerView()
         default:
             return UIView()
         }
@@ -160,7 +209,7 @@ enum GameMode: String {
         switch self {
         case .trueOrFalse: return #imageLiteral(resourceName: "035-friend")
         case .categories: return #imageLiteral(resourceName: "034-chat")
-        case .hajime: return #imageLiteral(resourceName: "016-best-friend")
+        case .hajime: return #imageLiteral(resourceName: "013-laugh.png")
         case .everybodyDrinks: return #imageLiteral(resourceName: "024-friendship-1")
         case .wheelOfFortune: return #imageLiteral(resourceName: "006-loyalty")
         case .upAndDown: return #imageLiteral(resourceName: "011-friendship")
@@ -170,24 +219,31 @@ enum GameMode: String {
         case .switchHand: return #imageLiteral(resourceName: "041-shaka")
         case .rockPaperScissors: return #imageLiteral(resourceName: "026-fist")
         case .fingerIt: return #imageLiteral(resourceName: "014-sharing")
-        case .cheersToTheGovernor: return #imageLiteral(resourceName: "012-beer")
+        case .cheersToTheGovernor: return #imageLiteral(resourceName: "036-toast.png")
         case .haveIEverNever: return #imageLiteral(resourceName: "002-mad")
         case .whoAmI: return #imageLiteral(resourceName: "033-reunion")
         case .spoon: return #imageLiteral(resourceName: "045-crossed-arrows")
         case .thePeopleChoice: return #imageLiteral(resourceName: "040-friends.png")
         case .russianRoulette: return #imageLiteral(resourceName: "030-dependable.png")
+        case .shipTrip: return #imageLiteral(resourceName: "019-search.png")
+        case .horseRace: return #imageLiteral(resourceName: "017-origami.png")
+        case .anagram: return #imageLiteral(resourceName: "018-social-media.png")
+        case .coinFlip: return #imageLiteral(resourceName: "005-promise.png")
+        case .fiveThing: return #imageLiteral(resourceName: "007-connection.png")
+        case .collectAndBoom: return #imageLiteral(resourceName: "025-add-friend.png")
+        case .theBottle: return #imageLiteral(resourceName: "012-beer.png")
+        case .tapper: return #imageLiteral(resourceName: "016-best-friend.png")
         }
     }
-    
-    
-    
 }
+
 
 let GamesDownloadingData: [GameMode] = [
     .whoAmI,
     .trueOrFalse,
     .haveIEverNever,
-    .musicRecognizer
+    .musicRecognizer,
+    .anagram
 ]
 
 
@@ -195,12 +251,10 @@ enum GameType : String {
     case normalGame = "Normál Játékok"
     case toolGame = "Eszközös játákok"
     case teamGame = "Csapat játékok"
-    
-    static let allValues = [normalGame,toolGame,teamGame]
+    case betaGame = "Beta Game"
+    static let allValues = [normalGame,toolGame,teamGame,betaGame]
     
 }
-
-
 
 enum CardValue: String {
     case two = "two"
@@ -262,18 +316,27 @@ enum CardValue: String {
 class GameManagement {
     static let sharedInstance = GameManagement()
     
-    var gamesCategories =  ["Film",
-                            "Zene",
-                            "Sport",
-                            "Gaming",
-                            "Stand",
-                            "Szépség",
-                            "Hiresség",
-                            "Természet",
-                            "Utazás",
-                            "Politika",
-                            "Kaja",
-                            "Űr"]
+    func isOnboardingClosed() -> Bool {
+        return UserDefaults.standard.string(forKey: UserDefaultsKeys.onboardingClosed) != nil
+    }
+    
+    func getRoomName() -> String {
+        return UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName) ?? ""
+    }
+    
+    func getGameData() -> (roomid: String, roomPass: String) {
+        let roomId = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomId)
+        let roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
+        let roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
+        return (roomId ?? "",roomPass ?? "")
+    }
+    
+    var gamesCategories =  ["Film","Zene","Sport","Gaming","Stand","Szépség","Hiresség","Természet","Utazás","Politika","Kaja","Űr"]
+    
+    
+    var easyCategories = ["Film","Zene","Sport","Gaming","Stand","Szépség","Hiresség","Természet","Utazás","Politika","Kaja","Űr"]
+    var mediumCategies = ["Autó márkák","Már halott emberek","Olimpiai bajnokok","Játék szoftverek","Növények","Kutya Fajták","Alkohol márkák vagy fajta","Tv csatornák"]
+    var hardCategories = ["Amerikai Elnőkők","Feltalálok","Programozási kifejezések","Növényevő állatok","Tavak"]
     
     // everyBodyDrinks Onece
     var everyBodyDrinksPlayerCountIndex = 0
@@ -289,6 +352,20 @@ class GameManagement {
     }
     
     var allowedYears: [Int] = [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+    
+    var allowedPersonOccupation: [String] = ["ENTREPRENEUR",
+                                             "US Presidents",
+                                             "DJ",
+                                             "ACTRESS",
+                                             "Actor",
+                                             "Soccer Players",
+                                             "YouTube Star",
+                                             "TV Actress",
+                                             "Pop Singer",
+                                             "Rapper",
+                                             "Reality Star",
+                                             "Instagram Star",
+                                             "Dancer"]
    
     
     // Ring of fire
@@ -358,23 +435,31 @@ class GameManagement {
                      GameMode.whoAmI,
                      GameMode.spoon,
                      GameMode.thePeopleChoice,
-                     GameMode.russianRoulette]
+                     GameMode.russianRoulette,
+                     GameMode.shipTrip,
+                     GameMode.horseRace,
+                     GameMode.anagram,
+                     GameMode.coinFlip,
+                     GameMode.fiveThing,
+                     GameMode.collectAndBoom,
+                     GameMode.theBottle,
+                     GameMode.tapper]
         
         return gameModes
     }
     
     
     var leveLGameDict : [Game] = [Game]()
+    var gameDrinkMultiplier : Int?
     
-    func addDefaultChoesenGames() {
-        
-    }
-   
+    var showBonusView : Bool = true
+    var drininkCounterView : Bool = true
     
+    var groupDrinksAllow : Bool = true
+    var grouoDrinkTime : Int = 5000
     
-    
-    
-    
+    var randomPictogramAllow : Bool = true
+    var randomPictogramTime : Int = 7000
     
     var games = [Game]()
     func getGames() -> [Game] {
@@ -383,7 +468,7 @@ class GameManagement {
         for game in gameModes {
             let mode = game.gameMode()
             let name = game.gameTitle()
-            let description = game.gameDiscription()
+            let description = game.gameDescription()
             let type = game.gameType()
             let gameImage = game.gameImage()
             let gameManagement = game.gameManagementView()

@@ -40,10 +40,11 @@ class HowDrinksTableViewCell: UITableViewCell {
         var number = 0
         
         number = Int(sender.value)
+        
         if number < 0 {
             drinksStepper.minimumValue = -3
             drinkCountLabel.text = "Élet : \(number)"
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: number) { (error) in
+            NetworkSevice.sharedInstance.updatePlayerLife(player: player!, life: number) { (error) in
                 if error != nil {
                     print("error")
                 } else {
@@ -52,6 +53,20 @@ class HowDrinksTableViewCell: UITableViewCell {
             }
         } else if number == 0 {
             drinkCountLabel.text = "\(number)"
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: number) { (error) in
+                if error != nil {
+                    print("error")
+                } else {
+                    postNotification(name: .reloadScoreTableView)
+                }
+            }
+            NetworkSevice.sharedInstance.updatePlayerLife(player: player!, life: number) { (error) in
+                if error != nil {
+                    print("error")
+                } else {
+                    postNotification(name: .reloadScoreTableView)
+                }
+            }
         }
         else {
             drinkCountLabel.text = "Ivászat: \(number)"

@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0711D621F0CD62006D4563 /* ShiptripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0711D521F0CD62006D4563 /* ShiptripView.swift */; };
+		4D0711D821F0CD76006D4563 /* ShiptripView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0711D721F0CD76006D4563 /* ShiptripView.xib */; };
+		4D0711DA21F0D84C006D4563 /* HorseRaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0711D921F0D84C006D4563 /* HorseRaceView.xib */; };
+		4D0711DC21F0D85B006D4563 /* HorseRaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0711DB21F0D85B006D4563 /* HorseRaceView.swift */; };
+		4D0E59F821F0E0C60027CCA5 /* CollectAndBoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0E59F721F0E0C60027CCA5 /* CollectAndBoomView.xib */; };
+		4D0E59FA21F0E0D30027CCA5 /* CollectAndBoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E59F921F0E0D30027CCA5 /* CollectAndBoomView.swift */; };
 		4D12F7BB21A6B07F004FAB50 /* GameManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BA21A6B07F004FAB50 /* GameManagementViewController.swift */; };
 		4D12F7BD21A6BB10004FAB50 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BC21A6BB10004FAB50 /* WelcomeViewController.swift */; };
 		4D12F7BF21A6BB84004FAB50 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BE21A6BB84004FAB50 /* PageViewController.swift */; };
 		4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */; };
 		4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D12F7C421A7007F004FAB50 /* error_cross.json */; };
+		4D1353042203015D00064E02 /* Anagramma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1353032203015D00064E02 /* Anagramma.swift */; };
 		4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED021130BA900E51AA9 /* HajimeView.swift */; };
 		4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BDED221130BEA00E51AA9 /* HajimeView.xib */; };
 		4D1BDED521131D5500E51AA9 /* EverybodyDrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED421131D5500E51AA9 /* EverybodyDrinksView.swift */; };
@@ -19,6 +26,10 @@
 		4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED82113215600E51AA9 /* WheelOfFortuneView.swift */; };
 		4D1BDEDB211321AF00E51AA9 /* WheelOfFortuneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */; };
 		4D1BDEDD21133AF100E51AA9 /* CarnivalWheelSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */; };
+		4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */; };
+		4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */; };
+		4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */; };
+		4D22939721E8C8600025C5A7 /* HaveIEverNeverManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D22939621E8C8600025C5A7 /* HaveIEverNeverManagerView.xib */; };
 		4D27AABF210C87B500716C6D /* TrueOrFalseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D27AABE210C87B400716C6D /* TrueOrFalseView.xib */; };
 		4D28A9C821A2C8F8007F4F0D /* FamousPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28A9C721A2C8F8007F4F0D /* FamousPerson.swift */; };
 		4D3466652188661F00D379A9 /* BonusPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3466632188661F00D379A9 /* BonusPlayerTableViewCell.swift */; };
@@ -32,6 +43,8 @@
 		4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */; };
 		4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */; };
 		4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D096B210B251E00C74CC6 /* Localizable.strings */; };
+		4D4A8F7C21F0E46300D0AD6F /* TapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */; };
+		4D4A8F7E21F0E47100D0AD6F /* TapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */; };
 		4D56D4D3214FF403004A591A /* GameInfoBlurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D2214FF403004A591A /* GameInfoBlurViewController.swift */; };
 		4D56D4D521512DA7004A591A /* HaveIEverNeverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D421512DA7004A591A /* HaveIEverNeverView.swift */; };
 		4D56D4D721512DC4004A591A /* HaveIEverNeverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D56D4D621512DC4004A591A /* HaveIEverNeverView.xib */; };
@@ -39,15 +52,22 @@
 		4D56D4DB21513B3A004A591A /* WhoAmIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D56D4DA21513B3A004A591A /* WhoAmIView.xib */; };
 		4D5EB879210B41C50043A7F9 /* TrueOrFalseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5EB878210B41C50043A7F9 /* TrueOrFalseView.swift */; };
 		4D68038B2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68038A2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift */; };
+		4D69D4D921F0DC5F001A49FD /* CoinFlipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D69D4D821F0DC5F001A49FD /* CoinFlipView.xib */; };
+		4D69D4DB21F0DC69001A49FD /* CoinFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D69D4DA21F0DC69001A49FD /* CoinFlipView.swift */; };
+		4D766E9321F0DDD20027EF1F /* FiveThingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D766E9221F0DDD20027EF1F /* FiveThingsView.swift */; };
+		4D766E9521F0DDDE0027EF1F /* FiveThingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D766E9421F0DDDE0027EF1F /* FiveThingsView.xib */; };
 		4D77255421B97875006ED67C /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77255321B97875006ED67C /* DatabaseViewController.swift */; };
 		4D77255621BE6D7E006ED67C /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77255521BE6D7E006ED67C /* LoaderViewController.swift */; };
 		4D77255821BE6EC0006ED67C /* phonological.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D77255721BE6EC0006ED67C /* phonological.json */; };
+		4D77E70821F0E28E00B27E56 /* TheBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77E70721F0E28E00B27E56 /* TheBottleView.swift */; };
+		4D77E70A21F0E29A00B27E56 /* TheBottleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D77E70921F0E29A00B27E56 /* TheBottleView.xib */; };
 		4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79985C2114813D006FE28B /* UpAndDownView.swift */; };
 		4D79985F21148198006FE28B /* UpAndDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79985E21148198006FE28B /* UpAndDownView.xib */; };
 		4D79986321149CD3006FE28B /* GameManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79986221149CD3006FE28B /* GameManagement.swift */; };
 		4D7998652115F388006FE28B /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7998642115F388006FE28B /* ScoreViewController.swift */; };
 		4D79986D21174276006FE28B /* RingOfFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79986C21174276006FE28B /* RingOfFireView.swift */; };
 		4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79986E211742A5006FE28B /* RingOfFireView.xib */; };
+		4D8DFB9F21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8DFB9E21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift */; };
 		4D906ECD211A43D200B7B7E0 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ECC211A43D200B7B7E0 /* MemoryView.swift */; };
 		4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D906ECE211A443F00B7B7E0 /* MemoryView.xib */; };
 		4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ED0211B31FA00B7B7E0 /* GameView.swift */; };
@@ -85,6 +105,8 @@
 		4DA36AE821A4606F00B757BE /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA36AE721A4606F00B757BE /* LottieView.swift */; };
 		4DA36AEA21A565C200B757BE /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA36AE921A565C200B757BE /* PermissionViewController.swift */; };
 		4DA36B2821A6A54C00B757BE /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA36B2721A6A54C00B757BE /* Song.swift */; };
+		4DA6ED7C21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6ED7A21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift */; };
+		4DA6ED7D21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA6ED7B21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib */; };
 		4DB8BA42210B275700DAF932 /* CustomInfoHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8BA40210B275700DAF932 /* CustomInfoHeaderTableViewCell.xib */; };
 		4DB8BA43210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8BA41210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift */; };
 		4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */; };
@@ -106,8 +128,14 @@
 		4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */; };
 		4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC02ED211B94BA00D71186 /* ScoreHeaderTableViewCell.xib */; };
 		4DCC02F1211B9D2B00D71186 /* DrinkCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */; };
+		4DDDEBA121E39898006FDA6E /* WhoAmIManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDEBA021E39897006FDA6E /* WhoAmIManagerView.swift */; };
+		4DDDEBA321E398BD006FDA6E /* WhoAmIManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDDEBA221E398BD006FDA6E /* WhoAmIManagerView.xib */; };
 		4DDEB1A82195B60800C6E8D7 /* ThePeopleChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEB1A72195B60800C6E8D7 /* ThePeopleChoiceView.swift */; };
 		4DDEB1AA2195B63700C6E8D7 /* ThePeopleChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEB1A92195B63700C6E8D7 /* ThePeopleChoiceView.xib */; };
+		4DE0883A21FB487A00898A9A /* GroupDrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0883921FB487900898A9A /* GroupDrinkViewController.swift */; };
+		4DE0883C21FB55C200898A9A /* RandomPictogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0883B21FB55C200898A9A /* RandomPictogramViewController.swift */; };
+		4DE11B2121F0DA52005A092E /* AnagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE11B2021F0DA52005A092E /* AnagramView.swift */; };
+		4DE11B2321F0DA5F005A092E /* AnagramView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE11B2221F0DA5F005A092E /* AnagramView.xib */; };
 		4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1230B20EE33C90004C28E /* AppDelegate.swift */; };
 		4DE1231320EE33C90004C28E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1231120EE33C90004C28E /* Main.storyboard */; };
 		4DE1231520EE33C90004C28E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1231420EE33C90004C28E /* Assets.xcassets */; };
@@ -162,11 +190,18 @@
 
 /* Begin PBXFileReference section */
 		001AF14290CFAB459355AE18 /* Pods-BattleOfHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleOfHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes.debug.xcconfig"; sourceTree = "<group>"; };
+		4D0711D521F0CD62006D4563 /* ShiptripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiptripView.swift; sourceTree = "<group>"; };
+		4D0711D721F0CD76006D4563 /* ShiptripView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShiptripView.xib; sourceTree = "<group>"; };
+		4D0711D921F0D84C006D4563 /* HorseRaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorseRaceView.xib; sourceTree = "<group>"; };
+		4D0711DB21F0D85B006D4563 /* HorseRaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseRaceView.swift; sourceTree = "<group>"; };
+		4D0E59F721F0E0C60027CCA5 /* CollectAndBoomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectAndBoomView.xib; sourceTree = "<group>"; };
+		4D0E59F921F0E0D30027CCA5 /* CollectAndBoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectAndBoomView.swift; sourceTree = "<group>"; };
 		4D12F7BA21A6B07F004FAB50 /* GameManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagementViewController.swift; sourceTree = "<group>"; };
 		4D12F7BC21A6BB10004FAB50 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4D12F7BE21A6BB84004FAB50 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		4D12F7C421A7007F004FAB50 /* error_cross.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_cross.json; sourceTree = "<group>"; };
+		4D1353032203015D00064E02 /* Anagramma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anagramma.swift; sourceTree = "<group>"; };
 		4D1BDED021130BA900E51AA9 /* HajimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajimeView.swift; sourceTree = "<group>"; };
 		4D1BDED221130BEA00E51AA9 /* HajimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HajimeView.xib; sourceTree = "<group>"; };
 		4D1BDED421131D5500E51AA9 /* EverybodyDrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverybodyDrinksView.swift; sourceTree = "<group>"; };
@@ -174,6 +209,10 @@
 		4D1BDED82113215600E51AA9 /* WheelOfFortuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelOfFortuneView.swift; sourceTree = "<group>"; };
 		4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WheelOfFortuneView.xib; sourceTree = "<group>"; };
 		4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarnivalWheelSlice.swift; path = BattleOfHeroes/CarnivalWheelSlice.swift; sourceTree = SOURCE_ROOT; };
+		4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseManagerView.xib; sourceTree = "<group>"; };
+		4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseManagerView.swift; sourceTree = "<group>"; };
+		4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverManagerView.swift; sourceTree = "<group>"; };
+		4D22939621E8C8600025C5A7 /* HaveIEverNeverManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HaveIEverNeverManagerView.xib; sourceTree = "<group>"; };
 		4D27AABE210C87B400716C6D /* TrueOrFalseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseView.xib; sourceTree = "<group>"; };
 		4D28A9C721A2C8F8007F4F0D /* FamousPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamousPerson.swift; sourceTree = "<group>"; };
 		4D3466632188661F00D379A9 /* BonusPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusPlayerTableViewCell.swift; sourceTree = "<group>"; };
@@ -187,6 +226,8 @@
 		4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGameViewController.swift; sourceTree = "<group>"; };
 		4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4D3D096B210B251E00C74CC6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapperView.swift; sourceTree = "<group>"; };
+		4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapperView.xib; sourceTree = "<group>"; };
 		4D56D4D0214A6607004A591A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D56D4D2214FF403004A591A /* GameInfoBlurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoBlurViewController.swift; sourceTree = "<group>"; };
 		4D56D4D421512DA7004A591A /* HaveIEverNeverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverView.swift; sourceTree = "<group>"; };
@@ -195,15 +236,22 @@
 		4D56D4DA21513B3A004A591A /* WhoAmIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhoAmIView.xib; sourceTree = "<group>"; };
 		4D5EB878210B41C50043A7F9 /* TrueOrFalseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseView.swift; sourceTree = "<group>"; };
 		4D68038A2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		4D69D4D821F0DC5F001A49FD /* CoinFlipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinFlipView.xib; sourceTree = "<group>"; };
+		4D69D4DA21F0DC69001A49FD /* CoinFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinFlipView.swift; sourceTree = "<group>"; };
+		4D766E9221F0DDD20027EF1F /* FiveThingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveThingsView.swift; sourceTree = "<group>"; };
+		4D766E9421F0DDDE0027EF1F /* FiveThingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiveThingsView.xib; sourceTree = "<group>"; };
 		4D77255321B97875006ED67C /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
 		4D77255521BE6D7E006ED67C /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		4D77255721BE6EC0006ED67C /* phonological.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phonological.json; sourceTree = "<group>"; };
+		4D77E70721F0E28E00B27E56 /* TheBottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheBottleView.swift; sourceTree = "<group>"; };
+		4D77E70921F0E29A00B27E56 /* TheBottleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TheBottleView.xib; sourceTree = "<group>"; };
 		4D79985C2114813D006FE28B /* UpAndDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpAndDownView.swift; sourceTree = "<group>"; };
 		4D79985E21148198006FE28B /* UpAndDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpAndDownView.xib; sourceTree = "<group>"; };
 		4D79986221149CD3006FE28B /* GameManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagement.swift; sourceTree = "<group>"; };
 		4D7998642115F388006FE28B /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		4D79986C21174276006FE28B /* RingOfFireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingOfFireView.swift; sourceTree = "<group>"; };
 		4D79986E211742A5006FE28B /* RingOfFireView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RingOfFireView.xib; sourceTree = "<group>"; };
+		4D8DFB9E21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraSetUpViewController.swift; sourceTree = "<group>"; };
 		4D906ECC211A43D200B7B7E0 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
 		4D906ECE211A443F00B7B7E0 /* MemoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoryView.xib; sourceTree = "<group>"; };
 		4D906ED0211B31FA00B7B7E0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -241,6 +289,8 @@
 		4DA36AE721A4606F00B757BE /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		4DA36AE921A565C200B757BE /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		4DA36B2721A6A54C00B757BE /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		4DA6ED7A21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectAndBoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DA6ED7B21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectAndBoomCollectionViewCell.xib; sourceTree = "<group>"; };
 		4DB8BA40210B275700DAF932 /* CustomInfoHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		4DB8BA41210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -262,8 +312,14 @@
 		4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		4DCC02ED211B94BA00D71186 /* ScoreHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCounterViewController.swift; sourceTree = "<group>"; };
+		4DDDEBA021E39897006FDA6E /* WhoAmIManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAmIManagerView.swift; sourceTree = "<group>"; };
+		4DDDEBA221E398BD006FDA6E /* WhoAmIManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhoAmIManagerView.xib; sourceTree = "<group>"; };
 		4DDEB1A72195B60800C6E8D7 /* ThePeopleChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThePeopleChoiceView.swift; sourceTree = "<group>"; };
 		4DDEB1A92195B63700C6E8D7 /* ThePeopleChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThePeopleChoiceView.xib; sourceTree = "<group>"; };
+		4DE0883921FB487900898A9A /* GroupDrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDrinkViewController.swift; sourceTree = "<group>"; };
+		4DE0883B21FB55C200898A9A /* RandomPictogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPictogramViewController.swift; sourceTree = "<group>"; };
+		4DE11B2021F0DA52005A092E /* AnagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnagramView.swift; sourceTree = "<group>"; };
+		4DE11B2221F0DA5F005A092E /* AnagramView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnagramView.xib; sourceTree = "<group>"; };
 		4DE1230820EE33C90004C28E /* BattleOfHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleOfHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1230B20EE33C90004C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DE1231220EE33C90004C28E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -332,6 +388,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D76E06221FF57E9008260E9 /* AddCustomGame */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddCustomGame;
+			sourceTree = "<group>";
+		};
 		4D98B186210B2FE1000893B0 /* ModsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +436,22 @@
 				4DDEB1A92195B63700C6E8D7 /* ThePeopleChoiceView.xib */,
 				4DA36ADA21A41D6600B757BE /* RussianRouletteView.swift */,
 				4DA36ADC21A41D9100B757BE /* RussianRouletteView.xib */,
+				4D0711D521F0CD62006D4563 /* ShiptripView.swift */,
+				4D0711D721F0CD76006D4563 /* ShiptripView.xib */,
+				4D0711DB21F0D85B006D4563 /* HorseRaceView.swift */,
+				4D0711D921F0D84C006D4563 /* HorseRaceView.xib */,
+				4DE11B2021F0DA52005A092E /* AnagramView.swift */,
+				4DE11B2221F0DA5F005A092E /* AnagramView.xib */,
+				4D69D4DA21F0DC69001A49FD /* CoinFlipView.swift */,
+				4D69D4D821F0DC5F001A49FD /* CoinFlipView.xib */,
+				4D766E9221F0DDD20027EF1F /* FiveThingsView.swift */,
+				4D766E9421F0DDDE0027EF1F /* FiveThingsView.xib */,
+				4D0E59F921F0E0D30027CCA5 /* CollectAndBoomView.swift */,
+				4D0E59F721F0E0C60027CCA5 /* CollectAndBoomView.xib */,
+				4D77E70721F0E28E00B27E56 /* TheBottleView.swift */,
+				4D77E70921F0E29A00B27E56 /* TheBottleView.xib */,
+				4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */,
+				4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -432,6 +511,8 @@
 				4D68038A2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift */,
 				4D3466632188661F00D379A9 /* BonusPlayerTableViewCell.swift */,
 				4D3466642188661F00D379A9 /* BonusPlayerTableViewCell.xib */,
+				4DA6ED7A21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift */,
+				4DA6ED7B21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib */,
 			);
 			name = CustomCell;
 			path = ../..;
@@ -459,6 +540,9 @@
 				4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */,
 				4D77255521BE6D7E006ED67C /* LoaderViewController.swift */,
 				4DF709EB21C7BE26007A5317 /* InfoViewController.swift */,
+				4D8DFB9E21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift */,
+				4DE0883921FB487900898A9A /* GroupDrinkViewController.swift */,
+				4DE0883B21FB55C200898A9A /* RandomPictogramViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -543,6 +627,7 @@
 		4DE1234420EF6F6D0004C28E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4D76E06221FF57E9008260E9 /* AddCustomGame */,
 				4DB8BA44210B278C00DAF932 /* CustomCell */,
 				4D98B186210B2FE1000893B0 /* ModsViewController */,
 				4DB8BA45210B27A100DAF932 /* ViewController */,
@@ -563,6 +648,7 @@
 				4DA36AD821A41A7400B757BE /* HaveIEverNever.swift */,
 				4DA36B2721A6A54C00B757BE /* Song.swift */,
 				4D973D7E21AFFE7700D6038F /* SongParse.swift */,
+				4D1353032203015D00064E02 /* Anagramma.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -570,8 +656,14 @@
 		4DF7E65421AEEA0400BA178F /* GameManager */ = {
 			isa = PBXGroup;
 			children = (
+				4DDDEBA021E39897006FDA6E /* WhoAmIManagerView.swift */,
+				4DDDEBA221E398BD006FDA6E /* WhoAmIManagerView.xib */,
 				4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */,
 				4DF7E65521AEEA6500BA178F /* MusicRecognizerManagerView.xib */,
+				4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */,
+				4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */,
+				4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */,
+				4D22939621E8C8600025C5A7 /* HaveIEverNeverManagerView.xib */,
 			);
 			path = GameManager;
 			sourceTree = "<group>";
@@ -721,24 +813,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D94B6672167632D002D7B03 /* SpoonView.xib in Resources */,
+				4DDDEBA321E398BD006FDA6E /* WhoAmIManagerView.xib in Resources */,
 				4DA36AE221A421FF00B757BE /* i'm_thirsty!.json in Resources */,
+				4D0711D821F0CD76006D4563 /* ShiptripView.xib in Resources */,
 				4DA2840E219B1FD100F6D377 /* rihanna_work.mp3 in Resources */,
 				4DA2840F219B1FD100F6D377 /* Clean_Bandit_Solo_Demi_Lovato.mp3 in Resources */,
 				4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */,
 				4DA36ADD21A41D9100B757BE /* RussianRouletteView.xib in Resources */,
 				4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */,
 				4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */,
+				4D77E70A21F0E29A00B27E56 /* TheBottleView.xib in Resources */,
 				4DA36AE421A4220C00B757BE /* newAnimation.json in Resources */,
+				4D4A8F7E21F0E47100D0AD6F /* TapperView.xib in Resources */,
 				4DB8BA42210B275700DAF932 /* CustomInfoHeaderTableViewCell.xib in Resources */,
 				4DA36AE621A447C500B757BE /* drink.json in Resources */,
 				4D1BDEDB211321AF00E51AA9 /* WheelOfFortuneView.xib in Resources */,
 				4DFFD5C22135667300A4989B /* Rubik-Light.ttf in Resources */,
+				4D766E9521F0DDDE0027EF1F /* FiveThingsView.xib in Resources */,
 				4D9B7BC52111ED77000439AB /* CategoriesView.xib in Resources */,
+				4DE11B2321F0DA5F005A092E /* AnagramView.xib in Resources */,
 				4DFFD5C12135667300A4989B /* Rubik-Black.ttf in Resources */,
 				4DC8196B2120D50800F09922 /* MusicRecognizerView.xib in Resources */,
+				4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */,
 				4D56D4D721512DC4004A591A /* HaveIEverNeverView.xib in Resources */,
 				4DA28415219B1FD100F6D377 /* David_Guetta_Titanium.mp3 in Resources */,
 				4DFFD5C42135667300A4989B /* Rubik-Medium.ttf in Resources */,
+				4D0E59F821F0E0C60027CCA5 /* CollectAndBoomView.xib in Resources */,
 				4DDEB1AA2195B63700C6E8D7 /* ThePeopleChoiceView.xib in Resources */,
 				4D3A8E642128C8B50018C047 /* SetUpPlayersTableViewCell.xib in Resources */,
 				4DFFD5C92135667300A4989B /* Rubik-Italic.ttf in Resources */,
@@ -750,7 +850,10 @@
 				4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */,
 				4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */,
 				4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */,
+				4D69D4D921F0DC5F001A49FD /* CoinFlipView.xib in Resources */,
+				4D0711DA21F0D84C006D4563 /* HorseRaceView.xib in Resources */,
 				4DE1231820EE33C90004C28E /* LaunchScreen.storyboard in Resources */,
+				4D22939721E8C8600025C5A7 /* HaveIEverNeverManagerView.xib in Resources */,
 				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
 				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
 				4D3466662188661F00D379A9 /* BonusPlayerTableViewCell.xib in Resources */,
@@ -766,6 +869,7 @@
 				4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */,
 				4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */,
 				4DA28410219B1FD100F6D377 /* Michael_Jackson_Thriller.mp3 in Resources */,
+				4DA6ED7D21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib in Resources */,
 				4DA2840C219B1FD100F6D377 /* The Chainsmokers_This Feeling.mp3 in Resources */,
 				4DA28413219B1FD100F6D377 /* Ed_Sheeran_Perfect.mp3 in Resources */,
 				4DA28409219B1FD100F6D377 /* Sia_Chandelier.mp3 in Resources */,
@@ -834,6 +938,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SpotifyLogin/SpotifyLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/TTFortuneWheel/TTFortuneWheel.framework",
+				"${BUILT_PRODUCTS_DIR}/TTSegmentedControl/TTSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -846,6 +951,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotifyLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTFortuneWheel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -863,9 +969,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3D096420FCCB2200C74CC6 /* LoginViewController.swift in Sources */,
+				4D0711DC21F0D85B006D4563 /* HorseRaceView.swift in Sources */,
 				4DE1234820F350F90004C28E /* Team.swift in Sources */,
 				4DE1233D20EE45120004C28E /* UIColorExtension.swift in Sources */,
 				4DDEB1A82195B60800C6E8D7 /* ThePeopleChoiceView.swift in Sources */,
+				4D69D4DB21F0DC69001A49FD /* CoinFlipView.swift in Sources */,
 				4D77255421B97875006ED67C /* DatabaseViewController.swift in Sources */,
 				4DE1233F20EE584E0004C28E /* AttributedString.swift in Sources */,
 				4DF709EE21C93D7D007A5317 /* EndGameViewController.swift in Sources */,
@@ -873,14 +981,23 @@
 				4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */,
 				4DA36ADB21A41D6600B757BE /* RussianRouletteView.swift in Sources */,
 				4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */,
+				4D8DFB9F21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift in Sources */,
+				4DE11B2121F0DA52005A092E /* AnagramView.swift in Sources */,
+				4D77E70821F0E28E00B27E56 /* TheBottleView.swift in Sources */,
 				4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */,
+				4DE0883A21FB487A00898A9A /* GroupDrinkViewController.swift in Sources */,
 				4D12F7BD21A6BB10004FAB50 /* WelcomeViewController.swift in Sources */,
 				4D79986D21174276006FE28B /* RingOfFireView.swift in Sources */,
 				4D7998652115F388006FE28B /* ScoreViewController.swift in Sources */,
 				4DC819752121099200F09922 /* FingerItView.swift in Sources */,
 				4DC81963211C511700F09922 /* UIApplication.swift in Sources */,
 				4D3A8E5B212567360018C047 /* Room.swift in Sources */,
+				4DA6ED7C21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift in Sources */,
+				4D766E9321F0DDD20027EF1F /* FiveThingsView.swift in Sources */,
+				4D0E59FA21F0E0D30027CCA5 /* CollectAndBoomView.swift in Sources */,
 				4D12F7BF21A6BB84004FAB50 /* PageViewController.swift in Sources */,
+				4D0711D621F0CD62006D4563 /* ShiptripView.swift in Sources */,
+				4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */,
 				4DE1234320EF6F5A0004C28E /* SetUpPlayersViewController.swift in Sources */,
 				4D94B6692167A08C002D7B03 /* BonusViewController.swift in Sources */,
 				4DFFD5CD213D5DF200A4989B /* GameCollectionViewCell.swift in Sources */,
@@ -904,11 +1021,13 @@
 				4D79986321149CD3006FE28B /* GameManagement.swift in Sources */,
 				4D68038B2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift in Sources */,
 				4DCC02EA211B8FFD00D71186 /* ScoreTableViewCell.swift in Sources */,
+				4D4A8F7C21F0E46300D0AD6F /* TapperView.swift in Sources */,
 				4DE1234120EF615E0004C28E /* GameTypeViewController.swift in Sources */,
 				4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */,
 				4D77255621BE6D7E006ED67C /* LoaderViewController.swift in Sources */,
 				4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */,
 				4DB8BA43210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift in Sources */,
+				4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */,
 				4DFCA2682122DEB8001B2E71 /* GameDetaisViewController.swift in Sources */,
 				4DC819692120D46700F09922 /* MusicRecognizerView.swift in Sources */,
 				4DC8196D2120E60500F09922 /* SwitchHandView.swift in Sources */,
@@ -922,13 +1041,16 @@
 				4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */,
 				4D56D4D3214FF403004A591A /* GameInfoBlurViewController.swift in Sources */,
 				4DE1234B20F3512B0004C28E /* Player.swift in Sources */,
+				4DE0883C21FB55C200898A9A /* RandomPictogramViewController.swift in Sources */,
 				4DE1234620EF71D80004C28E /* Constants.swift in Sources */,
 				4DA36AD721A40AC600B757BE /* TrueOrFalse.swift in Sources */,
 				4DFFD5B421341C4200A4989B /* Game.swift in Sources */,
 				4D12F7BB21A6B07F004FAB50 /* GameManagementViewController.swift in Sources */,
 				4DC819712120E8EE00F09922 /* RockPaperScissorsView.swift in Sources */,
+				4D1353042203015D00064E02 /* Anagramma.swift in Sources */,
 				4D1BDED521131D5500E51AA9 /* EverybodyDrinksView.swift in Sources */,
 				4DA36AEA21A565C200B757BE /* PermissionViewController.swift in Sources */,
+				4DDDEBA121E39898006FDA6E /* WhoAmIManagerView.swift in Sources */,
 				4D3A8E5721241BCC0018C047 /* CheersToTheGovernorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

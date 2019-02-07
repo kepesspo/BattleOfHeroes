@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,31 +25,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gw-yR-MDp">
-                    <rect key="frame" x="158" y="60" width="59.5" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <rect key="frame" x="152" y="40" width="71" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueV-RZ-VKX">
-                    <rect key="frame" x="10" y="321.5" width="355" height="24"/>
+                    <rect key="frame" x="10" y="306" width="355" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRL-qP-Qqq">
-                    <rect key="frame" x="10" y="375.5" width="355" height="24"/>
+                    <rect key="frame" x="10" y="350" width="355" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJr-cj-FX1">
-                    <rect key="frame" x="10" y="429.5" width="355" height="20.5"/>
+                    <rect key="frame" x="10" y="394" width="355" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memoria" translatesAutoresizingMaskIntoConstraints="NO" id="ub9-t0-AmJ">
-                    <rect key="frame" x="118.5" y="100" width="138" height="200"/>
+                    <rect key="frame" x="118.5" y="86" width="138.5" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="KJy-Ag-86d"/>
                         <constraint firstAttribute="width" secondItem="ub9-t0-AmJ" secondAttribute="height" multiplier="286:413" id="dOK-Fd-bHu"/>
@@ -60,17 +59,17 @@
             <color key="backgroundColor" red="0.43529411764705883" green="0.94901960784313721" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ub9-t0-AmJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2Sm-Cp-C6M"/>
-                <constraint firstItem="ueV-RZ-VKX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="473-Sr-gIn"/>
                 <constraint firstItem="ueV-RZ-VKX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6Zn-rQ-Ufi"/>
-                <constraint firstItem="wRL-qP-Qqq" firstAttribute="top" secondItem="ueV-RZ-VKX" secondAttribute="bottom" constant="30" id="CQa-3I-6ee"/>
+                <constraint firstItem="wRL-qP-Qqq" firstAttribute="top" secondItem="ueV-RZ-VKX" secondAttribute="bottom" constant="20" id="CQa-3I-6ee"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wRL-qP-Qqq" secondAttribute="trailing" constant="10" id="IsH-rT-G0A"/>
                 <constraint firstItem="fJr-cj-FX1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PB7-bU-KjS"/>
                 <constraint firstItem="wRL-qP-Qqq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PDP-Sv-8da"/>
                 <constraint firstItem="wRL-qP-Qqq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ZXx-Yl-hAT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fJr-cj-FX1" secondAttribute="trailing" constant="10" id="ZvL-kh-aNA"/>
-                <constraint firstItem="fJr-cj-FX1" firstAttribute="top" secondItem="wRL-qP-Qqq" secondAttribute="bottom" constant="30" id="a75-R6-eNq"/>
+                <constraint firstItem="fJr-cj-FX1" firstAttribute="top" secondItem="wRL-qP-Qqq" secondAttribute="bottom" constant="20" id="a75-R6-eNq"/>
                 <constraint firstItem="0Gw-yR-MDp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bd0-RE-sfR"/>
-                <constraint firstItem="0Gw-yR-MDp" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="eKF-Tj-Enw"/>
+                <constraint firstItem="ueV-RZ-VKX" firstAttribute="top" secondItem="ub9-t0-AmJ" secondAttribute="bottom" constant="20" id="cND-6H-vsT"/>
+                <constraint firstItem="0Gw-yR-MDp" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="eKF-Tj-Enw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ueV-RZ-VKX" secondAttribute="trailing" constant="10" id="vUV-jj-Iah"/>
                 <constraint firstItem="fJr-cj-FX1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="wTt-G6-GV5"/>
                 <constraint firstItem="ueV-RZ-VKX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="wn4-Uq-6mx"/>
@@ -80,6 +79,6 @@
         </view>
     </objects>
     <resources>
-        <image name="memoria" width="286" height="413"/>
+        <image name="memoria" width="286.5" height="413.5"/>
     </resources>
 </document>

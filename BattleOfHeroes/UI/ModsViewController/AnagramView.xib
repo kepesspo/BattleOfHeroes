@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnagramView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="IGH-lT-4KR" id="ec1-C7-Fwy"/>
+                <outlet property="gameInLevelLabel" destination="On3-t9-0cJ" id="zra-77-BXi"/>
+                <outlet property="letterFourLabel" destination="h5k-tu-iGf" id="QID-xq-hgM"/>
+                <outlet property="letterOneLabel" destination="dUu-9J-78m" id="hQc-ki-ysi"/>
+                <outlet property="letterThreeLabel" destination="wan-1Q-iVM" id="mvQ-X3-deT"/>
+                <outlet property="letterTwoLabel" destination="897-mS-LHW" id="rbE-ac-PPr"/>
+                <outlet property="statButton" destination="C4G-n8-cem" id="1h1-gd-OaQ"/>
+                <outlet property="timerLabel" destination="Cl1-oP-9T5" id="HbJ-oB-GAx"/>
+                <outlet property="wordLabel" destination="8hv-vO-HIx" id="YkP-KS-HPp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IGH-lT-4KR">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="On3-t9-0cJ">
+                    <rect key="frame" x="158" y="50" width="59.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anagramma" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6L-wb-fqH">
+                    <rect key="frame" x="129.5" y="110" width="116" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUu-9J-78m">
+                    <rect key="frame" x="60.5" y="273.5" width="94" height="48"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="897-mS-LHW">
+                    <rect key="frame" x="220.5" y="273.5" width="94" height="48"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wan-1Q-iVM">
+                    <rect key="frame" x="60.5" y="421.5" width="94" height="48"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5k-tu-iGf">
+                    <rect key="frame" x="220.5" y="421.5" width="94" height="48"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hv-vO-HIx">
+                    <rect key="frame" x="187.5" y="547" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4G-n8-cem">
+                    <rect key="frame" x="152.5" y="173.5" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="FUn-KL-swb"/>
+                        <constraint firstAttribute="width" secondItem="C4G-n8-cem" secondAttribute="height" multiplier="1:1" id="JIT-C5-Hbi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" backgroundImage="start_gomb">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="showAnagramAction:" destination="-1" eventType="touchUpInside" id="hWz-PX-cgo"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rakj ki 3másodperc alatt egy értelmes szót." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlo-PZ-F1A">
+                    <rect key="frame" x="10" y="145" width="355" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl1-oP-9T5">
+                    <rect key="frame" x="166.5" y="198" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dUu-9J-78m" firstAttribute="top" secondItem="C4G-n8-cem" secondAttribute="bottom" constant="30" id="058-fq-2iG"/>
+                <constraint firstItem="897-mS-LHW" firstAttribute="centerX" secondItem="a6L-wb-fqH" secondAttribute="centerX" constant="80" id="2bP-sr-Mi2"/>
+                <constraint firstItem="On3-t9-0cJ" firstAttribute="top" secondItem="YEI-y6-dWB" secondAttribute="top" constant="30" id="5Iz-lD-Cnc"/>
+                <constraint firstItem="8hv-vO-HIx" firstAttribute="centerX" secondItem="YEI-y6-dWB" secondAttribute="centerX" id="8Kx-q5-7LL"/>
+                <constraint firstItem="Wlo-PZ-F1A" firstAttribute="leading" secondItem="YEI-y6-dWB" secondAttribute="leading" constant="10" id="8e3-m3-hEd"/>
+                <constraint firstItem="Cl1-oP-9T5" firstAttribute="centerY" secondItem="C4G-n8-cem" secondAttribute="centerY" id="Cxc-xQ-Pt2"/>
+                <constraint firstItem="wan-1Q-iVM" firstAttribute="centerX" secondItem="dUu-9J-78m" secondAttribute="centerX" id="D10-lG-yTn"/>
+                <constraint firstItem="YEI-y6-dWB" firstAttribute="bottom" secondItem="8hv-vO-HIx" secondAttribute="bottom" constant="120" id="E5g-Un-xpw"/>
+                <constraint firstItem="C4G-n8-cem" firstAttribute="centerX" secondItem="a6L-wb-fqH" secondAttribute="centerX" id="Fh1-sz-57p"/>
+                <constraint firstItem="wan-1Q-iVM" firstAttribute="top" secondItem="dUu-9J-78m" secondAttribute="bottom" constant="100" id="Iyg-EX-FtC"/>
+                <constraint firstItem="a6L-wb-fqH" firstAttribute="centerX" secondItem="IGH-lT-4KR" secondAttribute="centerX" id="JuV-aU-JhT"/>
+                <constraint firstItem="On3-t9-0cJ" firstAttribute="centerX" secondItem="IGH-lT-4KR" secondAttribute="centerX" id="O3i-UW-pZ0"/>
+                <constraint firstItem="a6L-wb-fqH" firstAttribute="top" secondItem="On3-t9-0cJ" secondAttribute="bottom" constant="30" id="O60-bU-yN7"/>
+                <constraint firstItem="C4G-n8-cem" firstAttribute="top" secondItem="Wlo-PZ-F1A" secondAttribute="bottom" constant="8" id="S2U-gQ-aY1"/>
+                <constraint firstItem="dUu-9J-78m" firstAttribute="centerX" secondItem="IGH-lT-4KR" secondAttribute="centerX" constant="-80" id="SWS-TB-cuI"/>
+                <constraint firstItem="Cl1-oP-9T5" firstAttribute="centerX" secondItem="C4G-n8-cem" secondAttribute="centerX" id="Xia-Xs-Jx2"/>
+                <constraint firstItem="897-mS-LHW" firstAttribute="top" secondItem="C4G-n8-cem" secondAttribute="bottom" constant="30" id="aHV-i8-sgL"/>
+                <constraint firstItem="YEI-y6-dWB" firstAttribute="trailing" secondItem="Wlo-PZ-F1A" secondAttribute="trailing" constant="10" id="bl8-WV-TJD"/>
+                <constraint firstItem="h5k-tu-iGf" firstAttribute="centerX" secondItem="897-mS-LHW" secondAttribute="centerX" id="hxb-8k-aRy"/>
+                <constraint firstItem="Wlo-PZ-F1A" firstAttribute="top" secondItem="a6L-wb-fqH" secondAttribute="bottom" constant="8.5" id="i6h-Jq-IiS"/>
+                <constraint firstItem="h5k-tu-iGf" firstAttribute="top" secondItem="897-mS-LHW" secondAttribute="bottom" constant="100" id="jlx-ev-1ea"/>
+                <constraint firstItem="Wlo-PZ-F1A" firstAttribute="centerX" secondItem="a6L-wb-fqH" secondAttribute="centerX" id="tbE-3I-SdN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="YEI-y6-dWB"/>
+            <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XjO-LD-gy5">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+        </button>
+    </objects>
+    <resources>
+        <image name="start_gomb" width="187" height="187"/>
+    </resources>
+</document>

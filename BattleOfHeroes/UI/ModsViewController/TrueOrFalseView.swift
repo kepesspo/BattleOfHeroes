@@ -19,13 +19,17 @@ class TrueOrFalseView: GameView {
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var startLabel: UILabel!
     
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     @IBOutlet weak var falseBtn: UIButton!
     @IBOutlet weak var trueBtn: UIButton!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
     
     var trueOrFalseList = NetworkSevice.sharedInstance.trueOrFalse
     var trueOrFalseText : String?
+    let playersList = NetworkSevice.sharedInstance.playerList
     
     var gameTimer: Timer?
     var seconds = 6
@@ -66,6 +70,10 @@ class TrueOrFalseView: GameView {
     func updateUI() {
         
         trueOrFalseLabel.text = trueOrFalseList[gameIndex].question
+        playerType.text = "Egyéni"
+        gameInfoContainerView.layer.cornerRadius = 10
+        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
+        playerLabel.text = playersList[randomPlayer].playerName
         
         falseBtn.isEnabled = false
         trueBtn.isEnabled = false

@@ -11,8 +11,8 @@ import UIKit
 class InfoViewController: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var popView: UIView!
+    @IBOutlet weak var informationTextView: UITextView!
     
     var infoText :String?
     
@@ -20,7 +20,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         popView.layer.cornerRadius = 10
         popView.layer.masksToBounds = true
-        informationLabel.text = infoText
+        informationTextView.text = infoText
         // Do any additional setup after loading the view.
     }
     

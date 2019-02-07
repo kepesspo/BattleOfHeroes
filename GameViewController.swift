@@ -8,44 +8,41 @@
  
  import UIKit
  
- enum gameLevels : Int {
-    case five = 5
-    case ten = 10
-    case fifty = 15
-    case twenty = 20
- }
- 
  class GameViewController: UIViewController {
     var levelCounter : Int = 1
     var gameInLevel : Int = 1
     var previousRandomIndex = 100
-    
-    @IBOutlet weak var endGameTabButton: UIButton!
-    @IBOutlet weak var informationTabButton: UIButton!
-    @IBOutlet weak var scoreTabButton: UIButton!
-    
-    @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var levelImageView: UIImageView!
-    
-    @IBOutlet weak var scoreContainerView: UIView!
-    @IBOutlet weak var gameContainerView: UIView!
-    
-    @IBOutlet weak var inofContainerView: UIView!
     var chosenGames : [Game] = [Game]()
     
+    @IBOutlet weak var endGameTabButton: UIButton!
+    @IBOutlet weak var scoreTabButton: UIButton!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var levelImageView: UIImageView!
+    @IBOutlet weak var scoreContainerView: UIView!
+    @IBOutlet weak var gameContainerView: UIView!
+    @IBOutlet weak var inofContainerView: UIView!
+    
+    
+    
+    var groupDrinkTimer : Timer?
+    var randomPictogramTimer : Timer?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLevelView()
         subscribeForNotification(name: .endGame, selector: #selector(dismissGame), object: nil)
+        subscribeForNotification(name: .reloadGroupDrinkTimer, selector: #selector(showGroupDrinkView), object: nil)
+        subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(startGameAction))
+        levelImageView.isUserInteractionEnabled = true
+        levelImageView.addGestureRecognizer(tap)
         
         GameManagement.sharedInstance.setCopyCardsList()
         chosenGames = GameManagement.sharedInstance.chosenGames
         
-        let press = UITapGestureRecognizer(target: self, action: #selector(startGameAction))
-        self.view.addGestureRecognizer(press)
-        
+        //startGameAction()
         scoreContainerView.layer.cornerRadius = 10
         scoreContainerView.layer.masksToBounds = true
         
@@ -54,6 +51,9 @@
         
         inofContainerView.layer.cornerRadius = 10
         inofContainerView.layer.masksToBounds = true
+
+        showGroupDrinkView()
+        showRandomPictogram()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,11 +63,36 @@
 
     @objc func startGameAction() {
         if GameManagement.sharedInstance.leveLGameDict.count != 0 {
-            print("Tap want to work")
+            print("Még folyamatban van a játék")
         } else {
             showView()
         }
         
+    }
+    
+    //Extra Game
+    @objc func showGroupDrinkView() {
+        let time = GameManagement.sharedInstance.grouoDrinkTime
+        if GameManagement.sharedInstance.groupDrinksAllow == true {
+            self.groupDrinkTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(time) , repeats: true, block: { _ in
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GroupDrinkViewController") as! GroupDrinkViewController
+                self.present(vc, animated: true, completion: nil)
+                self.groupDrinkTimer?.invalidate()
+                
+            })
+        }
+    }
+    
+    @objc func showRandomPictogram() {
+        let time = GameManagement.sharedInstance.randomPictogramTime
+        if GameManagement.sharedInstance.randomPictogramAllow == true {
+            self.randomPictogramTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(time) , repeats: true, block: { _ in
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RandomPictogramViewController") as! RandomPictogramViewController
+                self.present(vc, animated: true, completion: nil)
+                self.randomPictogramTimer?.invalidate()
+                
+            })
+        }
     }
     
     
@@ -146,7 +171,7 @@
     
     
     @objc func dismissGame() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     
@@ -159,8 +184,9 @@
         showEndGameView()
     }
     
+    
     @IBAction func showInfoDesc(_ sender: Any) {
-        var gameDescription = GameManagement.sharedInstance.leveLGameDict.first?.description
+        let gameDescription = GameManagement.sharedInstance.leveLGameDict.first?.description
         showInfoView(description: gameDescription ?? "Itt még nem látsz játékot igy nincs is hozzá leírás")
     }
  }

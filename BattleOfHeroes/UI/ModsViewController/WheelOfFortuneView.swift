@@ -17,7 +17,9 @@ class WheelOfFortuneView: GameView {
     @IBOutlet weak var spinnerButton: UIButton!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var spinLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
     
+    @IBOutlet weak var gameInfoContainerView: UIView!
     let playersList = NetworkSevice.sharedInstance.playerList
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,11 +42,18 @@ class WheelOfFortuneView: GameView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         showFortuneWheel()
         updateLevelCounterUI()
+        updateUI()
     }
     
     @objc func updateLevelCounterUI() {
         
         gameInLevelLabel.text = self.levelCounter
+    }
+    
+    func updateUI() {
+        playerNameLabel.text = ""
+        playerType.text = "Csoport"
+        gameInfoContainerView.layer.cornerRadius = 10
     }
     
     

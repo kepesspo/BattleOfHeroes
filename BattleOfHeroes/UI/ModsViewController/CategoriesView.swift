@@ -18,6 +18,8 @@ class CategoriesView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var categoriesLabel: UILabel!
     
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var playerLabel: UILabel!
     
@@ -48,10 +50,12 @@ class CategoriesView: GameView {
     }
     
     @objc func updateUI() {
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerType.text = "Sor Játék"
         let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
-        categoriesLabel.text =  "Az kategoria a következő: \(categories[randomIndex])"
-        playerLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName)"
+        categoriesLabel.text =  categories[randomIndex]
+        playerLabel.text = playersList[randomPlayer].playerName
        
     }
 }

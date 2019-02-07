@@ -24,11 +24,21 @@ struct fireBaseRefData {
     static let trueOrFalse = Database.database().reference().child("TrueOrFalse")
     static let haveIEverNever = Database.database().reference().child("HaveIEverNever")
     static let musicRecognizer = Database.database().reference().child("Song")
+    static let anagrammaWord = Database.database().reference().child("Anagramma")
 }
 
 struct UserDefaultsKeys {
     static let spotifyToken = "spotifyToken"
+    static let onboardingClosed = "onboardingClosed"
+    static let roomId = "roomId"
+    static let roomName = "roomName"
+    static let roomPass = "roomPass"
 }
+
+struct DevOptions {
+    static let autoFill = 1
+}
+
 
 
 extension Notification.Name {
@@ -39,4 +49,8 @@ extension Notification.Name {
     static let showBonus = Notification.Name("showBonus")
     static let endGame = Notification.Name("endGame")
     static let getGameDescription = Notification.Name("getGameDescription")
+    static let reloadGroupDrinkTimer = Notification.Name("reloadGroupDrinkTimer")
+    static let randomPictogram = Notification.Name("randomPictogram")
 }
+
+

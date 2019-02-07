@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TheBottleView" customModule="BattleOfHeroes" customModuleProvider="target">
+            <connections>
+                <outlet property="bottleImageView" destination="JGb-gE-B4r" id="E8s-g7-meD"/>
+                <outlet property="contentView" destination="1zB-kc-tHW" id="ci3-Fn-VOy"/>
+                <outlet property="gameInLevelLabel" destination="usT-YD-Avg" id="h1U-ne-Yfa"/>
+                <outlet property="spinButton" destination="gnt-NT-7DP" id="TTb-QR-azh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1zB-kc-tHW">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usT-YD-Avg">
+                    <rect key="frame" x="158" y="50" width="59.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bootle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz2-jG-Kjf">
+                    <rect key="frame" x="136" y="110" width="103" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wine-bottle" translatesAutoresizingMaskIntoConstraints="NO" id="JGb-gE-B4r">
+                    <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="ZgS-qx-Fiy"/>
+                        <constraint firstAttribute="width" secondItem="JGb-gE-B4r" secondAttribute="height" multiplier="1:1" id="k8w-5Y-k9O"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnt-NT-7DP">
+                    <rect key="frame" x="153" y="521" width="70" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="Pörgess">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="spinnTapped:" destination="-1" eventType="touchUpInside" id="GXY-iR-CdZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.3294117647" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JGb-gE-B4r" firstAttribute="centerY" secondItem="1zB-kc-tHW" secondAttribute="centerY" id="2x6-vu-aRh"/>
+                <constraint firstItem="Cz2-jG-Kjf" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="7CU-06-hjF"/>
+                <constraint firstItem="usT-YD-Avg" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="9GH-Uq-HUY"/>
+                <constraint firstItem="usT-YD-Avg" firstAttribute="top" secondItem="06B-sJ-gfr" secondAttribute="top" constant="30" id="Ojb-aS-gOb"/>
+                <constraint firstItem="JGb-gE-B4r" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="Rf0-yI-RqZ"/>
+                <constraint firstItem="Cz2-jG-Kjf" firstAttribute="top" secondItem="usT-YD-Avg" secondAttribute="bottom" constant="30" id="wOm-E5-sat"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="06B-sJ-gfr"/>
+            <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wine-bottle" width="512" height="512"/>
+    </resources>
+</document>

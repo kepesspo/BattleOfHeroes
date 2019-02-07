@@ -11,8 +11,8 @@ import UIKit
 class DrinkCounterViewController: UIViewController {
     
     @IBOutlet weak var howDrinksTableView: UITableView!
-    
     @IBOutlet weak var contentView: UIView!
+    
     let playersList = NetworkSevice.sharedInstance.playerList
     
     override func viewDidLoad() {
@@ -24,8 +24,6 @@ class DrinkCounterViewController: UIViewController {
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
         
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +43,6 @@ class DrinkCounterViewController: UIViewController {
     
     @objc func showBonusView(notification : Notification) {
         let player = notification.object as? Player
-        
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BonusViewController") as! BonusViewController
         vc.playerForBonus.append(player!)
         vc.name = player?.playerName

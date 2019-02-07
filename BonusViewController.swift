@@ -82,8 +82,9 @@ class BonusViewController: UIViewController {
     
     @IBAction func giveDrinks(_ sender: Any) {
         playerTableView.isHidden = false
-        getLifeBtn.isEnabled = false
-        giveDrinksBtn.isEnabled = false
+        getLifeBtn.isHidden = true
+        giveDrinksBtn.isHidden = true
+        
     }
     
     func playBonusAnimation() {
