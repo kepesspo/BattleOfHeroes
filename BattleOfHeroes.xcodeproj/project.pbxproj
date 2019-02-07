@@ -168,7 +168,6 @@
 		4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5C02135667300A4989B /* Rubik-MediumItalic.ttf */; };
 		4DFFD5CD213D5DF200A4989B /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFD5CB213D5DF200A4989B /* GameCollectionViewCell.swift */; };
 		4DFFD5CE213D5DF200A4989B /* GameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFFD5CC213D5DF200A4989B /* GameCollectionViewCell.xib */; };
-		FC66D0D98542A1F6716F74D9 /* Pods_BattleOfHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,7 +366,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC66D0D98542A1F6716F74D9 /* Pods_BattleOfHeroes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
