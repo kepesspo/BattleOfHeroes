@@ -16,28 +16,29 @@ class ExtraSetUpViewController: UIViewController {
     @IBOutlet weak var moreDrinkingOptionsView: UIView!
     @IBOutlet weak var newOptionsView: UIView!
     @IBOutlet weak var levelDrinkLabel: UILabel!
-    
+    @IBOutlet weak var randomPictorgram: UIButton!
+    @IBOutlet weak var randomGroupDrink: UIButton!
     @IBOutlet weak var levelSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var bonusViewSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var drinkCounterSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var randomPictogramSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var groupDrinksSegmentedControl: TTSegmentedControl!
-    
     @IBOutlet weak var randomPictogramSlider: UISlider!
     @IBOutlet weak var randomGroupDrinkingSlider: UISlider!
-    
     @IBOutlet weak var randomPictogramLabel: UILabel!
     @IBOutlet weak var randomGroupDrinkLabel: UILabel!
-    
     @IBOutlet weak var backButton: NSLayoutConstraint!
-    
     @IBOutlet weak var levelScreenSegmentedControl: TTSegmentedControl!
+    
+    var randomPictogramChecked: Bool = false
+    var randomGroupDrinkChecked: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
-        randomPictogramLabel.text = "7 Perc"
-        randomGroupDrinkLabel.text = "5 Perc"
+        randomPictogramLabel.text = "7p"
+        randomGroupDrinkLabel.text = "5p"
         
         GameManagement.sharedInstance.showBonusView = true
         GameManagement.sharedInstance.drininkCounterView = true
@@ -53,6 +54,29 @@ class ExtraSetUpViewController: UIViewController {
     @IBAction func backButtonAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         
+    }
+    @IBAction func randomPictogramTapped(_ sender: Any) {
+       
+        if randomPictogramChecked {
+            randomPictogramChecked = false
+            randomPictorgram.setTitle("Random", for: .normal)
+            randomPictorgram.setBackgroundImage(nil, for: .normal)
+        } else {
+            randomPictogramChecked = true
+            randomPictorgram.setTitle("", for: .normal)
+            randomPictorgram.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
+        }
+    }
+    @IBAction func randomGropDrinkTapped(_ sender: Any) {
+        if randomGroupDrinkChecked {
+            randomGroupDrinkChecked = false
+            randomGroupDrink.setTitle("Random", for: .normal)
+            randomGroupDrink.setBackgroundImage(nil, for: .normal)
+        } else {
+            randomGroupDrinkChecked = true
+            randomGroupDrink.setTitle("", for: .normal)
+            randomGroupDrink.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
+        }
     }
     
     func setUpView() {
@@ -198,15 +222,25 @@ class ExtraSetUpViewController: UIViewController {
     }
     
     @IBAction func randomPictogramAction(_ sender: UISlider) {
-        let currentValue = Int(sender.value)
-        GameManagement.sharedInstance.randomPictogramTime = currentValue
-        randomPictogramLabel.text = "\(currentValue) Perc"
+        if randomPictogramChecked {
+            GameManagement.sharedInstance.randomPictogramTime = Int.random(in: 10...30)
+        } else {
+            let currentValue = Int(sender.value)
+            GameManagement.sharedInstance.randomPictogramTime = currentValue
+            randomPictogramLabel.text = "\(currentValue) Perc"
+        }
+        
     }
     
     @IBAction func randfomGroupDrinkAction(_ sender: UISlider) {
-        let currentValue = Int(sender.value)
-        GameManagement.sharedInstance.grouoDrinkTime = currentValue
-        // * 60
-        randomGroupDrinkLabel.text = "\(currentValue) Perc"
+        if randomGroupDrinkChecked {
+            GameManagement.sharedInstance.grouoDrinkTime = Int.random(in: 10...30)
+        } else {
+            let currentValue = Int(sender.value)
+            GameManagement.sharedInstance.grouoDrinkTime = currentValue
+            // * 60
+            randomGroupDrinkLabel.text = "\(currentValue) Perc"
+        }
+        
     }
 }

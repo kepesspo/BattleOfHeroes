@@ -37,18 +37,17 @@
 "GameTitle_tapper" = "Tapper";
 
 
-"GameDescription_trueOrFalse" = "Itt egy állitás fog megjelenni a képernyőn és elkell dönteni hogy az igaz vagy hamis. Ha úgy itéled meg hogy az állítás igaz akkor felkell nyujtanod ak kezed mikor a számláló letelt mindezt egyszerre a többi emberrel. Ekkor az app megmutatja a helyes választ és aki nem találta el az iszik.";
+"GameDescription_trueOrFalse" = "Játék Típusa: Egyéni \n\nA játékban egy állítás fog megjelenni és elkel dönteni hogy az igaz vagy hamis. Ha úgy ítéled meg hogy az állítás igaz akkor az idő lejárta előtt ezt közölnőd kell a többi játékossal akik ez alapján tudják eldőnteni hogy jól válaszoltál-e. Ugyan ez igaz a Hamis állításra is. Ha nem jó a válaszod akkor sajnos innod kell.";
 
-"GameDescription_categories" = "A játékos választ egy kategóriát és mondani kell rá egy szót ami abba a kategóriába beleillik. Ezután a következő játékosnak az előző szónak az utolsó betűjével kell egy szót mondania. Az aki először hibázik az iszik. 5 másodperc a megengedett gondolkodási időkorlát.";
+"GameDescription_categories" = "Játék Típusa: Sor \n\nA játék választ egy kategóriát és erre az első embernek kell mondani rá egy szót ami abba a kategóriába beleillik. Ezután a következő játékosnak az előző szónak az utolsó betűjével kell egy szót mondania. Az aki először hibázik az iszik. 5 másodperc a megengedett gondolkodási időkorlát.";
 
-"GameDescription_hajime" = "Számolj helyesen. Elkell kezdeni számolni 1-től és ha  5-el vagy 7-el oszható a szám vagy szerepel benne az 5 vagy a 7 akkor hajimét kell mondani aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes hijime után megfordul a kör.";
+"GameDescription_hajime" = "Játék Típusa: Sor \n\nSzámolj helyesen. Elkel kezdeni számolni 1-től és ha  5-el vagy 7-el osztható a szám vagy szerepel benne az 5 vagy a 7 akkor hajimét kell mondani aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes hijime után megfordul a kör.";
 
-"GameDescription_everybodyDrinks" = "A jaták folyamán nem akarjuk azt hogy valaki szomjas maradjon igy minden szinten inni kell valakinek. Ezt a gép sorsolja ki ha elfogytak az emberek akkor előről megy a kör.";
+"GameDescription_everybodyDrinks" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek innia kell. Ezt a gép sorsolja ki ha elfogytak az emberek akkor előről megy a kör.";
 
-"GameDescription_wheelOfFortune" = "Itt az egyszerű szerncsére bizuk a dolgot. Az app random kiválaszt egy embert akinek innia kell.
-";
+"GameDescription_wheelOfFortune" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek meg kell pörgetni-e a szerencsekereket. Akit a szerencsekerék kisorsol annak kell innia.";
 
-"GameDescription_upAndDown" = "Itt az app segítségével francia kártyák lapjai jelennek meg. Megkell mondanod hogy a következő kártya az kissebb vagy nagyobb. Ha eltaláltad jön a következő ember. Minnél tovább megy a jaták annál többet kell innia annak aki hibázik. Szintek: \n1 jó válasz : 1 ivás \n3 jó válasz : 2 ivás \n5 jó válasz : 3 ivás \n7 jó válasz : 4 ivás \n10 jó válasz felett: 5 ivás";
+"GameDescription_upAndDown" = "Játék Típusa: Sor \n\n A játék úgy kezdődik hogy a játék kiválaszt egy játékost aki sor-t fogja kezdeni. Neki meg kell mondani-a hogy hogy a következő szám kisebb vagy nagyobb lesz mint ami a játék kiír. Ez után a következő játékos jön. Minél tovább megy a játék annál többet kell innia annak aki hibázik.";
 
 "GameDescription_ringOfFire" = "A Ring of fire játékban fellelhető dolgokat tartalmazza. Választani kell a kártyák közöl és a kártyának a leírását kell megcsinálni. Ezek az alábbi szabályok:\n2 - is Choose – Válasz valakit aki iszik\n3 - is Me – Én iszok \n4 - is Whore – Összes lány iszik \n5 - Thumb Master - Aki kihuzza ö a jatékmester. Az ujját az asztalra helyezve. Aki utoljára utánnoza az iszik \n6 - is Dicks – Fiuk isznak \n7 - is Heaven – Felkel mutatni az égre aki utoljára utánozza az iszik \n8 - is Mate – Válasz valakit aki iszik veled \n9 - Rhyme  - Aki huzta a lapot annak kell egy szot mondani. Utánna következőnek meg rimelnie kell arra a szora. ha nem siekerul akkor iszik \n10 - Categories - Választni kell egy kategoriát és utánna abba a kategoriába kell mondani szot \nJack - Make a Rule – Hozzni kell egy szabályt amit utánna be kell tartani. \nQueen - Questions –Kérdésekkel kell beszélni egymással \nKing - Pour!- Összekell önteni a piákat. Az utolsó megissza \nA - Waterfall - Addig kell inni ameddig aki kihuzta az ászt ";
 
