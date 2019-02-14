@@ -53,7 +53,6 @@ class TrueOrFalseView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
         let randomIndex = Int(arc4random_uniform(UInt32(trueOrFalseList.count)))
         gameIndex = randomIndex
         updateUI()

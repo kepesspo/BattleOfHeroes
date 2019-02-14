@@ -79,9 +79,9 @@ extension CollectAndBoomView : UICollectionViewDelegate ,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if let cell = collectionView.cellForItem(at: indexPath) as? CollectAndBoomCollectionViewCell {
+        if (collectionView.cellForItem(at: indexPath) as? CollectAndBoomCollectionViewCell) != nil {
             selected[indexPath.row] = true
-            var selectedElementValue = shuffledElements[indexPath.row]
+            let selectedElementValue = shuffledElements[indexPath.row]
             if selectedElementValue == 0 {
                 collectionView.allowsSelection = false
                 collectionView.isUserInteractionEnabled = false

@@ -36,17 +36,20 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wine-bottle" translatesAutoresizingMaskIntoConstraints="NO" id="JGb-gE-B4r">
-                    <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                    <rect key="frame" x="87.5" y="186.5" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="ZgS-qx-Fiy"/>
                         <constraint firstAttribute="width" secondItem="JGb-gE-B4r" secondAttribute="height" multiplier="1:1" id="k8w-5Y-k9O"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnt-NT-7DP">
-                    <rect key="frame" x="153" y="521" width="70" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnt-NT-7DP">
+                    <rect key="frame" x="152.5" y="426.5" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="7c8-52-aj6"/>
+                        <constraint firstAttribute="width" secondItem="gnt-NT-7DP" secondAttribute="height" multiplier="1:1" id="bbQ-xm-4Co"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Pörgess">
+                    <state key="normal" title="Spin" backgroundImage="start_gomb">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -56,11 +59,13 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.3294117647" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="JGb-gE-B4r" firstAttribute="centerY" secondItem="1zB-kc-tHW" secondAttribute="centerY" id="2x6-vu-aRh"/>
                 <constraint firstItem="Cz2-jG-Kjf" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="7CU-06-hjF"/>
                 <constraint firstItem="usT-YD-Avg" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="9GH-Uq-HUY"/>
                 <constraint firstItem="usT-YD-Avg" firstAttribute="top" secondItem="06B-sJ-gfr" secondAttribute="top" constant="30" id="Ojb-aS-gOb"/>
                 <constraint firstItem="JGb-gE-B4r" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="Rf0-yI-RqZ"/>
+                <constraint firstItem="gnt-NT-7DP" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="lFc-bv-Nh5"/>
+                <constraint firstItem="JGb-gE-B4r" firstAttribute="top" secondItem="Cz2-jG-Kjf" secondAttribute="bottom" constant="50" id="nlh-ba-7O5"/>
+                <constraint firstItem="gnt-NT-7DP" firstAttribute="top" secondItem="JGb-gE-B4r" secondAttribute="bottom" constant="40" id="rIo-uH-IKu"/>
                 <constraint firstItem="Cz2-jG-Kjf" firstAttribute="top" secondItem="usT-YD-Avg" secondAttribute="bottom" constant="30" id="wOm-E5-sat"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="06B-sJ-gfr"/>
@@ -68,6 +73,7 @@
         </view>
     </objects>
     <resources>
+        <image name="start_gomb" width="187" height="187"/>
         <image name="wine-bottle" width="512" height="512"/>
     </resources>
 </document>

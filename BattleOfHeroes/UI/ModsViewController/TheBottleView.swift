@@ -56,7 +56,7 @@ class TheBottleView: GameView {
         let rotateView = CABasicAnimation()
         let randonAngle = arc4random_uniform(361) + 360
         rotateView.fromValue = 0
-        rotateView.toValue = Float(randonAngle) * Float(M_PI) / 180.0
+        rotateView.toValue = Float(randonAngle) * .pi / 180.0
         rotateView.duration = 2
         rotateView.repeatCount = 0
         rotateView.isRemovedOnCompletion = false

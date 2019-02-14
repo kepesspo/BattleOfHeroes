@@ -46,7 +46,7 @@
 		4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D096B210B251E00C74CC6 /* Localizable.strings */; };
 		4D4A8F7C21F0E46300D0AD6F /* TapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */; };
 		4D4A8F7E21F0E47100D0AD6F /* TapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */; };
-		4D56D4D3214FF403004A591A /* GameInfoBlurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D2214FF403004A591A /* GameInfoBlurViewController.swift */; };
+		4D56D4D3214FF403004A591A /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D2214FF403004A591A /* GameInfoViewController.swift */; };
 		4D56D4D521512DA7004A591A /* HaveIEverNeverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D421512DA7004A591A /* HaveIEverNeverView.swift */; };
 		4D56D4D721512DC4004A591A /* HaveIEverNeverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D56D4D621512DC4004A591A /* HaveIEverNeverView.xib */; };
 		4D56D4D921513B23004A591A /* WhoAmIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D821513B23004A591A /* WhoAmIView.swift */; };
@@ -145,7 +145,6 @@
 		4DE1232E20EE33C90004C28E /* BattleOfHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1232D20EE33C90004C28E /* BattleOfHeroesUITests.swift */; };
 		4DE1233D20EE45120004C28E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1233C20EE45120004C28E /* UIColorExtension.swift */; };
 		4DE1233F20EE584E0004C28E /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1233E20EE584E0004C28E /* AttributedString.swift */; };
-		4DE1234120EF615E0004C28E /* GameTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234020EF615E0004C28E /* GameTypeViewController.swift */; };
 		4DE1234320EF6F5A0004C28E /* SetUpPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234220EF6F5A0004C28E /* SetUpPlayersViewController.swift */; };
 		4DE1234620EF71D80004C28E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234520EF71D80004C28E /* Constants.swift */; };
 		4DE1234820F350F90004C28E /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234720F350F90004C28E /* Team.swift */; };
@@ -229,7 +228,7 @@
 		4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapperView.swift; sourceTree = "<group>"; };
 		4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapperView.xib; sourceTree = "<group>"; };
 		4D56D4D0214A6607004A591A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4D56D4D2214FF403004A591A /* GameInfoBlurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoBlurViewController.swift; sourceTree = "<group>"; };
+		4D56D4D2214FF403004A591A /* GameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
 		4D56D4D421512DA7004A591A /* HaveIEverNeverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverView.swift; sourceTree = "<group>"; };
 		4D56D4D621512DC4004A591A /* HaveIEverNeverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HaveIEverNeverView.xib; sourceTree = "<group>"; };
 		4D56D4D821513B23004A591A /* WhoAmIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAmIView.swift; sourceTree = "<group>"; };
@@ -334,7 +333,6 @@
 		4DE1232F20EE33C90004C28E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DE1233C20EE45120004C28E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4DE1233E20EE584E0004C28E /* AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
-		4DE1234020EF615E0004C28E /* GameTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypeViewController.swift; sourceTree = "<group>"; };
 		4DE1234220EF6F5A0004C28E /* SetUpPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPlayersViewController.swift; sourceTree = "<group>"; };
 		4DE1234520EF71D80004C28E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4DE1234720F350F90004C28E /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -524,8 +522,7 @@
 				4DE1234220EF6F5A0004C28E /* SetUpPlayersViewController.swift */,
 				4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */,
 				4DFCA2672122DEB8001B2E71 /* GameDetaisViewController.swift */,
-				4D56D4D2214FF403004A591A /* GameInfoBlurViewController.swift */,
-				4DE1234020EF615E0004C28E /* GameTypeViewController.swift */,
+				4D56D4D2214FF403004A591A /* GameInfoViewController.swift */,
 				4D3D096320FCCB2200C74CC6 /* LoginViewController.swift */,
 				4D9B7BC22111BFE4000439AB /* GameViewController.swift */,
 				4D7998642115F388006FE28B /* ScoreViewController.swift */,
@@ -1022,7 +1019,6 @@
 				4D68038B2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift in Sources */,
 				4DCC02EA211B8FFD00D71186 /* ScoreTableViewCell.swift in Sources */,
 				4D4A8F7C21F0E46300D0AD6F /* TapperView.swift in Sources */,
-				4DE1234120EF615E0004C28E /* GameTypeViewController.swift in Sources */,
 				4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */,
 				4D77255621BE6D7E006ED67C /* LoaderViewController.swift in Sources */,
 				4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */,
@@ -1039,7 +1035,7 @@
 				4D3A8E632128C8B50018C047 /* SetUpPlayersTableViewCell.swift in Sources */,
 				4D973D7F21AFFE7700D6038F /* SongParse.swift in Sources */,
 				4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */,
-				4D56D4D3214FF403004A591A /* GameInfoBlurViewController.swift in Sources */,
+				4D56D4D3214FF403004A591A /* GameInfoViewController.swift in Sources */,
 				4DE1234B20F3512B0004C28E /* Player.swift in Sources */,
 				4DE0883C21FB55C200898A9A /* RandomPictogramViewController.swift in Sources */,
 				4DE1234620EF71D80004C28E /* Constants.swift in Sources */,
@@ -1257,7 +1253,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWJ4D43NF7;
+				DEVELOPMENT_TEAM = 3GW2228TNR;
 				INFOPLIST_FILE = BattleOfHeroesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroesTests;
@@ -1274,7 +1270,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWJ4D43NF7;
+				DEVELOPMENT_TEAM = 3GW2228TNR;
 				INFOPLIST_FILE = BattleOfHeroesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroesTests;
@@ -1290,7 +1286,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWJ4D43NF7;
+				DEVELOPMENT_TEAM = 3GW2228TNR;
 				INFOPLIST_FILE = BattleOfHeroesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroesUITests;
@@ -1306,7 +1302,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWJ4D43NF7;
+				DEVELOPMENT_TEAM = 3GW2228TNR;
 				INFOPLIST_FILE = BattleOfHeroesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroesUITests;

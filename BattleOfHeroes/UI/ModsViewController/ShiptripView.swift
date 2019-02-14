@@ -55,6 +55,6 @@ class ShiptripView: GameView {
     
     func updateUI() {
         gameSoundsLabel.text = "Vezényszavak: \n Vihar \n Hajótöröttek \n Részeg tengerész \n Vitorlát bonts"
-        let captain = playersList.randomElement()?.playerName
+        //let captain = playersList.randomElement()?.playerName
     }
 }

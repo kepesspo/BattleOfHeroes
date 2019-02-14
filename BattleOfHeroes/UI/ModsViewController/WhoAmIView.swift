@@ -73,7 +73,7 @@ class WhoAmIView: GameView {
             occurationLabel.text = famousPersonList[randomIndex].occupation
             ageLabel.text = famousPersonList[randomIndex].age
             let imageUrl = NSURL(string: famousPersonList[randomIndex].image)
-            downloadImage(from: imageUrl as! URL)
+            downloadImage(from: imageUrl! as URL)
         } else {
             updateUI()
         }

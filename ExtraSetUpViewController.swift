@@ -55,6 +55,7 @@ class ExtraSetUpViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         
     }
+    
     @IBAction func randomPictogramTapped(_ sender: Any) {
        
         if randomPictogramChecked {
@@ -67,6 +68,7 @@ class ExtraSetUpViewController: UIViewController {
             randomPictorgram.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
         }
     }
+    
     @IBAction func randomGropDrinkTapped(_ sender: Any) {
         if randomGroupDrinkChecked {
             randomGroupDrinkChecked = false
@@ -104,7 +106,7 @@ class ExtraSetUpViewController: UIViewController {
                 self.levelDrinkLabel.text = "ExtraSetUpViewController_Level_easy".localized()
                 GameManagement.sharedInstance.gameDrinkMultiplier = 1
             case 1:
-                self.levelDrinkLabel.text = "ExtraSetUpViewController_Level_medium".localized()
+                self.levelDrinkLabel.text = "ExtraSetUpViewController_Level_medim".localized()
                 GameManagement.sharedInstance.gameDrinkMultiplier = 2
             case 2:
                 self.levelDrinkLabel.text = "ExtraSetUpViewController_Level_hard".localized()
@@ -158,8 +160,6 @@ class ExtraSetUpViewController: UIViewController {
     }
     
     func setUpBonusView() {
-        
-        
         bonusViewSegmentedControl.itemTitles = ["On","Off"]
         bonusViewSegmentedControl.layer.cornerRadius = 5
         bonusViewSegmentedControl.allowChangeThumbWidth = false

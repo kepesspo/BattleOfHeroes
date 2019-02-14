@@ -320,6 +320,10 @@ class GameManagement {
         return UserDefaults.standard.string(forKey: UserDefaultsKeys.onboardingClosed) != nil
     }
     
+    func firstRun() -> Bool {
+        return UserDefaults.standard.string(forKey: UserDefaultsKeys.firstRunClosed) != nil
+    }
+    
     func getRoomName() -> String {
         return UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName) ?? ""
     }
@@ -332,8 +336,6 @@ class GameManagement {
     }
     
     var gamesCategories =  ["Film","Zene","Sport","Gaming","Stand","Szépség","Hiresség","Természet","Utazás","Politika","Kaja","Űr"]
-    
-    
     var easyCategories = ["Film","Zene","Sport","Gaming","Stand","Szépség","Hiresség","Természet","Utazás","Politika","Kaja","Űr"]
     var mediumCategies = ["Autó márkák","Már halott emberek","Olimpiai bajnokok","Játék szoftverek","Növények","Kutya Fajták","Alkohol márkák vagy fajta","Tv csatornák"]
     var hardCategories = ["Amerikai Elnőkők","Feltalálok","Programozási kifejezések","Növényevő állatok","Tavak"]

@@ -14,7 +14,6 @@ class SetUpGameViewController: UIViewController {
     @IBOutlet weak var gameCollectionView: UICollectionView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
     var games = GameManagement.sharedInstance.games
@@ -32,6 +31,11 @@ class SetUpGameViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -43,6 +47,11 @@ class SetUpGameViewController: UIViewController {
             } else {
                 SpotifyLogin.shared.logout()
             }
+        }
+        
+        if GameManagement.sharedInstance.firstRun() == false {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -58,7 +67,7 @@ class SetUpGameViewController: UIViewController {
     
     
     @IBAction func infoButtonTapped(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoBlurViewController") as! GameInfoBlurViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
@@ -314,19 +323,19 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
+        return 2.0
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 3, height: gameCollectionView.bounds.width / 3 + 30)
+        return CGSize(width: gameCollectionView.bounds.width / 3 - 4, height: gameCollectionView.bounds.width / 3 + 30)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
+        return 4.0
     }
     
 }

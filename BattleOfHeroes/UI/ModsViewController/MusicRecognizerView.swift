@@ -85,7 +85,7 @@ class MusicRecognizerView: GameView {
         if let year = Int(songList[randomIndex].releaseDate.prefix(4)) {
             print(year)
             if GameManagement.sharedInstance.allowedYears.contains(year) {
-                var searchURL : String = "https://api.spotify.com/v1/tracks/\(songList[randomIndex].id)"
+                let searchURL : String = "https://api.spotify.com/v1/tracks/\(songList[randomIndex].id)"
                 print(searchURL)
                 callAlamo(url: searchURL, header: tokenForSpotify)
             }
@@ -161,7 +161,7 @@ class MusicRecognizerView: GameView {
         
         let mainImageURL =  URL(string: songObject?.mainImage ?? "")
         let mainImageData = NSData(contentsOf: mainImageURL!)
-        let mainImage = UIImage(data: mainImageData as! Data)
+        let mainImage = UIImage(data: mainImageData! as Data)
         coverImageView.image = mainImage
         
         if let prevUrl = songObject?.previewURL {

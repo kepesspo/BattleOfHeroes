@@ -30,6 +30,7 @@ struct fireBaseRefData {
 struct UserDefaultsKeys {
     static let spotifyToken = "spotifyToken"
     static let onboardingClosed = "onboardingClosed"
+    static let firstRunClosed = "firstRunClosed"
     static let roomId = "roomId"
     static let roomName = "roomName"
     static let roomPass = "roomPass"

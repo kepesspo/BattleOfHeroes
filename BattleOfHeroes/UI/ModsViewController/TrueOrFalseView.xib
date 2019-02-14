@@ -18,7 +18,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrueOrFalseView" customModule="BattleOfHeroes" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="fIv-Wi-KOS"/>
-                <outlet property="falseBtn" destination="8Rf-F5-zqc" id="uwH-5Q-xjT"/>
                 <outlet property="gameInLevelLabel" destination="nOL-md-1qK" id="Bun-qW-wEK"/>
                 <outlet property="gameInfoContainerView" destination="2nE-pg-guN" id="PbQ-A1-glS"/>
                 <outlet property="playerLabel" destination="0AD-sd-Vf8" id="q8Z-j4-yH4"/>
@@ -26,7 +25,6 @@
                 <outlet property="startBtn" destination="wkM-ze-8Fj" id="de0-0X-3e6"/>
                 <outlet property="startLabel" destination="rRA-Zm-Avg" id="HzD-sm-n1p"/>
                 <outlet property="timer" destination="YcA-6e-wWU" id="Qpz-Nq-iWt"/>
-                <outlet property="trueBtn" destination="2YK-gW-4Dg" id="Sit-rk-b7K"/>
                 <outlet property="trueOrFalseLabel" destination="UZg-DO-UMV" id="XPV-Ht-way"/>
             </connections>
         </placeholder>
@@ -80,42 +78,6 @@
                     <color key="textColor" red="0.1529411765" green="0.7843137255" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pT3-zf-PXK">
-                    <rect key="frame" x="10" y="557" width="355" height="50"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Rf-F5-zqc">
-                            <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
-                            <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
-                            <state key="normal" title="Hamis" backgroundImage="hamis_kisebb_gomb">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="falseBtnAction:" destination="-1" eventType="touchUpInside" id="ckz-oT-tQn"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YK-gW-4Dg">
-                            <rect key="frame" x="187.5" y="0.0" width="167.5" height="50"/>
-                            <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
-                            <state key="normal" title="Igaz" backgroundImage="igaz_nagyobb_gomb">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="trueBtnAction:" destination="-1" eventType="touchUpInside" id="34d-sV-Izc"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="a9W-ed-mgK"/>
-                        <constraint firstItem="2YK-gW-4Dg" firstAttribute="width" secondItem="8Rf-F5-zqc" secondAttribute="width" id="d2l-qe-Xz1"/>
-                        <constraint firstItem="2YK-gW-4Dg" firstAttribute="height" secondItem="8Rf-F5-zqc" secondAttribute="height" id="w7v-kj-iKK"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="8Rf-F5-zqc"/>
-                            <exclude reference="2YK-gW-4Dg"/>
-                        </mask>
-                    </variation>
-                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nE-pg-guN">
                     <rect key="frame" x="30" y="40" width="315" height="60"/>
                     <subviews>
@@ -164,13 +126,10 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="arh-Ol-G9O" secondAttribute="trailing" constant="10" id="PpD-Va-iT9"/>
                 <constraint firstItem="YcA-6e-wWU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="RnE-op-594"/>
                 <constraint firstItem="arh-Ol-G9O" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YnF-SH-bZA"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="pT3-zf-PXK" secondAttribute="bottom" constant="60" id="Zqe-3g-bZO"/>
-                <constraint firstItem="pT3-zf-PXK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="afi-f9-4My"/>
                 <constraint firstItem="arh-Ol-G9O" firstAttribute="top" secondItem="UZg-DO-UMV" secondAttribute="bottom" constant="30" id="bLi-uT-xYI"/>
                 <constraint firstItem="UZg-DO-UMV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="eev-O9-Qbx"/>
                 <constraint firstItem="arh-Ol-G9O" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ewa-iJ-o4l"/>
                 <constraint firstItem="YcA-6e-wWU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fd9-Lj-KDP"/>
-                <constraint firstAttribute="trailing" secondItem="pT3-zf-PXK" secondAttribute="trailing" constant="10" id="jea-WN-dxF"/>
                 <constraint firstItem="rRA-Zm-Avg" firstAttribute="centerX" secondItem="wkM-ze-8Fj" secondAttribute="centerX" constant="-1" id="mgB-4F-5OY"/>
                 <constraint firstItem="3CL-CZ-gQz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qDA-hw-fCd"/>
                 <constraint firstItem="YcA-6e-wWU" firstAttribute="top" secondItem="arh-Ol-G9O" secondAttribute="bottom" constant="20" id="tbC-m9-GNQ"/>
@@ -181,8 +140,6 @@
         </view>
     </objects>
     <resources>
-        <image name="hamis_kisebb_gomb" width="339" height="91"/>
-        <image name="igaz_nagyobb_gomb" width="339" height="91"/>
         <image name="igazhamis" width="452.5" height="368"/>
         <image name="start_gomb" width="187" height="187"/>
     </resources>
