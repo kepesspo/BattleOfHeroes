@@ -15,6 +15,9 @@ class HorseRaceView: GameView {
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var moveButton: UIButton!
     @IBOutlet weak var horseColorImageView: UIImageView!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
@@ -37,7 +40,7 @@ class HorseRaceView: GameView {
     var seconds = 60
     var timer = Timer()
     var isTimerRunning = false
-    
+    let playersList = NetworkSevice.sharedInstance.playerList
    
     
     override init(frame: CGRect) {
@@ -60,6 +63,7 @@ class HorseRaceView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateLevelCounterUI()
+        updateUI()
         
     }
     
@@ -142,5 +146,12 @@ class HorseRaceView: GameView {
     @objc func updateLevelCounterUI() {
         
         gameInLevelLabel.text = self.levelCounter
+    }
+    
+    func updateUI() {
+        playerType.text = "Group"
+        playerName.text = playersList.randomElement()?.playerName
+        gameInfoContainerView.layer.cornerRadius = 10
+        
     }
 }

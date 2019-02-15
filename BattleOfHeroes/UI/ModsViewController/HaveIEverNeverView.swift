@@ -14,7 +14,10 @@ class HaveIEverNeverView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var haveIEverNeverLabel: UILabel!
     @IBOutlet weak var gameInLevelLabel: UILabel!
-
+    @IBOutlet weak var gameInfoContainerView: UIView!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    
     var trueOrFalseText : String?
     var gameTimer: Timer?
     var seconds = 6
@@ -51,5 +54,8 @@ class HaveIEverNeverView: GameView {
     func updateUI() {
         let randomIndex = Int(arc4random_uniform(UInt32(haveIEverNeverList.count)))
         haveIEverNeverLabel.text = haveIEverNeverList[randomIndex].question
+        playerLabel.text = ""
+        playerType.text = "Group"
+        gameInfoContainerView.layer.cornerRadius = 10
     }
 }

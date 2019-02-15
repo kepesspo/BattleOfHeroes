@@ -14,12 +14,14 @@ class RingOfFireView : GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var ruleLabel: UILabel!
     @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
     
     @IBOutlet weak var card1Btn: UIButton!
     @IBOutlet weak var card2Btn: UIButton!
     @IBOutlet weak var card3Btn: UIButton!
     @IBOutlet weak var cardStackView: UIStackView!
     @IBOutlet weak var nextPlayer: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var cardsCopy = GameManagement.sharedInstance.copyCards
     var savedCard : UIImage?
@@ -71,6 +73,9 @@ class RingOfFireView : GameView {
     
     func updateUI() {
         //ringOfFireLabelText.text = "Ring Of Fire"
+        playerType.text = "Group"
+        
+        gameInfoContainerView.layer.cornerRadius = 10
     }
     
     func addImgToCard() {
@@ -114,19 +119,17 @@ class RingOfFireView : GameView {
     }
     
     func sequencedPlayer() {
-        let player = NSMutableAttributedString()
+        let player : String = ""
         var playerIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex
         if playerIndex + 1 > playerList.count {
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = 0
             
             playerIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex
-            player.appendColored(.white, font: .bold(60), "\(playerList[playerIndex].playerName)")
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            nextPlayer.attributedText = player
+            nextPlayer.text = playerList[playerIndex].playerName
         } else {
-            player.appendColored(.white, font: .bold(60), "\(playerList[playerIndex].playerName)")
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            nextPlayer.attributedText = player
+            nextPlayer.text = playerList[playerIndex].playerName
         }
     }
     

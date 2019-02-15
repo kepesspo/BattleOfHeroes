@@ -18,8 +18,9 @@ class WheelOfFortuneView: GameView {
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var spinLabel: UILabel!
     @IBOutlet weak var playerType: UILabel!
-    
+    @IBOutlet weak var spinPlayerLabel: UILabel!
     @IBOutlet weak var gameInfoContainerView: UIView!
+    
     let playersList = NetworkSevice.sharedInstance.playerList
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +55,7 @@ class WheelOfFortuneView: GameView {
         playerNameLabel.text = ""
         playerType.text = "Csoport"
         gameInfoContainerView.layer.cornerRadius = 10
+        spinPlayerLabel.text = playersList.randomElement()?.playerName
     }
     
     

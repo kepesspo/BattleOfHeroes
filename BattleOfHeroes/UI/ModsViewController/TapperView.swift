@@ -13,7 +13,6 @@ class TapperView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var tapperText: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var timerOneLabel: UILabel!
     @IBOutlet weak var timerTwoLabel: UILabel!
@@ -21,12 +20,17 @@ class TapperView: GameView {
     @IBOutlet weak var timerTwoButton: UIButton!
     @IBOutlet weak var separateView: UIView!
     @IBOutlet weak var winnerLabel: UILabel!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var tapperText: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     
     var second : Double = 5.00
     var firstPlayrTap : Bool = false
     var secondPlayrTap : Bool = false
-    
+    let playersList = NetworkSevice.sharedInstance.playerList
+
     weak var timer: Timer?
     var gameStartTime: Data?
     var gameEnd: Bool = false
@@ -63,6 +67,9 @@ class TapperView: GameView {
     }
     
     func updateUI() {
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerLabel.text = playersList.randomElement()?.playerName
+        playerType.text = "Battle"
         tapperText.text = "Légy te a legközelebb a 0-hoz."
         timerOneLabel.text = "Start"
         timerTwoLabel.text = "Start"

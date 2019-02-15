@@ -15,11 +15,14 @@ class CollectAndBoomView: GameView {
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var collectAndBoomCollectionView: UICollectionView!
     @IBOutlet weak var drinkCounterLabel: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
     
     var shuffledElements = [0,0,0,1,1,1,2,2,2].shuffled()
     var selected = [false,false,false,false,false,false,false,false,false]
     var drinkCount = 1
-    
+    let playersList = NetworkSevice.sharedInstance.playerList
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -44,11 +47,18 @@ class CollectAndBoomView: GameView {
         collectAndBoomCollectionView.allowsSelection = true
         drinkCounterLabel.text = ""
         updateLevelCounterUI()
+        updateUI()
         
     }
     
     @objc func updateLevelCounterUI() {
         gameInLevelLabel.text = self.levelCounter
+    }
+    
+    func updateUI() {
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerLabel.text = playersList.randomElement()?.playerName
+        playerType.text = "Line"
     }
 }
 

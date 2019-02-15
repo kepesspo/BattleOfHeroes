@@ -17,7 +17,11 @@ class FiveThingsView: GameView {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var playerLabel: UILabel!
     
+    let playersList = NetworkSevice.sharedInstance.playerList
     var category = GameManagement.sharedInstance.gamesCategories
     var gameTimer: Timer?
     var seconds = 6
@@ -51,8 +55,11 @@ class FiveThingsView: GameView {
     }
     
     func updateUI() {
+        playerType.text = "Personal"
+        playerLabel.text = playersList.randomElement()?.playerName
         categoryLabel.isHidden = true
         timerLabel.isHidden = true
+        gameInfoContainerView.layer.cornerRadius = 10
     }
     
     @IBAction func startTapped(_ sender: Any) {

@@ -55,31 +55,7 @@ class ExtraSetUpViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         
     }
-    
-    @IBAction func randomPictogramTapped(_ sender: Any) {
-       
-        if randomPictogramChecked {
-            randomPictogramChecked = false
-            randomPictorgram.setTitle("Random", for: .normal)
-            randomPictorgram.setBackgroundImage(nil, for: .normal)
-        } else {
-            randomPictogramChecked = true
-            randomPictorgram.setTitle("", for: .normal)
-            randomPictorgram.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
-        }
-    }
-    
-    @IBAction func randomGropDrinkTapped(_ sender: Any) {
-        if randomGroupDrinkChecked {
-            randomGroupDrinkChecked = false
-            randomGroupDrink.setTitle("Random", for: .normal)
-            randomGroupDrink.setBackgroundImage(nil, for: .normal)
-        } else {
-            randomGroupDrinkChecked = true
-            randomGroupDrink.setTitle("", for: .normal)
-            randomGroupDrink.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
-        }
-    }
+  
     
     func setUpView() {
         setUpLevelCounterView()
@@ -226,21 +202,59 @@ class ExtraSetUpViewController: UIViewController {
             GameManagement.sharedInstance.randomPictogramTime = Int.random(in: 10...30)
         } else {
             let currentValue = Int(sender.value)
-            GameManagement.sharedInstance.randomPictogramTime = currentValue
+            GameManagement.sharedInstance.randomPictogramTime = currentValue * 60
             randomPictogramLabel.text = "\(currentValue) Perc"
         }
         
     }
     
-    @IBAction func randfomGroupDrinkAction(_ sender: UISlider) {
+    @IBAction func randomGroupDrinkAction(_ sender: UISlider) {
         if randomGroupDrinkChecked {
-            GameManagement.sharedInstance.grouoDrinkTime = Int.random(in: 10...30)
+            GameManagement.sharedInstance.groupDrinkTime = Int.random(in: 10...30)
         } else {
             let currentValue = Int(sender.value)
-            GameManagement.sharedInstance.grouoDrinkTime = currentValue
-            // * 60
+            GameManagement.sharedInstance.groupDrinkTime = currentValue * 60
             randomGroupDrinkLabel.text = "\(currentValue) Perc"
         }
         
+    }
+    
+    
+    @IBAction func randomPictogramTapped(_ sender: Any) {
+        
+        if randomPictogramChecked {
+            randomPictogramChecked = false
+            randomPictorgram.setTitle("Rand", for: .normal)
+            randomPictorgram.setBackgroundImage(nil, for: .normal)
+            randomPictogramSlider.isHidden = false
+            randomPictogramLabel.isHidden = false
+            
+        } else {
+            randomPictogramChecked = true
+            randomPictorgram.setTitle("", for: .normal)
+            randomPictorgram.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
+            let currentValue = Int.random(in: 10...30)
+            GameManagement.sharedInstance.groupDrinkTime = currentValue * 60
+            randomPictogramSlider.isHidden = true
+            randomPictogramLabel.isHidden = true
+        }
+    }
+    
+    @IBAction func randomGropDrinkTapped(_ sender: Any) {
+        if randomGroupDrinkChecked {
+            randomGroupDrinkChecked = false
+            randomGroupDrink.setTitle("Rand", for: .normal)
+            randomGroupDrink.setBackgroundImage(nil, for: .normal)
+            randomGroupDrinkingSlider.isHidden = false
+            randomGroupDrinkLabel.isHidden = false
+        } else {
+            randomGroupDrinkChecked = true
+            randomGroupDrink.setTitle("", for: .normal)
+            randomGroupDrink.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
+            let currentValue = Int.random(in: 10...30)
+            GameManagement.sharedInstance.groupDrinkTime = currentValue * 60
+            randomGroupDrinkingSlider.isHidden = true
+            randomGroupDrinkLabel.isHidden = true
+        }
     }
 }

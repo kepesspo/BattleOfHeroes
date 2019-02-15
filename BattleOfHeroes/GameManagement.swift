@@ -133,32 +133,32 @@ enum GameMode: String {
     
     func gameType() -> GameType {
         switch self {
-        case .trueOrFalse: return .normalGame
-        case .categories: return .normalGame
-        case .hajime: return .normalGame
-        case .everybodyDrinks: return .normalGame
-        case .wheelOfFortune:return .normalGame
-        case .upAndDown: return .normalGame
-        case .ringOfFire: return .toolGame
-        case .memory: return .normalGame
-        case .musicRecognizer: return .teamGame
-        case .switchHand: return .toolGame
-        case .rockPaperScissors: return .normalGame
-        case .fingerIt: return .normalGame
-        case .cheersToTheGovernor: return .normalGame
-        case .haveIEverNever: return .normalGame
-        case .whoAmI: return .teamGame
-        case .spoon: return .toolGame
-        case .thePeopleChoice: return .teamGame
-        case .russianRoulette: return .normalGame
-        case .shipTrip: return .betaGame
-        case .horseRace: return .betaGame
-        case .anagram: return .betaGame
-        case .coinFlip: return .betaGame
-        case .fiveThing: return .betaGame
-        case .collectAndBoom: return .betaGame
-        case .theBottle: return .betaGame
-            case .tapper: return .betaGame
+        case .trueOrFalse: return .personalGame
+        case .categories: return .lineGame
+        case .hajime: return .lineGame
+        case .everybodyDrinks: return .personalGame
+        case .wheelOfFortune:return .groupGame
+        case .upAndDown: return .lineGame
+        case .ringOfFire: return .groupGame
+        case .memory: return .lineGame
+        case .musicRecognizer: return .personalGame
+        case .switchHand: return .groupGame
+        case .rockPaperScissors: return .battleGame
+        case .fingerIt: return .groupGame
+        case .cheersToTheGovernor: return .lineGame
+        case .haveIEverNever: return .groupGame
+        case .whoAmI: return .personalGame
+        case .spoon: return .groupGame
+        case .thePeopleChoice: return .personalGame
+        case .russianRoulette: return .personalGame
+        case .shipTrip: return .groupGame
+        case .horseRace: return .groupGame
+        case .anagram: return .personalGame
+        case .coinFlip: return .battleGame
+        case .fiveThing: return .personalGame
+        case .collectAndBoom: return .lineGame
+        case .theBottle: return .groupGame
+        case .tapper: return .battleGame
         }
     }
     
@@ -190,7 +190,7 @@ enum GameMode: String {
         case .fiveThing: return FiveThingsView()
         case .collectAndBoom: return CollectAndBoomView()
         case .theBottle: return TheBottleView()
-            case .tapper: return TapperView()
+        case .tapper: return TapperView()
         }
     }
     
@@ -248,13 +248,14 @@ let GamesDownloadingData: [GameMode] = [
 
 
 enum GameType : String {
-    case normalGame = "Normál Játékok"
-    case toolGame = "Eszközös játákok"
-    case teamGame = "Csapat játékok"
-    case betaGame = "Beta Game"
-    static let allValues = [normalGame,toolGame,teamGame,betaGame]
+    case personalGame = "Personal Game"
+    case groupGame = "Group Game"
+    case lineGame = "Line Game"
+    case battleGame = "Battle Game"
+    static let allValues = [personalGame,groupGame,lineGame,battleGame]
     
 }
+
 
 enum CardValue: String {
     case two = "two"
@@ -368,7 +369,7 @@ class GameManagement {
                                              "Reality Star",
                                              "Instagram Star",
                                              "Dancer"]
-   
+    
     
     // Ring of fire
     var ringOFFirePlayerCounter = 0
@@ -435,8 +436,8 @@ class GameManagement {
                      GameMode.cheersToTheGovernor,
                      GameMode.haveIEverNever,
                      GameMode.whoAmI,
-                     GameMode.spoon,
-                     GameMode.thePeopleChoice,
+                     //GameMode.spoon,
+                     //GameMode.thePeopleChoice,
                      GameMode.russianRoulette,
                      GameMode.shipTrip,
                      GameMode.horseRace,
@@ -458,10 +459,10 @@ class GameManagement {
     var drininkCounterView : Bool = true
     
     var groupDrinksAllow : Bool = true
-    var grouoDrinkTime : Int = 5000
+    var groupDrinkTime : Int = 300
     
     var randomPictogramAllow : Bool = true
-    var randomPictogramTime : Int = 7000
+    var randomPictogramTime : Int = 420
     
     var games = [Game]()
     func getGames() -> [Game] {

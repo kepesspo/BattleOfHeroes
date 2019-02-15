@@ -16,6 +16,8 @@ class MemoryView: GameView {
     @IBOutlet weak var categoriesTextLabel: UILabel!
     @IBOutlet weak var playerTextLabel: UILabel!
     @IBOutlet weak var gameInLevelLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let categories = GameManagement.sharedInstance.gamesCategories
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -45,18 +47,14 @@ class MemoryView: GameView {
     func updateUI() {
         memoryTextLabel.text = "Jegyez meg minden szót!!"
         let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
-        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         
         let categoria = NSMutableAttributedString()
         categoria.appendColored(.black,font: .regular(20), "Következő kategória:\n ")
             .appendColored(.red, font: .regular(30), "\(categories[randomIndex])")
         categoriesTextLabel.attributedText = categoria
-        
-        
-        let player = NSMutableAttributedString()
-        player.appendColored(.black, font: .regular(20), "Játékot Kezdi:\n ").appendColored(.black, font: .bold(60),"\(playersList[randomPlayer].playerName)")
-        playerTextLabel.attributedText = player
-
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerTextLabel.text = playersList.randomElement()?.playerName
+        playerType.text = "Line"
         
         
     }

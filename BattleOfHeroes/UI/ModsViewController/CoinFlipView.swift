@@ -17,6 +17,8 @@ class CoinFlipView: GameView {
     @IBOutlet weak var flipButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var back: UIImageView!
     var front: UIImageView!
@@ -53,6 +55,8 @@ class CoinFlipView: GameView {
     }
     
     func updateUI() {
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerType.text = "Battle"
         personLabel.text = playersList.randomElement()?.playerName
         textLabel.text = "Hivj ki valakit és válasszatok: Fej vagy irás"
         front = UIImageView(image: UIImage(named: "001-coin-1"))

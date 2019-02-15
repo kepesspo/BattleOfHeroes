@@ -15,9 +15,13 @@ class TheBottleView: GameView {
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var bottleImageView: UIImageView!
     @IBOutlet weak var spinButton: UIButton!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var randomTimer : Timer?
-    
+    let playersList = NetworkSevice.sharedInstance.playerList
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -47,11 +51,13 @@ class TheBottleView: GameView {
     }
     
     func updateUI() {
-        
+        playerType.text = "Group"
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerLabel.text = playersList.randomElement()?.playerName
     }
     @IBAction func spinnTapped(_ sender: Any) {
         self.tap.isEnabled = true
-        
+        spinButton.isEnabled = false
         
         let rotateView = CABasicAnimation()
         let randonAngle = arc4random_uniform(361) + 360

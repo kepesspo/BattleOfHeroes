@@ -16,6 +16,8 @@ class RockPaperScissorsView: GameView {
     
     @IBOutlet weak var rockPaperScissorsViewLabel: UILabel!
     @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
 
@@ -43,11 +45,12 @@ class RockPaperScissorsView: GameView {
     
     @objc func updateLevelCounterUI() {
         gameInLevelLabel.text = self.levelCounter
+        playerType.text = "Battle"
+        gameInfoContainerView.layer.cornerRadius = 10
     }
     
     func updateUI() {
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        playerName.text = "Aki a kört kezdi: \(playersList[randomIndex].playerName)"
+        playerName.text = playersList.randomElement()?.playerName
         rockPaperScissorsViewLabel.text = "Annyi csatát kell játszani ahány játékos játszik"
     }
 }

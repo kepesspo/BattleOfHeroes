@@ -20,11 +20,15 @@ class RussianRouletteView: GameView {
     @IBOutlet weak var optionTwoBtn: LottieView!
     @IBOutlet weak var optionThreeBtn: LottieView!
     @IBOutlet weak var optionesStackView: UIStackView!
+    @IBOutlet weak var gameInfoContainerView: UIView!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
     
     @IBOutlet weak var resultLabel: UILabel!
     
     var elements = ["drink","favourite_app_icon","favourite_app_icon"]
-    var idForElement:[Int] = []
+    
+    let playersList = NetworkSevice.sharedInstance.playerList
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,6 +57,7 @@ class RussianRouletteView: GameView {
         }
         
         updateLevelCounterUI()
+        updateUI()
     }
     
     @objc func generateOptions(_ sender: UITapGestureRecognizer) {
@@ -109,4 +114,12 @@ class RussianRouletteView: GameView {
         
         gameInLevelLabel.text = self.levelCounter
     }
+    
+    func updateUI() {
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerType.text = "Personal"
+        playerLabel.text = playersList.randomElement()?.playerName
+    }
+    
+    
 }

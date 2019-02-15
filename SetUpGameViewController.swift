@@ -15,12 +15,13 @@ class SetUpGameViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var sectionHeader: GameSectionHeaderCollectionReusableView!
     
     var games = GameManagement.sharedInstance.games
-    var toolGame : [Game] = [Game]()
-    var normalGame : [Game] = [Game]()
-    var teamGame : [Game] = [Game]()
-    var betaGame : [Game] = [Game]()
+    var groupGames : [Game] = [Game]()
+    var personalGames : [Game] = [Game]()
+    var LineGames : [Game] = [Game]()
+    var BattleGames : [Game] = [Game]()
     
     var chosenGames : [Game] = [Game]()
     
@@ -28,6 +29,7 @@ class SetUpGameViewController: UIViewController {
         super.viewDidLoad()
         addGame()
         gameCollectionView.register(UINib.init(nibName: "GameCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCollectionViewCell")
+        gameCollectionView.showsVerticalScrollIndicator  = false
     }
     
     
@@ -179,10 +181,10 @@ class SetUpGameViewController: UIViewController {
     
     
     func addGame() {
-        toolGame = games.filter { $0.gameType!.rawValue == "Eszközös játákok" }
-        teamGame = games.filter { $0.gameType!.rawValue == "Csapat játékok" }
-        normalGame = games.filter { $0.gameType!.rawValue == "Normál Játékok" }
-        betaGame = games.filter { $0.gameType!.rawValue == "Beta Game"}
+        groupGames = games.filter { $0.gameType!.rawValue == "Group Game" }
+        LineGames = games.filter { $0.gameType!.rawValue == "Line Game" }
+        personalGames = games.filter { $0.gameType!.rawValue == "Personal Game" }
+        BattleGames = games.filter { $0.gameType!.rawValue == "Battle Game"}
         
     }
     
@@ -223,13 +225,13 @@ class SetUpGameViewController: UIViewController {
 extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return normalGame.count
+            return personalGames.count
         } else if section == 1 {
-            return toolGame.count
+            return groupGames.count
         } else if section == 2 {
-            return teamGame.count
+            return LineGames.count
         } else {
-            return betaGame.count
+            return BattleGames.count
         }
     }
     
@@ -248,13 +250,13 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
         cell.delegate = self as CustomCellInfoDelegate
         if indexPath.section == 0 {
-            cell.gameData = normalGame[indexPath.row]
+            cell.gameData = personalGames[indexPath.row]
         } else if indexPath.section == 1 {
-            cell.gameData = toolGame[indexPath.row]
+            cell.gameData = groupGames[indexPath.row]
         } else if indexPath.section == 2 {
-            cell.gameData = teamGame[indexPath.row]
+            cell.gameData = LineGames[indexPath.row]
         } else {
-            cell.gameData = betaGame[indexPath.row]
+            cell.gameData = BattleGames[indexPath.row]
         }
         return cell
     }
@@ -263,51 +265,54 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
         
         switch indexPath.section {
         case 0:
-            if normalGame[indexPath.row].isSelected == true {
-                normalGame[indexPath.row].isSelected = false
-                removeGame(item: normalGame[indexPath.row].name)
-            } else {
-                normalGame[indexPath.row].isSelected = true
-                chosenGames.append(normalGame[indexPath.row])
-            }
-        case 1:
-            if toolGame[indexPath.row].isSelected == true {
-                toolGame[indexPath.row].isSelected = false
-                removeGame(item: toolGame[indexPath.row].name)
-            } else {
-                toolGame[indexPath.row].isSelected = true
-                chosenGames.append(toolGame[indexPath.row])
-            }
-        case 2:
-            if teamGame[indexPath.row].name == "Zene Felismerés" {
-                let isSelected = checkSpotifyTokenGame(game: teamGame[indexPath.row])
+            if personalGames[indexPath.row].name == "Zene Felismerés" {
+                let isSelected = checkSpotifyTokenGame(game: personalGames[indexPath.row])
                 
                 if isSelected == false {
-                    teamGame[indexPath.row].isSelected = false
-                    removeGame(item: teamGame[indexPath.row].name)
-                } else if isSelected == true && teamGame[indexPath.row].isSelected == false {
-                    teamGame[indexPath.row].isSelected = true
-                    chosenGames.append(teamGame[indexPath.row])
+                    personalGames[indexPath.row].isSelected = false
+                    removeGame(item: personalGames[indexPath.row].name)
+                } else if isSelected == true && personalGames[indexPath.row].isSelected == false {
+                    personalGames[indexPath.row].isSelected = true
+                    chosenGames.append(personalGames[indexPath.row])
                 } else {
-                    teamGame[indexPath.row].isSelected = false
-                    removeGame(item: teamGame[indexPath.row].name)
+                    personalGames[indexPath.row].isSelected = false
+                    removeGame(item: personalGames[indexPath.row].name)
                 }
             } else {
-                if teamGame[indexPath.row].isSelected == true {
-                    teamGame[indexPath.row].isSelected = false
-                    removeGame(item: teamGame[indexPath.row].name)
+                if personalGames[indexPath.row].isSelected == true {
+                    personalGames[indexPath.row].isSelected = false
+                    removeGame(item: personalGames[indexPath.row].name)
                 } else {
-                    teamGame[indexPath.row].isSelected = true
-                    chosenGames.append(teamGame[indexPath.row])
+                    personalGames[indexPath.row].isSelected = true
+                    chosenGames.append(personalGames[indexPath.row])
                 }
             }
-        case 3:
-            if betaGame[indexPath.row].isSelected == true {
-                betaGame[indexPath.row].isSelected = false
-                removeGame(item: betaGame[indexPath.row].name)
+            
+            
+        case 1:
+            if groupGames[indexPath.row].isSelected == true {
+                groupGames[indexPath.row].isSelected = false
+                removeGame(item: groupGames[indexPath.row].name)
             } else {
-                betaGame[indexPath.row].isSelected = true
-                chosenGames.append(betaGame[indexPath.row])
+                groupGames[indexPath.row].isSelected = true
+                chosenGames.append(groupGames[indexPath.row])
+            }
+        case 2:
+            if LineGames[indexPath.row].isSelected == true {
+                LineGames[indexPath.row].isSelected = false
+                removeGame(item: LineGames[indexPath.row].name)
+            } else {
+                LineGames[indexPath.row].isSelected = true
+                chosenGames.append(LineGames[indexPath.row])
+            }
+            
+        case 3:
+            if BattleGames[indexPath.row].isSelected == true {
+                BattleGames[indexPath.row].isSelected = false
+                removeGame(item: BattleGames[indexPath.row].name)
+            } else {
+                BattleGames[indexPath.row].isSelected = true
+                chosenGames.append(BattleGames[indexPath.row])
             }
         default:
             print("Def")

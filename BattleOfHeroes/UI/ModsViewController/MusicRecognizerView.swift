@@ -25,6 +25,9 @@ class MusicRecognizerView: GameView {
     @IBOutlet weak var soundAnimationView: LOTAnimationView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var resultButton: UIButton!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     
     var audioPlayer: AVAudioPlayer = AVAudioPlayer()
@@ -34,7 +37,7 @@ class MusicRecognizerView: GameView {
     var gameTimer: Timer!
     var playedMusic: Int = 1
     var songObject : Song?
-    
+    var playerList = NetworkSevice.sharedInstance.playerList
     var tokenForSpotify : HTTPHeaders = HTTPHeaders()
     typealias JSONStandard = [String : AnyObject]
     
@@ -65,6 +68,7 @@ class MusicRecognizerView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateLevelCounterUI()
+        updateUI()
         
         soundAnimationView.isHidden = true
         songLabel.isHidden = true
@@ -78,6 +82,12 @@ class MusicRecognizerView: GameView {
         print(tokenForSpotify)
         
         
+    }
+    
+    func updateUI() {
+        playerType.text = "Personal"
+        playerLabel.text = playerList.randomElement()?.playerName
+        gameInfoContainerView.layer.cornerRadius = 10
     }
     
     func startCallMusic() {

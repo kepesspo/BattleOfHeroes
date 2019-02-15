@@ -16,6 +16,8 @@ class FingerItView: GameView {
     
     @IBOutlet weak var fingerItViewLabel: UILabel!
     @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
 
@@ -48,8 +50,10 @@ class FingerItView: GameView {
     }
     
     func updateUI() {
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        playerName.text = "Aki a kört kezdi: \(playersList[randomIndex].playerName)"
+        playerName.text = playersList.randomElement()?.playerName
+        playerType.text = "Group"
         fingerItViewLabel.text = "Gondolkozz a többiek agyával"
+        gameInfoContainerView.layer.cornerRadius = 10
+        
     }
 }

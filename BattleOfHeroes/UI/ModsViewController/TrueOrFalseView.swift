@@ -15,15 +15,9 @@ class TrueOrFalseView: GameView {
     @IBOutlet weak var trueOrFalseLabel: UILabel!
     @IBOutlet weak var timer: UILabel!
     @IBOutlet weak var startBtn: UIButton!
-    
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var startLabel: UILabel!
-    
     @IBOutlet weak var gameInfoContainerView: UIView!
-    
-    @IBOutlet weak var falseBtn: UIButton!
-    @IBOutlet weak var trueBtn: UIButton!
-    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var playerType: UILabel!
     
@@ -69,19 +63,13 @@ class TrueOrFalseView: GameView {
     func updateUI() {
         
         trueOrFalseLabel.text = trueOrFalseList[gameIndex].question
-        playerType.text = "Egyéni"
+        playerType.text = "Personal"
         gameInfoContainerView.layer.cornerRadius = 10
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         playerLabel.text = playersList[randomPlayer].playerName
-        
-        falseBtn.isEnabled = false
-        trueBtn.isEnabled = false
     }
     
     @IBAction func startBtnAction(_ sender: Any) {
-        falseBtn.isEnabled = true
-        trueBtn.isEnabled = true
-        
         startBtn.isHidden = true
         startLabel.isHidden = true
         
@@ -100,21 +88,9 @@ class TrueOrFalseView: GameView {
     }
     
     func stopTimer() {
-        falseBtn.isEnabled = false
-        trueBtn.isEnabled = false
-        
         if gameTimer != nil {
             gameTimer?.invalidate()
             gameTimer = nil
         }
     }
-    
-    @IBAction func falseBtnAction(_ sender: Any) {
-        
-    }
-    
-    @IBAction func trueBtnAction(_ sender: Any) {
-        
-    }
-    
 }

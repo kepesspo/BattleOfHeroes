@@ -72,7 +72,7 @@
     
     //Extra Game
     @objc func showGroupDrinkView() {
-        let time = GameManagement.sharedInstance.grouoDrinkTime
+        let time = GameManagement.sharedInstance.groupDrinkTime
         if GameManagement.sharedInstance.groupDrinksAllow == true {
             self.groupDrinkTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(time) , repeats: true, block: { _ in
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GroupDrinkViewController") as! GroupDrinkViewController

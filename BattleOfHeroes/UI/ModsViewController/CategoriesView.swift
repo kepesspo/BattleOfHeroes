@@ -51,7 +51,7 @@ class CategoriesView: GameView {
     
     @objc func updateUI() {
         gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Sor Játék"
+        playerType.text = "Line"
         let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         categoriesLabel.text =  categories[randomIndex]

@@ -15,6 +15,8 @@ class SwitchHandView: GameView {
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var switchHandLabel: UILabel!
     @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -46,8 +48,9 @@ class SwitchHandView: GameView {
     }
     
     func updateUI() {
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        playerName.text = "Aki a kört kezdi: \(playersList[randomIndex].playerName)"
+        playerType.text = "Group"
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerName.text = playersList.randomElement()?.playerName
         switchHandLabel.text = "\n1 koppintás = folytassa a sorozatot \n2 koppintás = fordított sorrend \n3 koppintás = hiányolja a következő kezét"
     }
 }

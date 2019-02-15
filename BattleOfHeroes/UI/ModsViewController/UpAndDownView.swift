@@ -19,7 +19,9 @@ class UpAndDownView: GameView {
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
-    
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
+
     var cardWithValue = GameManagement.sharedInstance.cardWithValue
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -48,12 +50,10 @@ class UpAndDownView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
-        
-        //upAndDownTextLabel.text = "Mi lesz a következő szám nagyobb vagy kissebb?"
-        playerNameLabel.text = "Aki a jatékot kezdi : \(playersList[randomPlayer].playerName)"
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerNameLabel.text = playersList.randomElement()?.playerName
         descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint: (A számok 2-14-ig vannak)"
+        playerType.text = "Line"
         updateLevelCounterUI()
         
         

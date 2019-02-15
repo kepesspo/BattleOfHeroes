@@ -385,7 +385,7 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="d7g-BO-H8J">
                                                 <rect key="frame" x="13" y="285" width="215" height="31"/>
                                                 <connections>
-                                                    <action selector="randfomGroupDrinkAction:" destination="bv6-2c-lYX" eventType="valueChanged" id="wyX-l0-h4p"/>
+                                                    <action selector="randomGroupDrinkAction:" destination="bv6-2c-lYX" eventType="valueChanged" id="wyX-l0-h4p"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkF-CW-oPm">
@@ -1167,17 +1167,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IVt-zn-CSU">
-                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
+                                <rect key="frame" x="5" y="95" width="365" height="572"/>
                                 <color key="backgroundColor" red="0.96300119159999997" green="0.86616843939999999" blue="0.8735498786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lHE-GN-tO4">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="jDR-BG-orM" customClass="GameCollectionViewCell" customModule="BattleOfHeroes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="60" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1186,16 +1186,9 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="GameSectionHeaderCollectionReusableView" id="tkh-fK-2t1" customClass="GameSectionHeaderCollectionReusableView" customModule="BattleOfHeroes" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="365" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MH2-7D-zI0">
-                                            <rect key="frame" x="13" y="10" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="7Sa-ri-LeO"/>
-                                                <constraint firstAttribute="width" constant="30" id="rWg-8P-TnC"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-cT-AlU">
                                             <rect key="frame" x="18" y="10" width="63" height="30"/>
                                             <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="25"/>
@@ -1206,19 +1199,10 @@
                                     <color key="backgroundColor" red="0.96470588239999999" green="0.86666666670000003" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="S4u-cT-AlU" firstAttribute="centerY" secondItem="tkh-fK-2t1" secondAttribute="centerY" id="INT-FF-aBy"/>
-                                        <constraint firstItem="MH2-7D-zI0" firstAttribute="leading" secondItem="tkh-fK-2t1" secondAttribute="leadingMargin" constant="5" id="LwX-zP-NrB"/>
                                         <constraint firstItem="S4u-cT-AlU" firstAttribute="leading" secondItem="tkh-fK-2t1" secondAttribute="leadingMargin" constant="10" id="NDf-Bm-oOV"/>
-                                        <constraint firstItem="S4u-cT-AlU" firstAttribute="leading" secondItem="MH2-7D-zI0" secondAttribute="trailing" constant="10" id="Nap-tr-BWV"/>
-                                        <constraint firstItem="MH2-7D-zI0" firstAttribute="centerY" secondItem="tkh-fK-2t1" secondAttribute="centerY" id="TO8-6h-1Fb"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="subviews">
-                                            <exclude reference="MH2-7D-zI0"/>
-                                        </mask>
-                                    </variation>
                                     <connections>
                                         <outlet property="typeLabel" destination="S4u-cT-AlU" id="JB4-af-qrS"/>
-                                        <outlet property="typeimageView" destination="MH2-7D-zI0" id="1JA-uS-jfw"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
@@ -1276,12 +1260,12 @@
                         <color key="backgroundColor" red="0.96300119159999997" green="0.86616843939999999" blue="0.8735498786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="i8x-ee-gW6" firstAttribute="trailing" secondItem="wXJ-P8-0uf" secondAttribute="trailing" id="0KI-nP-KMA"/>
-                            <constraint firstItem="IVt-zn-CSU" firstAttribute="leading" secondItem="i8x-ee-gW6" secondAttribute="leading" id="5rF-tC-w5h"/>
+                            <constraint firstItem="IVt-zn-CSU" firstAttribute="leading" secondItem="i8x-ee-gW6" secondAttribute="leading" constant="5" id="5rF-tC-w5h"/>
                             <constraint firstItem="wXJ-P8-0uf" firstAttribute="leading" secondItem="i8x-ee-gW6" secondAttribute="leading" id="Ltl-uz-RMR"/>
                             <constraint firstItem="wXJ-P8-0uf" firstAttribute="top" secondItem="i8x-ee-gW6" secondAttribute="top" id="cAh-2k-YYA"/>
                             <constraint firstItem="IVt-zn-CSU" firstAttribute="top" secondItem="wXJ-P8-0uf" secondAttribute="bottom" id="cJX-I5-KuM"/>
                             <constraint firstItem="i8x-ee-gW6" firstAttribute="bottom" secondItem="IVt-zn-CSU" secondAttribute="bottom" id="x3l-EM-35X"/>
-                            <constraint firstItem="i8x-ee-gW6" firstAttribute="trailing" secondItem="IVt-zn-CSU" secondAttribute="trailing" id="z1H-bP-xRY"/>
+                            <constraint firstItem="i8x-ee-gW6" firstAttribute="trailing" secondItem="IVt-zn-CSU" secondAttribute="trailing" constant="5" id="z1H-bP-xRY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i8x-ee-gW6"/>
                     </view>

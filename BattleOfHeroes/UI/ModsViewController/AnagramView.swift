@@ -17,11 +17,16 @@ class AnagramView: GameView {
     @IBOutlet weak var letterTwoLabel: UILabel!
     @IBOutlet weak var letterThreeLabel: UILabel!
     @IBOutlet weak var letterFourLabel: UILabel!
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var statButton: UIButton!
     @IBOutlet weak var wordLabel: UILabel!
     var anagrammaList = NetworkSevice.sharedInstance.anagrammaWord
+    let playersList = NetworkSevice.sharedInstance.playerList
+
     var letterList : [Character] = []
     
     
@@ -64,8 +69,11 @@ class AnagramView: GameView {
         letterFourLabel.isHidden = true
         wordLabel.isHidden = true
         timerLabel.isHidden = true
-        statButton.setTitle("Start", for: .normal
-        )
+        gameInfoContainerView.layer.cornerRadius = 10
+        playerLabel.text = playersList.randomElement()?.playerName
+        playerType.text = "Personal"
+        
+        statButton.setTitle("Start", for: .normal)
         let randomWord = anagrammaList.randomElement()?.anagramma
         wordLabel.text = randomWord
         for letter in randomWord ?? "" {

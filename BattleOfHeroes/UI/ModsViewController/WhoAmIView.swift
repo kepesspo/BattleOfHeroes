@@ -13,14 +13,16 @@ class WhoAmIView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var whoAmILabel: UILabel!
     @IBOutlet weak var howAmIImageView: UIImageView!
     @IBOutlet weak var answerBtn: UIButton!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var howAmILabel: UILabel!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var occurationLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var famousPersonList = NetworkSevice.sharedInstance.famousPerson
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -64,6 +66,9 @@ class WhoAmIView: GameView {
         nameLabel.isHidden = true
         occurationLabel.isHidden = true
         ageLabel.isHidden = true
+        playerType.text = "Personal"
+        howAmILabel.text = "How Am I?"
+        gameInfoContainerView.layer.cornerRadius = 10
         
         let randomIndex = Int(arc4random_uniform(UInt32(famousPersonList.count)))
         

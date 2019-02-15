@@ -48,7 +48,7 @@ class EverybodyDrinksView: GameView {
     @objc func updateUI() {
         gameInfoContainerView.layer.cornerRadius = 10
         everybodyDrinksTextLabel.text = "Fenékig"
-        playerType.text = "Egyéni"
+        playerType.text = "Personal"
     }
     
     @objc func updateLevelCounterUI() {

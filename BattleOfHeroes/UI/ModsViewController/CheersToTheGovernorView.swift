@@ -16,6 +16,8 @@ class CheersToTheGovernorView: GameView {
     
     @IBOutlet weak var cheersToTheGovernorLabel: UILabel!
     @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -47,8 +49,9 @@ class CheersToTheGovernorView: GameView {
     }
     
     func updateUI() {
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        playerName.text = "Aki a kört kezdi: \(playersList[randomIndex].playerName)"
+        playerName.text = playersList.randomElement()?.playerName
         cheersToTheGovernorLabel.text = "1-10-ig kell számolni. Utánna Cheers"
+        playerType.text = "Group"
+        gameInfoContainerView.layer.cornerRadius = 10
     }
 }

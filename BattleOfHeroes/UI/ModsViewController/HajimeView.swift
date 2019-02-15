@@ -50,7 +50,7 @@ class HajimeView: GameView {
     
     @objc func updateUI() {
         gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Sor játék"
+        playerType.text = "Line"
         hajimeTextLabel.text = "Tiltot számok: \n - Bármelyik szám, amely tartalmazza a 7 , 5 számot.  \n - A 7 és 5 számának többszörösei \n - Illetve ha valaki a Hajime szót kimondja akkor a kör megfordul."
         let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
         playerName.text = playerList[randomIndex].playerName
