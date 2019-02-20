@@ -184,8 +184,7 @@ class SetUpGameViewController: UIViewController {
         groupGames = games.filter { $0.gameType!.rawValue == "Group Game" }
         LineGames = games.filter { $0.gameType!.rawValue == "Line Game" }
         personalGames = games.filter { $0.gameType!.rawValue == "Personal Game" }
-        BattleGames = games.filter { $0.gameType!.rawValue == "Battle Game"}
-        
+        BattleGames = games.filter { $0.gameType!.rawValue == "Battle Game"}   
     }
     
     func removeGame(item : String) {
@@ -334,7 +333,7 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 3 - 4, height: gameCollectionView.bounds.width / 3 + 30)
+        return CGSize(width: gameCollectionView.bounds.width / 3 - 4, height: gameCollectionView.bounds.width / 3 + 50)
     }
     
     func collectionView(_ collectionView: UICollectionView,

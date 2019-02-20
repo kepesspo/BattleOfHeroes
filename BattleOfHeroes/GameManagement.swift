@@ -451,6 +451,9 @@ class GameManagement {
         return gameModes
     }
     
+    var personWhoDrinks : [String] = [String]()
+    var personDrinkCount : Int = 0
+    var gameSTW : Bool = true
     
     var leveLGameDict : [Game] = [Game]()
     var gameDrinkMultiplier : Int?

@@ -67,12 +67,14 @@ class TrueOrFalseView: GameView {
         gameInfoContainerView.layer.cornerRadius = 10
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         playerLabel.text = playersList[randomPlayer].playerName
+        GameManagement.sharedInstance.personWhoDrinks = [playersList[randomPlayer].playerName]
+        GameManagement.sharedInstance.personDrinkCount = 1
+        GameManagement.sharedInstance.gameSTW = true
     }
     
     @IBAction func startBtnAction(_ sender: Any) {
         startBtn.isHidden = true
         startLabel.isHidden = true
-        
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     

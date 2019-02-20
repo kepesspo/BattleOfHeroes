@@ -12,7 +12,7 @@ import FirebaseDatabase
 import Reachability
 import SpotifyLogin
 
-@UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
+ @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     var window: UIWindow?

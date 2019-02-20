@@ -16,8 +16,9 @@ class GameView : UIView {
     
     var tap: UITapGestureRecognizer!
     var actuallyInfo: String?
-    //var infoDescription: String?
     
+    var personData : [String] = []
+    var drinkCountToCounter = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,9 +37,15 @@ class GameView : UIView {
     }
     
     @objc func tapped() {
+        personData = GameManagement.sharedInstance.personWhoDrinks
+        drinkCountToCounter = GameManagement.sharedInstance.personDrinkCount
+        
         if GameManagement.sharedInstance.drininkCounterView == true {
             GameManagement.sharedInstance.leveLGameDict.removeFirst()
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
+            popOverVC.person = personData
+            popOverVC.drinkCount = drinkCountToCounter
+            
             popOverVC.modalPresentationStyle = .overFullScreen
             if let topController = UIApplication.topViewController() {
                 topController.present(popOverVC, animated: true, completion: {
