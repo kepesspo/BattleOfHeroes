@@ -42,7 +42,7 @@ class WhoAmIView: GameView {
     
     func commonInit() {
         subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
-        self.tap.isEnabled = true
+        self.tap.isEnabled = false
         Bundle.main.loadNibNamed("WhoAmIView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -105,6 +105,7 @@ class WhoAmIView: GameView {
     }
     
     @IBAction func answerAction(_ sender: Any) {
+        self.tap.isEnabled = false
         answerBtn.isHidden = true
         nameLabel.isHidden = false
         occurationLabel.isHidden = false
