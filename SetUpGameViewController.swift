@@ -25,6 +25,7 @@ class SetUpGameViewController: UIViewController {
     
     var chosenGames : [Game] = [Game]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addGame()
@@ -53,6 +54,7 @@ class SetUpGameViewController: UIViewController {
         
         if GameManagement.sharedInstance.firstRun() == false {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
+
             self.present(vc, animated: true, completion: nil)
         }
     }

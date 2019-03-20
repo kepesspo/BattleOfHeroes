@@ -105,7 +105,7 @@ class WhoAmIView: GameView {
     }
     
     @IBAction func answerAction(_ sender: Any) {
-        self.tap.isEnabled = false
+        self.tap.isEnabled = true
         answerBtn.isHidden = true
         nameLabel.isHidden = false
         occurationLabel.isHidden = false
