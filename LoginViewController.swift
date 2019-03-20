@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 class LoginViewController: UIViewController ,UITextFieldDelegate {
 
@@ -15,6 +16,8 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     
     @IBOutlet weak var gameNameTextfield: UITextField!
     @IBOutlet weak var gamePassTextField: UITextField!
+    @IBOutlet weak var versionLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,14 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     
     func setUpView() {
         gameNameTextfield.layer.borderColor = UIColor.black.cgColor
@@ -50,6 +60,10 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
             gamePassTextField.text = "TestA"
         }
         
+        if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String,
+            let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String{
+            versionLabel.text = "Verzió: \(appVersion) (\(version))"
+        }
     }
     
     @IBAction func createGameAction(_ sender: Any) {

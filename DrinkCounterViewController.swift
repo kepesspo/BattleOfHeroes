@@ -12,18 +12,44 @@ class DrinkCounterViewController: UIViewController {
     
     @IBOutlet weak var howDrinksTableView: UITableView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var secondContentView: UIView!
     
+    @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var drinkCountLabel: UILabel!
+    
+    @IBOutlet weak var containerView: UIView!
+    var person: [String] = []
+    var drinkCount = 0
+    var showResultDrinkView = true
     let playersList = NetworkSevice.sharedInstance.playerList
+    
+    var isFlipped: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeForNotification(name: .showBonus, selector: #selector(showBonusView(notification:)), object: nil)
+        showResultDrinkView = GameManagement.sharedInstance.gameSTW
+        
+        if showResultDrinkView {
+            contentView.isHidden = true
+        } else {
+            contentView.isHidden = false
+        }
+        
         howDrinksTableView.separatorStyle = .none
         howDrinksTableView.allowsSelection = false
         
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
         
+        containerView.layer.cornerRadius = 10
+        containerView.layer.masksToBounds = true
+        
+        secondContentView.layer.cornerRadius = 10
+        secondContentView.layer.masksToBounds = true
+        
+        personLabel.text = person[0]
+        drinkCountLabel.text = "\(drinkCount)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,8 +62,17 @@ class DrinkCounterViewController: UIViewController {
     }
     
     @IBAction func saveDrinksData(_ sender: Any) {
+        if !showResultDrinkView {
+            isFlipped = !isFlipped
+            let cardToFlip = isFlipped ? contentView : secondContentView
+            let bottomCard = isFlipped ? secondContentView : contentView
+            UIView.transition(from: cardToFlip!, to: bottomCard!, duration: 0.5, options: .transitionFlipFromRight, completion: nil)
+            showResultDrinkView = true
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
         //postNotification(name: .dismissGame)
-        self.dismiss(animated: true, completion: nil)
+        
     }
     
     

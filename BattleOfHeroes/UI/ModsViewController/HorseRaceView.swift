@@ -153,5 +153,9 @@ class HorseRaceView: GameView {
         playerName.text = playersList.randomElement()?.playerName
         gameInfoContainerView.layer.cornerRadius = 10
         
+        GameManagement.sharedInstance.personWhoDrinks = [playersList.randomElement()?.playerName] as! [String]
+        GameManagement.sharedInstance.personDrinkCount = 1
+        GameManagement.sharedInstance.gameSTW = false
+        
     }
 }

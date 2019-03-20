@@ -317,6 +317,8 @@ enum CardValue: String {
 class GameManagement {
     static let sharedInstance = GameManagement()
     
+    var networkWorks = false
+    
     func isOnboardingClosed() -> Bool {
         return UserDefaults.standard.string(forKey: UserDefaultsKeys.onboardingClosed) != nil
     }
@@ -451,6 +453,9 @@ class GameManagement {
         return gameModes
     }
     
+    var personWhoDrinks : [String] = [String]()
+    var personDrinkCount : Int = 0
+    var gameSTW : Bool = true
     
     var leveLGameDict : [Game] = [Game]()
     var gameDrinkMultiplier : Int?

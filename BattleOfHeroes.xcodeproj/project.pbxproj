@@ -20,6 +20,8 @@
 		4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */; };
 		4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D12F7C421A7007F004FAB50 /* error_cross.json */; };
 		4D1353042203015D00064E02 /* Anagramma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1353032203015D00064E02 /* Anagramma.swift */; };
+		4D1A1D962231627800B7626A /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A1D952231627800B7626A /* NetworkViewController.swift */; };
+		4D1A1D982231646C00B7626A /* 4386-connection-error.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A1D972231646C00B7626A /* 4386-connection-error.json */; };
 		4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED021130BA900E51AA9 /* HajimeView.swift */; };
 		4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BDED221130BEA00E51AA9 /* HajimeView.xib */; };
 		4D1BDED521131D5500E51AA9 /* EverybodyDrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED421131D5500E51AA9 /* EverybodyDrinksView.swift */; };
@@ -201,6 +203,8 @@
 		4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		4D12F7C421A7007F004FAB50 /* error_cross.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_cross.json; sourceTree = "<group>"; };
 		4D1353032203015D00064E02 /* Anagramma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anagramma.swift; sourceTree = "<group>"; };
+		4D1A1D952231627800B7626A /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		4D1A1D972231646C00B7626A /* 4386-connection-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4386-connection-error.json"; sourceTree = "<group>"; };
 		4D1BDED021130BA900E51AA9 /* HajimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajimeView.swift; sourceTree = "<group>"; };
 		4D1BDED221130BEA00E51AA9 /* HajimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HajimeView.xib; sourceTree = "<group>"; };
 		4D1BDED421131D5500E51AA9 /* EverybodyDrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverybodyDrinksView.swift; sourceTree = "<group>"; };
@@ -478,6 +482,7 @@
 		4DA36ADE21A421DE00B757BE /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A1D972231646C00B7626A /* 4386-connection-error.json */,
 				4DA283F7219B179000F6D377 /* sound_visualizer.json */,
 				4DA36ADF21A421FE00B757BE /* favourite_app_icon.json */,
 				4DA36AE021A421FF00B757BE /* i'm_thirsty!.json */,
@@ -540,6 +545,7 @@
 				4D8DFB9E21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift */,
 				4DE0883921FB487900898A9A /* GroupDrinkViewController.swift */,
 				4DE0883B21FB55C200898A9A /* RandomPictogramViewController.swift */,
+				4D1A1D952231627800B7626A /* NetworkViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -844,6 +850,7 @@
 				4DA28412219B1FD100F6D377 /* Kris_Kross_Jump.mp3 in Resources */,
 				4DA2840A219B1FD100F6D377 /* Marshmello_Happier.mp3 in Resources */,
 				4DFFD5C32135667300A4989B /* Rubik-BlackItalic.ttf in Resources */,
+				4D1A1D982231646C00B7626A /* 4386-connection-error.json in Resources */,
 				4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */,
 				4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */,
 				4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */,
@@ -984,6 +991,7 @@
 				4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */,
 				4DE0883A21FB487A00898A9A /* GroupDrinkViewController.swift in Sources */,
 				4D12F7BD21A6BB10004FAB50 /* WelcomeViewController.swift in Sources */,
+				4D1A1D962231627800B7626A /* NetworkViewController.swift in Sources */,
 				4D79986D21174276006FE28B /* RingOfFireView.swift in Sources */,
 				4D7998652115F388006FE28B /* ScoreViewController.swift in Sources */,
 				4DC819752121099200F09922 /* FingerItView.swift in Sources */,
@@ -1216,11 +1224,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3GW2228TNR;
+				DEVELOPMENT_TEAM = 33P7Y9GXZB;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mondriaan.bottleofheroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -1235,11 +1243,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3GW2228TNR;
+				DEVELOPMENT_TEAM = 33P7Y9GXZB;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.example.BattleOfHeroes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mondriaan.bottleofheroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
