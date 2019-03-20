@@ -231,6 +231,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "SetUpPlayersViewController.swift"
             timestampString = "572283735.238752"
             startingColumnNumber = "9223372036854775807"
@@ -279,8 +280,10 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+=======
+>>>>>>> develop
             filePath = "BattleOfHeroes/NetworkSevice.swift"
-            timestampString = "571833746.700721"
+            timestampString = "573666472.262071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -343,6 +346,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "DrinkCounterViewController.swift"
             timestampString = "572359899.240853"
             startingColumnNumber = "9223372036854775807"
@@ -351,6 +355,16 @@
             endingLineNumber = "69"
             landmarkName = "saveDrinksData(_:)"
             landmarkType = "7">
+=======
+            filePath = "SetUpPlayersViewController.swift"
+            timestampString = "573667152.627553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "SetUpPlayersViewController"
+            landmarkType = "3">
+>>>>>>> develop
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

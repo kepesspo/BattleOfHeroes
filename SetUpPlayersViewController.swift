@@ -27,11 +27,10 @@ class SetUpPlayersViewController: UIViewController {
     var refPlayer = fireBaseRefData.playerRef
     var playerList = [Player]()
     var teamList = [Team]()
-    
+
     var roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName)
     var roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
     
-    var reachability = Reachability()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,74 +58,10 @@ class SetUpPlayersViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        do {
-            try reachability.startNotifier()
-        } catch  {
-            print("Could not start notifier")
-        }
-        
-        // Check Internet Connection
-        reachability.whenReachable = { _ in
-            DispatchQueue.main.async {
-                print("Network works")
-                self.setupGameBtn.isEnabled = true
-                
-            }
-        }
-        
-        reachability.whenUnreachable = { _ in
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: "NO Internet", message: "Error problem", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    switch action.style{
-                    case .default:
-                        print("default")
-                        
-                    case .cancel:
-                        print("cancel")
-                        
-                    case .destructive:
-                        print("destructive")
-                    }}))
-                self.present(alert, animated: true, completion: nil)
-                self.setupGameBtn.isEnabled = false
-                
-                print("Network not works")
-            }
-        }
-        
     }
     
     
     
-    @objc func internetChanged(note: Notification) {
-        let reachability = note.object as! Reachability
-        if reachability.connection == .none {
-            DispatchQueue.main.async {
-                print("Network works")
-            }
-        } else {
-            DispatchQueue.main.async {
-
-                let alert = UIAlertController(title: "NO Internet", message: "Error", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    switch action.style{
-                    case .default:
-                        print("default")
-
-                    case .cancel:
-                        print("cancel")
-
-                    case .destructive:
-                        print("destructive")
-
-
-                    }}))
-                self.present(alert, animated: true, completion: nil)
-                print("Network not works")
-            }
-        }
-    }
     
     @IBAction func addPlayer(_ sender: Any) {
         let alert = UIAlertController(title: "",
