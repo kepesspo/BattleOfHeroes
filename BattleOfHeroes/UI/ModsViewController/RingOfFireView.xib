@@ -30,22 +30,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-f8-3Bv">
-                    <rect key="frame" x="10" y="340.5" width="355" height="180"/>
+                    <rect key="frame" x="10" y="320.5" width="355" height="160"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOt-aJ-Xaw">
-                            <rect key="frame" x="0.0" y="0.0" width="115" height="180"/>
+                            <rect key="frame" x="0.0" y="0.0" width="115" height="160"/>
                             <connections>
                                 <action selector="card1BtnAction:" destination="-1" eventType="touchUpInside" id="IrD-1M-6zd"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vJ-N8-kD8">
-                            <rect key="frame" x="120" y="0.0" width="115" height="180"/>
+                            <rect key="frame" x="120" y="0.0" width="115" height="160"/>
                             <connections>
                                 <action selector="card2BtnAction:" destination="-1" eventType="touchUpInside" id="oeE-fK-UOz"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goW-5n-of8">
-                            <rect key="frame" x="240" y="0.0" width="115" height="180"/>
+                            <rect key="frame" x="240" y="0.0" width="115" height="160"/>
                             <connections>
                                 <action selector="card3BtnAction:" destination="-1" eventType="touchUpInside" id="oAV-fc-WW7"/>
                             </connections>
@@ -55,25 +55,25 @@
                         <constraint firstItem="2vJ-N8-kD8" firstAttribute="height" secondItem="goW-5n-of8" secondAttribute="height" id="0pR-Ca-W8g"/>
                         <constraint firstItem="EOt-aJ-Xaw" firstAttribute="width" secondItem="2vJ-N8-kD8" secondAttribute="width" id="BeI-pr-LWt"/>
                         <constraint firstItem="EOt-aJ-Xaw" firstAttribute="height" secondItem="2vJ-N8-kD8" secondAttribute="height" id="V4S-Qh-Ilg"/>
-                        <constraint firstAttribute="height" constant="180" id="w6i-Qj-0gQ"/>
+                        <constraint firstAttribute="height" constant="160" id="w6i-Qj-0gQ"/>
                         <constraint firstItem="2vJ-N8-kD8" firstAttribute="width" secondItem="goW-5n-of8" secondAttribute="width" id="x4r-DS-4Gv"/>
                     </constraints>
                 </stackView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ringoffire" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-gx-lXl">
-                    <rect key="frame" x="127.5" y="120" width="120" height="170"/>
+                    <rect key="frame" x="127.5" y="110" width="120" height="170"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="IOm-gx-lXl" secondAttribute="height" multiplier="301:426" id="Yn4-WK-dca"/>
                         <constraint firstAttribute="height" constant="170" id="xBd-SD-r8z"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huzz egy lapot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc3-55-RiG">
-                    <rect key="frame" x="130" y="310" width="115" height="20.5"/>
+                    <rect key="frame" x="130" y="290" width="115" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szabály" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foj-hb-RLD">
-                    <rect key="frame" x="20" y="540.5" width="335" height="20.5"/>
+                    <rect key="frame" x="20" y="490.5" width="335" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -124,9 +124,9 @@
                 <constraint firstItem="IOm-gx-lXl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TWr-dg-Zlg"/>
                 <constraint firstItem="Zwz-CP-HuW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="Ysn-LP-Jnu"/>
                 <constraint firstItem="foj-hb-RLD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dGc-Mz-osi"/>
-                <constraint firstItem="Tc3-55-RiG" firstAttribute="top" secondItem="IOm-gx-lXl" secondAttribute="bottom" constant="20" id="dmN-b4-0Ab"/>
-                <constraint firstItem="foj-hb-RLD" firstAttribute="top" secondItem="2vJ-N8-kD8" secondAttribute="bottom" constant="20" id="hhZ-Ay-FgT"/>
-                <constraint firstItem="IOm-gx-lXl" firstAttribute="top" secondItem="Zwz-CP-HuW" secondAttribute="bottom" constant="20" id="liJ-aY-jxA"/>
+                <constraint firstItem="Tc3-55-RiG" firstAttribute="top" secondItem="IOm-gx-lXl" secondAttribute="bottom" constant="10" id="dmN-b4-0Ab"/>
+                <constraint firstItem="foj-hb-RLD" firstAttribute="top" secondItem="2vJ-N8-kD8" secondAttribute="bottom" constant="10" id="hhZ-Ay-FgT"/>
+                <constraint firstItem="IOm-gx-lXl" firstAttribute="top" secondItem="Zwz-CP-HuW" secondAttribute="bottom" constant="10" id="liJ-aY-jxA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Zwz-CP-HuW" secondAttribute="trailing" constant="20" id="r7a-Rw-nJC"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

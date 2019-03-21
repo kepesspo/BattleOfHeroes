@@ -25,12 +25,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMq-Ud-YP5">
-                    <rect key="frame" x="20" y="322" width="335" height="23"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchhands" translatesAutoresizingMaskIntoConstraints="NO" id="4Mg-DF-g0r">
                     <rect key="frame" x="108" y="120" width="159" height="200"/>
                     <constraints>
@@ -72,6 +66,12 @@
                         <constraint firstItem="vnX-d8-byd" firstAttribute="centerY" secondItem="tv8-yG-11T" secondAttribute="centerY" id="ovG-CR-Bia"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMq-Ud-YP5">
+                    <rect key="frame" x="20" y="370" width="335" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.67450980392156867" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -79,9 +79,9 @@
                 <constraint firstItem="tv8-yG-11T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="6he-9V-lqS"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fMq-Ud-YP5" secondAttribute="trailing" constant="20" id="8BL-ZT-Xuc"/>
                 <constraint firstItem="4Mg-DF-g0r" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DeR-XP-zZ3"/>
-                <constraint firstItem="fMq-Ud-YP5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FoV-bV-abQ"/>
                 <constraint firstItem="fMq-Ud-YP5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="H4H-PF-RQh"/>
                 <constraint firstItem="4Mg-DF-g0r" firstAttribute="top" secondItem="tv8-yG-11T" secondAttribute="bottom" constant="20" id="eZZ-DL-8SL"/>
+                <constraint firstItem="fMq-Ud-YP5" firstAttribute="top" secondItem="4Mg-DF-g0r" secondAttribute="bottom" constant="50" id="fc0-Wv-sDW"/>
                 <constraint firstItem="fMq-Ud-YP5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="lxZ-g7-KTU"/>
                 <constraint firstItem="tv8-yG-11T" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="rYl-11-RIU"/>
             </constraints>
