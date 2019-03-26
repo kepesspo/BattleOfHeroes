@@ -98,12 +98,16 @@ extension CollectAndBoomView : UICollectionViewDelegate ,UICollectionViewDataSou
                 self.tap.isEnabled = true
                 drinkCounterLabel.text = "Amit meg kell inni : \(drinkCount)"
                 print("Boom game ended")
+                GameManagement.sharedInstance.drinkVariation = [drinkCount]
+                GameManagement.sharedInstance.userDefDrinkVariation = false
             } else {
                 print("Game continue")
                 drinkCount += selectedElementValue
                 drinkCounterLabel.text = "Amit meg kell inni : \(drinkCount)"
+                
             }
         }
+        
         collectAndBoomCollectionView.reloadData()
     }
     

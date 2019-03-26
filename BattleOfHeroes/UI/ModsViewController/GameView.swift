@@ -18,6 +18,12 @@ class GameView : UIView {
     var actuallyInfo: String?
     //var infoDescription: String?
     
+<<<<<<< Updated upstream
+=======
+    var personData : [String] = []
+    
+    var drinkSegCount = [0,1,2,3]
+>>>>>>> Stashed changes
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,10 +42,24 @@ class GameView : UIView {
     }
     
     @objc func tapped() {
+<<<<<<< Updated upstream
         if GameManagement.sharedInstance.drininkCounterView == true {
             GameManagement.sharedInstance.leveLGameDict.removeFirst()
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
+=======
+        
+        if GameManagement.sharedInstance.drininkCounterView == true {
+            GameManagement.sharedInstance.leveLGameDict.removeFirst()
+            let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
+            
+>>>>>>> Stashed changes
             popOverVC.modalPresentationStyle = .overFullScreen
+            if GameManagement.sharedInstance.userDefDrinkVariation == true {
+                popOverVC.drinkValue = drinkSegCount
+            } else {
+                popOverVC.drinkValue = GameManagement.sharedInstance.drinkVariation
+            }
+            
             if let topController = UIApplication.topViewController() {
                 topController.present(popOverVC, animated: true, completion: {
                     self.removeFromSuperview()

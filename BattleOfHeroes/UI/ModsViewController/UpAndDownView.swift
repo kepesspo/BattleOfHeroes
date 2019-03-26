@@ -80,15 +80,15 @@ class UpAndDownView: GameView {
         
         switch drinks {
         case 0 ..< 2:
-            drinksCounter.text = "Piák száma: \(1 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 1))"
+            drinksCounter.text = "Piák száma: \(1 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 2 ..< 3:
-            drinksCounter.text = "Piák száma: \(2 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 2))"
+            drinksCounter.text = "Piák száma: \(2 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 3 ..< 5:
-            drinksCounter.text = "Piák száma: \(3 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 3))"
+            drinksCounter.text = "Piák száma: \(3 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 5 ..< 7:
-            drinksCounter.text = "Piák száma: \(4 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 4))"
+            drinksCounter.text = "Piák száma: \(4 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 7 ..< 1000:
-            drinksCounter.text = "Piák száma: \(5 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 5))"
+            drinksCounter.text = "Piák száma: \(5 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         default:
             drinksCounter.text = "Az egészet meg kell inni: Szerencséd van"
         }
@@ -118,6 +118,8 @@ class UpAndDownView: GameView {
         } else {
             isLose = true
             uppdateUI(value: numberValue, image: numberValueImage)
+            GameManagement.sharedInstance.drinkVariation = [drinks * GameManagement.sharedInstance.gameDrinkMultiplier]
+            GameManagement.sharedInstance.userDefDrinkVariation = false
             downBtn.isHidden = true
             upBtn.isHidden = true
         }

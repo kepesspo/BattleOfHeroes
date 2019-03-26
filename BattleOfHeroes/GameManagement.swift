@@ -248,10 +248,10 @@ let GamesDownloadingData: [GameMode] = [
 
 
 enum GameType : String {
-    case personalGame = "Personal Game"
-    case groupGame = "Group Game"
-    case lineGame = "Line Game"
-    case battleGame = "Battle Game"
+    case personalGame = "Egyéni Játékok"
+    case groupGame = "Csoportos Játékok"
+    case lineGame = "Sor Játékok"
+    case battleGame = "Kétszemélyes Játékok"
     static let allValues = [personalGame,groupGame,lineGame,battleGame]
     
 }
@@ -453,9 +453,12 @@ class GameManagement {
         return gameModes
     }
     
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     var leveLGameDict : [Game] = [Game]()
-    var gameDrinkMultiplier : Int?
+    var gameDrinkMultiplier : Int = 1
     
     var showBonusView : Bool = true
     var drininkCounterView : Bool = true
@@ -465,6 +468,9 @@ class GameManagement {
     
     var randomPictogramAllow : Bool = true
     var randomPictogramTime : Int = 420
+    
+    var drinkVariation : [Int] = [0,1,2,3]
+    var userDefDrinkVariation = true
     
     var games = [Game]()
     func getGames() -> [Game] {

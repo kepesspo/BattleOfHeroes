@@ -96,7 +96,6 @@ extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
             
             
             customCell.playerNameLabel.text = playerL[indexPath.row].playerName
-            customCell.playerLifeLabel.text = "\(playerL[indexPath.row].life)"
             customCell.playerDrinksLabel.text = "\(playerL[indexPath.row].allDrink)"
             customCell.playerPositionLabel.text = "\(indexPath.row + 1)"
             return customCell

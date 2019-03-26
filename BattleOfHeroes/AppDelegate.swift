@@ -12,6 +12,10 @@ import FirebaseDatabase
 import Reachability
 import SpotifyLogin
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

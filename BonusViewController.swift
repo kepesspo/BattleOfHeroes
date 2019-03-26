@@ -11,7 +11,6 @@ import Lottie
 
 class BonusViewController: UIViewController {
 
-    @IBOutlet weak var getLifeBtn: UIButton!
     @IBOutlet weak var giveDrinksBtn: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var playerTableView: UITableView!
@@ -34,7 +33,6 @@ class BonusViewController: UIViewController {
         playerTableView.isHidden = true
         okButton.isHidden = true
         resultLabel.isHidden = true
-        self.getLifeBtn.isHidden = true
         self.giveDrinksBtn.isHidden = true
         
         contentView.layer.cornerRadius = 10
@@ -59,30 +57,19 @@ class BonusViewController: UIViewController {
     }
 
     
-    @IBAction func getLife(_ sender: Any) {
-        for player in playerForBonus {
-            NetworkSevice.sharedInstance.updatePlayerLife(player: player, life: 1) { (error) in
-                if error == nil {
-                    print("nincs hiba")
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                } else {
-                    
-                }
+    @IBAction func closeAction(_ sender: Any) {
+        NetworkSevice.sharedInstance.updatePlayerUseBonus(player: playerForBonus[0], bonus: 1) { (error) in
+            if error == nil {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print(error?.localizedDescription)
             }
         }
         
-        
-    }
-    
-    @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func giveDrinks(_ sender: Any) {
         playerTableView.isHidden = false
-        getLifeBtn.isHidden = true
         giveDrinksBtn.isHidden = true
         
     }
@@ -95,7 +82,6 @@ class BonusViewController: UIViewController {
     
     @objc func openBonus() {
         self.bonusAnimationView.isHidden = true
-        self.getLifeBtn.isHidden = false
         self.giveDrinksBtn.isHidden = false
     }
     
