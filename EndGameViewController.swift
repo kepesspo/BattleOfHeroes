@@ -23,9 +23,9 @@ class EndGameViewController: UIViewController {
     func setUpView() {
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
-        showResultBtn.setTitle("EndGameViewController_showResultBtnTitle".localized(), for: .normal)
-        endGameBtn.setTitle("EndGameViewController_endGameBtnTitle".localized(), for: .normal)
-        endGameTitle.text = "EndGameViewController_titleText".localized()
+        //showResultBtn.setTitle("EndGameViewController_showResultBtnTitle".localized(), for: .normal)
+        //endGameBtn.setTitle("EndGameViewController_endGameBtnTitle".localized(), for: .normal)
+        //endGameTitle.text = "EndGameViewController_titleText".localized()
         
     }
 

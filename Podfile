@@ -8,8 +8,8 @@ use_frameworks!
   pod 'Firebase/Auth'
   pod 'TTFortuneWheel'
   pod 'ReachabilitySwift'
-  pod 'lottie-ios'
+  pod 'lottie-ios', '~> 2.5.2'
   pod 'SpotifyLogin'
-  pod 'Alamofire', '~> 4.0'
-  pod 'TTSegmentedControl'
+  pod 'Alamofire', '~>4.0'
+  pod 'TTSegmentedControl', '~>0.3'
 end

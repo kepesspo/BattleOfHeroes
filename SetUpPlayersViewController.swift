@@ -171,6 +171,8 @@ class SetUpPlayersViewController: UIViewController {
     
     
     @IBAction func startGameButtonAction(_ sender: Any) {
+        let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
+        
         if playerList.count < 2 {
             print("Nem Mehet")
         }
@@ -182,7 +184,7 @@ class SetUpPlayersViewController: UIViewController {
                 self?.dissmissLoaderView()
             }
         } else {
-            
+            self.navigationController?.pushViewController(setUpVc, animated: true)
         }
         
     }
@@ -249,9 +251,8 @@ class SetUpPlayersViewController: UIViewController {
                 print("Nem kell letölteni semit.")
                 
             }
-            returnedBlock(nil)
-            
         }
+        returnedBlock(nil)
     }
     
     func showLoaderView() {
@@ -265,10 +266,11 @@ class SetUpPlayersViewController: UIViewController {
     
     func dissmissLoaderView() {
         if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: nil)
-            
-            
+            topController.dismiss(animated: true, completion: {
+                self.startBattleGame()
+            })
         }
+        
     }
     
     
@@ -291,6 +293,20 @@ class SetUpPlayersViewController: UIViewController {
         
     }
     
+    func startBattleGame() {
+        GameManagement.sharedInstance.groupDrinksAllow = false
+        GameManagement.sharedInstance.randomPictogramAllow = false
+        GameManagement.sharedInstance.showBonusView = false
+        GameManagement.sharedInstance.drininkCounterView = false
+        let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        self.present(gameVc, animated: true, completion: nil)
+    }
+    
+    @IBAction func showResult(_ sender: Any) {
+        let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+        scorePopVC.modalPresentationStyle = .overFullScreen
+        self.present(scorePopVC, animated: true, completion: nil)
+    }
 }
 
 extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource {

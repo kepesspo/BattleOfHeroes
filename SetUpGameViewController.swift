@@ -90,9 +90,6 @@ class SetUpGameViewController: UIViewController {
                 self?.dissmissLoaderView()
             }
         }
-        //self.navig ationController?.popViewController(animated: true)
-        
-        
     }
     
     func loadAllGameData(completion: (() -> Void)?) {
@@ -175,9 +172,7 @@ class SetUpGameViewController: UIViewController {
     
     func dissmissLoaderView() {
         if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: nil)
-           
-            
+            topController.dismiss(animated: true, completion: nil) 
         }
     }
     

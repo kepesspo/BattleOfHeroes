@@ -950,13 +950,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vagy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amT-rb-Oz5">
-                                <rect key="frame" x="168.5" y="519" width="38" height="20.5"/>
+                                <rect key="frame" x="169.5" y="519" width="36" height="20"/>
                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL4-sk-Ya1">
-                                <rect key="frame" x="114.5" y="559.5" width="146" height="33"/>
+                                <rect key="frame" x="117.5" y="559" width="140" height="32"/>
                                 <fontDescription key="fontDescription" name="Rubik-Italic" family="Rubik" pointSize="17"/>
                                 <state key="normal" title="Szoba létrehozása">
                                     <color key="titleColor" red="0.015686274509803921" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1029,17 +1029,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcY-rs-WK1">
-                                <rect key="frame" x="10" y="80" width="355" height="110"/>
+                                <rect key="frame" x="10" y="80" width="355" height="100"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeu-17-0El">
+                                        <rect key="frame" x="210" y="20" width="60" height="60"/>
+                                        <state key="normal" backgroundImage="certificate"/>
+                                        <connections>
+                                            <action selector="showResult:" destination="oQT-yz-mov" eventType="touchUpInside" id="c7g-no-7cw"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusButton" translatesAutoresizingMaskIntoConstraints="NO" id="ZCj-ff-lD8">
-                                        <rect key="frame" x="270" y="20" width="70" height="70"/>
+                                        <rect key="frame" x="280" y="20" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="APk-PO-uyG"/>
+                                            <constraint firstAttribute="height" constant="60" id="APk-PO-uyG"/>
                                             <constraint firstAttribute="width" secondItem="ZCj-ff-lD8" secondAttribute="height" multiplier="1:1" id="zb3-n6-FYz"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqx-i3-0O8">
-                                        <rect key="frame" x="287" y="22" width="30" height="60"/>
+                                        <rect key="frame" x="292" y="17" width="30" height="60"/>
                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="40"/>
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1049,22 +1056,22 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aE6-GV-X9p">
-                                        <rect key="frame" x="10" y="10" width="134.5" height="90"/>
+                                        <rect key="frame" x="10" y="10" width="134.5" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szoba adatok:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51T-RT-gnV">
-                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Azonositó:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxS-Jl-1fV">
-                                                <rect key="frame" x="0.0" y="33.5" width="134.5" height="23"/>
+                                                <rect key="frame" x="0.0" y="30" width="134.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jelszó:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-kq-ve7">
-                                                <rect key="frame" x="0.0" y="66.5" width="134.5" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="60" width="134.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1078,7 +1085,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="qeu-17-0El" firstAttribute="top" secondItem="ZCj-ff-lD8" secondAttribute="top" id="2GO-Qw-sAs"/>
+                                    <constraint firstItem="qeu-17-0El" firstAttribute="bottom" secondItem="ZCj-ff-lD8" secondAttribute="bottom" id="2u1-Sa-azV"/>
+                                    <constraint firstItem="qeu-17-0El" firstAttribute="width" secondItem="ZCj-ff-lD8" secondAttribute="width" id="B8g-L4-82k"/>
                                     <constraint firstItem="oqx-i3-0O8" firstAttribute="centerX" secondItem="ZCj-ff-lD8" secondAttribute="centerX" constant="-3" id="KtB-xP-IL9"/>
+                                    <constraint firstItem="qeu-17-0El" firstAttribute="height" secondItem="ZCj-ff-lD8" secondAttribute="height" id="SLB-3j-10J"/>
+                                    <constraint firstItem="ZCj-ff-lD8" firstAttribute="leading" secondItem="qeu-17-0El" secondAttribute="trailing" constant="10" id="TJD-2b-7Jz"/>
                                     <constraint firstItem="ZCj-ff-lD8" firstAttribute="top" secondItem="bcY-rs-WK1" secondAttribute="top" constant="20" id="TUd-ry-Ufw"/>
                                     <constraint firstAttribute="trailing" secondItem="ZCj-ff-lD8" secondAttribute="trailing" constant="15" id="YEP-Cg-iso"/>
                                     <constraint firstItem="aE6-GV-X9p" firstAttribute="top" secondItem="bcY-rs-WK1" secondAttribute="top" constant="10" id="kuD-rO-q8y"/>
@@ -1089,7 +1101,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejB-bt-Y9S" customClass="TTSegmentedControl" customModule="TTSegmentedControl">
-                                <rect key="frame" x="10" y="195" width="355" height="50"/>
+                                <rect key="frame" x="10" y="185" width="355" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Gao-kr-9Jp"/>
@@ -1121,7 +1133,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="awS-pv-qHT">
-                                <rect key="frame" x="10" y="250" width="355" height="357"/>
+                                <rect key="frame" x="10" y="240" width="355" height="367"/>
                                 <color key="backgroundColor" red="0.96300119159999997" green="0.86616843939999999" blue="0.8735498786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="WCV-y7-uRL" customClass="SetUpPlayersTableViewCell" customModule="BattleOfHeroes" customModuleProvider="target">
@@ -1238,7 +1250,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-cT-AlU">
-                                            <rect key="frame" x="18" y="10" width="63" height="30"/>
+                                            <rect key="frame" x="18" y="10" width="61.5" height="30"/>
                                             <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="25"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -2242,7 +2254,7 @@
                                 <rect key="frame" x="40" y="100" width="295" height="487"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rrE-jh-J5c">
-                                        <rect key="frame" x="0.0" y="141" width="295" height="296"/>
+                                        <rect key="frame" x="0.0" y="140.5" width="295" height="296.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ix6-8d-TsR">
@@ -2292,13 +2304,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-HY-pgj">
-                                        <rect key="frame" x="126.5" y="60" width="42" height="21"/>
+                                        <rect key="frame" x="10" y="60" width="275" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNp-Zm-vcy" customClass="TTSegmentedControl" customModule="TTSegmentedControl">
-                                        <rect key="frame" x="0.0" y="91" width="295" height="50"/>
+                                        <rect key="frame" x="0.0" y="90.5" width="295" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="enn-If-Jk7"/>
@@ -2454,6 +2466,7 @@
         <image name="ScoreTabActive" width="16.5" height="25"/>
         <image name="SetUpButton" width="608" height="93"/>
         <image name="back" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="certificate" width="384" height="384"/>
         <image name="check-mark-button" width="96" height="96"/>
         <image name="delete-button" width="96" height="96"/>
         <image name="igaz_nagyobb_gomb" width="339" height="91"/>

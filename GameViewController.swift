@@ -171,7 +171,12 @@
     
     
     @objc func dismissGame() {
-        self.navigationController?.popToRootViewController(animated: true)
+        if GameManagement.sharedInstance.selectedMode == 1 {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
     }
     
     
