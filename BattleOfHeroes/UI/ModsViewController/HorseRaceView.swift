@@ -151,7 +151,7 @@ class HorseRaceView: GameView {
     func updateUI() {
         playerType.text = "Group"
         playerName.text = playersList.randomElement()?.playerName
-        gameInfoContainerView.layer.cornerRadius = 10
-        
+        gameInfoContainerView.layer.cornerRadius = 10        
+
     }
 }

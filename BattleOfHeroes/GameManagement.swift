@@ -248,10 +248,10 @@ let GamesDownloadingData: [GameMode] = [
 
 
 enum GameType : String {
-    case personalGame = "Personal Game"
-    case groupGame = "Group Game"
-    case lineGame = "Line Game"
-    case battleGame = "Battle Game"
+    case personalGame = "Egyéni Játékok"
+    case groupGame = "Csoportos Játékok"
+    case lineGame = "Sor Játékok"
+    case battleGame = "Kétszemélyes Játékok"
     static let allValues = [personalGame,groupGame,lineGame,battleGame]
     
 }
@@ -454,8 +454,23 @@ class GameManagement {
     }
     
     
+    var battleGameModes : [GameMode] = [GameMode]()
+    func getBattleGameMode() -> [GameMode] {
+        battleGameModes = [GameMode.hajime,
+                           GameMode.upAndDown,
+                           GameMode.memory,
+                           GameMode.musicRecognizer,
+                           GameMode.rockPaperScissors,
+                           GameMode.whoAmI,
+                           GameMode.coinFlip,
+                           GameMode.fiveThing,
+                           GameMode.collectAndBoom,
+                           GameMode.tapper]
+        return battleGameModes
+    }
+    
     var leveLGameDict : [Game] = [Game]()
-    var gameDrinkMultiplier : Int?
+    var gameDrinkMultiplier : Int = 1
     
     var showBonusView : Bool = true
     var drininkCounterView : Bool = true
@@ -465,6 +480,11 @@ class GameManagement {
     
     var randomPictogramAllow : Bool = true
     var randomPictogramTime : Int = 420
+    
+    var drinkVariation : [Int] = [0,1,2,3]
+    var userDefDrinkVariation = true
+    
+    var selectedMode = 0
     
     var games = [Game]()
     func getGames() -> [Game] {
@@ -489,5 +509,30 @@ class GameManagement {
             games.append(gameData)
         }
         return games
+    }
+    
+    var battleGames = [Game]()
+    func getBattleGames() -> [Game] {
+        getBattleGameMode()
+        battleGames.removeAll()
+        for battleGamesItem in battleGameModes {
+            let mode = battleGamesItem.gameMode()
+            let name = battleGamesItem.gameTitle()
+            let description = battleGamesItem.gameDescription()
+            let type = battleGamesItem.gameType()
+            let gameImage = battleGamesItem.gameImage()
+            let gameManagement = battleGamesItem.gameManagementView()
+            let gameData = Game(id: "",
+                                name: name,
+                                description: description,
+                                isSelected: false,
+                                gameMode: mode,
+                                gameType: type,
+                                gameImage: gameImage,
+                                gameManagement: gameManagement,
+                                downloadsData: GamesDownloadingData.contains(mode))
+            battleGames.append(gameData)
+        }
+        return battleGames
     }
 }

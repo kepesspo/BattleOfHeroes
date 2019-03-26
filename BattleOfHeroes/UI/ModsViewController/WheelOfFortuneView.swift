@@ -85,7 +85,6 @@ class WheelOfFortuneView: GameView {
                 self.spinLabel.isHidden = true
                 self.tap.isEnabled = true
                 self.playerNameLabel.text = self.playersList[randomIndex].playerName
-
             }
         }
     }

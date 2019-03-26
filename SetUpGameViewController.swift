@@ -90,7 +90,7 @@ class SetUpGameViewController: UIViewController {
                 self?.dissmissLoaderView()
             }
         }
-        //self.navigationController?.popViewController(animated: true)
+        //self.navig ationController?.popViewController(animated: true)
         
         
     }
@@ -183,11 +183,10 @@ class SetUpGameViewController: UIViewController {
     
     
     func addGame() {
-        groupGames = games.filter { $0.gameType!.rawValue == "Group Game" }
-        LineGames = games.filter { $0.gameType!.rawValue == "Line Game" }
-        personalGames = games.filter { $0.gameType!.rawValue == "Personal Game" }
-        BattleGames = games.filter { $0.gameType!.rawValue == "Battle Game"}
-        
+        groupGames = games.filter { $0.gameType!.rawValue == "GameType_GroupGame".localized() }
+        LineGames = games.filter { $0.gameType!.rawValue == "GameType_LineGame".localized() }
+        personalGames = games.filter { $0.gameType!.rawValue == "GameType_PersonalGame".localized() }
+        BattleGames = games.filter { $0.gameType!.rawValue == "GameType_BattleGame".localized()}
     }
     
     func removeGame(item : String) {
