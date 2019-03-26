@@ -72,7 +72,7 @@ class SetUpPlayersViewController: UIViewController {
         let addPlayer = UIAlertAction(title: "Add Player", style: .default) { _ in
             if let textField = alert.textFields, let text = textField[0].text {
                 self.setUpTableView.reloadData()
-                let player = Player(id: "", playerName: text, teamId: "", allDrink: 0, usedBonus: 0)
+                let player = Player(id: "", playerName: text, teamId: "", life: 3, allDrink: 0, usedBonus: 0)
                 NetworkSevice.sharedInstance.addPlayerToDatabase(player: player, competionBlock: { (error) in
                     if error != nil {
                         print("Nem sikerült az adatbázisba a feltöltés")

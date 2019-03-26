@@ -49,6 +49,7 @@ class NetworkSevice {
         let player = ["id":playerKey,
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String,
+                      "playerLife" : player.life as Int,
                       "playerDrinks" : player.allDrink as Int,
                       "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
         refGame.child(roomId).child("Players").child(playerKey ?? "").setValue(player)
@@ -73,6 +74,7 @@ class NetworkSevice {
         playerData = ["id":playerKey,
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String,
+                      "playerLife" : player.life as Int,
                       "playerDrinks" : playerDrinks as Int,
                       "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
 
@@ -80,38 +82,37 @@ class NetworkSevice {
         
         var playData = player
         playData.allDrink = playerDrinks
-        if playerDrinks > 10 {
-            let bonus = playData.usedBonus + 1
-            let notShowedBonus = (Double(playerDrinks) / Double(10)) / Double(bonus) > 1.0
-            if playerDrinks % 10 == 0 || notShowedBonus &&  playerDrinks != 0 && GameManagement.sharedInstance.showBonusView == true {
-                postNotification(name: .showBonus, object: playData)
-            }
+        
+        
+        if playerDrinks % 10 == 0 && playerDrinks != 0 && GameManagement.sharedInstance.showBonusView == true {
+            postNotification(name: .showBonus, object: playData)
         }
-        
-        
-        
         competionBlock(nil)
         
     }
     
-    // UpdatePlayerUseBonus
-    func updatePlayerUseBonus(player: Player, bonus: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
+    // UpdatePlayerLife
+    func updatePlayerLife(player: Player, life: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
         let roomId = GameManagement.sharedInstance.getRoomName()
         let playerKey = player.id
-        let playerDrinks = player.allDrink
-        let playerUserBonus = player.usedBonus + bonus
+        let playerLife = player.life + life
+        let playerUsedBouns = player.usedBonus
         var playerData: [String:Any]?
+        
         
         playerData = ["id":playerKey,
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String,
-                      "playerDrinks" : playerDrinks as Int,
-                      "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
+                      "playerLife" : playerLife as Int,
+                      "playerDrinks" : player.allDrink as Int,
+                      "playerUsedBonus" : playerUsedBouns as Int] as [String : Any]
         
         refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
         competionBlock(nil)
         
     }
+    
+    
     
     // Add Team To Database
     func addTeamToDataBase(team: Team, competionBlock: @escaping(_ error: Error?) -> Void) {
@@ -170,11 +171,12 @@ class NetworkSevice {
                     let playerId = playerObject?["id"] as? String
                     let playerName  = playerObject?["playerName"] as? String
                     let playerTeam = playerObject?["playerTeamId"] as? String
+                    let playerLife = playerObject?["playerLife"] as? Int
                     let playerDrinks = playerObject?["playerDrinks"] as? Int
                     let playerUsedBonus = playerObject!["playerUsedBonus"] as? Int
                     
                     
-                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, allDrink: playerDrinks!, usedBonus: playerUsedBonus!)
+                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, life: playerLife!, allDrink: playerDrinks!, usedBonus: playerUsedBonus!)
                     self.playerList.append(player)
                     
                 }

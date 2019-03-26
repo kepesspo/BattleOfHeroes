@@ -74,7 +74,6 @@ class TrueOrFalseView: GameView {
         startLabel.isHidden = true
         
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
-        
     }
     
     @objc func runTimedCode() {

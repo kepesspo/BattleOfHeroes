@@ -24,7 +24,6 @@ class LoaderViewController: UIViewController {
         super.viewWillAppear(animated)
         loaderView.loopAnimation = true
         loaderView.play()
-        loaderTextLabel.text = "GameLoaderText".localized()
     }
     
 

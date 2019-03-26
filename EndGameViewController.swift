@@ -11,9 +11,6 @@ import UIKit
 class EndGameViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var showResultBtn: UIButton!
-    @IBOutlet weak var endGameBtn: UIButton!
-    @IBOutlet weak var endGameTitle: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -23,10 +20,6 @@ class EndGameViewController: UIViewController {
     func setUpView() {
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
-        showResultBtn.setTitle("EndGameViewController_showResultBtnTitle".localized(), for: .normal)
-        endGameBtn.setTitle("EndGameViewController_endGameBtnTitle".localized(), for: .normal)
-        endGameTitle.text = "EndGameViewController_titleText".localized()
-        
     }
 
     @IBAction func closeAndGameView(_ sender: Any) {

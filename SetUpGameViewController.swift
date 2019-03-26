@@ -183,18 +183,11 @@ class SetUpGameViewController: UIViewController {
     
     
     func addGame() {
-<<<<<<< Updated upstream
         groupGames = games.filter { $0.gameType!.rawValue == "Group Game" }
         LineGames = games.filter { $0.gameType!.rawValue == "Line Game" }
         personalGames = games.filter { $0.gameType!.rawValue == "Personal Game" }
         BattleGames = games.filter { $0.gameType!.rawValue == "Battle Game"}
         
-=======
-        groupGames = games.filter { $0.gameType!.rawValue == "GameType_GroupGame".localized() }
-        LineGames = games.filter { $0.gameType!.rawValue == "GameType_LineGame".localized() }
-        personalGames = games.filter { $0.gameType!.rawValue == "GameType_PersonalGame".localized() }
-        BattleGames = games.filter { $0.gameType!.rawValue == "GameType_BattleGame".localized()}   
->>>>>>> Stashed changes
     }
     
     func removeGame(item : String) {

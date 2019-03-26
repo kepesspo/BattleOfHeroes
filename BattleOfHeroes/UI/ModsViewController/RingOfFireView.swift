@@ -101,7 +101,6 @@ class RingOfFireView : GameView {
         cardStackView.isUserInteractionEnabled = false
         cardsCopy = GameManagement.sharedInstance.copyCards
         print(cardsCopy.count)
-        GameManagement.sharedInstance.drinkVariation = [0,1,2,3]
         
     }
     

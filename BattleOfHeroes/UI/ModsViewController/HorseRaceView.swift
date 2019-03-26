@@ -151,11 +151,7 @@ class HorseRaceView: GameView {
     func updateUI() {
         playerType.text = "Group"
         playerName.text = playersList.randomElement()?.playerName
-<<<<<<< Updated upstream
         gameInfoContainerView.layer.cornerRadius = 10
         
-=======
-        gameInfoContainerView.layer.cornerRadius = 10        
->>>>>>> Stashed changes
     }
 }
