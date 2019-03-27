@@ -27,8 +27,9 @@ class DrinkCounterViewController: UIViewController {
         howDrinksTableView.separatorStyle = .none
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
-
-        
+        drinkingSegmentedControl.itemTitles = []
+        drinkingSegmentedControl.defaultTextFont = UIFont.helveticaNeueLight(15)
+        drinkingSegmentedControl.selectedTextFont = UIFont.helveticaNeueLight(15)
         drinkingSegmentedControl.layer.cornerRadius = 5
         drinkingSegmentedControl.allowChangeThumbWidth = false
        
@@ -139,8 +140,11 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
         }
         
         
+    }   
+}
+
+extension UIFont {
+    class func helveticaNeueLight(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue-Light", size: size)!
     }
-    
-    
-    
 }

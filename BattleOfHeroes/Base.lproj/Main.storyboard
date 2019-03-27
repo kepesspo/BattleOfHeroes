@@ -618,7 +618,7 @@
         <!--Jaták-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="GameViewController" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="GameViewController" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -950,13 +950,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vagy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amT-rb-Oz5">
-                                <rect key="frame" x="169.5" y="519" width="36" height="20"/>
+                                <rect key="frame" x="168.5" y="519" width="38" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL4-sk-Ya1">
-                                <rect key="frame" x="117.5" y="559" width="140" height="32"/>
+                                <rect key="frame" x="114.5" y="559.5" width="146" height="33"/>
                                 <fontDescription key="fontDescription" name="Rubik-Italic" family="Rubik" pointSize="17"/>
                                 <state key="normal" title="Szoba létrehozása">
                                     <color key="titleColor" red="0.015686274509803921" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1165,7 +1165,7 @@
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="x0g-HO-pK6" kind="show" id="Gz3-Tw-Rjn"/>
+                                            <action selector="startGameButtonAction:" destination="oQT-yz-mov" eventType="touchUpInside" id="SpK-jb-YxF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1221,7 +1221,7 @@
         <!--Set Up Game View Controller-->
         <scene sceneID="Mkm-gA-ZaC">
             <objects>
-                <viewController id="x0g-HO-pK6" customClass="SetUpGameViewController" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetUpGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x0g-HO-pK6" customClass="SetUpGameViewController" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="80m-qf-41M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1250,7 +1250,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-cT-AlU">
-                                            <rect key="frame" x="18" y="10" width="61.5" height="30"/>
+                                            <rect key="frame" x="18" y="10" width="63" height="30"/>
                                             <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="25"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -1338,7 +1338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMY-AN-Ims" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1859" y="-726"/>
+            <point key="canvasLocation" x="-1881" y="-1182"/>
         </scene>
         <!--Game Info View Controller-->
         <scene sceneID="xeY-uD-ybG">
@@ -1791,21 +1791,8 @@
                                         <color key="textColor" red="0.1529411765" green="0.7843137255" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2Z-Bc-EQs">
-                                        <rect key="frame" x="10" y="194" width="275" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="EPX-UV-ErX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="20"/>
-                                        <state key="normal" title="Get Life" backgroundImage="SetUpButton">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="getLife:" destination="tqW-Fk-Cro" eventType="touchUpInside" id="8HL-gK-VX3"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4K-fv-uLH">
-                                        <rect key="frame" x="10" y="254" width="275" height="50"/>
+                                        <rect key="frame" x="10" y="204" width="275" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="2Gl-i8-bXx"/>
                                         </constraints>
@@ -1869,22 +1856,19 @@
                                     <constraint firstItem="m0U-fF-oiO" firstAttribute="trailing" secondItem="zz5-32-Fxg" secondAttribute="trailing" id="1nV-md-FeX"/>
                                     <constraint firstItem="inT-tG-oio" firstAttribute="centerY" secondItem="Jz0-Hx-djz" secondAttribute="centerY" id="9OT-PC-qCz"/>
                                     <constraint firstItem="Dnt-HC-TPU" firstAttribute="leading" secondItem="Jz0-Hx-djz" secondAttribute="leading" constant="10" id="FQl-5k-pKw"/>
-                                    <constraint firstItem="C2Z-Bc-EQs" firstAttribute="leading" secondItem="fZk-3J-PDF" secondAttribute="leading" constant="10" id="JIa-5F-gPT"/>
-                                    <constraint firstItem="C2Z-Bc-EQs" firstAttribute="trailing" secondItem="fZk-3J-PDF" secondAttribute="trailing" constant="-10" id="PCh-lQ-BbS"/>
+                                    <constraint firstAttribute="trailing" secondItem="J4K-fv-uLH" secondAttribute="trailing" constant="10" id="SeY-gW-The"/>
                                     <constraint firstItem="C4P-4O-yYG" firstAttribute="leading" secondItem="J4K-fv-uLH" secondAttribute="leading" id="T7v-DI-bOC"/>
-                                    <constraint firstItem="J4K-fv-uLH" firstAttribute="trailing" secondItem="C2Z-Bc-EQs" secondAttribute="trailing" id="Wbb-FP-RPP"/>
                                     <constraint firstItem="Dnt-HC-TPU" firstAttribute="trailing" secondItem="Jz0-Hx-djz" secondAttribute="trailing" constant="-10" id="Whx-Ls-IaV"/>
                                     <constraint firstItem="C4P-4O-yYG" firstAttribute="top" secondItem="fZk-3J-PDF" secondAttribute="bottom" constant="20" id="YNl-Yw-crK"/>
+                                    <constraint firstItem="J4K-fv-uLH" firstAttribute="leading" secondItem="Jz0-Hx-djz" secondAttribute="leading" constant="10" id="Yx9-Wp-jx0"/>
+                                    <constraint firstItem="J4K-fv-uLH" firstAttribute="top" secondItem="fZk-3J-PDF" secondAttribute="bottom" constant="30" id="bEH-fV-x5y"/>
                                     <constraint firstAttribute="trailing" secondItem="zz5-32-Fxg" secondAttribute="trailing" id="btZ-Aq-ZWZ"/>
                                     <constraint firstItem="fZk-3J-PDF" firstAttribute="trailing" secondItem="m0U-fF-oiO" secondAttribute="trailing" id="dKQ-gs-EAc"/>
                                     <constraint firstItem="fZk-3J-PDF" firstAttribute="top" secondItem="m0U-fF-oiO" secondAttribute="bottom" constant="20" id="gx1-2d-m3g"/>
-                                    <constraint firstItem="J4K-fv-uLH" firstAttribute="leading" secondItem="C2Z-Bc-EQs" secondAttribute="leading" id="kJM-KX-wfN"/>
                                     <constraint firstItem="m0U-fF-oiO" firstAttribute="top" secondItem="zz5-32-Fxg" secondAttribute="bottom" constant="20" id="maD-gD-GQR"/>
                                     <constraint firstAttribute="bottom" secondItem="Dnt-HC-TPU" secondAttribute="bottom" constant="10" id="nSa-Wm-6ak"/>
                                     <constraint firstItem="inT-tG-oio" firstAttribute="top" secondItem="fZk-3J-PDF" secondAttribute="bottom" constant="-80.5" id="nc7-tr-hVl"/>
                                     <constraint firstAttribute="trailing" secondItem="inT-tG-oio" secondAttribute="trailing" id="no5-B4-N5k"/>
-                                    <constraint firstItem="C2Z-Bc-EQs" firstAttribute="top" secondItem="fZk-3J-PDF" secondAttribute="bottom" constant="20" id="r8z-2r-606"/>
-                                    <constraint firstItem="J4K-fv-uLH" firstAttribute="top" secondItem="C2Z-Bc-EQs" secondAttribute="bottom" constant="10" id="sAS-zg-kfz"/>
                                     <constraint firstItem="zz5-32-Fxg" firstAttribute="leading" secondItem="Jz0-Hx-djz" secondAttribute="leading" id="tM8-fh-sQi"/>
                                     <constraint firstItem="C4P-4O-yYG" firstAttribute="trailing" secondItem="J4K-fv-uLH" secondAttribute="trailing" id="uYY-Dl-SzV"/>
                                     <constraint firstItem="inT-tG-oio" firstAttribute="centerX" secondItem="Jz0-Hx-djz" secondAttribute="centerX" id="xHf-Ex-Q0g"/>
@@ -1915,7 +1899,6 @@
                     <connections>
                         <outlet property="bonusAnimationView" destination="inT-tG-oio" id="Nh3-fd-UW2"/>
                         <outlet property="contentView" destination="Jz0-Hx-djz" id="WNn-zT-rHB"/>
-                        <outlet property="getLifeBtn" destination="C2Z-Bc-EQs" id="Cii-Ts-ILF"/>
                         <outlet property="giveDrinksBtn" destination="J4K-fv-uLH" id="lKQ-uP-JM2"/>
                         <outlet property="nameLabel" destination="fZk-3J-PDF" id="HGO-C3-ZPT"/>
                         <outlet property="okButton" destination="Dnt-HC-TPU" id="w4x-Ch-Jny"/>
@@ -2289,8 +2272,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-Fd-dnW">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Drinks?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2f-0t-zqP">
-                                                <rect key="frame" x="90" y="13" width="115" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KINEK KELL INNIA?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2f-0t-zqP">
+                                                <rect key="frame" x="61" y="13" width="173" height="24"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>

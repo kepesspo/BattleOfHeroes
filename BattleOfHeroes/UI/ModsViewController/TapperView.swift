@@ -157,14 +157,32 @@ class TapperView: GameView {
         separateView.isHidden = true
         let playerOneRes = 5 - abs(Double((playerOneTime.timeIntervalSince(gameTime))))
         let playerTwoRes = 5 - abs(Double((playerTwoTime.timeIntervalSince(gameTime))))
-        timerTwoLabel.text = String(format: "%.4f", playerTwoRes)
-        timerOneLabel.text = String(format: "%.4f", playerOneRes)
+        //timerTwoLabel.text = String(format: "%.4f", playerTwoRes)
+        //timerOneLabel.text = String(format: "%.4f", playerOneRes)
+        
+        if playerTwoTime.timeIntervalSince(gameTime) > 0 {
+            timerTwoLabel.text = "\(String(format: "%.4f", playerTwoRes))"
+        } else {
+            timerTwoLabel.text = "Kifutottál az időből"
+        }
+        if playerOneTime.timeIntervalSince(gameTime) > 0 {
+            timerOneLabel.text = "\(String(format: "%.4f", playerOneRes))"
+        } else {
+            timerOneLabel.text = "Kifutottál az időből"
+        }
         
         winnerLabel.isHidden = false
-        if playerTwoRes < playerOneRes && playerTwoRes > 0 {
+        if playerTwoTime.timeIntervalSince(gameTime) > 0 && playerOneTime.timeIntervalSince(gameTime) > 0 {
+            if playerTwoRes < playerOneRes && playerTwoRes > 0 {
+                winnerLabel.text = "Player Two nyert"
+            } else {
+                winnerLabel.text = "Player One nyert"
+            }
+            
+        } else if playerTwoTime.timeIntervalSince(gameTime) < 0 && playerOneTime.timeIntervalSince(gameTime) > 0 {
+             winnerLabel.text = "Player One nyert"
+        } else if playerOneTime.timeIntervalSince(gameTime) < 0 && playerTwoTime.timeIntervalSince(gameTime) > 0 {
             winnerLabel.text = "Player Two nyert"
-        } else if playerOneRes < playerTwoRes && playerOneRes > 0 {
-            winnerLabel.text = "Player One nyert"
         } else {
             winnerLabel.text = "Senki sem nyert"
             timerTwoLabel.text = "Lose"
