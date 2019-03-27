@@ -46,7 +46,7 @@ class SetUpPlayersViewController: UIViewController {
         
         gameSegmentedControl.layer.cornerRadius = 5
         gameSegmentedControl.allowChangeThumbWidth = false
-        gameSegmentedControl.itemTitles = ["Egyszerű","Csata"]
+        gameSegmentedControl.itemTitles = ["Egyszerű","Összetett","Csata"]
         gameSegmentedControl.didSelectItemWith = { (index, title) -> () in
             switch index {
             case 0:
@@ -58,7 +58,20 @@ class SetUpPlayersViewController: UIViewController {
                 self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
                 self.setupGameBtn.setTitle("Játék Beállitása", for: .normal)
                 GameManagement.sharedInstance.selectedMode = 0
+                self.setUpTableView.reloadData()
+                self.setUpTableView.allowsSelection = false
             case 1:
+                print("Egyszerű")
+                self.view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+                self.setUpGameView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+                self.headerView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+                self.setUpTableView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+                self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+                self.setupGameBtn.setTitle("Játék Beállitása", for: .normal)
+                GameManagement.sharedInstance.selectedMode = 2
+                self.setUpTableView.reloadData()
+                self.setUpTableView.allowsSelection = false
+            case 2:
                 print("Csata")
                 self.setUpGameView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
                 self.headerView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
@@ -67,6 +80,8 @@ class SetUpPlayersViewController: UIViewController {
                 self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
                 self.setupGameBtn.setTitle("Csata Inditása", for: .normal)
                 GameManagement.sharedInstance.selectedMode = 1
+                self.reloadTableView()
+                self.setUpTableView.allowsSelection = true
             default:
                 print("Default")
             }
@@ -91,12 +106,19 @@ class SetUpPlayersViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setUpTableView.reloadData()
+        self.setUpTableView.allowsSelection = false
+        self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
     
     
-    
+    func reloadTableView() {
+        GameManagement.sharedInstance.battlePlayer = []
+        self.setUpTableView.reloadData()
+        
+    }
     
     @IBAction func addPlayer(_ sender: Any) {
         let alert = UIAlertController(title: "",
@@ -177,13 +199,21 @@ class SetUpPlayersViewController: UIViewController {
             print("Nem Mehet")
         }
         if GameManagement.sharedInstance.selectedMode == 1 {
-            var battleGames = GameManagement.sharedInstance.getBattleGames()
+            let battleGames = GameManagement.sharedInstance.getBattleGames()
             GameManagement.sharedInstance.chosenGames = battleGames
+            NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
             self.showLoaderView()
             loadAllGameData { [weak self] in
                 self?.dissmissLoaderView()
             }
         } else {
+           NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+                if error != nil {
+                    print("error")
+                } else {
+                    print("Player List update")
+                }
+            })
             self.navigationController?.pushViewController(setUpVc, animated: true)
         }
         
@@ -322,21 +352,13 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
         return 50
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let customCell = Bundle.main.loadNibNamed("SetUpPlayersTableViewCell",
                                                      owner: self,
                                                      options: nil)?.first as? SetUpPlayersTableViewCell {
-            if  indexPath.row % 2 == 0 {
-                let lightBlueColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:0.5)
-                customCell.contentView.backgroundColor = lightBlueColor
-                //customCell.backgroundColor = lightBlueColor
-            } else {
-                let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
-                customCell.contentView.backgroundColor = lightYellowColor
-                customCell.playerNameLabel.textColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:1.0)
-            }
-            
             let player = indexPath.section == 0 ? playersWithoutTeam()[indexPath.row] : players(in: teamList[indexPath.section - 1])[indexPath.row]
+            customCell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6000000238)
             customCell.playerNameLabel.text = player.playerName
             
             return customCell
@@ -369,55 +391,21 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
         }
     }
     
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        var playerIndex = 0
-        print(playerList)
-        guard sourceIndexPath != destinationIndexPath else { return }
-        guard sourceIndexPath.section != destinationIndexPath.section else {
-            tableView.reloadData()
-            return
-            
-        }
-        
-        guard destinationIndexPath.section != 0 else {
-            tableView.reloadData()
-            return
-        }
-        
-        
-        if sourceIndexPath.section == 0 {
-            let movedObj = playersWithoutTeam()[sourceIndexPath.row]
-            if let player = playerList.index(where: { $0.id == movedObj.id}) {
-                let playerIndexInPlayerList = player
-                print("playerIndex in playerList : \(playerIndexInPlayerList)")
-                playerIndex = playerIndexInPlayerList
-            }
-        } else {
-            let movedObj = players(in: teamList[sourceIndexPath.section - 1])
-            if let player = playerList.index(where: {$0.id == movedObj[sourceIndexPath.row].id}) {
-                let playerIndexInPlayerList = player
-                print("playerIndex in playerList : \(playerIndexInPlayerList)")
-                playerIndex = playerIndexInPlayerList
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let indexPath = setUpTableView.indexPathForSelectedRow {
+            let currentCell = setUpTableView.cellForRow(at: indexPath) as? SetUpPlayersTableViewCell
+            let existingCell =  GameManagement.sharedInstance.battlePlayer.contains(where: {$0.playerName == playerList[indexPath.row].playerName})
+            if !existingCell &&  GameManagement.sharedInstance.battlePlayer.count <= 1 {
+                currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
+                let updatedPlayer = playerList[indexPath.row]
+                GameManagement.sharedInstance.battlePlayer.append(updatedPlayer)
+            } else {
+                currentCell?.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6000000238)
+                GameManagement.sharedInstance.battlePlayer.removeAll(where: {$0.playerName == playerList[indexPath.row].playerName })
+                
+
             }
             
-            
         }
-        
-        
-        let movedObject = playerList[playerIndex]
-        playerList.remove(at: sourceIndexPath.row)
-        playerList.insert(movedObject, at: destinationIndexPath.row)
-        
-        print(movedObject)
-        print("Source: \(sourceIndexPath.row)  Destination : \(destinationIndexPath.row) Team : \(teamList[destinationIndexPath.section - 1].name) ")
-        playerDataChanged(player: playerList[playerIndex], team: teamList[destinationIndexPath.section - 1])
-        
-        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \("")")
-        self.setUpTableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
 }

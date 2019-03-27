@@ -70,6 +70,7 @@ class CoinFlipView: GameView {
         let starting = [back!, front!].randomElement() ?? front!
         flipCoin(times: Int.random(in: 3...8), from: starting)
         self.tap.isEnabled = true
+        flipButton.isEnabled = false
     }
     
     func flipCoin(times: Int, from: UIImageView) {

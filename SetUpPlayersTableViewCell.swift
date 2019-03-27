@@ -13,6 +13,7 @@ class SetUpPlayersTableViewCell: UITableViewCell {
     @IBOutlet weak var playerNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6000000238)
         // Initialization code
     }
 

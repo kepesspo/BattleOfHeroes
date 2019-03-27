@@ -459,7 +459,6 @@ class GameManagement {
         battleGameModes = [GameMode.hajime,
                            GameMode.upAndDown,
                            GameMode.memory,
-                           GameMode.musicRecognizer,
                            GameMode.rockPaperScissors,
                            GameMode.whoAmI,
                            GameMode.coinFlip,
@@ -468,6 +467,8 @@ class GameManagement {
                            GameMode.tapper]
         return battleGameModes
     }
+    
+    var battlePlayer : [Player] = []
     
     var leveLGameDict : [Game] = [Game]()
     var gameDrinkMultiplier : Int = 1

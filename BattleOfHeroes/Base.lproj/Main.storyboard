@@ -1134,7 +1134,8 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="awS-pv-qHT">
                                 <rect key="frame" x="10" y="240" width="355" height="367"/>
-                                <color key="backgroundColor" red="0.96300119159999997" green="0.86616843939999999" blue="0.8735498786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <color key="sectionIndexBackgroundColor" name="ColorBox"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="WCV-y7-uRL" customClass="SetUpPlayersTableViewCell" customModule="BattleOfHeroes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="355" height="44"/>
@@ -1143,6 +1144,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="ColorBox"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2456,6 +2458,12 @@
         <image name="information" width="102.40000152587891" height="102.40000152587891"/>
         <image name="level5" width="183.6734619140625" height="181.83673095703125"/>
         <image name="plusButton" width="144" height="144"/>
+        <namedColor name="AppColor">
+            <color red="0.96470588235294119" green="0.8666666666666667" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorBox">
+            <color red="1" green="1" blue="1" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="whiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
