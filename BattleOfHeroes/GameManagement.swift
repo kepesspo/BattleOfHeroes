@@ -36,6 +36,7 @@ enum GameMode: String {
     case collectAndBoom = "collectAndBoom"
     case theBottle = "theBottle"
     case tapper = "tapper"
+    case tickTak = "tickTak"
     
     
     func gameTitle() -> String {
@@ -66,6 +67,7 @@ enum GameMode: String {
         case .collectAndBoom: return "GameTitle_collectAndBoom".localized()
         case .theBottle: return "GameTitle_theBottle".localized()
         case .tapper: return "GameTitle_tapper".localized()
+        case .tickTak: return "GameTitle_TickTak".localized()
         }
     }
     
@@ -97,6 +99,7 @@ enum GameMode: String {
         case .collectAndBoom: return "GameDescription_collectAndBoom".localized()
         case .theBottle: return "GameDescription_theBottle".localized()
         case .tapper: return "GameDescription_tapper".localized()
+        case .tickTak: return "GameDescription_TickTak".localized()
         }
     }
     
@@ -128,6 +131,7 @@ enum GameMode: String {
         case .collectAndBoom: return .collectAndBoom
         case .theBottle: return .theBottle
         case .tapper: return .tapper
+        case .tickTak: return .tickTak
         }
     }
     
@@ -159,6 +163,7 @@ enum GameMode: String {
         case .collectAndBoom: return .lineGame
         case .theBottle: return .groupGame
         case .tapper: return .battleGame
+        case .tickTak: return .groupGame
         }
     }
     
@@ -191,6 +196,7 @@ enum GameMode: String {
         case .collectAndBoom: return CollectAndBoomView()
         case .theBottle: return TheBottleView()
         case .tapper: return TapperView()
+        case .tickTak: return TickTakView()
         }
     }
     
@@ -233,6 +239,7 @@ enum GameMode: String {
         case .collectAndBoom: return #imageLiteral(resourceName: "025-add-friend.png")
         case .theBottle: return #imageLiteral(resourceName: "012-beer.png")
         case .tapper: return #imageLiteral(resourceName: "016-best-friend.png")
+        case .tickTak: return #imageLiteral(resourceName: "048-letter.png")
         }
     }
 }
@@ -448,7 +455,8 @@ class GameManagement {
                      GameMode.fiveThing,
                      GameMode.collectAndBoom,
                      GameMode.theBottle,
-                     GameMode.tapper]
+                     GameMode.tapper,
+                     GameMode.tickTak]
         
         return gameModes
     }
@@ -464,7 +472,8 @@ class GameManagement {
                            GameMode.coinFlip,
                            GameMode.fiveThing,
                            GameMode.collectAndBoom,
-                           GameMode.tapper]
+                           GameMode.tapper,
+                           GameMode.tickTak]
         return battleGameModes
     }
     
@@ -486,6 +495,9 @@ class GameManagement {
     var userDefDrinkVariation = true
     
     var selectedMode = 0
+    
+    var battlePlayerOneValue = 0
+    var battlePlayerTwoValue = 0
     
     var games = [Game]()
     func getGames() -> [Game] {

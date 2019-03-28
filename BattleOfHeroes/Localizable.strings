@@ -36,7 +36,7 @@
 "GameTitle_collectAndBoom" = "Collect and boom";
 "GameTitle_theBottle" = "Az üveg";
 "GameTitle_tapper" = "Tapper";
-
+"GameTitle_TickTak" = "Tick Tak";
 
 "GameDescription_trueOrFalse" = "Játék Típusa: Egyéni \n\nA játékban egy állítás fog megjelenni és elkell dönteni, hogy az igaz, vagy hamis. Ha úgy ítéled meg hogy az állítás igaz, akkor az idő lejárta előtt ezt közölnöd kell a többi játékosal akik ez alapján tudják eldönteni, hogy jól válaszoltál-e. Ugyan ez igaz a Hamis állításra is. Ha nem jó a válaszod akkor sajnos innod kell.";
 
@@ -90,7 +90,7 @@
 "GameDescription_anagram" = "Az applikáció kisorsol egy játékost aki játszani fog. A Start gombra nyomva megjelenik a képernyőn 4 betű amiből 5 mp allat egy értelmes magyar szót kell kiraknia. Amennyiben ez nem sikerül úgy innia kell a játékosnak. Ha sikerül akkor nincs büntetése.";
 
 "GameDescription_horseRace" = "Ez a játék egy közös játék. Minden játékos 1-3 egységben fogadhat a négy ló egyikére. A versenylovak a Sárga a Zöld a Kék és a Piros. Miután megtörténtek a fogadások az egyik játékos elindija a futamot. Ha az a ló ér be először a célba akire fogadott a játékos akkor annyi piát kioszthat. Viszonta ha nem az a ló nyer akire fogadott akkor a megtett menyiséget kell elfogyszatnia";
-
+"GameDescription_TickTak" = "Ez a játék egy közös játék. A játék elinditásával elindul egy számláló a háttérben ekkor el kell kezdeni körbeadni egy tárgyat a játékosok között. Mikor az időzitő megszolal annál az embernél akinél épp az adott tárgy van ő vesztett es neki kell a büntetést meginnia.";
 
 
 

@@ -108,7 +108,6 @@ class SetUpPlayersViewController: UIViewController {
         super.viewWillAppear(animated)
         self.setUpTableView.reloadData()
         self.setUpTableView.allowsSelection = false
-        self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
@@ -195,17 +194,23 @@ class SetUpPlayersViewController: UIViewController {
     @IBAction func startGameButtonAction(_ sender: Any) {
         let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
         
-        if playerList.count < 2 {
-            print("Nem Mehet")
-        }
         if GameManagement.sharedInstance.selectedMode == 1 {
             let battleGames = GameManagement.sharedInstance.getBattleGames()
             GameManagement.sharedInstance.chosenGames = battleGames
             NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
-            self.showLoaderView()
-            loadAllGameData { [weak self] in
-                self?.dissmissLoaderView()
+            if NetworkSevice.sharedInstance.playerList.count < 2 {
+                let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
+                let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(okBtn)
+                present(alert, animated: true, completion: nil)
+                
+            } else {
+                self.showLoaderView()
+                loadAllGameData { [weak self] in
+                    self?.dissmissLoaderView()
+                }
             }
+            
         } else {
            NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
                 if error != nil {

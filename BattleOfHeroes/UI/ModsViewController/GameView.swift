@@ -58,6 +58,15 @@ class GameView : UIView {
                 })
             }
         } else {
+             if GameManagement.sharedInstance.selectedMode == 1 {
+                let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BattleResultViewController") as! BattleResultViewController
+                popOverVC.modalPresentationStyle = .overFullScreen
+                if let topController = UIApplication.topViewController() {
+                    topController.present(popOverVC, animated: true, completion: {
+                        self.removeFromSuperview()
+                    })
+                }
+            }
             GameManagement.sharedInstance.leveLGameDict.removeFirst()
             print("Drinking Counter Off")
             self.removeFromSuperview()

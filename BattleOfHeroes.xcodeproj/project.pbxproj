@@ -20,6 +20,10 @@
 		4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */; };
 		4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D12F7C421A7007F004FAB50 /* error_cross.json */; };
 		4D1353042203015D00064E02 /* Anagramma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1353032203015D00064E02 /* Anagramma.swift */; };
+		4D1356FE224BC83300894390 /* BattleResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1356FD224BC83300894390 /* BattleResultViewController.swift */; };
+		4D135700224CC76D00894390 /* TickTakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1356FF224CC76D00894390 /* TickTakView.swift */; };
+		4D135702224CC7B200894390 /* TickTakView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D135701224CC7B200894390 /* TickTakView.xib */; };
+		4D135704224CD62400894390 /* animation-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D135703224CD62300894390 /* animation-loading.json */; };
 		4D1A1D962231627800B7626A /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A1D952231627800B7626A /* NetworkViewController.swift */; };
 		4D1A1D982231646C00B7626A /* 4386-connection-error.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A1D972231646C00B7626A /* 4386-connection-error.json */; };
 		4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED021130BA900E51AA9 /* HajimeView.swift */; };
@@ -203,6 +207,10 @@
 		4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		4D12F7C421A7007F004FAB50 /* error_cross.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_cross.json; sourceTree = "<group>"; };
 		4D1353032203015D00064E02 /* Anagramma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anagramma.swift; sourceTree = "<group>"; };
+		4D1356FD224BC83300894390 /* BattleResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleResultViewController.swift; sourceTree = "<group>"; };
+		4D1356FF224CC76D00894390 /* TickTakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickTakView.swift; sourceTree = "<group>"; };
+		4D135701224CC7B200894390 /* TickTakView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickTakView.xib; sourceTree = "<group>"; };
+		4D135703224CD62300894390 /* animation-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "animation-loading.json"; sourceTree = "<group>"; };
 		4D1A1D952231627800B7626A /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		4D1A1D972231646C00B7626A /* 4386-connection-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4386-connection-error.json"; sourceTree = "<group>"; };
 		4D1BDED021130BA900E51AA9 /* HajimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajimeView.swift; sourceTree = "<group>"; };
@@ -454,6 +462,8 @@
 				4D77E70921F0E29A00B27E56 /* TheBottleView.xib */,
 				4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */,
 				4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */,
+				4D1356FF224CC76D00894390 /* TickTakView.swift */,
+				4D135701224CC7B200894390 /* TickTakView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -490,6 +500,7 @@
 				4D12F7C421A7007F004FAB50 /* error_cross.json */,
 				4DA36AE521A447C500B757BE /* drink.json */,
 				4D77255721BE6EC0006ED67C /* phonological.json */,
+				4D135703224CD62300894390 /* animation-loading.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -546,6 +557,7 @@
 				4DE0883921FB487900898A9A /* GroupDrinkViewController.swift */,
 				4DE0883B21FB55C200898A9A /* RandomPictogramViewController.swift */,
 				4D1A1D952231627800B7626A /* NetworkViewController.swift */,
+				4D1356FD224BC83300894390 /* BattleResultViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -822,6 +834,7 @@
 				4DA2840E219B1FD100F6D377 /* rihanna_work.mp3 in Resources */,
 				4DA2840F219B1FD100F6D377 /* Clean_Bandit_Solo_Demi_Lovato.mp3 in Resources */,
 				4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */,
+				4D135704224CD62400894390 /* animation-loading.json in Resources */,
 				4DA36ADD21A41D9100B757BE /* RussianRouletteView.xib in Resources */,
 				4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */,
 				4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */,
@@ -850,6 +863,7 @@
 				4DA28412219B1FD100F6D377 /* Kris_Kross_Jump.mp3 in Resources */,
 				4DA2840A219B1FD100F6D377 /* Marshmello_Happier.mp3 in Resources */,
 				4DFFD5C32135667300A4989B /* Rubik-BlackItalic.ttf in Resources */,
+				4D135702224CC7B200894390 /* TickTakView.xib in Resources */,
 				4D1A1D982231646C00B7626A /* 4386-connection-error.json in Resources */,
 				4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */,
 				4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */,
@@ -973,6 +987,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3D096420FCCB2200C74CC6 /* LoginViewController.swift in Sources */,
+				4D1356FE224BC83300894390 /* BattleResultViewController.swift in Sources */,
 				4D0711DC21F0D85B006D4563 /* HorseRaceView.swift in Sources */,
 				4DE1234820F350F90004C28E /* Team.swift in Sources */,
 				4DE1233D20EE45120004C28E /* UIColorExtension.swift in Sources */,
@@ -1031,6 +1046,7 @@
 				4D77255621BE6D7E006ED67C /* LoaderViewController.swift in Sources */,
 				4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */,
 				4DB8BA43210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift in Sources */,
+				4D135700224CC76D00894390 /* TickTakView.swift in Sources */,
 				4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */,
 				4DFCA2682122DEB8001B2E71 /* GameDetaisViewController.swift in Sources */,
 				4DC819692120D46700F09922 /* MusicRecognizerView.swift in Sources */,
