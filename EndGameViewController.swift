@@ -46,6 +46,7 @@ class EndGameViewController: UIViewController {
     
     @IBAction func endGameAction(_ sender: Any) {
         GameManagement.sharedInstance.leveLGameDict.removeAll()
+        GameManagement.sharedInstance.battlePlayer = []
         self.dismiss(animated: false, completion: nil)
         postNotification(name: .endGame)
     }

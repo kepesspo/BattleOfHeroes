@@ -39,7 +39,6 @@ class TickTakView: GameView {
     
     func commonInit() {
         subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
-        
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("TickTakView", owner: self, options: nil)
         addSubview(contentView)

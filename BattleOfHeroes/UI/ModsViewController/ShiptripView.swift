@@ -65,6 +65,7 @@ class ShiptripView: GameView {
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("ShiptripView", owner: self, options: nil)
         addSubview(contentView)
+        contentView.layer.cornerRadius = 10
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()

@@ -11,6 +11,10 @@ import FirebaseDatabase
 import Firebase
 import Alamofire
 
+enum MyError: Error {
+    case runtimeError(String)
+}
+
 class NetworkSevice {
     static let sharedInstance = NetworkSevice()
     
@@ -44,15 +48,21 @@ class NetworkSevice {
     
     // Add Player To Database
     func addPlayerToDatabase(player: Player, competionBlock: @escaping(_ error: Error?) -> Void) {
-        let roomId = GameManagement.sharedInstance.getRoomName()
-        let playerKey = refPlayer.childByAutoId().key
-        let player = ["id":playerKey,
-                      "playerName": player.playerName as String,
-                      "playerTeamId" : player.teamId as String,
-                      "playerDrinks" : player.allDrink as Int,
-                      "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
-        refGame.child(roomId).child("Players").child(playerKey ?? "").setValue(player)
-        competionBlock(nil)
+        if player.playerName == "" {
+            competionBlock(MyError.runtimeError("Player Neve nem megfelelő"))
+            
+        } else {
+            let roomId = GameManagement.sharedInstance.getRoomName()
+            let playerKey = refPlayer.childByAutoId().key
+            let player = ["id":playerKey,
+                          "playerName": player.playerName as String,
+                          "playerTeamId" : player.teamId as String,
+                          "playerDrinks" : player.allDrink as Int,
+                          "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
+            refGame.child(roomId).child("Players").child(playerKey ?? "").setValue(player)
+            competionBlock(nil)
+        }
+        
     }
     
     // Delete player To Database

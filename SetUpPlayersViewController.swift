@@ -126,12 +126,13 @@ class SetUpPlayersViewController: UIViewController {
         
         // Add player
         let addPlayer = UIAlertAction(title: "Add Player", style: .default) { _ in
-            if let textField = alert.textFields, let text = textField[0].text {
+            if let textField = alert.textFields,
+                let text = textField[0].text?.capitalizingFirstLetter() {
                 self.setUpTableView.reloadData()
                 let player = Player(id: "", playerName: text, teamId: "", allDrink: 0, usedBonus: 0)
                 NetworkSevice.sharedInstance.addPlayerToDatabase(player: player, competionBlock: { (error) in
                     if error != nil {
-                        print("Nem sikerült az adatbázisba a feltöltés")
+                        print(error?.localizedDescription)
                     } else {
                         self.checkGameParam()
                         self.setUpTableView.reloadData()
@@ -161,34 +162,20 @@ class SetUpPlayersViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
-
     
-    func getPlayerData(completionBlock: @escaping(_ error : Error?) -> Void) {
-        NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+    @IBAction func showResult(_ sender: Any) {
+        NetworkSevice.sharedInstance.getPlayerList { (error) in
             if error != nil {
-                print("hiba")
+                print("Error")
             } else {
-                self.playerList = NetworkSevice.sharedInstance.playerList
-                self.setUpTableView.reloadData()
-                completionBlock(nil)
-            }
-        })
-
-        
-    }
-    
-    
-    func playerDataChanged(player : Player, team: Team) {
-        NetworkSevice.sharedInstance.addTeamToPlayer(player: player, team: team) { (error) in
-            if error != nil {
-                print("hiba")
-            } else {
-                
+                print("Reloaded Player list")
+                let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+                scorePopVC.modalPresentationStyle = .overFullScreen
+                self.present(scorePopVC, animated: true, completion: nil)
             }
         }
+        
     }
-    
-    
     
     
     @IBAction func startGameButtonAction(_ sender: Any) {
@@ -223,6 +210,32 @@ class SetUpPlayersViewController: UIViewController {
         }
         
     }
+    
+    func getPlayerData(completionBlock: @escaping(_ error : Error?) -> Void) {
+        NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+            if error != nil {
+                print("hiba")
+            } else {
+                self.playerList = NetworkSevice.sharedInstance.playerList
+                self.setUpTableView.reloadData()
+                completionBlock(nil)
+            }
+        })
+        
+        
+    }
+    
+    
+    func playerDataChanged(player : Player, team: Team) {
+        NetworkSevice.sharedInstance.addTeamToPlayer(player: player, team: team) { (error) in
+            if error != nil {
+                print("hiba")
+            } else {
+                
+            }
+        }
+    }
+    
     
     func loadAllGameData(completion: (() -> Void)?) {
         var remainingCompletions = 0
@@ -337,11 +350,7 @@ class SetUpPlayersViewController: UIViewController {
         self.present(gameVc, animated: true, completion: nil)
     }
     
-    @IBAction func showResult(_ sender: Any) {
-        let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
-        scorePopVC.modalPresentationStyle = .overFullScreen
-        self.present(scorePopVC, animated: true, completion: nil)
-    }
+    
 }
 
 extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource {
@@ -412,5 +421,15 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
             }
             
         }
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.uppercased().dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }

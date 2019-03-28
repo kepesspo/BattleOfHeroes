@@ -25,7 +25,6 @@ import SpotifyLogin
         SpotifyLogin.shared.configure(clientID: "466b1ac50ffb4a2a866dddbeab9bef80",
                                       clientSecret: "43ac2f2354324f90b2ac7699dcae4292",
                                       redirectURL: redirectURL)
-        
         return true
     }
     
