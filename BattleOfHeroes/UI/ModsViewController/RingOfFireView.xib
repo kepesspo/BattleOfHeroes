@@ -29,23 +29,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-f8-3Bv">
-                    <rect key="frame" x="10" y="320.5" width="355" height="160"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-f8-3Bv">
+                    <rect key="frame" x="20" y="360.5" width="335" height="160"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOt-aJ-Xaw">
-                            <rect key="frame" x="0.0" y="0.0" width="115" height="160"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOt-aJ-Xaw">
+                            <rect key="frame" x="0.0" y="0.0" width="101.5" height="160"/>
+                            <state key="normal" backgroundImage="kartya1"/>
                             <connections>
                                 <action selector="card1BtnAction:" destination="-1" eventType="touchUpInside" id="IrD-1M-6zd"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vJ-N8-kD8">
-                            <rect key="frame" x="120" y="0.0" width="115" height="160"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vJ-N8-kD8">
+                            <rect key="frame" x="116.5" y="0.0" width="102" height="160"/>
+                            <state key="normal" backgroundImage="kartya2"/>
                             <connections>
                                 <action selector="card2BtnAction:" destination="-1" eventType="touchUpInside" id="oeE-fK-UOz"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goW-5n-of8">
-                            <rect key="frame" x="240" y="0.0" width="115" height="160"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goW-5n-of8">
+                            <rect key="frame" x="233.5" y="0.0" width="101.5" height="160"/>
+                            <state key="normal" backgroundImage="kartya3"/>
                             <connections>
                                 <action selector="card3BtnAction:" destination="-1" eventType="touchUpInside" id="oAV-fc-WW7"/>
                             </connections>
@@ -59,21 +62,20 @@
                         <constraint firstItem="2vJ-N8-kD8" firstAttribute="width" secondItem="goW-5n-of8" secondAttribute="width" id="x4r-DS-4Gv"/>
                     </constraints>
                 </stackView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ringoffire" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-gx-lXl">
-                    <rect key="frame" x="127.5" y="110" width="120" height="170"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ringoffire" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-gx-lXl">
+                    <rect key="frame" x="37" y="110" width="301" height="180"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="IOm-gx-lXl" secondAttribute="height" multiplier="301:426" id="Yn4-WK-dca"/>
-                        <constraint firstAttribute="height" constant="170" id="xBd-SD-r8z"/>
+                        <constraint firstAttribute="height" constant="180" id="xBd-SD-r8z"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huzz egy lapot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc3-55-RiG">
-                    <rect key="frame" x="130" y="290" width="115" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válassz egy lapot:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc3-55-RiG">
+                    <rect key="frame" x="118.5" y="310" width="138" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szabály" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foj-hb-RLD">
-                    <rect key="frame" x="20" y="490.5" width="335" height="20.5"/>
+                    <rect key="frame" x="20" y="530.5" width="335" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -100,7 +102,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.56806632008008362" green="0.733285146912105" blue="0.79000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="IPH-qN-jmD" firstAttribute="centerY" secondItem="Zwz-CP-HuW" secondAttribute="centerY" id="3HV-zd-fnS"/>
                         <constraint firstItem="D2c-uu-aiq" firstAttribute="centerY" secondItem="Zwz-CP-HuW" secondAttribute="centerY" id="8d1-KU-h5b"/>
@@ -112,19 +114,20 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.71372549019999998" green="0.92156862750000001" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Tc3-55-RiG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Bp-J5-Y0s"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="foj-hb-RLD" secondAttribute="trailing" constant="20" id="1wt-eH-Q5r"/>
-                <constraint firstItem="qWa-f8-3Bv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="3st-SC-sU9"/>
                 <constraint firstItem="Zwz-CP-HuW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="7Ee-iu-dS0"/>
-                <constraint firstItem="2vJ-N8-kD8" firstAttribute="top" secondItem="Tc3-55-RiG" secondAttribute="bottom" constant="10" id="AB1-gI-V2K"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qWa-f8-3Bv" secondAttribute="trailing" constant="10" id="BI3-pg-xEW"/>
+                <constraint firstItem="2vJ-N8-kD8" firstAttribute="top" secondItem="Tc3-55-RiG" secondAttribute="bottom" constant="30" id="AB1-gI-V2K"/>
+                <constraint firstAttribute="trailing" secondItem="qWa-f8-3Bv" secondAttribute="trailing" constant="20" id="Awj-9z-Ezm"/>
                 <constraint firstItem="foj-hb-RLD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="L5j-73-6xE"/>
                 <constraint firstItem="IOm-gx-lXl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TWr-dg-Zlg"/>
+                <constraint firstItem="qWa-f8-3Bv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="VqX-73-6NY"/>
                 <constraint firstItem="Zwz-CP-HuW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="Ysn-LP-Jnu"/>
                 <constraint firstItem="foj-hb-RLD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dGc-Mz-osi"/>
-                <constraint firstItem="Tc3-55-RiG" firstAttribute="top" secondItem="IOm-gx-lXl" secondAttribute="bottom" constant="10" id="dmN-b4-0Ab"/>
+                <constraint firstItem="Tc3-55-RiG" firstAttribute="top" secondItem="IOm-gx-lXl" secondAttribute="bottom" constant="20" id="dmN-b4-0Ab"/>
+                <constraint firstItem="qWa-f8-3Bv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hVP-ml-AbQ"/>
                 <constraint firstItem="foj-hb-RLD" firstAttribute="top" secondItem="2vJ-N8-kD8" secondAttribute="bottom" constant="10" id="hhZ-Ay-FgT"/>
                 <constraint firstItem="IOm-gx-lXl" firstAttribute="top" secondItem="Zwz-CP-HuW" secondAttribute="bottom" constant="10" id="liJ-aY-jxA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Zwz-CP-HuW" secondAttribute="trailing" constant="20" id="r7a-Rw-nJC"/>
@@ -134,6 +137,9 @@
         </view>
     </objects>
     <resources>
+        <image name="kartya1" width="156.5" height="248"/>
+        <image name="kartya2" width="155.5" height="248"/>
+        <image name="kartya3" width="146" height="248"/>
         <image name="ringoffire" width="301" height="426"/>
     </resources>
 </document>

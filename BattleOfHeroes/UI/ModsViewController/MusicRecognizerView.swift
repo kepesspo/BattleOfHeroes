@@ -158,7 +158,7 @@ class MusicRecognizerView: GameView {
     
     
     @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
         musicRecognizerLabel.text = "Fülelj mert csak 5 másodperced van"
     }
     

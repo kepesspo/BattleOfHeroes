@@ -45,7 +45,7 @@ class HajimeView: GameView {
     }
     
     @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
     }
     
     @objc func updateUI() {

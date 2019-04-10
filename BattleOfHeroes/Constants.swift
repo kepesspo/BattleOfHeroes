@@ -52,6 +52,7 @@ extension Notification.Name {
     static let getGameDescription = Notification.Name("getGameDescription")
     static let reloadGroupDrinkTimer = Notification.Name("reloadGroupDrinkTimer")
     static let randomPictogram = Notification.Name("randomPictogram")
+    static let generateNewGame = Notification.Name("generateNewGame")
 }
 
 

@@ -16,8 +16,7 @@ class EverybodyDrinksView: GameView {
     @IBOutlet weak var everybodyDrinksTextLabel: UILabel!
     @IBOutlet weak var howDrinksTextLabel: UILabel!
     @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var playerView: UIView!
     
     var playerList = NetworkSevice.sharedInstance.playerList
     
@@ -46,14 +45,13 @@ class EverybodyDrinksView: GameView {
     }
     
     @objc func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
+        playerView.layer.cornerRadius = 10
         everybodyDrinksTextLabel.text = "Fenékig"
-        playerType.text = "Personal"
     }
     
     @objc func updateLevelCounterUI() {
         
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
     }
     
     func sequencedPlayer() {

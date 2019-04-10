@@ -9,18 +9,15 @@
  import UIKit
  
  class GameViewController: UIViewController {
-    var levelCounter : Int = 1
-    var gameInLevel : Int = 1
+    var gameCounter : Int = 0
     var previousRandomIndex = 100
     var chosenGames : [Game] = [Game]()
     
     @IBOutlet weak var endGameTabButton: UIButton!
     @IBOutlet weak var scoreTabButton: UIButton!
-    @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var levelImageView: UIImageView!
-    @IBOutlet weak var scoreContainerView: UIView!
-    @IBOutlet weak var gameContainerView: UIView!
-    @IBOutlet weak var inofContainerView: UIView!
+    @IBOutlet weak var letPlayText: UILabel!
+    @IBOutlet weak var menuView: UIView!
     
     
     
@@ -30,10 +27,11 @@
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateLevelView()
+        menuView.isHidden = true
         subscribeForNotification(name: .endGame, selector: #selector(dismissGame), object: nil)
         subscribeForNotification(name: .reloadGroupDrinkTimer, selector: #selector(showGroupDrinkView), object: nil)
         subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
+        subscribeForNotification(name: .generateNewGame, selector: #selector(startGameAction), object: nil)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(startGameAction))
         levelImageView.isUserInteractionEnabled = true
@@ -41,16 +39,6 @@
         
         GameManagement.sharedInstance.setCopyCardsList()
         chosenGames = GameManagement.sharedInstance.chosenGames
-        
-        //startGameAction()
-        scoreContainerView.layer.cornerRadius = 10
-        scoreContainerView.layer.masksToBounds = true
-        
-        gameContainerView.layer.cornerRadius = 10
-        gameContainerView.layer.masksToBounds = true
-        
-        inofContainerView.layer.cornerRadius = 10
-        inofContainerView.layer.masksToBounds = true
 
         showGroupDrinkView()
         showRandomPictogram()
@@ -62,12 +50,8 @@
     }
 
     @objc func startGameAction() {
-        if GameManagement.sharedInstance.leveLGameDict.count != 0 {
-            print("Még folyamatban van a játék")
-        } else {
+            letPlayText.isHidden = true
             showView()
-        }
-        
     }
     
     //Extra Game
@@ -118,36 +102,16 @@
     
     
     func generateView(indexOfGame : Int) {
+        menuView.isHidden = false
         if let game = chosenGames[indexOfGame].gameMode?.gameView() {
             game.frame = self.view.bounds
-            game.levelCounter = "\(levelCounter) / \(gameInLevel)"
-            game.gameInLevel = gameInLevel
-            game.gameInLevel = levelCounter
+            gameCounter = gameCounter + 1
+            game.gameCounter = "\(gameCounter)"
             postNotification(name: .addCounterValue)
             GameManagement.sharedInstance.leveLGameDict.append(chosenGames[indexOfGame])
-            
             self.view.insertSubview(game, at: 1)
-        
             print("Game index : \(indexOfGame)")
-            print("Level Counter: \(levelCounter)")
-            
-            if gameInLevel == levelCounter {
-                levelCounter = levelCounter + 1
-                gameInLevel = 1
-                updateLevelView()
-
-            } else {
-                gameInLevel = gameInLevel + 1
-                showView()
-            }
         }
-    }
-    
-    
-    func updateLevelView() {
-        self.levelLabel.text = "Level : \(levelCounter)"
-        self.levelImageView.image = UIImage(named: "level\(levelCounter)") ?? UIImage(named: "level12")
-        self.view.insertSubview(levelImageView, at: 1)
     }
     
     func showScoreView() {
@@ -184,11 +148,9 @@
         showScoreView()
     }
     
-    
     @IBAction func endGameAction(_ sender: Any) {
         showEndGameView()
     }
-    
     
     @IBAction func showInfoDesc(_ sender: Any) {
         let gameDescription = GameManagement.sharedInstance.leveLGameDict.first?.description

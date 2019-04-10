@@ -17,9 +17,8 @@ class TrueOrFalseView: GameView {
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var startLabel: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
+    @IBOutlet weak var playerView: UIView!
     
     var trueOrFalseList = NetworkSevice.sharedInstance.trueOrFalse
     var trueOrFalseText : String?
@@ -47,6 +46,8 @@ class TrueOrFalseView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        
         let randomIndex = Int(arc4random_uniform(UInt32(trueOrFalseList.count)))
         gameIndex = randomIndex
         updateUI()
@@ -56,15 +57,13 @@ class TrueOrFalseView: GameView {
     
     @objc func updateLevelCounterUI() {
 
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
         
     }
     
     func updateUI() {
-        
+        playerView.layer.cornerRadius = 10
         trueOrFalseLabel.text = trueOrFalseList[gameIndex].question
-        playerType.text = "Personal"
-        gameInfoContainerView.layer.cornerRadius = 10
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
         playerLabel.text = playersList[randomPlayer].playerName
     }

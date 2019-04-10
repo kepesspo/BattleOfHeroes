@@ -19,9 +19,9 @@ class UpAndDownView: GameView {
     @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-
+    @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var typeImageView: UIImageView!
+    
     var cardWithValue = GameManagement.sharedInstance.cardWithValue
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -50,10 +50,10 @@ class UpAndDownView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        gameInfoContainerView.layer.cornerRadius = 10
+        playerView.layer.cornerRadius = 10
+        typeImageView.image =  #imageLiteral(resourceName: "004-teamwork-1.png")
         playerNameLabel.text = playersList.randomElement()?.playerName
         descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint: (A számok 2-14-ig vannak)"
-        playerType.text = "Line"
         updateLevelCounterUI()
         
         
@@ -137,7 +137,7 @@ class UpAndDownView: GameView {
     }
     
     @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
     }
 
 }

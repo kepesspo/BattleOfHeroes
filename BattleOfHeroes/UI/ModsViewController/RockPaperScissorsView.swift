@@ -44,7 +44,7 @@ class RockPaperScissorsView: GameView {
     }
     
     @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
         playerType.text = "Battle"
         gameInfoContainerView.layer.cornerRadius = 10
     }

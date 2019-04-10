@@ -49,6 +49,7 @@ class ShiptripView: GameView {
     var event5Count = 0
     var allEvent = 0
     var captains : [String] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -69,19 +70,34 @@ class ShiptripView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
+        firstCheck()
         updateLevelCounterUI()
         
     }
     
     @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
+    }
+    
+    func firstCheck() {
+        event1View.backgroundColor = event1Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
+        event2View.backgroundColor = event2Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
+        event3View.backgroundColor = event3Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
+        event4View.backgroundColor = event4Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
+        event5View.backgroundColor = event5Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
     }
     
     func setCaptains() {
-        for _ in 1...(playersList.count / 3) {
-            randPlayer()
+        if playersList.count <= 2 {
+            for _ in 1...(playersList.count / 2) {
+                randPlayer()
+            }
+        } else {
+            for _ in 1...(playersList.count / 3) {
+                randPlayer()
+            }
         }
+        
     }
     
     func randPlayer() {
@@ -98,7 +114,6 @@ class ShiptripView: GameView {
     
     func updateUI() {
         setCaptains()
-        
         let arr = captains.map { (player) -> String in
             return String(player)
             }.joined(separator: ", ")

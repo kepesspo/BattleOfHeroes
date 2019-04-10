@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 
 class GameView : UIView {
-    var levelCounter : String?
-    var gameInLevel : Int = 1
-    var gameLevel : Int = 1
+    var gameCounter : String?
     
     var tap: UITapGestureRecognizer!
     var actuallyInfo: String?
@@ -35,7 +33,6 @@ class GameView : UIView {
     func configure() {
         tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.addGestureRecognizer(tap)
-        
     }
     
     @objc func tapped() {
@@ -55,6 +52,7 @@ class GameView : UIView {
             if let topController = UIApplication.topViewController() {
                 topController.present(popOverVC, animated: true, completion: {
                     self.removeFromSuperview()
+                    postNotification(name: .generateNewGame)
                 })
             }
         } else {
@@ -64,12 +62,15 @@ class GameView : UIView {
                 if let topController = UIApplication.topViewController() {
                     topController.present(popOverVC, animated: true, completion: {
                         self.removeFromSuperview()
+                        postNotification(name: .generateNewGame)
+
                     })
                 }
             }
             GameManagement.sharedInstance.leveLGameDict.removeFirst()
             print("Drinking Counter Off")
             self.removeFromSuperview()
+            postNotification(name: .generateNewGame)
         }
         
         
