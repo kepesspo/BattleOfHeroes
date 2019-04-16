@@ -145,44 +145,48 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
                 print("Error to get player list in Panel View")
             } else {
                 print("Player update success in Panel View")
-                switch GameManagement.sharedInstance.selectedMode {
-                case 0:
-                    GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.getGames()
-                    
-                    self.showLoaderView()
-                    self.loadAllGameData { [weak self] in
-                        self?.dissmissLoaderView()
-                    }
-                case 1:
-                    let battleGames = GameManagement.sharedInstance.getBattleGames()
-                    GameManagement.sharedInstance.chosenGames = battleGames
+                if GameManagement.sharedInstance.selectedMode == 1 {
                     NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
-                    if NetworkSevice.sharedInstance.playerList.count < 2 {
-                        let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
-                        let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                        alert.addAction(okBtn)
-                        self.present(alert, animated: true, completion: nil)
-                        
-                    } else {
-                        self.showLoaderView()
-                        self.loadAllGameData { [weak self] in
-                            self?.dissmissLoaderView()
-                        }
-                    }
-                case 2:
-                    let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
-                    self.navigationController?.pushViewController(setUpVc, animated: true)
-                case 3:
-                    print("Prev Game")
-                case 4:
-                    let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
-                    scorePopVC.modalPresentationStyle = .overFullScreen
-                    self.present(scorePopVC, animated: true, completion: nil)
-                default:
-                    print("Def switch")
                 }
             }
         })
+        
+        switch GameManagement.sharedInstance.selectedMode {
+        case 0:
+            GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.getGames()
+            
+            showLoaderView()
+            loadAllGameData { [weak self] in
+                self?.dissmissLoaderView()
+            }
+        case 1:
+            let battleGames = GameManagement.sharedInstance.getBattleGames()
+            GameManagement.sharedInstance.chosenGames = battleGames
+            NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
+            if NetworkSevice.sharedInstance.playerList.count < 2 {
+                let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
+                let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(okBtn)
+                present(alert, animated: true, completion: nil)
+                
+            } else {
+                showLoaderView()
+                loadAllGameData { [weak self] in
+                    self?.dissmissLoaderView()
+                }
+            }
+        case 2:
+            let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
+            self.navigationController?.pushViewController(setUpVc, animated: true)
+        case 3:
+            print("Prev Game")
+        case 4:
+            let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+            scorePopVC.modalPresentationStyle = .overFullScreen
+            self.present(scorePopVC, animated: true, completion: nil)
+        default:
+            print("Def switch")
+        }
     }
 
     
