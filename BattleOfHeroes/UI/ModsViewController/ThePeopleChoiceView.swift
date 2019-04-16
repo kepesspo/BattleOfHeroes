@@ -37,8 +37,6 @@ class ThePeopleChoiceView: GameView {
     
     
     func commonInit() {
-        
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("ThePeopleChoiceView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds

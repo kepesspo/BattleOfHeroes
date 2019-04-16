@@ -38,14 +38,14 @@ public class CarnivalWheelSlice: FortuneWheelSliceProtocol {
         return 10.0
     }
     
-    public var font: UIFont {
-        switch style {
-        case .brickRed: return UIFont(name: "ChunkFive", size: 22.0)!
-        case .sandYellow: return UIFont(name: "Lobster 1.3", size: 22.0)!
-        case .babyBlue: return UIFont(name: "Phosphate", size: 22.0)!
-        case .deepBlue: return UIFont(name: "Bebas", size: 22.0)!
-        }
-    }
+//    public var font: UIFont {
+//        switch style {
+//        case .brickRed: return UIFont(name: "ChunkFive", size: 22.0)!
+//        case .sandYellow: return UIFont(name: "Lobster 1.3", size: 22.0)!
+//        case .babyBlue: return UIFont(name: "Phosphate", size: 22.0)!
+//        case .deepBlue: return UIFont(name: "Bebas", size: 22.0)!
+//        }
+//    }
     
     public var stroke: StrokeInfo? {
         return StrokeInfo(color: UIColor.white, width: 1.0)

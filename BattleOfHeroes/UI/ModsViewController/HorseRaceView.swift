@@ -56,8 +56,6 @@ class HorseRaceView: GameView {
     
     func commonInit() {
         self.tap.isEnabled = false
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
-        
         Bundle.main.loadNibNamed("HorseRaceView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds

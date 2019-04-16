@@ -14,9 +14,6 @@ class EverybodyDrinksView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var everybodyDrinksTextLabel: UILabel!
-    @IBOutlet weak var howDrinksTextLabel: UILabel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerView: UIView!
     
     var playerList = NetworkSevice.sharedInstance.playerList
     
@@ -32,27 +29,23 @@ class EverybodyDrinksView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
-
         Bundle.main.loadNibNamed("EverybodyDrinksView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         sequencedPlayer()
         updateUI()
-        updateLevelCounterUI()
         
     }
     
     @objc func updateUI() {
-        playerView.layer.cornerRadius = 10
-        everybodyDrinksTextLabel.text = "Fenékig"
+        everybodyDrinksTextLabel.text = "Most ő iszik"
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+        postNotification(name: .updateGameData)
+        
     }
     
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
     
     func sequencedPlayer() {
         var playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
@@ -61,10 +54,10 @@ class EverybodyDrinksView: GameView {
             
             playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
             GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
-            howDrinksTextLabel.text = playerList[playerIndex].playerName
+            GameManagement.sharedInstance.actuallyPlayerName  = playerList[playerIndex].playerName
         } else {
             GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
-            howDrinksTextLabel.text = playerList[playerIndex].playerName
+            GameManagement.sharedInstance.actuallyPlayerName  = playerList[playerIndex].playerName
         }
     }
     

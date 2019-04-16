@@ -18,11 +18,6 @@ class CategoriesView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var categoriesLabel: UILabel!
     
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerLabel: UILabel!
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -35,27 +30,22 @@ class CategoriesView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("CategoriesView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
     }
     
     @objc func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Line"
-        let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomPlayer].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
         categoriesLabel.text =  categories[randomIndex]
-        playerLabel.text = playersList[randomPlayer].playerName
        
     }
 }

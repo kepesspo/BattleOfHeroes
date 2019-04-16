@@ -12,4 +12,5 @@ use_frameworks!
   pod 'SpotifyLogin'
   pod 'Alamofire', '~>4.0'
   pod 'TTSegmentedControl', '~>0.3'
+  pod 'Panels'
 end

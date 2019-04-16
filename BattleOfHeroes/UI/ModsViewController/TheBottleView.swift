@@ -34,7 +34,6 @@ class TheBottleView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("TheBottleView", owner: self, options: nil)
         addSubview(contentView)

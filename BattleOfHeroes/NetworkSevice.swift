@@ -97,9 +97,6 @@ class NetworkSevice {
                 postNotification(name: .showBonus, object: playData)
             }
         }
-        
-        
-        
         competionBlock(nil)
         
     }

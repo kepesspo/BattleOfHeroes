@@ -62,7 +62,6 @@ class ShiptripView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("ShiptripView", owner: self, options: nil)
         addSubview(contentView)

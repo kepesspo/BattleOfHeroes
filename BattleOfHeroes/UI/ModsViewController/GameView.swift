@@ -36,10 +36,7 @@ class GameView : UIView {
     }
     
     @objc func tapped() {
-
         if GameManagement.sharedInstance.drininkCounterView == true {
-            GameManagement.sharedInstance.leveLGameDict.removeFirst()
-            
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
             popOverVC.modalPresentationStyle = .overFullScreen
             
@@ -66,11 +63,12 @@ class GameView : UIView {
 
                     })
                 }
+             } else {
+                print("Drinking Counter Off")
+                self.removeFromSuperview()
+                postNotification(name: .generateNewGame)
             }
-            GameManagement.sharedInstance.leveLGameDict.removeFirst()
-            print("Drinking Counter Off")
-            self.removeFromSuperview()
-            postNotification(name: .generateNewGame)
+            
         }
         
         

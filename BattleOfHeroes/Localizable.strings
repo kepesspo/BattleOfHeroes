@@ -62,8 +62,8 @@
 
 "GameDescription_fingerIt" = "A játékot úgy kell kezdeni hogy minden játékos az asztalra rakja a mutató ujját. Aztán számolni kezd az első ember akit a játék választ ki. Ekkor ő azt mondja hogy 1,2,3 és 5 ekkor hirtelen mindenkinek el kell vennie az ujját az asztalról ha úgy van vagy rajta hagyja. A játék lényege hogy pontosan annyi ujj maradjon az asztalon ahány szám be lett mondja. Ha eltalálod hogy hány van az asztalon akkor mindenki más iszik rajtad kivűl. Ha nem találod el akkor te iszol. Ha eltalálod akkor te neked már nem kell játszanod többet jön a következő kör";
 
+"GameDescription_cheersToTheGovernor" = "1-5-ig kell számolni. Mikor eléritek a 5-őt akinél véget ért ott van vége a körnek. Ilyenkor mondja mindenki hogy Cheers és mindenki iszik. Akinél vége lett a körnek hoz egy szabályt az egyik számra. Onnantól kezdve annál a számnál az adott szabályt kell csinálni. Ha valaki hibázik akkor innia kell és újra kezdődik a számlálás.";
 
-"GameDescription_cheersToTheGovernor" = "1-10-ig kell számolni. Mikor eléritek a 10-et akinél véget ért ott van vége a körnek. Ilyenkor mondja mindenki hogy Cheers és mindenki iszik. Akinél vége lett a körnek hoz egy szabályt az egyik számra. Onnantól kezdve annál a számnál az adott szabályt kell csinálni. Ha valaki hibázik akkor innia kell és újra kezdődik a számlálás.";
 
 "GameDescription_haveIEverNever" = "Jön egy állitás és ha az igaz rád akkor innod kell ha nem igaz rád akkor nem kell.";
 
@@ -90,6 +90,7 @@
 "GameDescription_anagram" = "Az applikáció kisorsol egy játékost aki játszani fog. A Start gombra nyomva megjelenik a képernyőn 4 betű amiből 5 mp allat egy értelmes magyar szót kell kiraknia. Amennyiben ez nem sikerül úgy innia kell a játékosnak. Ha sikerül akkor nincs büntetése.";
 
 "GameDescription_horseRace" = "Ez a játék egy közös játék. Minden játékos 1-3 egységben fogadhat a négy ló egyikére. A versenylovak a Sárga a Zöld a Kék és a Piros. Miután megtörténtek a fogadások az egyik játékos elindija a futamot. Ha az a ló ér be először a célba akire fogadott a játékos akkor annyi piát kioszthat. Viszonta ha nem az a ló nyer akire fogadott akkor a megtett menyiséget kell elfogyszatnia";
+
 "GameDescription_TickTak" = "Ez a játék egy közös játék. A játék elinditásával elindul egy számláló a háttérben ekkor el kell kezdeni körbeadni egy tárgyat a játékosok között. Mikor az időzitő megszolal annál az embernél akinél épp az adott tárgy van ő vesztett es neki kell a büntetést meginnia.";
 
 

@@ -456,7 +456,8 @@ class GameManagement {
                      GameMode.collectAndBoom,
                      GameMode.theBottle,
                      GameMode.tapper,
-                     GameMode.tickTak]
+                     GameMode.tickTak
+        ]
         
         return gameModes
     }
@@ -468,6 +469,7 @@ class GameManagement {
                            GameMode.upAndDown,
                            GameMode.memory,
                            GameMode.rockPaperScissors,
+                           GameMode.musicRecognizer,
                            GameMode.whoAmI,
                            GameMode.coinFlip,
                            GameMode.fiveThing,
@@ -479,7 +481,6 @@ class GameManagement {
     
     var battlePlayer : [Player] = []
     
-    var leveLGameDict : [Game] = [Game]()
     var gameDrinkMultiplier : Int = 1
     
     var showBonusView : Bool = true
@@ -498,6 +499,13 @@ class GameManagement {
     
     var battlePlayerOneValue = 0
     var battlePlayerTwoValue = 0
+    
+    var actuallyPlayedGameCounter = 0
+    var actuallyPlayerName = ""
+    var actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+    var actuallyGameDesc = ""
+    
+    var gameStarted = false
     
     var games = [Game]()
     func getGames() -> [Game] {

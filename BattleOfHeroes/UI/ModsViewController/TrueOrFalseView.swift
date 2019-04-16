@@ -15,15 +15,13 @@ class TrueOrFalseView: GameView {
     @IBOutlet weak var trueOrFalseLabel: UILabel!
     @IBOutlet weak var timer: UILabel!
     @IBOutlet weak var startBtn: UIButton!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var startLabel: UILabel!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var trueButton: UIButton!
     
     var trueOrFalseList = NetworkSevice.sharedInstance.trueOrFalse
     var trueOrFalseText : String?
     let playersList = NetworkSevice.sharedInstance.playerList
-    
     var gameTimer: Timer?
     var seconds = 6
     var gameIndex = 0
@@ -40,7 +38,12 @@ class TrueOrFalseView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
+        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomPlayer].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+        postNotification(name: .updateGameData)
+        
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("TrueOrFalseView", owner: self, options: nil)
         addSubview(contentView)
@@ -50,27 +53,18 @@ class TrueOrFalseView: GameView {
         
         let randomIndex = Int(arc4random_uniform(UInt32(trueOrFalseList.count)))
         gameIndex = randomIndex
-        updateUI()
-        updateLevelCounterUI()
-        
-    }
-    
-    @objc func updateLevelCounterUI() {
-
-        gameInLevelLabel.text = self.gameCounter
-        
-    }
-    
-    func updateUI() {
-        playerView.layer.cornerRadius = 10
         trueOrFalseLabel.text = trueOrFalseList[gameIndex].question
-        let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
-        playerLabel.text = playersList[randomPlayer].playerName
+        falseButton.isEnabled = false
+        trueButton.isEnabled = false
+        
     }
     
     @IBAction func startBtnAction(_ sender: Any) {
         startBtn.isHidden = true
         startLabel.isHidden = true
+        
+        falseButton.isEnabled = true
+        trueButton.isEnabled = true
         
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         
@@ -88,9 +82,21 @@ class TrueOrFalseView: GameView {
     }
     
     func stopTimer() {
+        falseButton.isEnabled = false
+        trueButton.isEnabled = false
         if gameTimer != nil {
             gameTimer?.invalidate()
             gameTimer = nil
         }
+    }
+    
+    @IBAction func trueButtonAction(_ sender: Any) {
+        falseButton.isHidden = true
+        trueButton.isEnabled = false
+    }
+    
+    @IBAction func falseButtonAction(_ sender: Any) {
+        trueButton.isHidden = true
+        falseButton.isEnabled = false
     }
 }

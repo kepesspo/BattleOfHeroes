@@ -35,7 +35,6 @@ class CollectAndBoomView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("CollectAndBoomView", owner: self, options: nil)
         addSubview(contentView)

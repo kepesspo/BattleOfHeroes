@@ -51,7 +51,6 @@ class TapperView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("TapperView", owner: self, options: nil)
         addSubview(contentView)

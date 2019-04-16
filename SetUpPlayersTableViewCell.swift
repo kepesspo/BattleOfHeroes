@@ -11,9 +11,10 @@ import UIKit
 class SetUpPlayersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var cellView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6000000238)
+        cellView.layer.cornerRadius = 10
         // Initialization code
     }
 

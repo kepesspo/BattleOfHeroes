@@ -50,6 +50,10 @@
 		4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */; };
 		4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */; };
 		4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D096B210B251E00C74CC6 /* Localizable.strings */; };
+		4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3E49EA226082910037D899 /* PanelMenu.storyboard */; };
+		4D3E49EF226082E30037D899 /* PanelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E49EE226082E30037D899 /* PanelMenu.swift */; };
+		4D3E49F422608F160037D899 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E49F322608F160037D899 /* Slide.swift */; };
+		4D3E49F622608F310037D899 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3E49F522608F310037D899 /* Slide.xib */; };
 		4D4A8F7C21F0E46300D0AD6F /* TapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */; };
 		4D4A8F7E21F0E47100D0AD6F /* TapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */; };
 		4D56D4D3214FF403004A591A /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D2214FF403004A591A /* GameInfoViewController.swift */; };
@@ -80,6 +84,8 @@
 		4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ED0211B31FA00B7B7E0 /* GameView.swift */; };
 		4D906ED3211B3FBD00B7B7E0 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */; };
 		4D92A654225CBE600074405E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92A653225CBE600074405E /* GradientView.swift */; };
+		4D92A657225E12E90074405E /* PanelMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92A656225E12E90074405E /* PanelMaterial.swift */; };
+		4D92A659225E13120074405E /* PanelMaterial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D92A658225E13110074405E /* PanelMaterial.storyboard */; };
 		4D94B665216762FD002D7B03 /* SpoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D94B664216762FD002D7B03 /* SpoonView.swift */; };
 		4D94B6672167632D002D7B03 /* SpoonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D94B6662167632D002D7B03 /* SpoonView.xib */; };
 		4D94B6692167A08C002D7B03 /* BonusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D94B6682167A08C002D7B03 /* BonusViewController.swift */; };
@@ -238,6 +244,10 @@
 		4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGameViewController.swift; sourceTree = "<group>"; };
 		4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4D3D096B210B251E00C74CC6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		4D3E49EA226082910037D899 /* PanelMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMenu.storyboard; sourceTree = "<group>"; };
+		4D3E49EE226082E30037D899 /* PanelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelMenu.swift; sourceTree = "<group>"; };
+		4D3E49F322608F160037D899 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		4D3E49F522608F310037D899 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapperView.swift; sourceTree = "<group>"; };
 		4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapperView.xib; sourceTree = "<group>"; };
 		4D56D4D0214A6607004A591A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -269,6 +279,8 @@
 		4D906ED0211B31FA00B7B7E0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		4D92A653225CBE600074405E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		4D92A656225E12E90074405E /* PanelMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelMaterial.swift; sourceTree = "<group>"; };
+		4D92A658225E13110074405E /* PanelMaterial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMaterial.storyboard; sourceTree = "<group>"; };
 		4D94B664216762FD002D7B03 /* SpoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonView.swift; sourceTree = "<group>"; };
 		4D94B6662167632D002D7B03 /* SpoonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpoonView.xib; sourceTree = "<group>"; };
 		4D94B6682167A08C002D7B03 /* BonusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusViewController.swift; sourceTree = "<group>"; };
@@ -400,11 +412,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D3E49F222608EC20037D899 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				4D3E49F322608F160037D899 /* Slide.swift */,
+				4D3E49F522608F310037D899 /* Slide.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		4D76E06221FF57E9008260E9 /* AddCustomGame */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = AddCustomGame;
+			sourceTree = "<group>";
+		};
+		4D92A655225E12DA0074405E /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+				4D92A656225E12E90074405E /* PanelMaterial.swift */,
+				4D3E49EE226082E30037D899 /* PanelMenu.swift */,
+				4D3E49F222608EC20037D899 /* New Group */,
+			);
+			path = Panel;
 			sourceTree = "<group>";
 		};
 		4D98B186210B2FE1000893B0 /* ModsViewController */ = {
@@ -428,12 +459,12 @@
 				4D79986E211742A5006FE28B /* RingOfFireView.xib */,
 				4D906ECC211A43D200B7B7E0 /* MemoryView.swift */,
 				4D906ECE211A443F00B7B7E0 /* MemoryView.xib */,
+				4DC819702120E8EE00F09922 /* RockPaperScissorsView.swift */,
+				4DC819722120E90400F09922 /* RockPaperScissorsView.xib */,
 				4DC819682120D46700F09922 /* MusicRecognizerView.swift */,
 				4DC8196A2120D50800F09922 /* MusicRecognizerView.xib */,
 				4DC8196C2120E60500F09922 /* SwitchHandView.swift */,
 				4DC8196E2120E63200F09922 /* SwitchHandView.xib */,
-				4DC819702120E8EE00F09922 /* RockPaperScissorsView.swift */,
-				4DC819722120E90400F09922 /* RockPaperScissorsView.xib */,
 				4DC819742121099200F09922 /* FingerItView.swift */,
 				4DC81976212109B000F09922 /* FingerItView.xib */,
 				4D3A8E5621241BCC0018C047 /* CheersToTheGovernorView.swift */,
@@ -604,6 +635,8 @@
 				4DE1230B20EE33C90004C28E /* AppDelegate.swift */,
 				4DA36AE721A4606F00B757BE /* LottieView.swift */,
 				4DE1231120EE33C90004C28E /* Main.storyboard */,
+				4D92A658225E13110074405E /* PanelMaterial.storyboard */,
+				4D3E49EA226082910037D899 /* PanelMenu.storyboard */,
 				4DE1231620EE33C90004C28E /* LaunchScreen.storyboard */,
 				4DE1231420EE33C90004C28E /* Assets.xcassets */,
 				4DE1231920EE33C90004C28E /* Info.plist */,
@@ -645,6 +678,7 @@
 		4DE1234420EF6F6D0004C28E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4D92A655225E12DA0074405E /* Panel */,
 				4D76E06221FF57E9008260E9 /* AddCustomGame */,
 				4DB8BA44210B278C00DAF932 /* CustomCell */,
 				4D98B186210B2FE1000893B0 /* ModsViewController */,
@@ -834,6 +868,7 @@
 				4DDDEBA321E398BD006FDA6E /* WhoAmIManagerView.xib in Resources */,
 				4DA36AE221A421FF00B757BE /* i'm_thirsty!.json in Resources */,
 				4D0711D821F0CD76006D4563 /* ShiptripView.xib in Resources */,
+				4D92A659225E13120074405E /* PanelMaterial.storyboard in Resources */,
 				4DA2840E219B1FD100F6D377 /* rihanna_work.mp3 in Resources */,
 				4DA2840F219B1FD100F6D377 /* Clean_Bandit_Solo_Demi_Lovato.mp3 in Resources */,
 				4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */,
@@ -864,6 +899,7 @@
 				4D3A8E5921241BEA0018C047 /* CheersToTheGovernorView.xib in Resources */,
 				4DA28414219B1FD100F6D377 /* Queen_Bohemian_Rhapsody.mp3 in Resources */,
 				4DA28412219B1FD100F6D377 /* Kris_Kross_Jump.mp3 in Resources */,
+				4D3E49F622608F310037D899 /* Slide.xib in Resources */,
 				4DA2840A219B1FD100F6D377 /* Marshmello_Happier.mp3 in Resources */,
 				4DFFD5C32135667300A4989B /* Rubik-BlackItalic.ttf in Resources */,
 				4D135702224CC7B200894390 /* TickTakView.xib in Resources */,
@@ -877,6 +913,7 @@
 				4D22939721E8C8600025C5A7 /* HaveIEverNeverManagerView.xib in Resources */,
 				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
 				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
+				4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */,
 				4D3466662188661F00D379A9 /* BonusPlayerTableViewCell.xib in Resources */,
 				4DA283F8219B179000F6D377 /* sound_visualizer.json in Resources */,
 				4DC819672120C2AD00F09922 /* HowDrinksTableViewCell.xib in Resources */,
@@ -956,6 +993,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SpotifyLogin/SpotifyLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/TTFortuneWheel/TTFortuneWheel.framework",
@@ -969,6 +1007,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotifyLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTFortuneWheel.framework",
@@ -994,6 +1033,7 @@
 				4D0711DC21F0D85B006D4563 /* HorseRaceView.swift in Sources */,
 				4DE1234820F350F90004C28E /* Team.swift in Sources */,
 				4DE1233D20EE45120004C28E /* UIColorExtension.swift in Sources */,
+				4D92A657225E12E90074405E /* PanelMaterial.swift in Sources */,
 				4DDEB1A82195B60800C6E8D7 /* ThePeopleChoiceView.swift in Sources */,
 				4D69D4DB21F0DC69001A49FD /* CoinFlipView.swift in Sources */,
 				4D77255421B97875006ED67C /* DatabaseViewController.swift in Sources */,
@@ -1057,6 +1097,7 @@
 				4DC8196D2120E60500F09922 /* SwitchHandView.swift in Sources */,
 				4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */,
 				4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */,
+				4D3E49F422608F160037D899 /* Slide.swift in Sources */,
 				4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */,
 				4DF7E65321AEE9FD00BA178F /* MusicRecognizerManagerView.swift in Sources */,
 				4DCC02F1211B9D2B00D71186 /* DrinkCounterViewController.swift in Sources */,
@@ -1068,6 +1109,7 @@
 				4DE0883C21FB55C200898A9A /* RandomPictogramViewController.swift in Sources */,
 				4DE1234620EF71D80004C28E /* Constants.swift in Sources */,
 				4DA36AD721A40AC600B757BE /* TrueOrFalse.swift in Sources */,
+				4D3E49EF226082E30037D899 /* PanelMenu.swift in Sources */,
 				4DFFD5B421341C4200A4989B /* Game.swift in Sources */,
 				4D12F7BB21A6B07F004FAB50 /* GameManagementViewController.swift in Sources */,
 				4DC819712120E8EE00F09922 /* RockPaperScissorsView.swift in Sources */,

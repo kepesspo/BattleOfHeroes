@@ -10,23 +10,14 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 import Reachability
-import TTSegmentedControl
+import Panels
+
 
 class SetUpPlayersViewController: UIViewController {
-    
-
     @IBOutlet weak var setUpTableView: UITableView!
     @IBOutlet weak var addPlayerButton: UIButton!
-    @IBOutlet weak var setupGameBtn: UIButton!
-    @IBOutlet weak var dataView: UIView!
-    
     @IBOutlet weak var playerNavigationItem: UINavigationItem!
-    @IBOutlet weak var roomIdentiferLabel: UILabel!
-    @IBOutlet weak var roomPassLabel: UILabel!
-    
-    @IBOutlet weak var setUpGameView: UIView!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var gameSegmentedControl: TTSegmentedControl!
     
     var refPlayer = fireBaseRefData.playerRef
     var playerList = [Player]()
@@ -36,62 +27,14 @@ class SetUpPlayersViewController: UIViewController {
     var roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
     
     var gameMode = GameManagement.sharedInstance.selectedMode
+    lazy var panelManager = Panels(target: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        subscribeForNotification(name: .gameModeChanged, selector: #selector(gameModeChanged), object: nil)
+        showPanel()
+        
         setUpTableView.separatorStyle = .none
-        self.setupGameBtn.isEnabled = false
-        dataView.layer.cornerRadius = 5
-        setUpTableView.layer.cornerRadius = 5
-        
-        gameSegmentedControl.layer.cornerRadius = 5
-        gameSegmentedControl.allowChangeThumbWidth = false
-        gameSegmentedControl.itemTitles = ["Egyszerű","Összetett","Csata"]
-        gameSegmentedControl.didSelectItemWith = { (index, title) -> () in
-            switch index {
-            case 0:
-                print("Egyszerű")
-                self.view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setUpGameView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.headerView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setUpTableView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setupGameBtn.setTitle("Játék Beállitása", for: .normal)
-                GameManagement.sharedInstance.selectedMode = 0
-                self.setUpTableView.reloadData()
-                self.setUpTableView.allowsSelection = false
-            case 1:
-                print("Egyszerű")
-                self.view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setUpGameView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.headerView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setUpTableView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-                self.setupGameBtn.setTitle("Játék Beállitása", for: .normal)
-                GameManagement.sharedInstance.selectedMode = 2
-                self.setUpTableView.reloadData()
-                self.setUpTableView.allowsSelection = false
-            case 2:
-                print("Csata")
-                self.setUpGameView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-                self.headerView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-                self.view.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-                self.setUpTableView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-                self.setupGameBtn.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-                self.setupGameBtn.setTitle("Csata Inditása", for: .normal)
-                GameManagement.sharedInstance.selectedMode = 1
-                self.reloadTableView()
-                self.setUpTableView.allowsSelection = true
-            default:
-                print("Default")
-            }
-            print("Selected item \(index)")
-            
-            
-        }
-        roomPassLabel.text = "Jelszó: \(roomPass ?? "")"
-        roomIdentiferLabel.text = "Név: \(roomName ?? "")"
-        
         getPlayerData(completionBlock: { (error) in
             if error != nil {
                 print("hiba")
@@ -102,6 +45,44 @@ class SetUpPlayersViewController: UIViewController {
         })
     }
     
+    func showPanel() {
+        let panel = UIStoryboard.instantiatePanel(identifier: "PanelMenu")
+        var panelConfiguration = PanelConfiguration(size: .custom(450))
+        panelConfiguration.animateEntry = true
+        panelConfiguration.panelVisibleArea = 140
+        self.panelManager.show(panel: panel, config: panelConfiguration)
+    }
+    
+    @objc func gameModeChanged() {
+        print("Mode Changed")
+       
+        panelManager.collapsePanel()
+        switch GameManagement.sharedInstance.selectedMode {
+        case 0:
+            print("Egyszerű")
+            self.view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+            self.headerView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+            GameManagement.sharedInstance.selectedMode = 0
+            self.setUpTableView.reloadData()
+            self.setUpTableView.allowsSelection = false
+        case 1:
+            print("Egyszerű")
+            self.view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+            self.headerView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+            GameManagement.sharedInstance.selectedMode = 2
+            self.setUpTableView.reloadData()
+            self.setUpTableView.allowsSelection = false
+        case 2:
+            print("Csata")
+            self.headerView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
+            self.view.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
+            GameManagement.sharedInstance.selectedMode = 1
+            self.reloadTableView()
+            self.setUpTableView.allowsSelection = true
+        default:
+            print("Default")
+        }
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,56 +139,7 @@ class SetUpPlayersViewController: UIViewController {
         alert.title = "Add Player"
         alert.addAction(addPlayer)
         alert.addAction(cancel)
-        
         present(alert, animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func showResult(_ sender: Any) {
-        NetworkSevice.sharedInstance.getPlayerList { (error) in
-            if error != nil {
-                print("Error")
-            } else {
-                print("Reloaded Player list")
-                let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
-                scorePopVC.modalPresentationStyle = .overFullScreen
-                self.present(scorePopVC, animated: true, completion: nil)
-            }
-        }
-        
-    }
-    
-    
-    @IBAction func startGameButtonAction(_ sender: Any) {
-        let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
-        
-        if GameManagement.sharedInstance.selectedMode == 1 {
-            let battleGames = GameManagement.sharedInstance.getBattleGames()
-            GameManagement.sharedInstance.chosenGames = battleGames
-            NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
-            if NetworkSevice.sharedInstance.playerList.count < 2 {
-                let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
-                let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(okBtn)
-                present(alert, animated: true, completion: nil)
-                
-            } else {
-                self.showLoaderView()
-                loadAllGameData { [weak self] in
-                    self?.dissmissLoaderView()
-                }
-            }
-            
-        } else {
-           NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
-                if error != nil {
-                    print("error")
-                } else {
-                    print("Player List update")
-                }
-            })
-            self.navigationController?.pushViewController(setUpVc, animated: true)
-        }
         
     }
     
@@ -223,17 +155,6 @@ class SetUpPlayersViewController: UIViewController {
         })
         
         
-    }
-    
-    
-    func playerDataChanged(player : Player, team: Team) {
-        NetworkSevice.sharedInstance.addTeamToPlayer(player: player, team: team) { (error) in
-            if error != nil {
-                print("hiba")
-            } else {
-                
-            }
-        }
     }
     
     
@@ -312,16 +233,6 @@ class SetUpPlayersViewController: UIViewController {
         }
     }
     
-    func dissmissLoaderView() {
-        if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: {
-                self.startBattleGame()
-            })
-        }
-        
-    }
-    
-    
     func playersWithoutTeam() -> [Player] {
         return playerList.filter { $0.teamId == "" }
     }
@@ -332,16 +243,25 @@ class SetUpPlayersViewController: UIViewController {
     
     func checkGameParam() {
         if playerList.count <=  1 {
-            self.setupGameBtn.isEnabled = false
+            //self.setupGameBtn.isEnabled = false
             
         } else {
-            self.setupGameBtn.isEnabled = true
+            //self.setupGameBtn.isEnabled = true
             
         }
         
     }
     
     func startBattleGame() {
+        GameManagement.sharedInstance.groupDrinksAllow = false
+        GameManagement.sharedInstance.randomPictogramAllow = false
+        GameManagement.sharedInstance.showBonusView = false
+        GameManagement.sharedInstance.drininkCounterView = false
+        let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        self.present(gameVc, animated: true, completion: nil)
+    }
+    
+    func startNormalGame() {
         GameManagement.sharedInstance.groupDrinksAllow = false
         GameManagement.sharedInstance.randomPictogramAllow = false
         GameManagement.sharedInstance.showBonusView = false
@@ -363,7 +283,7 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 60
     }
     
     
@@ -372,7 +292,6 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
                                                      owner: self,
                                                      options: nil)?.first as? SetUpPlayersTableViewCell {
             let player = indexPath.section == 0 ? playersWithoutTeam()[indexPath.row] : players(in: teamList[indexPath.section - 1])[indexPath.row]
-            customCell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6000000238)
             customCell.playerNameLabel.text = player.playerName
             
             return customCell
@@ -410,11 +329,11 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
             let currentCell = setUpTableView.cellForRow(at: indexPath) as? SetUpPlayersTableViewCell
             let existingCell =  GameManagement.sharedInstance.battlePlayer.contains(where: {$0.playerName == playerList[indexPath.row].playerName})
             if !existingCell &&  GameManagement.sharedInstance.battlePlayer.count <= 1 {
-                currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
+                currentCell?.cellView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
                 let updatedPlayer = playerList[indexPath.row]
                 GameManagement.sharedInstance.battlePlayer.append(updatedPlayer)
             } else {
-                currentCell?.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6000000238)
+                currentCell?.cellView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 GameManagement.sharedInstance.battlePlayer.removeAll(where: {$0.playerName == playerList[indexPath.row].playerName })
                 
 

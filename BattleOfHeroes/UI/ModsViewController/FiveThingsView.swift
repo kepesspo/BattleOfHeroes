@@ -38,7 +38,6 @@ class FiveThingsView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("FiveThingsView", owner: self, options: nil)
         addSubview(contentView)

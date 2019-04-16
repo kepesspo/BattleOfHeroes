@@ -14,10 +14,6 @@ class MemoryView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var memoryTextLabel: UILabel!
     @IBOutlet weak var categoriesTextLabel: UILabel!
-    @IBOutlet weak var playerTextLabel: UILabel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let categories = GameManagement.sharedInstance.gamesCategories
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -34,35 +30,30 @@ class MemoryView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
 
         Bundle.main.loadNibNamed("MemoryView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        updateLevelCounterUI()
         updateUI()
         
     }
     func updateUI() {
-        memoryTextLabel.text = "Jegyez meg minden szót!!"
+        memoryTextLabel.text = "Jegyezz meg minden szót!"
         let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
         
         let categoria = NSMutableAttributedString()
         categoria.appendColored(.black,font: .regular(20), "Következő kategória:\n ")
             .appendColored(.red, font: .regular(30), "\(categories[randomIndex])")
         categoriesTextLabel.attributedText = categoria
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerTextLabel.text = playersList.randomElement()?.playerName
-        playerType.text = "Line"
+
+        
+        GameManagement.sharedInstance.actuallyPlayerName = playersList.randomElement()?.playerName ?? ""
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
         
         
     }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
-    
      
 }

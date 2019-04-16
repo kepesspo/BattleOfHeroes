@@ -42,7 +42,6 @@ class RussianRouletteView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("RussianRouletteView", owner: self, options: nil)
         

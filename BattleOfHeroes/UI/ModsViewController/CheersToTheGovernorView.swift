@@ -12,12 +12,7 @@ import UIKit
 class CheersToTheGovernorView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    
     @IBOutlet weak var cheersToTheGovernorLabel: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -33,25 +28,24 @@ class CheersToTheGovernorView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("CheersToTheGovernorView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
-        playerName.text = playersList.randomElement()?.playerName
-        cheersToTheGovernorLabel.text = "1-10-ig kell számolni. Utánna Cheers"
-        playerType.text = "Group"
-        gameInfoContainerView.layer.cornerRadius = 10
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        postNotification(name: .updateGameData)
+
+        let cheersToTheGovernor = NSMutableAttributedString()
+        cheersToTheGovernor.appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1) , font: .regular(25), " - Számolj 5-ig.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Igyál.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Hoz létre szabályt.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Majd tartsd be.\n\n").appendColored(.black, font: .regular(25), "Ha nem sikerül akkor is igyál")
+        cheersToTheGovernorLabel.attributedText = cheersToTheGovernor
     }
 }

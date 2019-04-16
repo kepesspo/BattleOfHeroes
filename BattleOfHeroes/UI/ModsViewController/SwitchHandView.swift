@@ -12,11 +12,7 @@ import UIKit
 class SwitchHandView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var switchHandLabel: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -32,25 +28,22 @@ class SwitchHandView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("SwitchHandView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
-        
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
-        playerType.text = "Group"
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerName.text = playersList.randomElement()?.playerName
-        switchHandLabel.text = "\n1 koppintás = folytassa a sorozatot \n2 koppintás = fordított sorrend \n3 koppintás = hiányolja a következő kezét"
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        postNotification(name: .updateGameData)
+        
+        let switchHand = NSMutableAttributedString()
+        switchHand.appendColored(.black , font: .regular(20), "Rakd a melletted űlő játékosok kezén át a tiédet keresztbe.\n\n").appendColored(#colorLiteral(red: 0, green: 0.3294117647, blue: 0.5764705882, alpha: 1), font: .regular(21), "1 koppintás = folytatás\n").appendColored(#colorLiteral(red: 0, green: 0.3294117647, blue: 0.5764705882, alpha: 1), font: .regular(21), "2 koppintás = fordul az irány\n").appendColored(#colorLiteral(red: 0, green: 0.3294117647, blue: 0.5764705882, alpha: 1), font: .regular(21), "3 koppintás = kimarad egy játékos\n\n").appendColored(.black, font: .regular(20), "5 csata után a büntetéseket meg kell inni")
+        switchHandLabel.attributedText = switchHand
     }
 }

@@ -16,11 +16,7 @@ class UpAndDownView: GameView {
     @IBOutlet weak var upBtn: UIButton!
     @IBOutlet weak var numberTextLabel: UILabel!
     @IBOutlet weak var drinksCounter: UILabel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
-    @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var typeImageView: UIImageView!
     
     var cardWithValue = GameManagement.sharedInstance.cardWithValue
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -45,17 +41,17 @@ class UpAndDownView: GameView {
     
     func commonInit() {
         self.tap.isEnabled = false
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("UpAndDownView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        playerView.layer.cornerRadius = 10
-        typeImageView.image =  #imageLiteral(resourceName: "004-teamwork-1.png")
-        playerNameLabel.text = playersList.randomElement()?.playerName
-        descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint: (A számok 2-14-ig vannak)"
-        updateLevelCounterUI()
+        descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint:"
         
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
         
         // First Init randNumb
         randCardIndex = Int(arc4random_uniform(UInt32(cardWithValue.count)))
@@ -134,10 +130,6 @@ class UpAndDownView: GameView {
     @IBAction func upBtnAction(_ sender: Any) {
         nextButtonValue = 2
         showNextRandomNumber()
-    }
-    
-    @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.gameCounter
     }
 
 }
