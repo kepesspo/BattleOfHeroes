@@ -479,7 +479,7 @@ class GameManagement {
         return battleGameModes
     }
     
-    var battlePlayer : [Player] = []
+    var battlePlayer: [Player] = []
     
     var gameDrinkMultiplier : Int = 1
     
@@ -507,6 +507,7 @@ class GameManagement {
     
     var gameStarted = false
     
+    var horseRaceBettingPlayer: [Bet] = []
     var games = [Game]()
     func getGames() -> [Game] {
         getChosenGameMode()

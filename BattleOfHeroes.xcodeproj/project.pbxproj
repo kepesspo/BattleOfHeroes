@@ -33,6 +33,10 @@
 		4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED82113215600E51AA9 /* WheelOfFortuneView.swift */; };
 		4D1BDEDB211321AF00E51AA9 /* WheelOfFortuneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */; };
 		4D1BDEDD21133AF100E51AA9 /* CarnivalWheelSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */; };
+		4D211AC6226774B40065335E /* HorseRaceBetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */; };
+		4D211AC9226864140065335E /* BettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211AC7226864140065335E /* BettingTableViewCell.swift */; };
+		4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D211AC8226864140065335E /* BettingTableViewCell.xib */; };
+		4D211ACC226872C00065335E /* HorseBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211ACB226872C00065335E /* HorseBet.swift */; };
 		4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */; };
 		4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */; };
 		4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */; };
@@ -227,6 +231,10 @@
 		4D1BDED82113215600E51AA9 /* WheelOfFortuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelOfFortuneView.swift; sourceTree = "<group>"; };
 		4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WheelOfFortuneView.xib; sourceTree = "<group>"; };
 		4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarnivalWheelSlice.swift; path = BattleOfHeroes/CarnivalWheelSlice.swift; sourceTree = SOURCE_ROOT; };
+		4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseRaceBetViewController.swift; sourceTree = "<group>"; };
+		4D211AC7226864140065335E /* BettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BettingTableViewCell.swift; sourceTree = "<group>"; };
+		4D211AC8226864140065335E /* BettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BettingTableViewCell.xib; sourceTree = "<group>"; };
+		4D211ACB226872C00065335E /* HorseBet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseBet.swift; sourceTree = "<group>"; };
 		4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseManagerView.xib; sourceTree = "<group>"; };
 		4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseManagerView.swift; sourceTree = "<group>"; };
 		4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverManagerView.swift; sourceTree = "<group>"; };
@@ -560,6 +568,8 @@
 				4D3466642188661F00D379A9 /* BonusPlayerTableViewCell.xib */,
 				4DA6ED7A21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift */,
 				4DA6ED7B21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib */,
+				4D211AC7226864140065335E /* BettingTableViewCell.swift */,
+				4D211AC8226864140065335E /* BettingTableViewCell.xib */,
 			);
 			name = CustomCell;
 			path = ../..;
@@ -591,6 +601,7 @@
 				4DE0883B21FB55C200898A9A /* RandomPictogramViewController.swift */,
 				4D1A1D952231627800B7626A /* NetworkViewController.swift */,
 				4D1356FD224BC83300894390 /* BattleResultViewController.swift */,
+				4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -701,6 +712,7 @@
 				4DA36B2721A6A54C00B757BE /* Song.swift */,
 				4D973D7E21AFFE7700D6038F /* SongParse.swift */,
 				4D1353032203015D00064E02 /* Anagramma.swift */,
+				4D211ACB226872C00065335E /* HorseBet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -875,6 +887,7 @@
 				4D135704224CD62400894390 /* animation-loading.json in Resources */,
 				4DA36ADD21A41D9100B757BE /* RussianRouletteView.xib in Resources */,
 				4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */,
+				4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */,
 				4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */,
 				4D77E70A21F0E29A00B27E56 /* TheBottleView.xib in Resources */,
 				4DA36AE421A4220C00B757BE /* newAnimation.json in Resources */,
@@ -1068,7 +1081,9 @@
 				4D56D4D521512DA7004A591A /* HaveIEverNeverView.swift in Sources */,
 				4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */,
 				4D906ECD211A43D200B7B7E0 /* MemoryView.swift in Sources */,
+				4D211ACC226872C00065335E /* HorseBet.swift in Sources */,
 				4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */,
+				4D211AC9226864140065335E /* BettingTableViewCell.swift in Sources */,
 				4D3466652188661F00D379A9 /* BonusPlayerTableViewCell.swift in Sources */,
 				4D56D4D921513B23004A591A /* WhoAmIView.swift in Sources */,
 				4DA36B2821A6A54C00B757BE /* Song.swift in Sources */,
@@ -1081,6 +1096,7 @@
 				4DC819662120C2AD00F09922 /* HowDrinksTableViewCell.swift in Sources */,
 				4DF709EC21C7BE27007A5317 /* InfoViewController.swift in Sources */,
 				4D28A9C821A2C8F8007F4F0D /* FamousPerson.swift in Sources */,
+				4D211AC6226774B40065335E /* HorseRaceBetViewController.swift in Sources */,
 				4DA36AD921A41A7400B757BE /* HaveIEverNever.swift in Sources */,
 				4D79986321149CD3006FE28B /* GameManagement.swift in Sources */,
 				4D68038B2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift in Sources */,

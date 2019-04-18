@@ -18,14 +18,11 @@ class SetUpPlayersViewController: UIViewController {
     @IBOutlet weak var addPlayerButton: UIButton!
     @IBOutlet weak var playerNavigationItem: UINavigationItem!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var plusButtonImageView: UIImageView!
     
     var refPlayer = fireBaseRefData.playerRef
     var playerList = [Player]()
     var teamList = [Team]()
-
-    var roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName)
-    var roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
-    
     var gameMode = GameManagement.sharedInstance.selectedMode
     lazy var panelManager = Panels(target: self)
     
@@ -41,6 +38,45 @@ class SetUpPlayersViewController: UIViewController {
             } else {
                 GameManagement.sharedInstance.getGames()
                 self.checkGameParam()
+            }
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !GameManagement.sharedInstance.firstRun() {
+            NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
+                if error == nil {
+                    print("Nincs error")
+                    self.checkGameRunning()
+                } else {
+                    
+                }
+            }
+        } else {
+            print("First run false")
+            self.checkGameRunning()
+        }
+        
+        
+        self.setUpTableView.reloadData()
+        self.setUpTableView.allowsSelection = false
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+    }
+    
+    func checkGameRunning() {
+        NetworkSevice.sharedInstance.getGameRunning(completionBlock: { (error, run) in
+            if run == 1 {
+                self.addPlayerButton.isHidden = true
+                self.setUpTableView.isUserInteractionEnabled = false
+                self.plusButtonImageView.isHidden = true
+                postNotification(name: .updateGameIsSpectate)
+            } else {
+                self.addPlayerButton.isHidden = false
+                self.setUpTableView.isUserInteractionEnabled = true
+                self.plusButtonImageView.isHidden = false
+                postNotification(name: .updateGameIsAll)
             }
         })
     }
@@ -82,15 +118,6 @@ class SetUpPlayersViewController: UIViewController {
         default:
             print("Default")
         }
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setUpTableView.reloadData()
-        self.setUpTableView.allowsSelection = false
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
     }
     
     

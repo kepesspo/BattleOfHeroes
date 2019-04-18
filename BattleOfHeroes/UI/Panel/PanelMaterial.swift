@@ -82,7 +82,17 @@ class PanelMaterial: UIViewController, Panelable {
     
     @IBAction func showInfoDesc(_ sender: Any) {
         let gameDescription = GameManagement.sharedInstance.actuallyGameDesc
-        showInfoView(description: gameDescription ?? "Itt még nem látsz játékot igy nincs is hozzá leírás")
+        showInfoView(description: gameDescription)
+    }
+    
+    @IBAction func skipGameAction(_ sender: Any) {
+        if let topController = UIApplication.topViewController() {
+            if let gameView = topController.view.subviews.filter({ $0 is GameView }).last {
+                gameView.removeFromSuperview()
+            }
+            postNotification(name: .generateNewGame)
+        }
+        
     }
     
 }
@@ -98,7 +108,7 @@ extension UIView {
             blurView.heightAnchor.constraint(equalTo: self.heightAnchor),
             blurView.widthAnchor.constraint(equalTo: self.widthAnchor),
             ])
-        
+
     }
 }
 

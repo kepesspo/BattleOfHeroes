@@ -73,16 +73,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrr-Qw-Pha">
                                 <rect key="frame" x="0.0" y="150" width="375" height="450"/>
                                 <subviews>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-Os-0lb">
-                                        <rect key="frame" x="162.5" y="0.0" width="50" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="MdJ-4t-B50"/>
-                                        </constraints>
-                                        <color key="pageIndicatorTintColor" name="whiteColor"/>
-                                        <color key="currentPageIndicatorTintColor" red="0.019607843137254902" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUO-W0-CVW">
-                                        <rect key="frame" x="315" y="410" width="30" height="30"/>
+                                        <rect key="frame" x="335" y="410" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="BFe-W3-fCl"/>
                                             <constraint firstAttribute="height" constant="30" id="Vv9-Ql-qfO"/>
@@ -92,20 +84,24 @@
                                             <action selector="gameDetailsAction:" destination="cKZ-sD-UtL" eventType="touchUpInside" id="oEz-5Z-JOX"/>
                                         </connections>
                                     </button>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-Os-0lb">
+                                        <rect key="frame" x="152" y="403" width="71" height="37"/>
+                                        <color key="pageIndicatorTintColor" name="whiteColor"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.019607843137254902" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5I-SX-skx">
-                                        <rect key="frame" x="0.0" y="47" width="375" height="403"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="e5I-SX-skx" firstAttribute="leading" secondItem="Rrr-Qw-Pha" secondAttribute="leading" id="7c6-tO-0Yh"/>
-                                    <constraint firstItem="ULb-Os-0lb" firstAttribute="top" secondItem="Rrr-Qw-Pha" secondAttribute="top" id="7pa-an-ehQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="e5I-SX-skx" secondAttribute="bottom" id="G5T-Ht-NkQ"/>
+                                    <constraint firstItem="ULb-Os-0lb" firstAttribute="centerX" secondItem="e5I-SX-skx" secondAttribute="centerX" id="KTy-Xt-CFk"/>
                                     <constraint firstAttribute="trailing" secondItem="e5I-SX-skx" secondAttribute="trailing" id="N49-oN-0bb"/>
-                                    <constraint firstItem="e5I-SX-skx" firstAttribute="top" secondItem="ULb-Os-0lb" secondAttribute="bottom" constant="10" id="NUT-kL-cws"/>
                                     <constraint firstAttribute="bottom" secondItem="VUO-W0-CVW" secondAttribute="bottom" constant="10" id="aQd-ve-hOR"/>
-                                    <constraint firstAttribute="trailing" secondItem="VUO-W0-CVW" secondAttribute="trailing" constant="30" id="mpJ-l3-ctP"/>
-                                    <constraint firstAttribute="bottom" secondItem="e5I-SX-skx" secondAttribute="bottom" id="pSf-aF-aPy"/>
-                                    <constraint firstItem="ULb-Os-0lb" firstAttribute="centerX" secondItem="Rrr-Qw-Pha" secondAttribute="centerX" id="tfN-Wq-Vpd"/>
+                                    <constraint firstAttribute="bottom" secondItem="ULb-Os-0lb" secondAttribute="bottom" constant="10" id="feG-fT-RZl"/>
+                                    <constraint firstAttribute="trailing" secondItem="VUO-W0-CVW" secondAttribute="trailing" constant="10" id="mpJ-l3-ctP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -117,6 +113,7 @@
                             <constraint firstItem="DpB-ii-x0L" firstAttribute="trailing" secondItem="oSZ-rI-pHh" secondAttribute="trailing" id="JXb-Xd-oOc"/>
                             <constraint firstItem="DpB-ii-x0L" firstAttribute="top" secondItem="qSo-Oi-ZAj" secondAttribute="top" id="Tg4-QD-J5U"/>
                             <constraint firstItem="Rrr-Qw-Pha" firstAttribute="bottom" secondItem="oSZ-rI-pHh" secondAttribute="bottom" id="e03-96-S2h"/>
+                            <constraint firstItem="e5I-SX-skx" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="bottom" id="gN4-hd-IVI"/>
                             <constraint firstItem="Rrr-Qw-Pha" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="bottom" id="vAx-3S-KWe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oSZ-rI-pHh"/>

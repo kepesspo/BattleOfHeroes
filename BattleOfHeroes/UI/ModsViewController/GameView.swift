@@ -36,6 +36,16 @@ class GameView : UIView {
     }
     
     @objc func tapped() {
+        GameManagement.sharedInstance.horseRaceBettingPlayer = []
+        
+        NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
+            if error == nil {
+                print("Horse race with database work")
+            } else {
+                print("error")
+            }
+        }
+
         if GameManagement.sharedInstance.drininkCounterView == true {
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
             popOverVC.modalPresentationStyle = .overFullScreen

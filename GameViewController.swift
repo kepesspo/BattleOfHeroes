@@ -24,7 +24,7 @@
         super.viewDidLoad()
         
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
-        var panelConfiguration = PanelConfiguration(size: .oneThird)
+        var panelConfiguration = PanelConfiguration(size: .custom(300))
         panelConfiguration.animateEntry = true
         self.panelManager.show(panel: panel, config: panelConfiguration)
         

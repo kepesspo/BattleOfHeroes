@@ -54,7 +54,7 @@
 
 "GameDescription_memory" = "Egy kategóriába (Ezt a játék mondja meg) elkell kezdeni mondani szavakat és utána ismételni kell az előzőeket aki elrondja az iszik. A játék választja ki ki kezd";
 
-"GameDescription_musicRecognizer" = "A játék két csapatra bontja a társaságot. Egy zenéből egy részletet kell meghallgatni és tippelni kell melyik évből van. Amelyik csapatnak közelebb van tippje a megoldáshoz az oszthat ki annyi piát ahányan vannak a csapatba. Ezt lehet egy embernek is osztani.";
+"GameDescription_musicRecognizer" = "A játékban egy zenét fog a játékos hallani 5 másodpercig. Ezek után ki kell találni-a hogy ki az előadó és mi a szám cime. Abban az esetben ha a kettőből az egyik sikerül akkor nem kell inni-a. Ha mind a kettőt sikeresen kitalálja akkor kioszthat egy piát. Ha egyiket sem tudja akkor neki kell innia.";
 
 "GameDescription_switchHand" = "A játék úgy kezdődik hogy kereszbe rakjátok a kezeteket az asztalon. Egyik egyénileg választott irányba indul a kör és választani lehet hogy hányat koppintasz \n1 Koppintás = Abba az irányba megy tovább amelyikel koppintott. \n2 Koppintás = Fordított irányba indul. Tehát ha bal kézzel koppint akkor jobbra megy a kör tovább. \n3 Koppintás = A soron következőnek nem szabad koppintania az utána lévőnek kell folytatnia. Fontos hogy felváltott kezek legyenek. Aki ront az iszik. Itt is ahány játékos játszik annyi kört kell játszani.";
 

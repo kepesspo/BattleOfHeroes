@@ -48,6 +48,15 @@ class EndGameViewController: UIViewController {
         GameManagement.sharedInstance.battlePlayer = []
         GameManagement.sharedInstance.actuallyPlayedGameCounter = 0
         GameManagement.sharedInstance.gameStarted = false
+        
+        NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
+            if error == nil {
+                print("Lock Screen for other player")
+            } else {
+                print("Error Lock Screen for other player ")
+            }
+        }
+        
         self.dismiss(animated: false, completion: nil)
         postNotification(name: .endGame)
     }

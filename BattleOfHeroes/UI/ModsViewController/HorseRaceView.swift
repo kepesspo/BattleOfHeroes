@@ -12,12 +12,8 @@ import UIKit
 class HorseRaceView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var moveButton: UIButton!
     @IBOutlet weak var horseColorImageView: UIImageView!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
@@ -60,13 +56,20 @@ class HorseRaceView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        updateLevelCounterUI()
         updateUI()
         
     }
     
+    @IBAction func betAction(_ sender: Any) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HorseRaceBetViewController") as! HorseRaceBetViewController
+        popOverVC.modalPresentationStyle = .overFullScreen
+        if let topController = UIApplication.topViewController() {
+            topController.present(popOverVC, animated: true, completion: nil)
+            
+        }
+    }
+    
     @IBAction func moveButtonAction(_ sender: Any) {
-        
         runTimer()
         moveButton.isHidden = true
         
@@ -119,15 +122,8 @@ class HorseRaceView: GameView {
             } else {
                 winnerLabel.text = "A győztes ló a: Zöld"
             }
- 
-            
-//            let horseDict : [Int: String] = [redCounter:"Piros", blueCounter:"Kék", greenCounter:"Zöld", yellowCounter:"Sárga"]
-//            for (key, value) in horseDict {
-//                if key == 10 {
-//                     winnerLabel.text = "A győztes ló a: \(value) "
-//                }
-//            }
 
+            
         }
         print("Red horse: \(redCounter) Green horse: \(greenCounter) Yellow horse: \(yellowCounter) Blue horse: \(blueCounter)")
         
@@ -140,16 +136,19 @@ class HorseRaceView: GameView {
         }, completion: nil)
     }
     
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
-    
     func updateUI() {
-        playerType.text = "Group"
-        playerName.text = playersList.randomElement()?.playerName
-        gameInfoContainerView.layer.cornerRadius = 10        
-
+        NetworkSevice.sharedInstance.horseRaceRunning(isRun: true) { (error) in
+            if error == nil {
+                print("Horse race with database work")
+            } else {
+                print("error")
+            }
+        }
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
     }
 }

@@ -20,23 +20,36 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     @IBOutlet weak var gameDetailsBtn: UIButton!
     
     var slides:[Slide] = []
+    var roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName)
+    var roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        subscribeForNotification(name: .updateGameIsSpectate, selector: #selector(createSlidesForSpac))
+        subscribeForNotification(name: .updateGameIsAll, selector: #selector(createSlides))
         self.view.addBlurBackgroundToMenu()
         curveTopCornersToMenuView()
         self.view.layoutIfNeeded()
         
-        slides = createSlides()
-        setupSlideScrollView(slides: slides)
-        pageScrollView.delegate = self
-        pageControl.numberOfPages = slides.count
-        pageControl.currentPage = 0
-        view.bringSubviewToFront(pageControl)
-        
-        nextButton.layer.cornerRadius = 10
-        
+        NetworkSevice.sharedInstance.getGameRunning { (error, value) in
+            if value == 1 {
+                self.slides = self.createSlidesForSpac()
+                self.setupSlideScrollView(slides: self.slides)
+                self.pageScrollView.delegate = self
+                self.pageControl.numberOfPages = self.slides.count
+                self.pageControl.currentPage = 0
+                self.view.bringSubviewToFront(self.pageControl)
+                self.nextButton.layer.cornerRadius = 10
+            } else {
+                self.slides = self.createSlides()
+                self.setupSlideScrollView(slides: self.slides)
+                self.pageScrollView.delegate = self
+                self.pageControl.numberOfPages = self.slides.count
+                self.pageControl.currentPage = 0
+                self.view.bringSubviewToFront(self.pageControl)
+                self.nextButton.layer.cornerRadius = 10
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +57,20 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
     }
     
-    func createSlides() -> [Slide] {
+    @objc func createSlidesForSpac() -> [Slide] {
+        let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        slide5.gameModeTitle.text = "Spectate"
+        slide5.gameModeDescription.text = "Az Sepctate jaták mod arra való hogy nyomon tudjátok követni a játék állását igy megkönnyitve a játékot."
+        slide5.actionBtn.setTitle("Kiválaszt", for: .normal)
+        slide5.actionBtn.tag = 4
+        slide5.actionBtn.isHidden = false
+        slide5.actionBtn.layer.cornerRadius = 10
+        slide5.actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
+        return [slide5]
+    }
+    
+    @objc func createSlides() -> [Slide] {
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide1.gameModeTitle.text = "Egyszerű"
         slide1.gameModeDescription.text = "Az egyszerű játéknál Nem tudsz válogatni a játékok közül hanem minden játék fog szerepelni. Illetve az egyéb beállitási lehetőségeket sem fogod tudni alkalmazni."
@@ -140,6 +166,19 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     
     @IBAction func nextButtonAction(_ sender: Any) {
         // Get Player List
+        if GameManagement.sharedInstance.selectedMode == 4 {
+            print("Not run game only spac")
+        } else {
+            NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
+                if error == nil {
+                    print("Lock Screen for other player")
+                } else {
+                    print("Error Lock Screen for other player ")
+                }
+            }
+        }
+        
+        
         NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
             if error != nil {
                 print("Error to get player list in Panel View")
@@ -282,7 +321,24 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     }
     
     @IBAction func gameDetailsAction(_ sender: Any) {
-        
+        let alert = UIAlertController(title: "Szoba Adatok", message: "Szoba név: \(roomName!) \n Szoba jelszó: \(roomPass!)", preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let resetScore = UIAlertAction(title: "Reset Score", style: .destructive) { (alert) in
+            NetworkSevice.sharedInstance.resetPlayerData(players: NetworkSevice.sharedInstance.playerList, competionBlock: { (error) in
+                if error == nil {
+                    print("Reseted Player Score")
+                } else {
+                    print(error?.localizedDescription)
+                }
+            })
+        }
+        let resetData = UIAlertAction(title: "Develop", style: .default, handler: nil)
+        alert.addAction(resetScore)
+        //alert.addAction(resetData)
+        alert.addAction(okBtn)
+        if let topController = UIApplication.topViewController() {
+            topController.present(alert, animated: true, completion: nil)
+        }
     }
     
     func startBattleGame() {

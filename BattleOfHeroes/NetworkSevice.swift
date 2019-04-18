@@ -26,6 +26,8 @@ class NetworkSevice {
     var musicRecognizer = [SongParse]()
     var anagrammaWord =  [Anagramma]()
     
+    var horseRaceRun = false
+    
     let refPlayer = fireBaseRefData.playerRef
     let refTeam = fireBaseRefData.teamRef
     let refGame = fireBaseRefData.gameRef
@@ -99,6 +101,23 @@ class NetworkSevice {
         }
         competionBlock(nil)
         
+    }
+    
+    func resetPlayerData(players: [Player], competionBlock: @escaping(_ error: Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        for player in players {
+            let playerKey = player.id
+
+            var playerData: [String:Any]?
+            
+            playerData = ["id":playerKey,
+                          "playerName": player.playerName as String,
+                          "playerTeamId" : player.teamId as String,
+                          "playerDrinks" : 0 as Int,
+                          "playerUsedBonus" : 0 as Int] as [String : Any]
+            refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
+        }
+        competionBlock(nil)
     }
     
     // UpdatePlayerUseBonus
@@ -180,12 +199,48 @@ class NetworkSevice {
                     let playerDrinks = playerObject?["playerDrinks"] as? Int
                     let playerUsedBonus = playerObject!["playerUsedBonus"] as? Int
                     
-                    
                     let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, allDrink: playerDrinks!, usedBonus: playerUsedBonus!)
                     self.playerList.append(player)
                     
                 }
                 completionBlock(nil)
+            }
+        }
+    }
+    
+    func getHorseRaceRunning(completionBlock: @escaping(_ error : Error?,_ horseRaceData: Int) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        var horseRaceData: Int = 0
+        refGame.child(roomId).observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                horseRaceData = snapshot.childSnapshot(forPath: "HorseRace").value as! Int
+                completionBlock(nil,horseRaceData)
+            }
+        }
+    }
+    
+    func horseRaceRunning(isRun:Bool, completionBlock: @escaping(_ error : Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        refGame.child(roomId).child("HorseRace").setValue(isRun)
+        completionBlock(nil)
+        
+    }
+    
+    
+    func gameRunning(isRun:Bool, completionBlock: @escaping(_ error : Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        refGame.child(roomId).child("GameRun").setValue(isRun)
+        completionBlock(nil)
+        
+    }
+    
+    func getGameRunning(completionBlock: @escaping(_ error : Error?,_ gameRunnig: Int) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        var gameRunnigData: Int = 0
+        refGame.child(roomId).observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                gameRunnigData = snapshot.childSnapshot(forPath: "GameRun").value as! Int
+                completionBlock(nil,gameRunnigData)
             }
         }
     }

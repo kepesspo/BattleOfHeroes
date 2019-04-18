@@ -216,13 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HowDrinksTableViewCell.swift"
-            timestampString = "560787181.9844199"
+            timestampString = "577290155.865849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "stepperChangeValue(_:)"
-            landmarkType = "7">
+            startingLineNumber = "37"
+            endingLineNumber = "37">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -232,11 +230,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BattleOfHeroes/NetworkSevice.swift"
-            timestampString = "577115948.753438"
+            timestampString = "577290155.865922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "addGameToDatabase(room:competionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -248,11 +246,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BattleOfHeroes/NetworkSevice.swift"
-            timestampString = "577115948.7535191"
+            timestampString = "577290155.866016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "addPlayerToDatabase(player:competionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,11 +262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BattleOfHeroes/UI/Panel/PanelMenu.swift"
-            timestampString = "577116496.375057"
+            timestampString = "577290155.866109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "buttonAction(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,12 +277,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScoreViewController.swift"
-            timestampString = "577112864.317011"
+            filePath = "BattleOfHeroes/UI/Panel/PanelMenu.swift"
+            timestampString = "577290155.8661931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "nextButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BattleOfHeroes/UI/Panel/PanelMenu.swift"
+            timestampString = "577290155.866267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "nextButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScoreViewController.swift"
+            timestampString = "577290155.8663419"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "reloadScoreTableView()"
             landmarkType = "7">
             <Locations>
@@ -296,27 +326,27 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/ScoreViewController.swift"
-                  timestampString = "577116586.425189"
+                  timestampString = "577288302.463694"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "52">
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "188">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 () -&gt; () in BattleOfHeroes.ScoreViewController.reloadScoreTableView() -&gt; ()"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;, Swift.Int) -&gt; () in closure #1 () -&gt; () in BattleOfHeroes.ScoreViewController.reloadScoreTableView() -&gt; ()"
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/ScoreViewController.swift"
-                  timestampString = "577116586.427727"
+                  timestampString = "577288302.46656"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "140">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -327,29 +357,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BattleOfHeroes/UI/Panel/PanelMenu.swift"
-            timestampString = "577116584.977115"
+            filePath = "SetUpPlayersViewController.swift"
+            timestampString = "577290155.866402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "nextButtonAction(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BattleOfHeroes/UI/Panel/PanelMenu.swift"
-            timestampString = "577116586.702853"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "nextButtonAction(_:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

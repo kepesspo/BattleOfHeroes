@@ -55,6 +55,8 @@ extension Notification.Name {
     static let updateGameData = Notification.Name("updateGameData")
     static let gameModeChanged = Notification.Name("gameModeChanged")
     static let spotiTokenUpdate = Notification.Name("spotiTokenUpdate")
+    static let updateGameIsSpectate = Notification.Name("updateGameIsSpectate")
+    static let updateGameIsAll = Notification.Name("updateGameIsAll")
 }
 
 
