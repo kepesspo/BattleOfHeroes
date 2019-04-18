@@ -20,6 +20,10 @@
 		4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */; };
 		4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D12F7C421A7007F004FAB50 /* error_cross.json */; };
 		4D1353042203015D00064E02 /* Anagramma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1353032203015D00064E02 /* Anagramma.swift */; };
+		4D1356FE224BC83300894390 /* BattleResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1356FD224BC83300894390 /* BattleResultViewController.swift */; };
+		4D135700224CC76D00894390 /* TickTakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1356FF224CC76D00894390 /* TickTakView.swift */; };
+		4D135702224CC7B200894390 /* TickTakView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D135701224CC7B200894390 /* TickTakView.xib */; };
+		4D135704224CD62400894390 /* animation-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D135703224CD62300894390 /* animation-loading.json */; };
 		4D1A1D962231627800B7626A /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A1D952231627800B7626A /* NetworkViewController.swift */; };
 		4D1A1D982231646C00B7626A /* 4386-connection-error.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A1D972231646C00B7626A /* 4386-connection-error.json */; };
 		4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED021130BA900E51AA9 /* HajimeView.swift */; };
@@ -29,6 +33,10 @@
 		4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDED82113215600E51AA9 /* WheelOfFortuneView.swift */; };
 		4D1BDEDB211321AF00E51AA9 /* WheelOfFortuneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */; };
 		4D1BDEDD21133AF100E51AA9 /* CarnivalWheelSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */; };
+		4D211AC6226774B40065335E /* HorseRaceBetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */; };
+		4D211AC9226864140065335E /* BettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211AC7226864140065335E /* BettingTableViewCell.swift */; };
+		4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D211AC8226864140065335E /* BettingTableViewCell.xib */; };
+		4D211ACC226872C00065335E /* HorseBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211ACB226872C00065335E /* HorseBet.swift */; };
 		4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */; };
 		4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */; };
 		4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */; };
@@ -46,6 +54,10 @@
 		4D3D096620FCD01C00C74CC6 /* SetUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */; };
 		4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */; };
 		4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D096B210B251E00C74CC6 /* Localizable.strings */; };
+		4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3E49EA226082910037D899 /* PanelMenu.storyboard */; };
+		4D3E49EF226082E30037D899 /* PanelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E49EE226082E30037D899 /* PanelMenu.swift */; };
+		4D3E49F422608F160037D899 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E49F322608F160037D899 /* Slide.swift */; };
+		4D3E49F622608F310037D899 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3E49F522608F310037D899 /* Slide.xib */; };
 		4D4A8F7C21F0E46300D0AD6F /* TapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */; };
 		4D4A8F7E21F0E47100D0AD6F /* TapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */; };
 		4D56D4D3214FF403004A591A /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D2214FF403004A591A /* GameInfoViewController.swift */; };
@@ -75,6 +87,9 @@
 		4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D906ECE211A443F00B7B7E0 /* MemoryView.xib */; };
 		4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ED0211B31FA00B7B7E0 /* GameView.swift */; };
 		4D906ED3211B3FBD00B7B7E0 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */; };
+		4D92A654225CBE600074405E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92A653225CBE600074405E /* GradientView.swift */; };
+		4D92A657225E12E90074405E /* PanelMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92A656225E12E90074405E /* PanelMaterial.swift */; };
+		4D92A659225E13120074405E /* PanelMaterial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D92A658225E13110074405E /* PanelMaterial.storyboard */; };
 		4D94B665216762FD002D7B03 /* SpoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D94B664216762FD002D7B03 /* SpoonView.swift */; };
 		4D94B6672167632D002D7B03 /* SpoonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D94B6662167632D002D7B03 /* SpoonView.xib */; };
 		4D94B6692167A08C002D7B03 /* BonusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D94B6682167A08C002D7B03 /* BonusViewController.swift */; };
@@ -203,6 +218,10 @@
 		4D12F7C221A6C007004FAB50 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		4D12F7C421A7007F004FAB50 /* error_cross.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_cross.json; sourceTree = "<group>"; };
 		4D1353032203015D00064E02 /* Anagramma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anagramma.swift; sourceTree = "<group>"; };
+		4D1356FD224BC83300894390 /* BattleResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleResultViewController.swift; sourceTree = "<group>"; };
+		4D1356FF224CC76D00894390 /* TickTakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickTakView.swift; sourceTree = "<group>"; };
+		4D135701224CC7B200894390 /* TickTakView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickTakView.xib; sourceTree = "<group>"; };
+		4D135703224CD62300894390 /* animation-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "animation-loading.json"; sourceTree = "<group>"; };
 		4D1A1D952231627800B7626A /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		4D1A1D972231646C00B7626A /* 4386-connection-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4386-connection-error.json"; sourceTree = "<group>"; };
 		4D1BDED021130BA900E51AA9 /* HajimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajimeView.swift; sourceTree = "<group>"; };
@@ -212,6 +231,10 @@
 		4D1BDED82113215600E51AA9 /* WheelOfFortuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelOfFortuneView.swift; sourceTree = "<group>"; };
 		4D1BDEDA211321AF00E51AA9 /* WheelOfFortuneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WheelOfFortuneView.xib; sourceTree = "<group>"; };
 		4D1BDEDC21133AF100E51AA9 /* CarnivalWheelSlice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarnivalWheelSlice.swift; path = BattleOfHeroes/CarnivalWheelSlice.swift; sourceTree = SOURCE_ROOT; };
+		4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseRaceBetViewController.swift; sourceTree = "<group>"; };
+		4D211AC7226864140065335E /* BettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BettingTableViewCell.swift; sourceTree = "<group>"; };
+		4D211AC8226864140065335E /* BettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BettingTableViewCell.xib; sourceTree = "<group>"; };
+		4D211ACB226872C00065335E /* HorseBet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseBet.swift; sourceTree = "<group>"; };
 		4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseManagerView.xib; sourceTree = "<group>"; };
 		4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseManagerView.swift; sourceTree = "<group>"; };
 		4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverManagerView.swift; sourceTree = "<group>"; };
@@ -229,6 +252,10 @@
 		4D3D096520FCD01C00C74CC6 /* SetUpGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGameViewController.swift; sourceTree = "<group>"; };
 		4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4D3D096B210B251E00C74CC6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		4D3E49EA226082910037D899 /* PanelMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMenu.storyboard; sourceTree = "<group>"; };
+		4D3E49EE226082E30037D899 /* PanelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelMenu.swift; sourceTree = "<group>"; };
+		4D3E49F322608F160037D899 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		4D3E49F522608F310037D899 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapperView.swift; sourceTree = "<group>"; };
 		4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapperView.xib; sourceTree = "<group>"; };
 		4D56D4D0214A6607004A591A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -259,6 +286,9 @@
 		4D906ECE211A443F00B7B7E0 /* MemoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoryView.xib; sourceTree = "<group>"; };
 		4D906ED0211B31FA00B7B7E0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		4D92A653225CBE600074405E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		4D92A656225E12E90074405E /* PanelMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelMaterial.swift; sourceTree = "<group>"; };
+		4D92A658225E13110074405E /* PanelMaterial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMaterial.storyboard; sourceTree = "<group>"; };
 		4D94B664216762FD002D7B03 /* SpoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonView.swift; sourceTree = "<group>"; };
 		4D94B6662167632D002D7B03 /* SpoonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpoonView.xib; sourceTree = "<group>"; };
 		4D94B6682167A08C002D7B03 /* BonusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusViewController.swift; sourceTree = "<group>"; };
@@ -390,11 +420,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D3E49F222608EC20037D899 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				4D3E49F322608F160037D899 /* Slide.swift */,
+				4D3E49F522608F310037D899 /* Slide.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		4D76E06221FF57E9008260E9 /* AddCustomGame */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = AddCustomGame;
+			sourceTree = "<group>";
+		};
+		4D92A655225E12DA0074405E /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+				4D92A656225E12E90074405E /* PanelMaterial.swift */,
+				4D3E49EE226082E30037D899 /* PanelMenu.swift */,
+				4D3E49F222608EC20037D899 /* New Group */,
+			);
+			path = Panel;
 			sourceTree = "<group>";
 		};
 		4D98B186210B2FE1000893B0 /* ModsViewController */ = {
@@ -418,12 +467,12 @@
 				4D79986E211742A5006FE28B /* RingOfFireView.xib */,
 				4D906ECC211A43D200B7B7E0 /* MemoryView.swift */,
 				4D906ECE211A443F00B7B7E0 /* MemoryView.xib */,
+				4DC819702120E8EE00F09922 /* RockPaperScissorsView.swift */,
+				4DC819722120E90400F09922 /* RockPaperScissorsView.xib */,
 				4DC819682120D46700F09922 /* MusicRecognizerView.swift */,
 				4DC8196A2120D50800F09922 /* MusicRecognizerView.xib */,
 				4DC8196C2120E60500F09922 /* SwitchHandView.swift */,
 				4DC8196E2120E63200F09922 /* SwitchHandView.xib */,
-				4DC819702120E8EE00F09922 /* RockPaperScissorsView.swift */,
-				4DC819722120E90400F09922 /* RockPaperScissorsView.xib */,
 				4DC819742121099200F09922 /* FingerItView.swift */,
 				4DC81976212109B000F09922 /* FingerItView.xib */,
 				4D3A8E5621241BCC0018C047 /* CheersToTheGovernorView.swift */,
@@ -454,6 +503,8 @@
 				4D77E70921F0E29A00B27E56 /* TheBottleView.xib */,
 				4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */,
 				4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */,
+				4D1356FF224CC76D00894390 /* TickTakView.swift */,
+				4D135701224CC7B200894390 /* TickTakView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -490,6 +541,7 @@
 				4D12F7C421A7007F004FAB50 /* error_cross.json */,
 				4DA36AE521A447C500B757BE /* drink.json */,
 				4D77255721BE6EC0006ED67C /* phonological.json */,
+				4D135703224CD62300894390 /* animation-loading.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -516,6 +568,8 @@
 				4D3466642188661F00D379A9 /* BonusPlayerTableViewCell.xib */,
 				4DA6ED7A21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift */,
 				4DA6ED7B21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib */,
+				4D211AC7226864140065335E /* BettingTableViewCell.swift */,
+				4D211AC8226864140065335E /* BettingTableViewCell.xib */,
 			);
 			name = CustomCell;
 			path = ../..;
@@ -546,6 +600,8 @@
 				4DE0883921FB487900898A9A /* GroupDrinkViewController.swift */,
 				4DE0883B21FB55C200898A9A /* RandomPictogramViewController.swift */,
 				4D1A1D952231627800B7626A /* NetworkViewController.swift */,
+				4D1356FD224BC83300894390 /* BattleResultViewController.swift */,
+				4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -590,6 +646,8 @@
 				4DE1230B20EE33C90004C28E /* AppDelegate.swift */,
 				4DA36AE721A4606F00B757BE /* LottieView.swift */,
 				4DE1231120EE33C90004C28E /* Main.storyboard */,
+				4D92A658225E13110074405E /* PanelMaterial.storyboard */,
+				4D3E49EA226082910037D899 /* PanelMenu.storyboard */,
 				4DE1231620EE33C90004C28E /* LaunchScreen.storyboard */,
 				4DE1231420EE33C90004C28E /* Assets.xcassets */,
 				4DE1231920EE33C90004C28E /* Info.plist */,
@@ -618,6 +676,7 @@
 		4DE1233B20EE44E90004C28E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4D92A653225CBE600074405E /* GradientView.swift */,
 				4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */,
 				4DE1233E20EE584E0004C28E /* AttributedString.swift */,
 				4DE1233C20EE45120004C28E /* UIColorExtension.swift */,
@@ -630,6 +689,7 @@
 		4DE1234420EF6F6D0004C28E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4D92A655225E12DA0074405E /* Panel */,
 				4D76E06221FF57E9008260E9 /* AddCustomGame */,
 				4DB8BA44210B278C00DAF932 /* CustomCell */,
 				4D98B186210B2FE1000893B0 /* ModsViewController */,
@@ -652,6 +712,7 @@
 				4DA36B2721A6A54C00B757BE /* Song.swift */,
 				4D973D7E21AFFE7700D6038F /* SongParse.swift */,
 				4D1353032203015D00064E02 /* Anagramma.swift */,
+				4D211ACB226872C00065335E /* HorseBet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -819,11 +880,14 @@
 				4DDDEBA321E398BD006FDA6E /* WhoAmIManagerView.xib in Resources */,
 				4DA36AE221A421FF00B757BE /* i'm_thirsty!.json in Resources */,
 				4D0711D821F0CD76006D4563 /* ShiptripView.xib in Resources */,
+				4D92A659225E13120074405E /* PanelMaterial.storyboard in Resources */,
 				4DA2840E219B1FD100F6D377 /* rihanna_work.mp3 in Resources */,
 				4DA2840F219B1FD100F6D377 /* Clean_Bandit_Solo_Demi_Lovato.mp3 in Resources */,
 				4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */,
+				4D135704224CD62400894390 /* animation-loading.json in Resources */,
 				4DA36ADD21A41D9100B757BE /* RussianRouletteView.xib in Resources */,
 				4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */,
+				4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */,
 				4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */,
 				4D77E70A21F0E29A00B27E56 /* TheBottleView.xib in Resources */,
 				4DA36AE421A4220C00B757BE /* newAnimation.json in Resources */,
@@ -848,8 +912,10 @@
 				4D3A8E5921241BEA0018C047 /* CheersToTheGovernorView.xib in Resources */,
 				4DA28414219B1FD100F6D377 /* Queen_Bohemian_Rhapsody.mp3 in Resources */,
 				4DA28412219B1FD100F6D377 /* Kris_Kross_Jump.mp3 in Resources */,
+				4D3E49F622608F310037D899 /* Slide.xib in Resources */,
 				4DA2840A219B1FD100F6D377 /* Marshmello_Happier.mp3 in Resources */,
 				4DFFD5C32135667300A4989B /* Rubik-BlackItalic.ttf in Resources */,
+				4D135702224CC7B200894390 /* TickTakView.xib in Resources */,
 				4D1A1D982231646C00B7626A /* 4386-connection-error.json in Resources */,
 				4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */,
 				4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */,
@@ -860,6 +926,7 @@
 				4D22939721E8C8600025C5A7 /* HaveIEverNeverManagerView.xib in Resources */,
 				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
 				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
+				4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */,
 				4D3466662188661F00D379A9 /* BonusPlayerTableViewCell.xib in Resources */,
 				4DA283F8219B179000F6D377 /* sound_visualizer.json in Resources */,
 				4DC819672120C2AD00F09922 /* HowDrinksTableViewCell.xib in Resources */,
@@ -939,6 +1006,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SpotifyLogin/SpotifyLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/TTFortuneWheel/TTFortuneWheel.framework",
@@ -952,6 +1020,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotifyLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTFortuneWheel.framework",
@@ -973,9 +1042,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3D096420FCCB2200C74CC6 /* LoginViewController.swift in Sources */,
+				4D1356FE224BC83300894390 /* BattleResultViewController.swift in Sources */,
 				4D0711DC21F0D85B006D4563 /* HorseRaceView.swift in Sources */,
 				4DE1234820F350F90004C28E /* Team.swift in Sources */,
 				4DE1233D20EE45120004C28E /* UIColorExtension.swift in Sources */,
+				4D92A657225E12E90074405E /* PanelMaterial.swift in Sources */,
 				4DDEB1A82195B60800C6E8D7 /* ThePeopleChoiceView.swift in Sources */,
 				4D69D4DB21F0DC69001A49FD /* CoinFlipView.swift in Sources */,
 				4D77255421B97875006ED67C /* DatabaseViewController.swift in Sources */,
@@ -997,6 +1068,7 @@
 				4DC819752121099200F09922 /* FingerItView.swift in Sources */,
 				4DC81963211C511700F09922 /* UIApplication.swift in Sources */,
 				4D3A8E5B212567360018C047 /* Room.swift in Sources */,
+				4D92A654225CBE600074405E /* GradientView.swift in Sources */,
 				4DA6ED7C21FF3DC100363863 /* CollectAndBoomCollectionViewCell.swift in Sources */,
 				4D766E9321F0DDD20027EF1F /* FiveThingsView.swift in Sources */,
 				4D0E59FA21F0E0D30027CCA5 /* CollectAndBoomView.swift in Sources */,
@@ -1009,7 +1081,9 @@
 				4D56D4D521512DA7004A591A /* HaveIEverNeverView.swift in Sources */,
 				4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */,
 				4D906ECD211A43D200B7B7E0 /* MemoryView.swift in Sources */,
+				4D211ACC226872C00065335E /* HorseBet.swift in Sources */,
 				4DE1230C20EE33C90004C28E /* AppDelegate.swift in Sources */,
+				4D211AC9226864140065335E /* BettingTableViewCell.swift in Sources */,
 				4D3466652188661F00D379A9 /* BonusPlayerTableViewCell.swift in Sources */,
 				4D56D4D921513B23004A591A /* WhoAmIView.swift in Sources */,
 				4DA36B2821A6A54C00B757BE /* Song.swift in Sources */,
@@ -1022,6 +1096,7 @@
 				4DC819662120C2AD00F09922 /* HowDrinksTableViewCell.swift in Sources */,
 				4DF709EC21C7BE27007A5317 /* InfoViewController.swift in Sources */,
 				4D28A9C821A2C8F8007F4F0D /* FamousPerson.swift in Sources */,
+				4D211AC6226774B40065335E /* HorseRaceBetViewController.swift in Sources */,
 				4DA36AD921A41A7400B757BE /* HaveIEverNever.swift in Sources */,
 				4D79986321149CD3006FE28B /* GameManagement.swift in Sources */,
 				4D68038B2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift in Sources */,
@@ -1031,12 +1106,14 @@
 				4D77255621BE6D7E006ED67C /* LoaderViewController.swift in Sources */,
 				4D1BDED92113215600E51AA9 /* WheelOfFortuneView.swift in Sources */,
 				4DB8BA43210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift in Sources */,
+				4D135700224CC76D00894390 /* TickTakView.swift in Sources */,
 				4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */,
 				4DFCA2682122DEB8001B2E71 /* GameDetaisViewController.swift in Sources */,
 				4DC819692120D46700F09922 /* MusicRecognizerView.swift in Sources */,
 				4DC8196D2120E60500F09922 /* SwitchHandView.swift in Sources */,
 				4D79985D2114813D006FE28B /* UpAndDownView.swift in Sources */,
 				4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */,
+				4D3E49F422608F160037D899 /* Slide.swift in Sources */,
 				4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */,
 				4DF7E65321AEE9FD00BA178F /* MusicRecognizerManagerView.swift in Sources */,
 				4DCC02F1211B9D2B00D71186 /* DrinkCounterViewController.swift in Sources */,
@@ -1048,6 +1125,7 @@
 				4DE0883C21FB55C200898A9A /* RandomPictogramViewController.swift in Sources */,
 				4DE1234620EF71D80004C28E /* Constants.swift in Sources */,
 				4DA36AD721A40AC600B757BE /* TrueOrFalse.swift in Sources */,
+				4D3E49EF226082E30037D899 /* PanelMenu.swift in Sources */,
 				4DFFD5B421341C4200A4989B /* Game.swift in Sources */,
 				4D12F7BB21A6B07F004FAB50 /* GameManagementViewController.swift in Sources */,
 				4DC819712120E8EE00F09922 /* RockPaperScissorsView.swift in Sources */,
@@ -1226,7 +1304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33P7Y9GXZB;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mondriaan.bottleofheroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1245,7 +1323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33P7Y9GXZB;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mondriaan.bottleofheroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -10,18 +10,12 @@ import Foundation
 import UIKit
 
 class RingOfFireView : GameView {
-    @IBOutlet weak var ringOfFireLabelText: UILabel!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var ruleLabel: UILabel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    
     @IBOutlet weak var card1Btn: UIButton!
     @IBOutlet weak var card2Btn: UIButton!
     @IBOutlet weak var card3Btn: UIButton!
     @IBOutlet weak var cardStackView: UIStackView!
-    @IBOutlet weak var nextPlayer: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var cardsCopy = GameManagement.sharedInstance.copyCards
     var savedCard : UIImage?
@@ -41,7 +35,6 @@ class RingOfFireView : GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
 
         Bundle.main.loadNibNamed("RingOfFireView", owner: self, options: nil)
         addSubview(contentView)
@@ -49,7 +42,6 @@ class RingOfFireView : GameView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         addImgToCard()
-        updateLevelCounterUI()
         updateUI()
         
         if cardsCopy.count == 0 {
@@ -66,16 +58,13 @@ class RingOfFireView : GameView {
         
     }
     
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.levelCounter
-    }
-    
     func updateUI() {
-        //ringOfFireLabelText.text = "Ring Of Fire"
-        playerType.text = "Group"
-        
-        gameInfoContainerView.layer.cornerRadius = 10
+        ruleLabel.isHidden = true
+        let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        postNotification(name: .updateGameData)
     }
     
     func addImgToCard() {
@@ -94,6 +83,7 @@ class RingOfFireView : GameView {
     }
     
     func showTheCardAndRule(imageBtn: UIButton) {
+        ruleLabel.isHidden = false
         imageBtn.setBackgroundImage(savedCard, for: .normal)
         ruleLabel.text = savedCardString
         UIView.transition(with: imageBtn, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
@@ -101,6 +91,7 @@ class RingOfFireView : GameView {
         cardStackView.isUserInteractionEnabled = false
         cardsCopy = GameManagement.sharedInstance.copyCards
         print(cardsCopy.count)
+        GameManagement.sharedInstance.drinkVariation = [0,1,2,3]
         
     }
     
@@ -126,10 +117,10 @@ class RingOfFireView : GameView {
             
             playerIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            nextPlayer.text = playerList[playerIndex].playerName
+            GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
         } else {
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            nextPlayer.text = playerList[playerIndex].playerName
+            GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
         }
     }
     

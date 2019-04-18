@@ -13,13 +13,9 @@ import TTFortuneWheel
 class WheelOfFortuneView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var spinningWheel: TTFortuneWheel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var spinnerButton: UIButton!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var spinLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var spinPlayerLabel: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     override init(frame: CGRect) {
@@ -34,43 +30,55 @@ class WheelOfFortuneView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
-
         Bundle.main.loadNibNamed("WheelOfFortuneView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         showFortuneWheel()
-        updateLevelCounterUI()
         updateUI()
     }
     
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.levelCounter
-    }
-    
     func updateUI() {
-        playerNameLabel.text = ""
-        playerType.text = "Csoport"
-        gameInfoContainerView.layer.cornerRadius = 10
-        spinPlayerLabel.text = playersList.randomElement()?.playerName
+        playerNameLabel.isHidden = true
+        GameManagement.sharedInstance.actuallyPlayerName = ""
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        postNotification(name: .updateGameData)
     }
     
     
     func showFortuneWheel() {
-        var slices : [FortuneWheelSlice] = []
-        for player in playersList{
-            slices.append(FortuneWheelSlice(title: "\(player.playerName)"))
-            
-            
+//        var slices : [FortuneWheelSlice] = []
+//        for player in playersList{
+//            slices.append(FortuneWheelSlice(title: "\(player.playerName)"))
+//
+//
+//        }
+//        spinningWheel.shadow?.shadowColor = UIColor.red
+//        spinningWheel.slices = slices
+//        spinningWheel.equalSlices = true
+//        spinningWheel.frameStroke.width = 1
+//        spinningWheel.frameStroke.color = .white
+        var slices : [Any] = []
+        for player in playersList {
+            slices.append(CarnivalWheelSlice.init(title: player.playerName))
         }
-        spinningWheel.slices = slices
-        spinningWheel.equalSlices = true
-        spinningWheel.frameStroke.width = 1
-        spinningWheel.frameStroke.color = .white
         
+        spinningWheel.slices = slices as? [FortuneWheelSliceProtocol]
+        spinningWheel.equalSlices = true
+        spinningWheel.frameStroke.width = 0
+        spinningWheel.slices.enumerated().forEach { (pair) in
+            let slice = pair.element as! CarnivalWheelSlice
+            let offset = pair.offset
+            switch offset % 4 {
+            case 0: slice.style = .brickRed
+            case 1: slice.style = .sandYellow
+            case 2: slice.style = .babyBlue
+            case 3: slice.style = .deepBlue
+            default: slice.style = .babyBlue
+            }
+        }
     }
     
     @IBAction func rotateButton(_ sender: Any) {
@@ -84,8 +92,8 @@ class WheelOfFortuneView: GameView {
                 self.spinnerButton.isHidden = true
                 self.spinLabel.isHidden = true
                 self.tap.isEnabled = true
+                self.playerNameLabel.isHidden = false
                 self.playerNameLabel.text = self.playersList[randomIndex].playerName
-
             }
         }
     }

@@ -36,6 +36,7 @@ enum GameMode: String {
     case collectAndBoom = "collectAndBoom"
     case theBottle = "theBottle"
     case tapper = "tapper"
+    case tickTak = "tickTak"
     
     
     func gameTitle() -> String {
@@ -66,6 +67,7 @@ enum GameMode: String {
         case .collectAndBoom: return "GameTitle_collectAndBoom".localized()
         case .theBottle: return "GameTitle_theBottle".localized()
         case .tapper: return "GameTitle_tapper".localized()
+        case .tickTak: return "GameTitle_TickTak".localized()
         }
     }
     
@@ -97,6 +99,7 @@ enum GameMode: String {
         case .collectAndBoom: return "GameDescription_collectAndBoom".localized()
         case .theBottle: return "GameDescription_theBottle".localized()
         case .tapper: return "GameDescription_tapper".localized()
+        case .tickTak: return "GameDescription_TickTak".localized()
         }
     }
     
@@ -128,6 +131,7 @@ enum GameMode: String {
         case .collectAndBoom: return .collectAndBoom
         case .theBottle: return .theBottle
         case .tapper: return .tapper
+        case .tickTak: return .tickTak
         }
     }
     
@@ -159,6 +163,7 @@ enum GameMode: String {
         case .collectAndBoom: return .lineGame
         case .theBottle: return .groupGame
         case .tapper: return .battleGame
+        case .tickTak: return .groupGame
         }
     }
     
@@ -191,6 +196,7 @@ enum GameMode: String {
         case .collectAndBoom: return CollectAndBoomView()
         case .theBottle: return TheBottleView()
         case .tapper: return TapperView()
+        case .tickTak: return TickTakView()
         }
     }
     
@@ -233,6 +239,7 @@ enum GameMode: String {
         case .collectAndBoom: return #imageLiteral(resourceName: "025-add-friend.png")
         case .theBottle: return #imageLiteral(resourceName: "012-beer.png")
         case .tapper: return #imageLiteral(resourceName: "016-best-friend.png")
+        case .tickTak: return #imageLiteral(resourceName: "048-letter.png")
         }
     }
 }
@@ -248,10 +255,10 @@ let GamesDownloadingData: [GameMode] = [
 
 
 enum GameType : String {
-    case personalGame = "Personal Game"
-    case groupGame = "Group Game"
-    case lineGame = "Line Game"
-    case battleGame = "Battle Game"
+    case personalGame = "Egyéni Játékok"
+    case groupGame = "Csoportos Játékok"
+    case lineGame = "Sor Játékok"
+    case battleGame = "Kétszemélyes Játékok"
     static let allValues = [personalGame,groupGame,lineGame,battleGame]
     
 }
@@ -448,17 +455,33 @@ class GameManagement {
                      GameMode.fiveThing,
                      GameMode.collectAndBoom,
                      GameMode.theBottle,
-                     GameMode.tapper]
+                     GameMode.tapper,
+                     GameMode.tickTak
+        ]
         
         return gameModes
     }
     
-    var personWhoDrinks : [String] = [String]()
-    var personDrinkCount : Int = 0
-    var gameSTW : Bool = true
     
-    var leveLGameDict : [Game] = [Game]()
-    var gameDrinkMultiplier : Int?
+    var battleGameModes : [GameMode] = [GameMode]()
+    func getBattleGameMode() -> [GameMode] {
+        battleGameModes = [GameMode.hajime,
+                           GameMode.upAndDown,
+                           GameMode.memory,
+                           GameMode.rockPaperScissors,
+                           GameMode.musicRecognizer,
+                           GameMode.whoAmI,
+                           GameMode.coinFlip,
+                           GameMode.fiveThing,
+                           GameMode.collectAndBoom,
+                           GameMode.tapper,
+                           GameMode.tickTak]
+        return battleGameModes
+    }
+    
+    var battlePlayer: [Player] = []
+    
+    var gameDrinkMultiplier : Int = 1
     
     var showBonusView : Bool = true
     var drininkCounterView : Bool = true
@@ -469,6 +492,22 @@ class GameManagement {
     var randomPictogramAllow : Bool = true
     var randomPictogramTime : Int = 420
     
+    var drinkVariation : [Int] = [0,1,2,3]
+    var userDefDrinkVariation = true
+    
+    var selectedMode = 0
+    
+    var battlePlayerOneValue = 0
+    var battlePlayerTwoValue = 0
+    
+    var actuallyPlayedGameCounter = 0
+    var actuallyPlayerName = ""
+    var actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+    var actuallyGameDesc = ""
+    
+    var gameStarted = false
+    
+    var horseRaceBettingPlayer: [Bet] = []
     var games = [Game]()
     func getGames() -> [Game] {
         getChosenGameMode()
@@ -492,5 +531,30 @@ class GameManagement {
             games.append(gameData)
         }
         return games
+    }
+    
+    var battleGames = [Game]()
+    func getBattleGames() -> [Game] {
+        getBattleGameMode()
+        battleGames.removeAll()
+        for battleGamesItem in battleGameModes {
+            let mode = battleGamesItem.gameMode()
+            let name = battleGamesItem.gameTitle()
+            let description = battleGamesItem.gameDescription()
+            let type = battleGamesItem.gameType()
+            let gameImage = battleGamesItem.gameImage()
+            let gameManagement = battleGamesItem.gameManagementView()
+            let gameData = Game(id: "",
+                                name: name,
+                                description: description,
+                                isSelected: false,
+                                gameMode: mode,
+                                gameType: type,
+                                gameImage: gameImage,
+                                gameManagement: gameManagement,
+                                downloadsData: GamesDownloadingData.contains(mode))
+            battleGames.append(gameData)
+        }
+        return battleGames
     }
 }

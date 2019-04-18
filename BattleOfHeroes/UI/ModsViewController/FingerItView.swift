@@ -12,12 +12,7 @@ import UIKit
 class FingerItView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    
     @IBOutlet weak var fingerItViewLabel: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
 
@@ -34,26 +29,22 @@ class FingerItView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("FingerItView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.levelCounter
     }
     
     func updateUI() {
-        playerName.text = playersList.randomElement()?.playerName
-        playerType.text = "Group"
-        fingerItViewLabel.text = "Gondolkozz a többiek agyával"
-        gameInfoContainerView.layer.cornerRadius = 10
-        
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
+        let fingerIt = NSMutableAttributedString()
+        fingerIt.appendColored(.black , font: .regular(20), "Kezeket az asztalra\n számolj 3-ig majd mondj egy számot\n\n").appendColored(.red, font: .regular(22), "- ha jó a szám akkor megusztad és válasz uj játékost\n").appendColored(.red, font: .regular(22), "- ha rossz a szám akkor innod kell és megint te jössz\n\n").appendColored(.black, font: .regular(20), "5 kört kell játszani")
+        fingerItViewLabel.attributedText = fingerIt   
     }
 }

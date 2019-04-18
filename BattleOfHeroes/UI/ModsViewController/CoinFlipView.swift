@@ -38,7 +38,6 @@ class CoinFlipView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("CoinFlipView", owner: self, options: nil)
         addSubview(contentView)
@@ -51,7 +50,7 @@ class CoinFlipView: GameView {
     
     @objc func updateLevelCounterUI() {
         
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
@@ -70,6 +69,7 @@ class CoinFlipView: GameView {
         let starting = [back!, front!].randomElement() ?? front!
         flipCoin(times: Int.random(in: 3...8), from: starting)
         self.tap.isEnabled = true
+        flipButton.isEnabled = false
     }
     
     func flipCoin(times: Int, from: UIImageView) {

@@ -31,8 +31,6 @@ class SpoonView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
-        
         self.tap.isEnabled = true
         Bundle.main.loadNibNamed("SpoonView", owner: self, options: nil)
         addSubview(contentView)
@@ -45,7 +43,7 @@ class SpoonView: GameView {
     
     @objc func updateLevelCounterUI() {
         
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {

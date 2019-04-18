@@ -43,7 +43,6 @@ struct DevOptions {
 
 
 extension Notification.Name {
-    static let addCounterValue = Notification.Name("addCounterValue")
     static let reloadScoreTableView = Notification.Name("reloadScoreTableView")
     static let dismissGame = Notification.Name("dismissGame")
     static let internetChange = Notification.Name("internetChange")
@@ -52,6 +51,12 @@ extension Notification.Name {
     static let getGameDescription = Notification.Name("getGameDescription")
     static let reloadGroupDrinkTimer = Notification.Name("reloadGroupDrinkTimer")
     static let randomPictogram = Notification.Name("randomPictogram")
+    static let generateNewGame = Notification.Name("generateNewGame")
+    static let updateGameData = Notification.Name("updateGameData")
+    static let gameModeChanged = Notification.Name("gameModeChanged")
+    static let spotiTokenUpdate = Notification.Name("spotiTokenUpdate")
+    static let updateGameIsSpectate = Notification.Name("updateGameIsSpectate")
+    static let updateGameIsAll = Notification.Name("updateGameIsAll")
 }
 
 

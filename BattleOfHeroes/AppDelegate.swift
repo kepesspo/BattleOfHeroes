@@ -12,7 +12,7 @@ import FirebaseDatabase
 import Reachability
 import SpotifyLogin
 
- @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
+@UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var reachability = Reachability()!
@@ -25,7 +25,6 @@ import SpotifyLogin
         SpotifyLogin.shared.configure(clientID: "466b1ac50ffb4a2a866dddbeab9bef80",
                                       clientSecret: "43ac2f2354324f90b2ac7699dcae4292",
                                       redirectURL: redirectURL)
-        
         return true
     }
     
@@ -79,7 +78,13 @@ import SpotifyLogin
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
+        NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
+            if error == nil {
+                print("Lock Screen for other player")
+            } else {
+                print("Error Lock Screen for other player ")
+            }
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

@@ -16,12 +16,8 @@ class UpAndDownView: GameView {
     @IBOutlet weak var upBtn: UIButton!
     @IBOutlet weak var numberTextLabel: UILabel!
     @IBOutlet weak var drinksCounter: UILabel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-
+    
     var cardWithValue = GameManagement.sharedInstance.cardWithValue
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -45,17 +41,17 @@ class UpAndDownView: GameView {
     
     func commonInit() {
         self.tap.isEnabled = false
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("UpAndDownView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerNameLabel.text = playersList.randomElement()?.playerName
-        descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint: (A számok 2-14-ig vannak)"
-        playerType.text = "Line"
-        updateLevelCounterUI()
+        descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint:"
         
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
         
         // First Init randNumb
         randCardIndex = Int(arc4random_uniform(UInt32(cardWithValue.count)))
@@ -80,15 +76,15 @@ class UpAndDownView: GameView {
         
         switch drinks {
         case 0 ..< 2:
-            drinksCounter.text = "Piák száma: \(1 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 1))"
+            drinksCounter.text = "Piák száma: \(1 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 2 ..< 3:
-            drinksCounter.text = "Piák száma: \(2 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 2))"
+            drinksCounter.text = "Piák száma: \(2 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 3 ..< 5:
-            drinksCounter.text = "Piák száma: \(3 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 3))"
+            drinksCounter.text = "Piák száma: \(3 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 5 ..< 7:
-            drinksCounter.text = "Piák száma: \(4 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 4))"
+            drinksCounter.text = "Piák száma: \(4 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         case 7 ..< 1000:
-            drinksCounter.text = "Piák száma: \(5 * (GameManagement.sharedInstance.gameDrinkMultiplier ?? 5))"
+            drinksCounter.text = "Piák száma: \(5 * GameManagement.sharedInstance.gameDrinkMultiplier)"
         default:
             drinksCounter.text = "Az egészet meg kell inni: Szerencséd van"
         }
@@ -118,6 +114,8 @@ class UpAndDownView: GameView {
         } else {
             isLose = true
             uppdateUI(value: numberValue, image: numberValueImage)
+            GameManagement.sharedInstance.drinkVariation = [drinks * GameManagement.sharedInstance.gameDrinkMultiplier]
+            GameManagement.sharedInstance.userDefDrinkVariation = false
             downBtn.isHidden = true
             upBtn.isHidden = true
         }
@@ -132,10 +130,6 @@ class UpAndDownView: GameView {
     @IBAction func upBtnAction(_ sender: Any) {
         nextButtonValue = 2
         showNextRandomNumber()
-    }
-    
-    @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
     }
 
 }

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cKZ-sD-UtL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Medium.ttf">
+            <string>Rubik-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Panel Menu-->
+        <scene sceneID="4sL-af-v6h">
+            <objects>
+                <viewController id="cKZ-sD-UtL" customClass="PanelMenu" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qSo-Oi-ZAj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpB-ii-x0L">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egyszerű" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38o-nC-UFf">
+                                        <rect key="frame" x="30" y="10" width="315" height="28"/>
+                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válassz a külömbőző játék modok közül a mégjobb játék élményért" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNY-eS-uSc">
+                                        <rect key="frame" x="30" y="43" width="315" height="39.5"/>
+                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="0.53603653169014087" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3w-Kt-Awb">
+                                        <rect key="frame" x="30" y="92.5" width="315" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ylf-ju-zOT"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="BZy-xw-t7V"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="20"/>
+                                        <state key="normal" title="Mehet" backgroundImage="igaz_nagyobb_gomb">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonAction:" destination="cKZ-sD-UtL" eventType="touchUpInside" id="Wb5-jQ-EHg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aNY-eS-uSc" secondAttribute="trailing" constant="30" id="0XE-za-Vmu"/>
+                                    <constraint firstAttribute="trailing" secondItem="38o-nC-UFf" secondAttribute="trailing" constant="30" id="3VJ-Cu-WVf"/>
+                                    <constraint firstItem="aNY-eS-uSc" firstAttribute="leading" secondItem="DpB-ii-x0L" secondAttribute="leading" constant="30" id="FKm-dR-7Ot"/>
+                                    <constraint firstItem="O3w-Kt-Awb" firstAttribute="centerX" secondItem="DpB-ii-x0L" secondAttribute="centerX" id="HtG-NJ-qno"/>
+                                    <constraint firstAttribute="trailing" secondItem="O3w-Kt-Awb" secondAttribute="trailing" constant="30" id="QDP-mG-abF"/>
+                                    <constraint firstItem="O3w-Kt-Awb" firstAttribute="top" secondItem="aNY-eS-uSc" secondAttribute="bottom" constant="10" id="TID-Bg-yhh"/>
+                                    <constraint firstItem="O3w-Kt-Awb" firstAttribute="leading" secondItem="DpB-ii-x0L" secondAttribute="leading" constant="30" id="dCf-mf-N9o"/>
+                                    <constraint firstItem="aNY-eS-uSc" firstAttribute="top" secondItem="38o-nC-UFf" secondAttribute="bottom" constant="5" id="gdT-7b-hNq"/>
+                                    <constraint firstItem="38o-nC-UFf" firstAttribute="leading" secondItem="DpB-ii-x0L" secondAttribute="leading" constant="30" id="o9x-JH-5bt"/>
+                                    <constraint firstAttribute="height" constant="150" id="riN-xS-O8z"/>
+                                    <constraint firstItem="38o-nC-UFf" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="top" constant="10" id="uIS-8B-ct3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrr-Qw-Pha">
+                                <rect key="frame" x="0.0" y="150" width="375" height="450"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUO-W0-CVW">
+                                        <rect key="frame" x="335" y="410" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="BFe-W3-fCl"/>
+                                            <constraint firstAttribute="height" constant="30" id="Vv9-Ql-qfO"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="info"/>
+                                        <connections>
+                                            <action selector="gameDetailsAction:" destination="cKZ-sD-UtL" eventType="touchUpInside" id="oEz-5Z-JOX"/>
+                                        </connections>
+                                    </button>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-Os-0lb">
+                                        <rect key="frame" x="152" y="403" width="71" height="37"/>
+                                        <color key="pageIndicatorTintColor" name="whiteColor"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.019607843137254902" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5I-SX-skx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="e5I-SX-skx" firstAttribute="leading" secondItem="Rrr-Qw-Pha" secondAttribute="leading" id="7c6-tO-0Yh"/>
+                                    <constraint firstAttribute="bottom" secondItem="e5I-SX-skx" secondAttribute="bottom" id="G5T-Ht-NkQ"/>
+                                    <constraint firstItem="ULb-Os-0lb" firstAttribute="centerX" secondItem="e5I-SX-skx" secondAttribute="centerX" id="KTy-Xt-CFk"/>
+                                    <constraint firstAttribute="trailing" secondItem="e5I-SX-skx" secondAttribute="trailing" id="N49-oN-0bb"/>
+                                    <constraint firstAttribute="bottom" secondItem="VUO-W0-CVW" secondAttribute="bottom" constant="10" id="aQd-ve-hOR"/>
+                                    <constraint firstAttribute="bottom" secondItem="ULb-Os-0lb" secondAttribute="bottom" constant="10" id="feG-fT-RZl"/>
+                                    <constraint firstAttribute="trailing" secondItem="VUO-W0-CVW" secondAttribute="trailing" constant="10" id="mpJ-l3-ctP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstItem="Rrr-Qw-Pha" firstAttribute="leading" secondItem="oSZ-rI-pHh" secondAttribute="leading" id="4hG-Qk-FLR"/>
+                            <constraint firstItem="DpB-ii-x0L" firstAttribute="leading" secondItem="oSZ-rI-pHh" secondAttribute="leading" id="58z-lj-tBw"/>
+                            <constraint firstItem="Rrr-Qw-Pha" firstAttribute="trailing" secondItem="oSZ-rI-pHh" secondAttribute="trailing" id="8GN-66-1bP"/>
+                            <constraint firstItem="DpB-ii-x0L" firstAttribute="trailing" secondItem="oSZ-rI-pHh" secondAttribute="trailing" id="JXb-Xd-oOc"/>
+                            <constraint firstItem="DpB-ii-x0L" firstAttribute="top" secondItem="qSo-Oi-ZAj" secondAttribute="top" id="Tg4-QD-J5U"/>
+                            <constraint firstItem="Rrr-Qw-Pha" firstAttribute="bottom" secondItem="oSZ-rI-pHh" secondAttribute="bottom" id="e03-96-S2h"/>
+                            <constraint firstItem="e5I-SX-skx" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="bottom" id="gN4-hd-IVI"/>
+                            <constraint firstItem="Rrr-Qw-Pha" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="bottom" id="vAx-3S-KWe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oSZ-rI-pHh"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="600"/>
+                    <connections>
+                        <outlet property="gameDetailsBtn" destination="VUO-W0-CVW" id="nYU-d8-VeH"/>
+                        <outlet property="headerHeight" destination="riN-xS-O8z" id="jfy-7Y-B1U"/>
+                        <outlet property="headerPanel" destination="DpB-ii-x0L" id="F1n-e4-NbE"/>
+                        <outlet property="nextButton" destination="O3w-Kt-Awb" id="3FV-iU-1s1"/>
+                        <outlet property="pageControl" destination="ULb-Os-0lb" id="gts-Gf-6bC"/>
+                        <outlet property="pageScrollView" destination="e5I-SX-skx" id="CSs-To-SdX"/>
+                        <outlet property="titleText" destination="38o-nC-UFf" id="0ua-mM-LrI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G0H-c1-nds" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="109.74512743628186"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="igaz_nagyobb_gomb" width="339" height="91"/>
+        <image name="info" width="64" height="64"/>
+        <namedColor name="whiteColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -7,33 +7,30 @@
  //
  
  import UIKit
+ import Panels
+ import SpotifyLogin
  
  class GameViewController: UIViewController {
-    var levelCounter : Int = 1
-    var gameInLevel : Int = 1
+    var gameCounter : Int = 0
     var previousRandomIndex = 100
-    var chosenGames : [Game] = [Game]()
-    
-    @IBOutlet weak var endGameTabButton: UIButton!
-    @IBOutlet weak var scoreTabButton: UIButton!
-    @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var levelImageView: UIImageView!
-    @IBOutlet weak var scoreContainerView: UIView!
-    @IBOutlet weak var gameContainerView: UIView!
-    @IBOutlet weak var inofContainerView: UIView!
-    
-    
-    
     var groupDrinkTimer : Timer?
     var randomPictogramTimer : Timer?
-    
-    
+    var chosenGames : [Game] = [Game]()
+    lazy var panelManager = Panels(target: self)
+    @IBOutlet weak var levelImageView: UIImageView!
+    @IBOutlet weak var letPlayText: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateLevelView()
-        subscribeForNotification(name: .endGame, selector: #selector(dismissGame), object: nil)
+        
+        let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
+        var panelConfiguration = PanelConfiguration(size: .custom(300))
+        panelConfiguration.animateEntry = true
+        self.panelManager.show(panel: panel, config: panelConfiguration)
+        
         subscribeForNotification(name: .reloadGroupDrinkTimer, selector: #selector(showGroupDrinkView), object: nil)
         subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
+        subscribeForNotification(name: .generateNewGame, selector: #selector(startGameAction), object: nil)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(startGameAction))
         levelImageView.isUserInteractionEnabled = true
@@ -41,20 +38,29 @@
         
         GameManagement.sharedInstance.setCopyCardsList()
         chosenGames = GameManagement.sharedInstance.chosenGames
-        
-        //startGameAction()
-        scoreContainerView.layer.cornerRadius = 10
-        scoreContainerView.layer.masksToBounds = true
-        
-        gameContainerView.layer.cornerRadius = 10
-        gameContainerView.layer.masksToBounds = true
-        
-        inofContainerView.layer.cornerRadius = 10
-        inofContainerView.layer.masksToBounds = true
 
         showGroupDrinkView()
         showRandomPictogram()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if GameManagement.sharedInstance.gameStarted == true {
+            SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
+                print("Spotify Token: \(token ?? "")")
+                if(token != nil) {
+                    GameManagement.sharedInstance.spotifyToken = token
+                    postNotification(name: .spotiTokenUpdate)
+                } else {
+                    SpotifyLogin.shared.logout()
+                }
+            }
+        } else {
+            GameManagement.sharedInstance.gameStarted = true
+        }
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,12 +68,8 @@
     }
 
     @objc func startGameAction() {
-        if GameManagement.sharedInstance.leveLGameDict.count != 0 {
-            print("Még folyamatban van a játék")
-        } else {
-            showView()
-        }
-        
+        letPlayText.isHidden = true
+        showView()
     }
     
     //Extra Game
@@ -119,80 +121,10 @@
     
     func generateView(indexOfGame : Int) {
         if let game = chosenGames[indexOfGame].gameMode?.gameView() {
+            GameManagement.sharedInstance.actuallyGameDesc = chosenGames[indexOfGame].gameMode?.gameDescription() ?? ""
             game.frame = self.view.bounds
-            game.levelCounter = "\(levelCounter) / \(gameInLevel)"
-            game.gameInLevel = gameInLevel
-            game.gameInLevel = levelCounter
-            postNotification(name: .addCounterValue)
-            GameManagement.sharedInstance.leveLGameDict.append(chosenGames[indexOfGame])
-            
             self.view.insertSubview(game, at: 1)
-        
             print("Game index : \(indexOfGame)")
-            print("Level Counter: \(levelCounter)")
-            
-            if gameInLevel == levelCounter {
-                levelCounter = levelCounter + 1
-                gameInLevel = 1
-                updateLevelView()
-
-            } else {
-                gameInLevel = gameInLevel + 1
-                showView()
-            }
         }
     }
-    
-    
-    func updateLevelView() {
-        self.levelLabel.text = "Level : \(levelCounter)"
-        self.levelImageView.image = UIImage(named: "level\(levelCounter)") ?? UIImage(named: "level12")
-        self.view.insertSubview(levelImageView, at: 1)
-    }
-    
-    func showScoreView() {
-        let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
-        scorePopVC.modalPresentationStyle = .overFullScreen
-        self.present(scorePopVC, animated: true, completion: nil)
-    }
-    
-    func showEndGameView() {
-        let scorePopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EndGameViewController") as! EndGameViewController
-        scorePopVC.modalPresentationStyle = .overFullScreen
-        self.present(scorePopVC, animated: true, completion: nil)
-    }
-    
-    func showInfoView(description: String) {
-        let infoPopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
-        infoPopVC.infoText = description
-        infoPopVC.modalPresentationStyle = .overFullScreen
-        self.present(infoPopVC, animated: true, completion: nil)
-    }
-    
-    
-    @objc func dismissGame() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    
-    @IBAction func scoreAction(_ sender: Any) {
-        showScoreView()
-    }
-    
-    
-    @IBAction func endGameAction(_ sender: Any) {
-        showEndGameView()
-    }
-    
-    
-    @IBAction func showInfoDesc(_ sender: Any) {
-        let gameDescription = GameManagement.sharedInstance.leveLGameDict.first?.description
-        showInfoView(description: gameDescription ?? "Itt még nem látsz játékot igy nincs is hozzá leírás")
-    }
  }
- 
- 
- 
- 
- 
- 

@@ -7,49 +7,70 @@
 //
 
 import UIKit
+import TTSegmentedControl
 
 class DrinkCounterViewController: UIViewController {
     
     @IBOutlet weak var howDrinksTableView: UITableView!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var secondContentView: UIView!
+    @IBOutlet weak var drinkingSegmentedControl: TTSegmentedControl!
+    @IBOutlet weak var infoText: UILabel!
     
-    @IBOutlet weak var personLabel: UILabel!
-    @IBOutlet weak var drinkCountLabel: UILabel!
-    
-    @IBOutlet weak var containerView: UIView!
-    var person: [String] = []
-    var drinkCount = 0
-    var showResultDrinkView = true
     let playersList = NetworkSevice.sharedInstance.playerList
     
-    var isFlipped: Bool = false
+    var actullyDrinkCount = 0
+    var drinkValue : [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeForNotification(name: .showBonus, selector: #selector(showBonusView(notification:)), object: nil)
-        showResultDrinkView = GameManagement.sharedInstance.gameSTW
-        
-        if showResultDrinkView {
-            contentView.isHidden = true
-        } else {
-            contentView.isHidden = false
-        }
-        
         howDrinksTableView.separatorStyle = .none
-        howDrinksTableView.allowsSelection = false
-        
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
+        drinkingSegmentedControl.itemTitles = []
+        drinkingSegmentedControl.defaultTextFont = UIFont.helveticaNeueLight(15)
+        drinkingSegmentedControl.selectedTextFont = UIFont.helveticaNeueLight(15)
+        drinkingSegmentedControl.layer.cornerRadius = 5
+        drinkingSegmentedControl.allowChangeThumbWidth = false
+       
         
-        containerView.layer.cornerRadius = 10
-        containerView.layer.masksToBounds = true
+        infoText.text = "DrinkCounterViewController_infoText".localized()
         
-        secondContentView.layer.cornerRadius = 10
-        secondContentView.layer.masksToBounds = true
+        for valueOfDrink in drinkValue {
+            drinkingSegmentedControl.itemTitles.append("\(valueOfDrink)")
+        }
         
-        personLabel.text = person[0]
-        drinkCountLabel.text = "\(drinkCount)"
+        if drinkValue.count == 1 {
+            self.actullyDrinkCount = drinkValue[0]
+            drinkingSegmentedControl.isUserInteractionEnabled = false
+        } else {
+            self.actullyDrinkCount = drinkValue[0]
+            drinkingSegmentedControl.isUserInteractionEnabled = true
+        }
+    
+        
+        
+        drinkingSegmentedControl.didSelectItemWith = { (index, title) -> () in
+            switch index {
+            case 0:
+                self.actullyDrinkCount = self.drinkValue[0]
+                print("")
+            case 1:
+                self.actullyDrinkCount = self.drinkValue[1]
+               print("")
+            case 2:
+                self.actullyDrinkCount = self.drinkValue[2]
+                print("")
+            case 3:
+                self.actullyDrinkCount = self.drinkValue[3]
+                print("")
+            default:
+                print("Default")
+            }
+            print("Selected item \(index)")
+            
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,17 +83,9 @@ class DrinkCounterViewController: UIViewController {
     }
     
     @IBAction func saveDrinksData(_ sender: Any) {
-        if !showResultDrinkView {
-            isFlipped = !isFlipped
-            let cardToFlip = isFlipped ? contentView : secondContentView
-            let bottomCard = isFlipped ? secondContentView : contentView
-            UIView.transition(from: cardToFlip!, to: bottomCard!, duration: 0.5, options: .transitionFlipFromRight, completion: nil)
-            showResultDrinkView = true
-        } else {
-            self.dismiss(animated: true, completion: nil)
-        }
-        //postNotification(name: .dismissGame)
-        
+        GameManagement.sharedInstance.userDefDrinkVariation = true
+        GameManagement.sharedInstance.drinkVariation = []
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -82,7 +95,6 @@ class DrinkCounterViewController: UIViewController {
         vc.playerForBonus.append(player!)
         vc.name = player?.playerName
         self.present(vc, animated: true, completion: nil)
-        
     }
 
 }
@@ -92,21 +104,17 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
         return playersList.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
         if let customCell = Bundle.main.loadNibNamed("HowDrinksTableViewCell",
                                                      owner: self,
                                                      options: nil)?.first as? HowDrinksTableViewCell {
             
-            
-            if  indexPath.row % 2 == 0 {
-                let lightBlueColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:0.5)
-                customCell.contentView.backgroundColor = lightBlueColor
-                //customCell.backgroundColor = lightBlueColor
-            } else {
-                let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
-                customCell.contentView.backgroundColor = lightYellowColor
-                customCell.drinksPlayerLabel.textColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:1.0)
-            }
+            let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
+            customCell.contentView.backgroundColor = lightYellowColor
             customCell.player = playersList[indexPath.row]
             return customCell
         }
@@ -115,6 +123,28 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
         
     }
     
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let indexPath = howDrinksTableView.indexPathForSelectedRow {
+            let currentCell = howDrinksTableView.cellForRow(at: indexPath) as? HowDrinksTableViewCell
+            currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
+            let updatedPlayer = playersList[indexPath.row]
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: updatedPlayer, drinks: actullyDrinkCount) { (error) in
+                if error != nil {
+                    print("error")
+                } else {
+                    currentCell?.drinkCountLabel.text = "\(self.actullyDrinkCount)"
+                    print(updatedPlayer)
+                }
+            }
+            
+        }
+        
+        
+    }   
+}
+
+extension UIFont {
+    class func helveticaNeueLight(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue-Light", size: size)!
+    }
 }

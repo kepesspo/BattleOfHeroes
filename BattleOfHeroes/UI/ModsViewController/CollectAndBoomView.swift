@@ -35,7 +35,6 @@ class CollectAndBoomView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("CollectAndBoomView", owner: self, options: nil)
         addSubview(contentView)
@@ -52,7 +51,7 @@ class CollectAndBoomView: GameView {
     }
     
     @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
@@ -98,12 +97,16 @@ extension CollectAndBoomView : UICollectionViewDelegate ,UICollectionViewDataSou
                 self.tap.isEnabled = true
                 drinkCounterLabel.text = "Amit meg kell inni : \(drinkCount)"
                 print("Boom game ended")
+                GameManagement.sharedInstance.drinkVariation = [drinkCount]
+                GameManagement.sharedInstance.userDefDrinkVariation = false
             } else {
                 print("Game continue")
                 drinkCount += selectedElementValue
                 drinkCounterLabel.text = "Amit meg kell inni : \(drinkCount)"
+                
             }
         }
+        
         collectAndBoomCollectionView.reloadData()
     }
     

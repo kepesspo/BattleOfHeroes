@@ -12,12 +12,7 @@ import UIKit
 class RockPaperScissorsView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    
     @IBOutlet weak var rockPaperScissorsViewLabel: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
 
@@ -33,24 +28,22 @@ class RockPaperScissorsView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         Bundle.main.loadNibNamed("RockPaperScissorsView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
     }
     
-    @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
-        playerType.text = "Battle"
-        gameInfoContainerView.layer.cornerRadius = 10
-    }
-    
     func updateUI() {
-        playerName.text = playersList.randomElement()?.playerName
-        rockPaperScissorsViewLabel.text = "Annyi csatát kell játszani ahány játékos játszik"
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
+        let rockPaperScissors = NSMutableAttributedString()
+        rockPaperScissors.appendColored(.black , font: .regular(20), "A játékot kezdéséhez válassz egy játékost jobbról vagy balról akivel megküzdesz\n\n").appendColored(.red, font: .regular(22), "- győzelemnél nem kell innod\n").appendColored(.red, font: .regular(22), " - vereségnél innod kell és megint rajtad a sor\n\n").appendColored(.black, font: .regular(20), "5 csata után a büntetéseket meg kell inni")
+        rockPaperScissorsViewLabel.attributedText = rockPaperScissors
     }
 }

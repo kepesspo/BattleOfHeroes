@@ -1,3 +1,4 @@
+
 /* 
   Localizable.strings
   BattleOfHeroes
@@ -10,89 +11,103 @@
 "Warning" = "Warning";
 
 "GameTitle_trueOrFalse" = "Igaz Hamis";
-"GameTitle_categories" = "Categoria";
+"GameTitle_categories" = "Kategória";
 "GameTitle_hajime" = "Hajime";
 "GameTitle_everybodyDrinks" = "Mindenki Iszik Egyszer";
 "GameTitle_wheelOfFortune" = "Szerencsekerék";
-"GameTitle_upAndDown" = "Kissebb vagy Nagyobb";
+"GameTitle_upAndDown" = "Kisebb vagy Nagyobb";
 "GameTitle_ringOfFire" = "Ring of Fire";
-"GameTitle_memory" = "Memoria";
+"GameTitle_memory" = "Memória";
 "GameTitle_musicRecognizer" = "Zene Felismerés";
-"GameTitle_switchHand" = "Switch Hand";
+"GameTitle_switchHand" = "Kéz csere";
 "GameTitle_rockPaperScissors" = "Kő Papir Olló";
 "GameTitle_fingerIt" = "Finger It";
-"GameTitle_cheersToTheGovernor" = "Cheers To The Governor";
+"GameTitle_cheersToTheGovernor" = "A kormányzóra";
 "GameTitle_haveIEverNever" = "Én még soha";
 "GameTitle_whoAmI" = "Ki Vagyok Én";
-"GameTitle_spoon" = "Spoon";
-"GameTitle_thePeopleChoice" = "A Nép szava dönt!";
+"GameTitle_spoon" = "Kanál";
+"GameTitle_thePeopleChoice" = "A nép szava dönt!";
 "GameTitle_russianRoulette" = "Orosz Rulett";
-"GameTitle_shipTrip" = "Hajótura";
+"GameTitle_shipTrip" = "Hajótúra";
 "GameTitle_horseRace" = "Lóverseny";
 "GameTitle_anagram" = "Anagramma";
-"GameTitle_coinFlip" = "Coin Flip";
-"GameTitle_fiveThing" = "Five Things";
+"GameTitle_coinFlip" = "Érem dobás";
+"GameTitle_fiveThing" = "5 dolog";
 "GameTitle_collectAndBoom" = "Collect and boom";
-"GameTitle_theBottle" = "The Bottle";
+"GameTitle_theBottle" = "Az üveg";
 "GameTitle_tapper" = "Tapper";
+"GameTitle_TickTak" = "Tick Tak";
+
+"GameDescription_trueOrFalse" = "Játék Típusa: Egyéni \n\nA játékban egy állítás fog megjelenni és elkell dönteni, hogy az igaz, vagy hamis. Ha úgy ítéled meg hogy az állítás igaz, akkor az idő lejárta előtt ezt közölnöd kell a többi játékosal akik ez alapján tudják eldönteni, hogy jól válaszoltál-e. Ugyan ez igaz a Hamis állításra is. Ha nem jó a válaszod akkor sajnos innod kell.";
+
+"GameDescription_categories" = "Játék Típusa: Sor \n\nA játék választ egy kategóriát és erre az első embernek kell mondani rá egy szót ami abba a kategóriába beleillik. Ezután a következő játékosnak az előző szónak az utolsó betűjével kell egy szót mondania. Az aki először hibázik az iszik. 5 másodperc a megengedett gondolkodási idő.";
+
+"GameDescription_hajime" = "Játék Típusa: Sor \n\nSzámolj helyesen. Elkell kezdeni számolni 1-től és ha 5-el vagy 7-el osztható a szám vagy szerepel benne az 5 vagy a 7 akkor 'hajime'-t kell mondani. Aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes 'hajime' után megfordul a kör.";
+
+"GameDescription_everybodyDrinks" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek innia kell. Ezt az app sorsolja ki ha elfogytak az emberek akkor elöről megy a kör.";
+
+"GameDescription_wheelOfFortune" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek meg kell pörgetnie a szerencsekereket. Akit a szerencsekerék kisorsol annak innia kell.";
+
+"GameDescription_upAndDown" = "Játék Típusa: Sor \n\n A játék úgy kezdődik hogy az app kiválaszt egy játékost aki a sor-t fogja kezdeni. Neki meg kell mondania, hogy a következő szám kisebb, vagy nagyobb lesz mint amit a játék kiír. Ez után a következő játékos jön. Minél tovább megy a játék annál többet kell innia annak aki hibázik.";
+
+"GameDescription_ringOfFire" = "A Ring of fire játékban fellelhető dolgokat tartalmazza. Választani kell a kártyák közül és a kártyának a leírását kell megcsinálni. Ezek az alábbi szabályok:\n2 - is Choose – Válassz valakit aki iszik\n3 - is Me – Én iszok \n4 - is Whore – Összes lány iszik. \n5 - Thumb Master - Aki kihúzza az lesz a játékmester.Ha az ujját az asztalra helyezi utánozni kell. Aki utoljára utánnoza az iszik \n6 - is Dicks – Összes fiú iszik. \n7 - is Heaven – Felkell mutatni az égre aki utoljára utánozza az iszik. \n8 - is Mate – Válassz valakit aki iszik veled. \n9 - Rhyme  - Aki húzta a lapot annak kell egy szót mondania. Utánna következőnek meg rimelnie kell arra a szoóa. Ha nem sikerül akkor iszik. \n10 - Categories - Választni kell egy kategóriát és utánna abba a kategóriába kell mondani szót. \nJack - Make a Rule – Hozni kell egy szabályt amit utána be kell tartani. \nQueen - Questions – Kérdésekkel kell beszélni egymással \nKing - Pour!- Összekell önteni a piákat. Az utolsó megissza \nA - Waterfall - Addig kell inni ameddig az ászt húzó személy iszik.";
+
+"GameDescription_memory" = "Egy kategóriába (Ezt a játék mondja meg) elkell kezdeni mondani szavakat és utána ismételni kell az előzőeket aki elrondja az iszik. A játék választja ki ki kezd";
+
+"GameDescription_musicRecognizer" = "A játékban egy zenét fog a játékos hallani 5 másodpercig. Ezek után ki kell találni-a hogy ki az előadó és mi a szám cime. Abban az esetben ha a kettőből az egyik sikerül akkor nem kell inni-a. Ha mind a kettőt sikeresen kitalálja akkor kioszthat egy piát. Ha egyiket sem tudja akkor neki kell innia.";
+
+"GameDescription_switchHand" = "A játék úgy kezdődik hogy kereszbe rakjátok a kezeteket az asztalon. Egyik egyénileg választott irányba indul a kör és választani lehet hogy hányat koppintasz \n1 Koppintás = Abba az irányba megy tovább amelyikel koppintott. \n2 Koppintás = Fordított irányba indul. Tehát ha bal kézzel koppint akkor jobbra megy a kör tovább. \n3 Koppintás = A soron következőnek nem szabad koppintania az utána lévőnek kell folytatnia. Fontos hogy felváltott kezek legyenek. Aki ront az iszik. Itt is ahány játékos játszik annyi kört kell játszani.";
+
+"GameDescription_rockPaperScissors" = "Annyi kört kell játszani ahány játékos van. Kell egy kezdő ember aki kihívja a mellette ülőt ezt a játék választja ki. Lejátszod a kört a melletted ülővel. Ha te nyersz akkor ő iszik és az ő mellette ülővel kell játszania. Ha te vesztesz akkor meg a te melletted ülővel kell játszanod. Ha döntetlen akkor mind a ketten isztok. ";
+
+"GameDescription_fingerIt" = "A játékot úgy kell kezdeni hogy minden játékos az asztalra rakja a mutató ujját. Aztán számolni kezd az első ember akit a játék választ ki. Ekkor ő azt mondja hogy 1,2,3 és 5 ekkor hirtelen mindenkinek el kell vennie az ujját az asztalról ha úgy van vagy rajta hagyja. A játék lényege hogy pontosan annyi ujj maradjon az asztalon ahány szám be lett mondja. Ha eltalálod hogy hány van az asztalon akkor mindenki más iszik rajtad kivűl. Ha nem találod el akkor te iszol. Ha eltalálod akkor te neked már nem kell játszanod többet jön a következő kör";
+
+"GameDescription_cheersToTheGovernor" = "1-5-ig kell számolni. Mikor eléritek a 5-őt akinél véget ért ott van vége a körnek. Ilyenkor mondja mindenki hogy Cheers és mindenki iszik. Akinél vége lett a körnek hoz egy szabályt az egyik számra. Onnantól kezdve annál a számnál az adott szabályt kell csinálni. Ha valaki hibázik akkor innia kell és újra kezdődik a számlálás.";
 
 
-"GameDescription_trueOrFalse" = "Játék Típusa: Egyéni \n\nA játékban egy állítás fog megjelenni és elkel dönteni hogy az igaz vagy hamis. Ha úgy ítéled meg hogy az állítás igaz akkor az idő lejárta előtt ezt közölnőd kell a többi játékossal akik ez alapján tudják eldőnteni hogy jól válaszoltál-e. Ugyan ez igaz a Hamis állításra is. Ha nem jó a válaszod akkor sajnos innod kell.";
+"GameDescription_haveIEverNever" = "Jön egy állitás és ha az igaz rád akkor innod kell ha nem igaz rád akkor nem kell.";
 
-"GameDescription_categories" = "Játék Típusa: Sor \n\nA játék választ egy kategóriát és erre az első embernek kell mondani rá egy szót ami abba a kategóriába beleillik. Ezután a következő játékosnak az előző szónak az utolsó betűjével kell egy szót mondania. Az aki először hibázik az iszik. 5 másodperc a megengedett gondolkodási időkorlát.";
+"GameDescription_whoAmI" = "Az app mutat egy híresség fotóját és ki kell találni ki van a képen. Ebben a játékban csak egy játékos vesz részt. Ha pontosan megtudja mondani a híresség életkorát vagy foglalkozását akkor kioszthat egy piát.";
 
-"GameDescription_hajime" = "Játék Típusa: Sor \n\nSzámolj helyesen. Elkel kezdeni számolni 1-től és ha  5-el vagy 7-el osztható a szám vagy szerepel benne az 5 vagy a 7 akkor hajimét kell mondani aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes hijime után megfordul a kör.";
+"GameDescription_spoon" = "A Játékhoz szükség lesz egy pakli kártyára és annyi kanálra ahányan vagytok mínusz 1. A játék lényege hogy össze kell gyűjteni négy egyforma lapot a kezedbe mondjuk 4 db királyt vagy bubit. A játék előkészületéhez tartozik még az is hogy ki kell válogatni hogy csak annyi lap játszon ahányan vagytok. A játék menete a következő mindenki kap négy lapot. Mindig egyet a jobbra ülőnek kell adni addig, amíg a sáját kezedbe nem gyűlik össze a négy egyforma lap. Ekkor gyorsan elkell venni az asztalról egy kanalat ekkor te már védett vagy. Miután ez megtörtént mindenkinek szabad rablás van és elkell venni egy kanalat. Akinél nem marad kanál annak kell innia";
 
-"GameDescription_everybodyDrinks" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek innia kell. Ezt a gép sorsolja ki ha elfogytak az emberek akkor előről megy a kör.";
+"GameDescription_thePeopleChoice" = "El kell döntened hogy melyikre szavaztak a legtöbben az emberek a nagyvilágból. Ha jót választasz nem kell innod ha rosszat akkor innod kell.";
 
-"GameDescription_wheelOfFortune" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek meg kell pörgetni-e a szerencsekereket. Akit a szerencsekerék kisorsol annak kell innia.";
+"GameDescription_russianRoulette" = "Három darab kártya közül kell választani. 2 alatt Tűzijáték van 1 alatt pia. Egyet kell húzni ha tűzijátékot húzol akkor megúsztad nem kell innod. Ha piát akkor kell. Ezt a játékot csak egy ember játsza.";
 
-"GameDescription_upAndDown" = "Játék Típusa: Sor \n\n A játék úgy kezdődik hogy a játék kiválaszt egy játékost aki sor-t fogja kezdeni. Neki meg kell mondani-a hogy hogy a következő szám kisebb vagy nagyobb lesz mint ami a játék kiír. Ez után a következő játékos jön. Minél tovább megy a játék annál többet kell innia annak aki hibázik.";
+"GameDescription_shipTrip" = "Hajótúra. A csoport azt játssza, hogy hajóútra megy. Az applikáció kiválasztja ezeket a szerepeket a parancsnokot, a helyettesét, a matrózokat. A parancsnoknál és a helyettesénél nincs pia a matrózoknál van.  A játékot tartalmazza a \nVihar - veled szembeülőnek kell adni \n Hajótöröttek - jobbra ülőnek kell adni a piát. \n Részeg tengerész - Balra kell adni. \nVitorlát bont - mindenki mutat egy számot 1-3-ig egyszerre és az összesnek az átlagát elkell osztani a játékosok számával egészre kerekítve és annyit tolódik a pia jobbra. \nAz utolsó a mindent eldöntő szabályt a játék hozza meg.";
 
-"GameDescription_ringOfFire" = "A Ring of fire játékban fellelhető dolgokat tartalmazza. Választani kell a kártyák közöl és a kártyának a leírását kell megcsinálni. Ezek az alábbi szabályok:\n2 - is Choose – Válasz valakit aki iszik\n3 - is Me – Én iszok \n4 - is Whore – Összes lány iszik \n5 - Thumb Master - Aki kihuzza ö a jatékmester. Az ujját az asztalra helyezve. Aki utoljára utánnoza az iszik \n6 - is Dicks – Fiuk isznak \n7 - is Heaven – Felkel mutatni az égre aki utoljára utánozza az iszik \n8 - is Mate – Válasz valakit aki iszik veled \n9 - Rhyme  - Aki huzta a lapot annak kell egy szot mondani. Utánna következőnek meg rimelnie kell arra a szora. ha nem siekerul akkor iszik \n10 - Categories - Választni kell egy kategoriát és utánna abba a kategoriába kell mondani szot \nJack - Make a Rule – Hozzni kell egy szabályt amit utánna be kell tartani. \nQueen - Questions –Kérdésekkel kell beszélni egymással \nKing - Pour!- Összekell önteni a piákat. Az utolsó megissza \nA - Waterfall - Addig kell inni ameddig aki kihuzta az ászt ";
+"GameDescription_tapper" = "Az app kiválaszt egy játékost aki kihívhat valakit hogy játszon vele. Mind a két játékosnak a kijelölt pontra kell raknia az egyik ujját. A játék lényege hogy egy visszaszámláló elkezd 5-től lefele számolni és minél közelebb a 0-hoz kell elengednie a gombot. Csak a vesztes iszik";
 
-"GameDescription_memory" = "Egy categoriába (Ezt a jaték mondja meg) elkell kezdeni mondani szavakat és utána ismételni kell az előzőeket aki elrondja az iszik. A jaták választja ki ki kezd";
+"GameDescription_theBottle" = "Az app kisorsol egy játékost akinek meg kell pörgetnie az üveget. Akire az üveg az asztalnál mutat annak kell innia.";
 
-"GameDescription_musicRecognizer" = "A jaták két csapatra bontja a társaságot. Egy zenéből egy részletet kell meghallgatni és tippelni kell milyen év. Amenyik csapatnak közelebb van tipje a megoldáshoz az oszhat ki annyi piát ahányan vannak a csapatba. Ezt lehet egy embernek is osztani";
+"GameDescription_collectAndBoom" = "Az app kisorsol egy játékost aki elfogja kezdeni a kört. A játéktábláról ki kell választania egy cellát. Utána a tőle jobbra ülő fog választani egyet addig választanak a játékosok ameddig egy bombát találnak meg a táblában ekkor a játék véget ért és az addig összegyüjtött egységet kell meginnia a vesztesnek.  A cella alatt három fajta esemény lehet. 1-es szám = 1 egységet jelent. 2-es szám = 2 egységet jelent. Ha egy bomba van a cellában akkor a játék véget ért.";
 
-"GameDescription_switchHand" = "A játék ugy kezdődik hogy kereszbe rakjátok a kezeket az asztalon. körbe megy a kör és választani lehet hogy hányat koppintasz \n1 koppintás = folytassa a sorozatot \n2 koppintás = fordított sorrend \n3 koppintás = hiányolja a következő kezét, és folytassa a sorozatot. Fontos hogy felváltott kezek legyenek. Aki ront az iszik. Itt is ahány játékos játszik annyi kört kell játszani.";
+"GameDescription_fiveThing" = "Az app kisorsol egy játékost aki játszani fog. Megfog jelenni a képernyőn egy kategória. Ebben a kategóriában kell a játékosnak 5 mp alatt 5 odatartozó szót mondania. Amennyiben ez nem sikerül innia kell.";
 
-"GameDescription_rockPaperScissors" = "Anyi kört kell játszani ahány játékos játszik. Kell egy kezdő ember aki kihivja a mellete ülőt ezt a játék választja ki. Lejátszod a kört a melleted ülövel. Ha te nyersz akkor ő iszik és az ő mellete ülövel kell játszania. Ha te vesztesz akkor meg a te melleted ülövel kell jatszanod. Ha ugyanaz akkor mind a ketten isztok ";
+"GameDescription_coinFlip" = "Az app kiválaszt egy játékost aki kihívhat valakit hogy játszon vele. A két játékosnak választani kell a Fej és az Irás között. Ezután a kihívó feldobja az érmét és amelyik oldalára esik az a játékos nyert és a másiknak innia kell." ;
 
-"GameDescription_fingerIt" = "A játékot ugy kell kezdeni hogy minden jatákos az asztalra rakja a mutató uját. Aztán számolni kezd az első ember akit a játék választ ki. Ekkor ő azt mondja hogy 1,2,3 és 5 ekkor hirtelen mindenkinek el kell venni az ujját az asztalró ha ugy van vagy rajta hagyja. A jaták lényege hogy pontosan annyi uj maradjon az asztalon ahány szám be lett mondja. Ha eltalálod hogy hány van az asztalon akkor mindenki más iszik rajtad kivűl. Ha nem találod el akkor te iszol Ha eltalálod akkor te neked már nem kell játszanod többet jön a következő kör";
+"GameDescription_anagram" = "Az applikáció kisorsol egy játékost aki játszani fog. A Start gombra nyomva megjelenik a képernyőn 4 betű amiből 5 mp allat egy értelmes magyar szót kell kiraknia. Amennyiben ez nem sikerül úgy innia kell a játékosnak. Ha sikerül akkor nincs büntetése.";
 
+"GameDescription_horseRace" = "Ez a játék egy közös játék. Minden játékos 1-3 egységben fogadhat a négy ló egyikére. A versenylovak a Sárga a Zöld a Kék és a Piros. Miután megtörténtek a fogadások az egyik játékos elindija a futamot. Ha az a ló ér be először a célba akire fogadott a játékos akkor annyi piát kioszthat. Viszonta ha nem az a ló nyer akire fogadott akkor a megtett menyiséget kell elfogyszatnia";
 
-"GameDescription_cheersToTheGovernor" = "1-10-ig kell számolni. Mikor eléritek a 10-et akinél véget ért ott van vége a kör. ilyenkor  mondja mindenki  hogy Cheers. És mindenki iszik. Akinél vége lett a körnek hoz egy szabályt az egyik számra. Onnantol kezdve annál a számnál az adott szabályt kell csinálni. Ha valaki hibázik akkor innia kell és ujra kezdődik a számlálás.";
-
-"GameDescription_haveIEverNever" = "Én még soha játék. Jön egy állitás és ha az igaz rád akkor innod kell ha nem igaz rád akkor nem kell.";
-
-"GameDescription_whoAmI" = "Az app mutat egy ismeretlen ember fotóját és ki kell találni ki van a képen. Ebben a játékban csak egy játékos vesz részt. Ha pontosan megtudja mondani a személy életkorát vagy foglalkozását akkor kioszthat egy piát.";
-
-"GameDescription_spoon" = "A Játékhoz szükség lez egy pakli kártyára és annyi kannálra ahányan vagytok miusz 1. A játék lényege hogy őssze kell gyüjteni négy egyforma lapot a kezedbe mondjuk 4 db király vagy Bubi. A játék előkészületéhet tartozik még az is hogy ki kell válogatni hogy csak annyi lap játszon ahányan vagy. A játék menete a küvetkező mindenki kap négy lapot és mindig egyet a jobbra ülőnek kell adni addig mig a sáját kezedbe nem gyülik őssze a négy egyforma lap. Ekkor gyorsan elkell venni az asztalról egy kanalat ekkor te már védett vagy. Miután ez megtörtént mindenkinek szabad rablás van és elkell venni egy kanalat. Akinél nem marad kanál annak kell inni";
-
-"GameDescription_thePeopleChoice" = "A játék egy eldőntendő kérdést rak fel neked. El kell döntened hogy mennyikre szavaztak a legtőbben az emberek a nagyvilágból. Ha jó dontesz nem kell innod ha rosszul akkor innod kell.";
-
-"GameDescription_russianRoulette" = "Három darad kártya közűl kell választani. 2 alatt Tüzijáték van 1 alatt pia. Egyet kell huzni ha tüzijátékot huzol akkor megusztad nem kell inni ha piát akkor innod kell. Ezt a játékot csak egy ember játsza.";
-
-"GameDescription_shipTrip" = "Hajótura. A csoport azt játssza, hogy hajóútra megy. Az applikáció kiválasztja ezeket a szerepeket kinevezik a parancsnokot, a helyettesét, a matrózokat. A parancsnoknál és a helyettesénél nincs pia a matrózoknál igen.  A játékot tartalmazza a \nvihar - veled szembeülőnek kell adni \n Hajótöröttek - van akkor a jobbra ülőnek kell adni a piát. \nrészeg tengerész - Balra kell adni. \nVitorlát bont - mindenki mutat egy számot 1-3-ig egyszerre és az összesnek az átlagát elkell osztani a játékosok számával egészre kerekítve  és annyit tolódik a pia jobbra. \nAz utolsó a mindent eldöntő szabályt a játék hozza meg.";
-
-"GameDescription_tapper" = "Az játék kiválaszt egy játékost aki kihivhat valakit hogy játszon vele. Mind a két játékosnak a kijelőlt pontra kell rakni az egyik uját. A játék lényege hogy egy visszaszámláló elkezd 5-től lefele számolni és minnél közelebb 0-hoz kell elengedni a gombot. A nyertes nem iszik a vesztes meg igen";
-
-"GameDescription_theBottle" = "A játék kisorsol egy játékost akinek meg kell pörgetnije az üveget. Akire az üveg az asztalnál mutat annak kell innia.";
-
-"GameDescription_collectAndBoom" = "A játék kisorsol egy játékost aki fogja kezdeni a játékot. A játéktáblárol ki kell választania egy cellát. Utánna a töle jobbra űlő fog választani egyet addig választanak a játékosok ameddig nem egy bombát találnak meg a táblában ekkor a játék végetést és az addig összegyüjtött egységet kell meginnia.  A cella alatt 3-om fajta esemény lehet. 1-es szám = 1 egységet jelent. 2-es szám = 2 egységet jelent. Ha egy bomba van a cellában akkor a játék véget ért.";
-
-"GameDescription_fiveThing" = "A játék kisorsol egy játékost aki játszani fog. Megfog jelenni a képernyőn egy kategoria. Ebben a kategoriába kell a játékosnak 5 mp alatt 5 odatartozó szot mondania. Amennyiben ez nem sikerül innia kell.";
-
-"GameDescription_coinFlip" = "Az játék kiválaszt egy játékost aki kihivhat valakit hogy játszon vele. A két játékosnak választani kell a Fej és az Irás közőtt. Ezután a kihivó feldobja az érmét és amelyik oldalára esik az a játékos nyert és a másiknak innia kell." ;
-
-"GameDescription_anagram" = "A játék kisorsol egy játékost aki játszani fog. A Start gombra nyomva megjelenik a képernyőn 4 betű amiből 5 mp allat egy értelmes magyar szót kell kiraknia. Amennyiben ez nem sikerül ugy innia kell a játékosnak. Ha sikerül akkor nincs büntetése.";
-
-"GameDescription_horseRace" = "Ez a játék egy közös játék. Minden játékos 1-3 egységben fogadhat a négy ló egyikére.A versenylóvak a Sárga a Zöld a Kék és a Piros. Miután megtöténtek a fogadások Az egyik játékos elindija a futamot. Ha az a ló ér be elősszőr a célba akire fogadott a játékos akkor annyi piát kioszthat. Viszonta ha nem az a ló nyer akire fogadott akkor a fogadott menyiséget meg kell innia";
-
+"GameDescription_TickTak" = "Ez a játék egy közös játék. A játék elinditásával elindul egy számláló a háttérben ekkor el kell kezdeni körbeadni egy tárgyat a játékosok között. Mikor az időzitő megszolal annál az embernél akinél épp az adott tárgy van ő vesztett es neki kell a büntetést meginnia.";
 
 
 
 "ExtraSetUpViewController_Level_easy" = "1X - Minden pia mennyiség";
 "ExtraSetUpViewController_Level_medim" = "2X - Minden pia mennyiség";
 "ExtraSetUpViewController_Level_hard" = "3X - Minden pia mennyiség";
+
+
+"GameType_PersonalGame" = "Egyéni Játékok";
+"GameType_LineGame" = "Sor Játékok";
+"GameType_GroupGame" = "Csoportos Játékok";
+"GameType_BattleGame" = "Kétszemélyes Játékok";
+"GameLoaderText" = "Játék betöltése folyamatban...";
+
+"EndGameViewController_showResultBtnTitle" = "Eredmények";
+"EndGameViewController_endGameBtnTitle" = "Játék Vége";
+"EndGameViewController_titleText" = "Játék Vége";
+
+"DrinkCounterViewController_infoText" = "Válaszd ki azt a pia mennyiséget amit ki kell osztani.";

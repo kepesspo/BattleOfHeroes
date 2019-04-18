@@ -17,11 +17,14 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     @IBOutlet weak var gameNameTextfield: UITextField!
     @IBOutlet weak var gamePassTextField: UITextField!
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var offlineSwitch: UISwitch!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        offlineSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        offlineSwitch.layer.borderColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
         // Do any additional setup after loading the view.
     }
 
@@ -38,6 +41,20 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+   
+    
+    @objc func switchChanged(mySwitch: UISwitch) {
+        if mySwitch.isOn == true {
+            print("Online")
+            gamePassTextField.isHidden = false
+            gameNameTextfield.isHidden = false
+        } else {
+            print("Offline")
+            gamePassTextField.isHidden = true
+            gameNameTextfield.isHidden = true
+        }
     }
     
     

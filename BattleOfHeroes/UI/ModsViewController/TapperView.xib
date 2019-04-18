@@ -94,7 +94,7 @@
                                 <constraint firstAttribute="width" secondItem="NwG-BU-5eB" secondAttribute="height" multiplier="1:1" id="fzd-Z5-B8s"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="Player One" backgroundImage="start_gomb">
+                            <state key="normal" title="Játékos 1" backgroundImage="start_gomb">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -103,13 +103,13 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilY-f6-PSa">
-                            <rect key="frame" x="137.5" y="30" width="80" height="80"/>
+                            <rect key="frame" x="132.5" y="30" width="90" height="90"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ilY-f6-PSa" secondAttribute="height" multiplier="1:1" id="4Ts-Ty-98p"/>
-                                <constraint firstAttribute="height" constant="80" id="Cl7-ob-LKz"/>
+                                <constraint firstAttribute="height" constant="90" id="Cl7-ob-LKz"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="player Two" backgroundImage="start_gomb">
+                            <state key="normal" title="Játékos 2" backgroundImage="start_gomb">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>

@@ -27,8 +27,8 @@ class TapperView: GameView {
     
     
     var second : Double = 5.00
-    var firstPlayrTap : Bool = false
-    var secondPlayrTap : Bool = false
+    var firstPlayerTapped : Bool = false
+    var secondPlayerTapped : Bool = false
     let playersList = NetworkSevice.sharedInstance.playerList
 
     weak var timer: Timer?
@@ -37,6 +37,7 @@ class TapperView: GameView {
     var gameTime: Date = Date()
     var playerOneTime: Date = Date()
     var playerTwoTime : Date = Date()
+    var isGameStarted: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +51,6 @@ class TapperView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("TapperView", owner: self, options: nil)
         addSubview(contentView)
@@ -63,7 +63,7 @@ class TapperView: GameView {
     
     @objc func updateLevelCounterUI() {
         
-        gameInLevelLabel.text = self.levelCounter
+        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
@@ -81,37 +81,60 @@ class TapperView: GameView {
     
     @IBAction func timerTwoDownTap(_ sender: Any) {
         print("Second player pressed button")
-        secondPlayrTap = true
+        secondPlayerTapped = true
         checkGameStart()
     }
     
     @IBAction func timerOneDownTap(_ sender: Any) {
         print("First player pressed button")
-        firstPlayrTap = true
+        firstPlayerTapped = true
         checkGameStart()
         
     }
     
     @IBAction func timerTwoTouchUpAction(_ sender: Any) {
-        secondPlayrTap = false
+        secondPlayerTapped = false
         if gameEnd {
             print("Second Player lose")
         } else {
-            playerTwoTime = Date()
+            if isGameStarted {
+                if firstPlayerTapped == false {
+                    timerTwoButton.isEnabled = false
+                    playerTwoTime = Date()
+                    stopTimer()
+                } else {
+                    timerTwoButton.isEnabled = false
+                    playerTwoTime = Date()
+                }
+                
+            }
+            
         }
     }
     
     @IBAction func timerOneTouchUpAction(_ sender: Any) {
-        firstPlayrTap = false
+        firstPlayerTapped = false
         if gameEnd {
             print("First Player lose")
         } else {
-            playerOneTime = Date()
+            if isGameStarted {
+                if secondPlayerTapped == false {
+                    timerOneButton.isEnabled = false
+                    playerOneTime = Date()
+                    stopTimer()
+                } else {
+                    timerOneButton.isEnabled = false
+                    playerOneTime = Date()
+                }
+                
+            }
         }
     }
     
     func checkGameStart() {
-        if secondPlayrTap && firstPlayrTap {
+        if secondPlayerTapped && firstPlayerTapped {
+            isGameStarted = true
+            gameTime = Date()
             timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         }
     }
@@ -119,31 +142,46 @@ class TapperView: GameView {
     @objc func runTimedCode() {
         if second <= 0 {
             gameEnd = true
-            gameTime = Date()
             stopTimer()
-            
-            self.tap.isEnabled = true
         } else {
             second -= 0.05
             let timeString = String(format: "%.3f", second)
             timerTwoLabel.text = "\(timeString)"
             timerOneLabel.text = "\(timeString)"
-            
         }
     }
     
     func result() {
+        self.tap.isEnabled = true
         separateView.isHidden = true
-        let playerOneRes = abs(Double((playerOneTime.timeIntervalSince(gameTime))))
-        let playerTwoRes = abs(Double((playerTwoTime.timeIntervalSince(gameTime))))
-        timerTwoLabel.text = String(format: "%.4f", playerTwoRes)
-        timerOneLabel.text = String(format: "%.4f", playerOneRes)
+        let playerOneRes = 5 - abs(Double((playerOneTime.timeIntervalSince(gameTime))))
+        let playerTwoRes = 5 - abs(Double((playerTwoTime.timeIntervalSince(gameTime))))
+        //timerTwoLabel.text = String(format: "%.4f", playerTwoRes)
+        //timerOneLabel.text = String(format: "%.4f", playerOneRes)
+        
+        if playerTwoTime.timeIntervalSince(gameTime) > 0 {
+            timerTwoLabel.text = "\(String(format: "%.4f", playerTwoRes))"
+        } else {
+            timerTwoLabel.text = "Kifutottál az időből"
+        }
+        if playerOneTime.timeIntervalSince(gameTime) > 0 {
+            timerOneLabel.text = "\(String(format: "%.4f", playerOneRes))"
+        } else {
+            timerOneLabel.text = "Kifutottál az időből"
+        }
         
         winnerLabel.isHidden = false
-        if playerTwoRes < playerOneRes && playerTwoRes > 0 {
+        if playerTwoTime.timeIntervalSince(gameTime) > 0 && playerOneTime.timeIntervalSince(gameTime) > 0 {
+            if playerTwoRes < playerOneRes && playerTwoRes > 0 {
+                winnerLabel.text = "Player Two nyert"
+            } else {
+                winnerLabel.text = "Player One nyert"
+            }
+            
+        } else if playerTwoTime.timeIntervalSince(gameTime) < 0 && playerOneTime.timeIntervalSince(gameTime) > 0 {
+             winnerLabel.text = "Player One nyert"
+        } else if playerOneTime.timeIntervalSince(gameTime) < 0 && playerTwoTime.timeIntervalSince(gameTime) > 0 {
             winnerLabel.text = "Player Two nyert"
-        } else if playerTwoRes > playerOneRes && playerOneRes > 0 {
-            winnerLabel.text = "Player One nyert"
         } else {
             winnerLabel.text = "Senki sem nyert"
             timerTwoLabel.text = "Lose"

@@ -13,10 +13,7 @@ class HajimeView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var hajimeTextLabel: UILabel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
+    @IBOutlet weak var HajimeTitleText: UILabel!
     
     var playerList = NetworkSevice.sharedInstance.playerList
     
@@ -32,28 +29,30 @@ class HajimeView: GameView {
     
     
     func commonInit() {
-        subscribeForNotification(name: .addCounterValue, selector: #selector(updateLevelCounterUI), object: nil)
-
         Bundle.main.loadNibNamed("HajimeView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
         
     }
-    
-    @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.levelCounter
-    }
-    
+
     @objc func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Line"
-        hajimeTextLabel.text = "Tiltot számok: \n - Bármelyik szám, amely tartalmazza a 7 , 5 számot.  \n - A 7 és 5 számának többszörösei \n - Illetve ha valaki a Hajime szót kimondja akkor a kör megfordul."
+        
+        let hajime = NSMutableAttributedString()
+        hajime.appendColored(.black,font: .regular(20), "A következő számok helyett mondd:\n ").appendColored(.red, font: .regular(22), "HAJIME")
+        HajimeTitleText.attributedText = hajime
+        
+        let numbers = NSMutableAttributedString()
+        numbers.appendColored(.black, font: .regular(20), "- bármelyik szám, amely tartalmazza\naz 5 és 7 számokat").appendColored(.red, font: .regular(22), "(7,17,27...) \n").appendColored(.black, font: .regular(20), "\n- bármely szám mely osztható 5-tel \nvagy 7-tel").appendColored(.red, font: .regular(22), "(14,15,20...)").appendColored(.black, font: .regular(20), "\n\n- minden egyes ").appendColored(.red, font: .regular(22), "HAJIME").appendColored(.black, font: .regular(20), "-nél a kör megfordul.")
+        hajimeTextLabel.attributedText = numbers
+        
         let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
-        playerName.text = playerList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
         
     }
     

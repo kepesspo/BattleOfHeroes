@@ -11,8 +11,10 @@ import UIKit
 class SetUpPlayersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var cellView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        cellView.layer.cornerRadius = 10
         // Initialization code
     }
 

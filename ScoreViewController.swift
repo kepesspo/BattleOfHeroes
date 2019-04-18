@@ -10,13 +10,13 @@ import UIKit
 
 class ScoreViewController: UIViewController {
 
-    @IBOutlet weak var endGameBtn: UIButton!
     @IBOutlet weak var scoreTableView: UITableView!
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var BackButton: UIButton!
+    @IBOutlet weak var horseRaceBtn: UIButton!
     
     var playersList = NetworkSevice.sharedInstance.playerList
-    
+    var timer : Timer?
     
     
     override func viewDidLoad() {
@@ -25,6 +25,10 @@ class ScoreViewController: UIViewController {
         scoreTableView.separatorStyle = .none
         popView.layer.cornerRadius = 10
         popView.layer.masksToBounds = true
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(reloadScoreTableView), userInfo: nil, repeats: true)
+        
+        horseRaceBtn.isHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -33,36 +37,43 @@ class ScoreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-   
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+    }
     
     
+    @IBAction func horseRaceAction(_ sender: Any) {
+        let raceBet = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HorseRaceBetViewController") as! HorseRaceBetViewController
+        raceBet.modalPresentationStyle = .overFullScreen
+        self.present(raceBet, animated: true, completion: nil)
+    }
     
     @objc func reloadScoreTableView() {
         DispatchQueue.main.async {
-        NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+            NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
                 if error != nil {
                     print("Error")
                 } 
                 self.playersList = NetworkSevice.sharedInstance.playerList
                 self.scoreTableView.reloadData()
             })
+            
+            
+            NetworkSevice.sharedInstance.getHorseRaceRunning(completionBlock: { (error, valueHorseRace) in
+                if valueHorseRace == 1 {
+                    self.horseRaceBtn.isHidden = false
+                } else {
+                    self.horseRaceBtn.isHidden = true
+                }
+            })
+            
         }
     }
     
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
@@ -75,6 +86,14 @@ extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
                                                   owner: self,
                                                   options: nil)?.first as? ScoreHeaderTableViewCell
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,7 +115,6 @@ extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
             
             
             customCell.playerNameLabel.text = playerL[indexPath.row].playerName
-            customCell.playerLifeLabel.text = "\(playerL[indexPath.row].life)"
             customCell.playerDrinksLabel.text = "\(playerL[indexPath.row].allDrink)"
             customCell.playerPositionLabel.text = "\(indexPath.row + 1)"
             return customCell

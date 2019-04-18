@@ -43,7 +43,7 @@ class SetUpGameViewController: UIViewController {
         super.viewDidAppear(animated)
         
         SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
-            print("Spotify Token: \(token)")
+            print("Spotify Token: \(token ?? "")")
             if(token != nil) {
                 GameManagement.sharedInstance.spotifyToken = token
                 
@@ -56,6 +56,17 @@ class SetUpGameViewController: UIViewController {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
 
             self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
+            if error == nil {
+                print("Lock Screen for other player")
+            } else {
+                print("Error Lock Screen for other player ")
+            }
         }
     }
     
@@ -90,9 +101,6 @@ class SetUpGameViewController: UIViewController {
                 self?.dissmissLoaderView()
             }
         }
-        //self.navigationController?.popViewController(animated: true)
-        
-        
     }
     
     func loadAllGameData(completion: (() -> Void)?) {
@@ -175,18 +183,16 @@ class SetUpGameViewController: UIViewController {
     
     func dissmissLoaderView() {
         if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: nil)
-           
-            
+            topController.dismiss(animated: true, completion: nil) 
         }
     }
     
     
     func addGame() {
-        groupGames = games.filter { $0.gameType!.rawValue == "Group Game" }
-        LineGames = games.filter { $0.gameType!.rawValue == "Line Game" }
-        personalGames = games.filter { $0.gameType!.rawValue == "Personal Game" }
-        BattleGames = games.filter { $0.gameType!.rawValue == "Battle Game"}   
+        groupGames = games.filter { $0.gameType!.rawValue == "GameType_GroupGame".localized() }
+        LineGames = games.filter { $0.gameType!.rawValue == "GameType_LineGame".localized() }
+        personalGames = games.filter { $0.gameType!.rawValue == "GameType_PersonalGame".localized() }
+        BattleGames = games.filter { $0.gameType!.rawValue == "GameType_BattleGame".localized()}
     }
     
     func removeGame(item : String) {

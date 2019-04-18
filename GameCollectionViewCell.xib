@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,8 +20,8 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-l9-PMf">
-                        <rect key="frame" x="10" y="370.5" width="287" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="5" y="373" width="297" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -42,14 +42,13 @@
             <constraints>
                 <constraint firstItem="aQ5-6X-tLe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-20" id="FCL-7f-61j"/>
                 <constraint firstAttribute="trailing" secondItem="qs1-ED-Uqd" secondAttribute="trailing" id="Hvw-km-Zze"/>
-                <constraint firstItem="7Ax-l9-PMf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="KI0-aB-Ao7"/>
-                <constraint firstItem="7Ax-l9-PMf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="M7b-aF-dq9"/>
+                <constraint firstItem="7Ax-l9-PMf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="KI0-aB-Ao7"/>
                 <constraint firstItem="qs1-ED-Uqd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NcU-8W-iC0"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="7Ax-l9-PMf" secondAttribute="bottom" constant="10" id="XKI-q6-caK"/>
                 <constraint firstItem="aQ5-6X-tLe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="kxY-D9-o4o"/>
                 <constraint firstItem="qs1-ED-Uqd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="p5o-Qt-2OO"/>
                 <constraint firstAttribute="bottom" secondItem="qs1-ED-Uqd" secondAttribute="bottom" id="svT-o0-bLa"/>
-                <constraint firstAttribute="trailing" secondItem="7Ax-l9-PMf" secondAttribute="trailing" constant="10" id="zu3-Tp-3Ic"/>
+                <constraint firstAttribute="trailing" secondItem="7Ax-l9-PMf" secondAttribute="trailing" constant="5" id="zu3-Tp-3Ic"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="307" height="298"/>
@@ -62,6 +61,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="020-affection" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="020-affection" width="256" height="256"/>
     </resources>
 </document>
