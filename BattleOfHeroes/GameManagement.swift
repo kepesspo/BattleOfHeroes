@@ -506,6 +506,9 @@ class GameManagement {
     var actuallyGameDesc = ""
     
     var gameStarted = false
+    var isSpactate = false
+    
+    var selectedSpac = 0
     
     var horseRaceBettingPlayer: [Bet] = []
     var games = [Game]()

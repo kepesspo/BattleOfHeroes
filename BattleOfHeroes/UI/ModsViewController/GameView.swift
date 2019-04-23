@@ -45,6 +45,9 @@ class GameView : UIView {
                 print("error")
             }
         }
+        
+        
+        
 
         if GameManagement.sharedInstance.drininkCounterView == true {
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
@@ -63,7 +66,7 @@ class GameView : UIView {
                 })
             }
         } else {
-             if GameManagement.sharedInstance.selectedMode == 1 {
+             if GameManagement.sharedInstance.selectedMode == 2 {
                 let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BattleResultViewController") as! BattleResultViewController
                 popOverVC.modalPresentationStyle = .overFullScreen
                 if let topController = UIApplication.topViewController() {

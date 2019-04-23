@@ -51,7 +51,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="nextButtonAction:" destination="cKZ-sD-UtL" eventType="touchUpInside" id="Wb5-jQ-EHg"/>
+                                            <action selector="gameButtonAction:" destination="cKZ-sD-UtL" eventType="touchUpInside" id="Wb5-jQ-EHg"/>
                                         </connections>
                                     </button>
                                 </subviews>

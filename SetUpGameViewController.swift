@@ -29,6 +29,7 @@ class SetUpGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addGame()
+        GameManagement.sharedInstance.isSpactate = false
         gameCollectionView.register(UINib.init(nibName: "GameCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCollectionViewCell")
         gameCollectionView.showsVerticalScrollIndicator  = false
     }

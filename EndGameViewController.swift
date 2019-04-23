@@ -48,26 +48,24 @@ class EndGameViewController: UIViewController {
         GameManagement.sharedInstance.battlePlayer = []
         GameManagement.sharedInstance.actuallyPlayedGameCounter = 0
         GameManagement.sharedInstance.gameStarted = false
+        self.dismiss(animated: false, completion: nil)
+        postNotification(name: .endGame)
         
         NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
             if error == nil {
+                
                 print("Lock Screen for other player")
             } else {
                 print("Error Lock Screen for other player ")
             }
         }
         
-        self.dismiss(animated: false, completion: nil)
-        postNotification(name: .endGame)
+        NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
+            if error == nil {
+                print("Horse race with database work")
+            } else {
+                print("error")
+            }
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

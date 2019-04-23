@@ -110,7 +110,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
                 
                 NetworkSevice.sharedInstance.checkCreateExistingRoom(gameName: roomText, competionBlock: { (error, success) in
                     if success == true {
-                        let room = Room(id: "", gameRoom: roomText, gamePassword: roomPassText)
+                        let room = Room(id: "", gameRoom: roomText, gamePassword: roomPassText, gameRun: false, randomMemberShow: false, playerNameWhoGetDrinks: "")
                         NetworkSevice.sharedInstance.addGameToDatabase(room: room) { (error) in
                             if error == nil {
                                 UserDefaults.standard.set("", forKey: UserDefaultsKeys.roomId)

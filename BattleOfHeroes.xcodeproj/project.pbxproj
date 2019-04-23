@@ -37,6 +37,7 @@
 		4D211AC9226864140065335E /* BettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211AC7226864140065335E /* BettingTableViewCell.swift */; };
 		4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D211AC8226864140065335E /* BettingTableViewCell.xib */; };
 		4D211ACC226872C00065335E /* HorseBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211ACB226872C00065335E /* HorseBet.swift */; };
+		4D211ACE226F44FC0065335E /* SpectateBonusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211ACD226F44F60065335E /* SpectateBonusViewController.swift */; };
 		4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */; };
 		4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */; };
 		4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */; };
@@ -235,6 +236,7 @@
 		4D211AC7226864140065335E /* BettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BettingTableViewCell.swift; sourceTree = "<group>"; };
 		4D211AC8226864140065335E /* BettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BettingTableViewCell.xib; sourceTree = "<group>"; };
 		4D211ACB226872C00065335E /* HorseBet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseBet.swift; sourceTree = "<group>"; };
+		4D211ACD226F44F60065335E /* SpectateBonusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectateBonusViewController.swift; sourceTree = "<group>"; };
 		4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseManagerView.xib; sourceTree = "<group>"; };
 		4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseManagerView.swift; sourceTree = "<group>"; };
 		4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverManagerView.swift; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 				4D1A1D952231627800B7626A /* NetworkViewController.swift */,
 				4D1356FD224BC83300894390 /* BattleResultViewController.swift */,
 				4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */,
+				4D211ACD226F44F60065335E /* SpectateBonusViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -1128,6 +1131,7 @@
 				4D3E49EF226082E30037D899 /* PanelMenu.swift in Sources */,
 				4DFFD5B421341C4200A4989B /* Game.swift in Sources */,
 				4D12F7BB21A6B07F004FAB50 /* GameManagementViewController.swift in Sources */,
+				4D211ACE226F44FC0065335E /* SpectateBonusViewController.swift in Sources */,
 				4DC819712120E8EE00F09922 /* RockPaperScissorsView.swift in Sources */,
 				4D1353042203015D00064E02 /* Anagramma.swift in Sources */,
 				4D1BDED521131D5500E51AA9 /* EverybodyDrinksView.swift in Sources */,

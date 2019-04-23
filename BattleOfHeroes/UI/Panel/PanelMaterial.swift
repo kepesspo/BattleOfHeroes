@@ -54,21 +54,23 @@ class PanelMaterial: UIViewController, Panelable {
     }
     
     @objc func dismissGame() {
-        if GameManagement.sharedInstance.selectedMode == 1 {
+        if GameManagement.sharedInstance.selectedMode == 0 {
+            // Simple Game
             self.dismiss(animated: true, completion: nil)
-        } else if GameManagement.sharedInstance.selectedMode == 0{
-            self.dismiss(animated: true, completion: nil)
-        } else {
+        } else if GameManagement.sharedInstance.selectedMode == 1 {
+            // Combinate Game
             self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            // Battle Game
+           self.dismiss(animated: true, completion: nil)
         }
-        
+        GameManagement.sharedInstance.selectedMode = 0
     }
     
     @objc func updateGameData() {
         playedGameCounter.text = "\(GameManagement.sharedInstance.actuallyPlayedGameCounter)"
         PlayerName.text = GameManagement.sharedInstance.actuallyPlayerName
-        typeImageView.image = GameManagement.sharedInstance.actuallyPlayedGameType
-        
+        typeImageView.image = GameManagement.sharedInstance.actuallyPlayedGameType   
     }
     
     
@@ -86,6 +88,14 @@ class PanelMaterial: UIViewController, Panelable {
     }
     
     @IBAction func skipGameAction(_ sender: Any) {
+        NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
+            if error == nil {
+                print("Horse race with database work")
+            } else {
+                print("error")
+            }
+        }
+        
         if let topController = UIApplication.topViewController() {
             if let gameView = topController.view.subviews.filter({ $0 is GameView }).last {
                 gameView.removeFromSuperview()

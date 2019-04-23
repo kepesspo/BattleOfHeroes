@@ -33,6 +33,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
         NetworkSevice.sharedInstance.getGameRunning { (error, value) in
             if value == 1 {
+                self.removeScrollViewElements()
                 self.slides = self.createSlidesForSpac()
                 self.setupSlideScrollView(slides: self.slides)
                 self.pageScrollView.delegate = self
@@ -40,7 +41,11 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
                 self.pageControl.currentPage = 0
                 self.view.bringSubviewToFront(self.pageControl)
                 self.nextButton.layer.cornerRadius = 10
+                GameManagement.sharedInstance.selectedSpac = 4
+                GameManagement.sharedInstance.isSpactate = true
+                self.triggeredGameMode()
             } else {
+                self.removeScrollViewElements()
                 self.slides = self.createSlides()
                 self.setupSlideScrollView(slides: self.slides)
                 self.pageScrollView.delegate = self
@@ -48,6 +53,9 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
                 self.pageControl.currentPage = 0
                 self.view.bringSubviewToFront(self.pageControl)
                 self.nextButton.layer.cornerRadius = 10
+                GameManagement.sharedInstance.selectedSpac = 0
+                GameManagement.sharedInstance.isSpactate = false
+                 self.triggeredGameMode()
             }
         }
     }
@@ -65,7 +73,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         slide5.actionBtn.tag = 4
         slide5.actionBtn.isHidden = false
         slide5.actionBtn.layer.cornerRadius = 10
-        slide5.actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        slide5.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
         
         return [slide5]
     }
@@ -78,7 +86,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         slide1.actionBtn.tag = 0
         slide1.actionBtn.isHidden = false
         slide1.actionBtn.layer.cornerRadius = 10
-        slide1.actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        slide1.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
         
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.gameModeTitle.text = "Összetett"
@@ -87,7 +95,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         slide2.actionBtn.tag = 1
         slide2.actionBtn.isHidden = false
         slide2.actionBtn.layer.cornerRadius = 10
-        slide2.actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        slide2.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
         
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide3.gameModeTitle.text = "Csata"
@@ -96,7 +104,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         slide3.actionBtn.tag = 2
         slide3.actionBtn.isHidden = false
         slide3.actionBtn.layer.cornerRadius = 10
-        slide3.actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        slide3.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
         
         let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide4.gameModeTitle.text = "Előző Játék"
@@ -105,7 +113,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         slide4.actionBtn.tag = 3
         slide4.actionBtn.isHidden = true
         slide4.actionBtn.layer.cornerRadius = 10
-        slide4.actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        slide4.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
         
         let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide5.gameModeTitle.text = "Spectate"
@@ -114,17 +122,16 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         slide5.actionBtn.tag = 4
         slide5.actionBtn.isHidden = false
         slide5.actionBtn.layer.cornerRadius = 10
-        slide5.actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        slide5.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
 
         return [slide1, slide2, slide3, slide4, slide5]
     }
     
-    @objc func buttonAction(sender: UIButton!) {
+    @objc func sliderButtonAction(sender: UIButton!) {
         print("Button Clicked")
         switch sender.tag {
         case 0:
             print("Egyszerű")
-//            let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
             GameManagement.sharedInstance.selectedMode = 0
             nextButton.setTitle("Mehet", for: .normal)
             titleText.text = "Egyszerű"
@@ -164,59 +171,71 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         print("Selected item \(GameManagement.sharedInstance.selectedMode)")
     }
     
-    @IBAction func nextButtonAction(_ sender: Any) {
-        // Get Player List
-        if GameManagement.sharedInstance.selectedMode == 4 {
-            print("Not run game only spac")
+    
+    func triggeredGameMode() {
+        if GameManagement.sharedInstance.selectedSpac == 4 {
+            nextButton.setTitle("Adatok Mutatása", for: .normal)
+            titleText.text = "Spactate"
+            nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+            GameManagement.sharedInstance.selectedMode = 4
         } else {
-            NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
-                if error == nil {
-                    print("Lock Screen for other player")
-                } else {
-                    print("Error Lock Screen for other player ")
-                }
-            }
+            nextButton.setTitle("Mehet", for: .normal)
+            titleText.text = "Egyszerű"
+            nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
+            GameManagement.sharedInstance.selectedMode = 0
         }
-        
-        
-        NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
-            if error != nil {
-                print("Error to get player list in Panel View")
-            } else {
-                print("Player update success in Panel View")
-                if GameManagement.sharedInstance.selectedMode == 1 {
-                    NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
-                }
-            }
-        })
-        
+    }
+    
+    @IBAction func gameButtonAction(_ sender: Any) {
         switch GameManagement.sharedInstance.selectedMode {
         case 0:
+            NetworkSevice.sharedInstance.getPlayerList { (error) in
+                if error == nil {
+                    print("No error")
+                } else {
+                    print("Error")
+                }
+            }
             GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.getGames()
-            
             showLoaderView()
             loadAllGameData { [weak self] in
                 self?.dissmissLoaderView()
             }
         case 1:
-            let battleGames = GameManagement.sharedInstance.getBattleGames()
-            GameManagement.sharedInstance.chosenGames = battleGames
-            NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
-            if NetworkSevice.sharedInstance.playerList.count < 2 {
-                let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
-                let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(okBtn)
-                present(alert, animated: true, completion: nil)
-                
-            } else {
-                showLoaderView()
-                loadAllGameData { [weak self] in
-                    self?.dissmissLoaderView()
+            NetworkSevice.sharedInstance.getPlayerList { (error) in
+                if error == nil {
+                    print("No error")
+                } else {
+                    print("Error")
                 }
             }
-        case 2:
             let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
             self.navigationController?.pushViewController(setUpVc, animated: true)
+        case 2:
+            NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+                if error != nil {
+                    print("Error to get player list in Panel View")
+                } else {
+                    print("Player update success in Panel View")
+                    if GameManagement.sharedInstance.selectedMode == 2 {
+                        let battleGames = GameManagement.sharedInstance.getBattleGames()
+                        GameManagement.sharedInstance.chosenGames = battleGames
+                        NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
+                        if NetworkSevice.sharedInstance.playerList.count < 2 {
+                            let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
+                            let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                            alert.addAction(okBtn)
+                            self.present(alert, animated: true, completion: nil)
+                            
+                        } else {
+                            self.showLoaderView()
+                            self.loadAllGameData { [weak self] in
+                                self?.dissmissLoaderView()
+                            }
+                        }
+                    }
+                }
+            })
         case 3:
             print("Prev Game")
         case 4:
@@ -226,6 +245,19 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         default:
             print("Def switch")
         }
+        
+        if GameManagement.sharedInstance.selectedMode == 4 {
+            print("No game Start")
+        } else {
+            NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
+                if error == nil {
+                    
+                    print("Lock Screen for other player")
+                } else {
+                    print("Error Lock Screen for other player ")
+                }
+            }
+        }  
     }
 
     
@@ -296,6 +328,12 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         returnedBlock(nil)
     }
     
+    func removeScrollViewElements() {
+        let subViews = self.pageScrollView.subviews
+        for subview in subViews{
+            subview.removeFromSuperview()
+        }
+    }
     
     func showLoaderView() {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoaderViewController") as! LoaderViewController

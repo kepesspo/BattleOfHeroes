@@ -13,6 +13,7 @@ import Alamofire
 
 enum MyError: Error {
     case runtimeError(String)
+    case emptyRoomIDError(String)
 }
 
 class NetworkSevice {
@@ -41,7 +42,11 @@ class NetworkSevice {
     func addGameToDatabase(room: Room, competionBlock: @escaping(_ error: Error?) -> Void) {
         let game = ["id" : room.gameRoom,
                     "gameRoom" : room.gameRoom,
-                    "gamePass" : room.gamePassword]
+                    "gamePass" : room.gamePassword,
+                    "randomMemberShow" : false,
+                    "playerNameWhoGetDrinks" : "",
+                    "HorseRace" : false,
+                    "GameRun" : false] as [String : Any]
         refGame.child(room.gameRoom).setValue(game)
         competionBlock(nil)
     }
@@ -181,9 +186,7 @@ class NetworkSevice {
                 }
         }
     }
-    
-    
-   
+
     // Get Player List
     func getPlayerList(completionBlock: @escaping(_ error : Error?) -> Void) {
         let roomId = GameManagement.sharedInstance.getRoomName()
@@ -208,6 +211,47 @@ class NetworkSevice {
         }
     }
     
+    // Player name update who get spectator drinks
+    func playerHowGetDrinksForSpectator(playerName: String, completionBlock: @escaping(_ error : Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        refGame.child(roomId).child("playerNameWhoGetDrinks").setValue(playerName)
+        completionBlock(nil)
+        
+    }
+    
+    func getPlayerHowGetDrinksForSpectator(completionBlock: @escaping(_ error : Error?,_ playerName: String) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        var playerName: String = ""
+        refGame.child(roomId).observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                playerName = snapshot.childSnapshot(forPath: "playerNameWhoGetDrinks").value as! String
+                completionBlock(nil,playerName)
+            }
+        }
+    }
+    
+    
+    
+    // Update Who Get Sepectator Drinks
+    func getPlayerHowGetDrinks(completionBlock: @escaping(_ error : Error?,_ playerIsShow: Int) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        var playerIsShow: Int = 0
+        refGame.child(roomId).observe(DataEventType.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                playerIsShow = snapshot.childSnapshot(forPath: "randomMemberShow").value as! Int
+                completionBlock(nil,playerIsShow)
+            }
+        }
+    }
+    
+    func playerHowGetDrinks(isShow: Bool, completionBlock: @escaping(_ error : Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        refGame.child(roomId).child("randomMemberShow").setValue(isShow)
+        completionBlock(nil)
+        
+    }
+    
+    // Horse Race Show when spectate is on
     func getHorseRaceRunning(completionBlock: @escaping(_ error : Error?,_ horseRaceData: Int) -> Void) {
         let roomId = GameManagement.sharedInstance.getRoomName()
         var horseRaceData: Int = 0
@@ -227,10 +271,17 @@ class NetworkSevice {
     }
     
     
+    // Game is running
     func gameRunning(isRun:Bool, completionBlock: @escaping(_ error : Error?) -> Void) {
         let roomId = GameManagement.sharedInstance.getRoomName()
-        refGame.child(roomId).child("GameRun").setValue(isRun)
-        completionBlock(nil)
+        if roomId == "" {
+            print("No room id to use")
+            completionBlock(MyError.emptyRoomIDError("No room id to use error"))
+        } else {
+            refGame.child(roomId).child("GameRun").setValue(isRun)
+            completionBlock(nil)
+        }
+        
         
     }
     

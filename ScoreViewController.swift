@@ -14,6 +14,7 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var BackButton: UIButton!
     @IBOutlet weak var horseRaceBtn: UIButton!
+    @IBOutlet weak var addDrinksBtn: UIButton!
     
     var playersList = NetworkSevice.sharedInstance.playerList
     var timer : Timer?
@@ -29,6 +30,7 @@ class ScoreViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(reloadScoreTableView), userInfo: nil, repeats: true)
         
         horseRaceBtn.isHidden = true
+        addDrinksBtn.isHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -49,6 +51,12 @@ class ScoreViewController: UIViewController {
         self.present(raceBet, animated: true, completion: nil)
     }
     
+    @IBAction func addDrinksAction(_ sender: Any) {
+        let spectateBonus = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SpectateBonusViewController") as! SpectateBonusViewController
+        spectateBonus.modalPresentationStyle = .overFullScreen
+        self.present(spectateBonus, animated: true, completion: nil)
+    }
+    
     @objc func reloadScoreTableView() {
         DispatchQueue.main.async {
             NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
@@ -65,6 +73,14 @@ class ScoreViewController: UIViewController {
                     self.horseRaceBtn.isHidden = false
                 } else {
                     self.horseRaceBtn.isHidden = true
+                }
+            })
+            
+            NetworkSevice.sharedInstance.getPlayerHowGetDrinks(completionBlock: { (error, valuePlayerShow) in
+                if valuePlayerShow == 1 {
+                    self.addDrinksBtn.isHidden = false
+                } else {
+                    self.addDrinksBtn.isHidden = true
                 }
             })
             

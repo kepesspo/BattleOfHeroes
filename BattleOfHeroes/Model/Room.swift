@@ -13,11 +13,17 @@ struct Room {
     var id = ""
     var gameRoom = ""
     var gamePassword = ""
+    var gameRun = false
+    var randomMemberShow = false
+    var playerNameWhoGetDrinks = ""
     
     
-    init(id : String, gameRoom: String, gamePassword: String) {
+    init(id: String, gameRoom: String, gamePassword: String, gameRun: Bool, randomMemberShow: Bool, playerNameWhoGetDrinks: String) {
         self.id = id
         self.gameRoom = gameRoom
         self.gamePassword = gamePassword
+        self.gameRun = gameRun
+        self.randomMemberShow = randomMemberShow
+        self.playerNameWhoGetDrinks = playerNameWhoGetDrinks
     }
 }

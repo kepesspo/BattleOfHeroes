@@ -14,15 +14,18 @@
     var gameCounter : Int = 0
     var previousRandomIndex = 100
     var groupDrinkTimer : Timer?
+    var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
     var chosenGames : [Game] = [Game]()
+    var timer : Timer?
+    
     lazy var panelManager = Panels(target: self)
     @IBOutlet weak var levelImageView: UIImageView!
     @IBOutlet weak var letPlayText: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        GameManagement.sharedInstance.isSpactate = false
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
         var panelConfiguration = PanelConfiguration(size: .custom(300))
         panelConfiguration.animateEntry = true
@@ -38,9 +41,12 @@
         
         GameManagement.sharedInstance.setCopyCardsList()
         chosenGames = GameManagement.sharedInstance.chosenGames
-
+        
+        showPlayerWhoDrinks()
         showGroupDrinkView()
         showRandomPictogram()
+        
+        timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(showSpectatorBonus), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,15 +67,67 @@
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        getPlyarerWhoGetDrinks?.invalidate()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @objc func showSpectatorBonus() {
+        NetworkSevice.sharedInstance.getPlayerHowGetDrinksForSpectator { (error, playerName) in
+            if error == nil && playerName != "" {
+                let spectatorBonusAlert = UIAlertController(title: "Drink", message: "\(playerName) 1 pia +", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Drinks", style: .default, handler: { _ in
+                    NetworkSevice.sharedInstance.playerHowGetDrinksForSpectator(playerName: "", completionBlock: { (error) in
+                        if error == nil {
+                            print("update spectator bonus name to empty")
+                        } else {
+                            print("error to update spectator bonus name to empty")
+                        }
+                    })
+                })
+                spectatorBonusAlert.addAction(okAction)
+                self.present(spectatorBonusAlert, animated: true, completion: nil)
+            } else {
+                print("No spectator bonus player name")
+            }
+        }
+        
+    }
 
     @objc func startGameAction() {
         letPlayText.isHidden = true
         showView()
+        
+       
+    }
+    
+    func showPlayerWhoDrinks() {
+        NetworkSevice.sharedInstance.playerHowGetDrinks(isShow: false) { (error) in
+            if error == nil {
+                self.getPlyarerWhoGetDrinks = Timer.scheduledTimer(withTimeInterval: TimeInterval(10), repeats: false, block: { _ in
+                    NetworkSevice.sharedInstance.playerHowGetDrinks(isShow: true, completionBlock: { (error) in
+                        if error == nil {
+                            print("Mark")
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                self.showPlayerWhoDrinks()
+                            }
+                        } else {
+                            print("Error to show Mark")
+                        }
+                        
+                    })
+                })
+                print("Add triggerd player how get drinks")
+            } else {
+                print("error")
+            }
+        }
     }
     
     //Extra Game

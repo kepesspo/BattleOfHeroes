@@ -78,11 +78,24 @@ import SpotifyLogin
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
-            if error == nil {
-                print("Lock Screen for other player")
+        NetworkSevice.sharedInstance.getGameRunning { (error, run) in
+            if run == 1 && GameManagement.sharedInstance.isSpactate {
+                print("No Delete is Run")
             } else {
-                print("Error Lock Screen for other player ")
+                NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
+                    if error == nil {
+                        print("Lock Screen for other player")
+                    } else {
+                        print("Error Lock Screen for other player ")
+                    }
+                }
+                NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
+                    if error == nil {
+                        print("Horse race with database work")
+                    } else {
+                        print("error")
+                    }
+                }
             }
         }
     }
