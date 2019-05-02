@@ -24,6 +24,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
         super.viewDidLoad()
         setUpView()
         offlineSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        offlineSwitch.isEnabled = false
         offlineSwitch.layer.borderColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
         // Do any additional setup after loading the view.
     }

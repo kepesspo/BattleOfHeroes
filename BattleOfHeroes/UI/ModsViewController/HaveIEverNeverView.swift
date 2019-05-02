@@ -13,15 +13,12 @@ class HaveIEverNeverView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var haveIEverNeverLabel: UILabel!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
     
     var trueOrFalseText : String?
     var gameTimer: Timer?
     var seconds = 6
     var haveIEverNeverList = NetworkSevice.sharedInstance.haveIEverNever
+    let playersList = NetworkSevice.sharedInstance.playerList
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,20 +38,19 @@ class HaveIEverNeverView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
     }
     
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
     
     func updateUI() {
         let randomIndex = Int(arc4random_uniform(UInt32(haveIEverNeverList.count)))
         haveIEverNeverLabel.text = haveIEverNeverList[randomIndex].question
-        playerLabel.text = ""
-        playerType.text = "Group"
-        gameInfoContainerView.layer.cornerRadius = 10
+        
+        let randomIndexForPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndexForPlayer].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
+        
     }
 }

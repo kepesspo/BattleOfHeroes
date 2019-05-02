@@ -12,13 +12,9 @@ import UIKit
 class CoinFlipView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var flipButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var personLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var back: UIImageView!
     var front: UIImageView!
@@ -44,20 +40,17 @@ class CoinFlipView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Battle"
-        personLabel.text = playersList.randomElement()?.playerName
-        textLabel.text = "Hivj ki valakit és válasszatok: Fej vagy irás"
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea")
+        postNotification(name: .updateGameData)
+        
+        textLabel.text = "Hivj ki valakit és válasszatok: fej vagy írás közűl"
         front = UIImageView(image: UIImage(named: "001-coin-1"))
         back = UIImageView(image: UIImage(named: "002-coin"))
         back.frame = containerView.bounds

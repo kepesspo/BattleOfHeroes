@@ -14,10 +14,7 @@ class WhoAmIView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var howAmIImageView: UIImageView!
     @IBOutlet weak var answerBtn: UIButton!
-    @IBOutlet weak var howAmILabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var occurationLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
     
     var famousPersonList = NetworkSevice.sharedInstance.famousPerson
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -41,8 +38,6 @@ class WhoAmIView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.howAmIImageView.layer.cornerRadius = 10
-        self.howAmIImageView.clipsToBounds = true
         updateUI()
         
     }
@@ -55,17 +50,12 @@ class WhoAmIView: GameView {
         postNotification(name: .updateGameData)
         
         nameLabel.isHidden = true
-        occurationLabel.isHidden = true
-        ageLabel.isHidden = true
-        howAmILabel.text = "Ki vagyok én?"
         
         let randomIndexForFamPerson = Int(arc4random_uniform(UInt32(famousPersonList.count)))
         
         let personOccupation = famousPersonList[randomIndexForFamPerson].occupation
         if GameManagement.sharedInstance.allowedPersonOccupation.contains(personOccupation) {
             nameLabel.text = famousPersonList[randomIndexForFamPerson].name
-            occurationLabel.text = famousPersonList[randomIndexForFamPerson].occupation
-            ageLabel.text = famousPersonList[randomIndexForFamPerson].age
             let imageUrl = NSURL(string: famousPersonList[randomIndexForFamPerson].image)
             downloadImage(from: imageUrl! as URL)
         } else {
@@ -97,8 +87,6 @@ class WhoAmIView: GameView {
         self.tap.isEnabled = true
         answerBtn.isHidden = true
         nameLabel.isHidden = false
-        occurationLabel.isHidden = false
-        ageLabel.isHidden = false
         
     }
 }

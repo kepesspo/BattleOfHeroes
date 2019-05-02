@@ -12,7 +12,6 @@ import UIKit
 class ShiptripView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var event1: UIButton!
     @IBOutlet weak var event2: UIButton!
     @IBOutlet weak var event3: UIButton!
@@ -30,11 +29,10 @@ class ShiptripView: GameView {
     @IBOutlet weak var event3View: UIView!
     @IBOutlet weak var event4View: UIView!
     @IBOutlet weak var event5View: UIView!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
     @IBOutlet weak var plusDrinkLabel: UILabel!
     
     @IBOutlet weak var captainLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     var evenetTap: UITapGestureRecognizer!
@@ -69,22 +67,8 @@ class ShiptripView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        firstCheck()
-        updateLevelCounterUI()
-        
     }
     
-    @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.gameCounter
-    }
-    
-    func firstCheck() {
-        event1View.backgroundColor = event1Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
-        event2View.backgroundColor = event2Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
-        event3View.backgroundColor = event3Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
-        event4View.backgroundColor = event4Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
-        event5View.backgroundColor = event5Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
-    }
     
     func setCaptains() {
         if playersList.count <= 2 {
@@ -112,14 +96,18 @@ class ShiptripView: GameView {
     }
     
     func updateUI() {
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
+        
         setCaptains()
         let arr = captains.map { (player) -> String in
             return String(player)
             }.joined(separator: ", ")
         
         captainLabel.text = "A Tisztek: \(arr)"
-        playerLabel.text = playersList.randomElement()?.playerName
-        playerType.text = "Group"
         for _ in 1...(playersList.count * 2) {
             if let element = events.randomElement() {
                 allEvent += 1
@@ -149,6 +137,7 @@ class ShiptripView: GameView {
     func checkEndGame() {
         if allEvent == 0 {
             self.tap.isEnabled = true
+            stackView.isUserInteractionEnabled = false
         } else {
             print("Mehet tovább")
         }
@@ -158,7 +147,6 @@ class ShiptripView: GameView {
     @IBAction func event1Action(_ sender: Any) {
         allEvent = event1Count != 0 ? allEvent - 1 : allEvent
         event1Count = event1Count != 0 ? event1Count - 1 : event1Count
-        event1View.backgroundColor = event1Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
         event1Value.text = "\(event1Count)"
         plusDrinkLabel.text = ""
         checkEndGame()
@@ -167,7 +155,6 @@ class ShiptripView: GameView {
     @IBAction func event2Action(_ sender: Any) {
         allEvent = event2Count != 0 ? allEvent - 1 : allEvent
         event2Count = event2Count != 0 ? event2Count - 1 : event2Count
-        event2View.backgroundColor = event2Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
         event2Value.text = "\(event2Count)"
         plusDrinkLabel.text = ""
         checkEndGame()
@@ -176,7 +163,6 @@ class ShiptripView: GameView {
     @IBAction func event3Action(_ sender: Any) {
         allEvent = event3Count != 0 ? allEvent - 1 : allEvent
         event3Count = event3Count != 0 ? event3Count - 1 : event3Count
-        event3View.backgroundColor = event3Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
         event3Value.text = "\(event3Count)"
         plusDrinkLabel.text = ""
         checkEndGame()
@@ -184,7 +170,6 @@ class ShiptripView: GameView {
     @IBAction func event4Action(_ sender: Any) {
         allEvent = event4Count != 0 ? allEvent - 1 : allEvent
         event4Count = event4Count != 0 ? event4Count - 1 : event4Count
-        event4View.backgroundColor = event4Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
         event4Value.text = "\(event4Count)"
         plusDrinkLabel.text = "+ egy pia : \(playersList.randomElement()!.playerName)"
         checkEndGame()
@@ -193,7 +178,6 @@ class ShiptripView: GameView {
     @IBAction func event5Action(_ sender: Any) {
         allEvent = event5Count != 0 ? allEvent - 1 : allEvent
         event5Count = event5Count != 0 ? event5Count - 1 : event5Count
-        event5View.backgroundColor = event5Count != 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) :  #colorLiteral(red: 0.9070000052, green: 0.1640000045, blue: 0, alpha: 0.6000000238)
         event5Value.text = "\(event5Count)"
         plusDrinkLabel.text = ""
         checkEndGame()

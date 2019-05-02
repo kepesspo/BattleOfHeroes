@@ -38,6 +38,9 @@
 		4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D211AC8226864140065335E /* BettingTableViewCell.xib */; };
 		4D211ACC226872C00065335E /* HorseBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211ACB226872C00065335E /* HorseBet.swift */; };
 		4D211ACE226F44FC0065335E /* SpectateBonusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211ACD226F44F60065335E /* SpectateBonusViewController.swift */; };
+		4D211AD02271C7C90065335E /* SpectatePenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211ACF2271C7C80065335E /* SpectatePenaltyViewController.swift */; };
+		4D211AD22271ECA00065335E /* 4031-voice-recognition.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D211AD12271EC9E0065335E /* 4031-voice-recognition.json */; };
+		4D211AD4227305690065335E /* MusicRecognizerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D211AD3227305690065335E /* MusicRecognizerHelper.swift */; };
 		4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */; };
 		4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */; };
 		4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */; };
@@ -237,6 +240,9 @@
 		4D211AC8226864140065335E /* BettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BettingTableViewCell.xib; sourceTree = "<group>"; };
 		4D211ACB226872C00065335E /* HorseBet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseBet.swift; sourceTree = "<group>"; };
 		4D211ACD226F44F60065335E /* SpectateBonusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectateBonusViewController.swift; sourceTree = "<group>"; };
+		4D211ACF2271C7C80065335E /* SpectatePenaltyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectatePenaltyViewController.swift; sourceTree = "<group>"; };
+		4D211AD12271EC9E0065335E /* 4031-voice-recognition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4031-voice-recognition.json"; sourceTree = "<group>"; };
+		4D211AD3227305690065335E /* MusicRecognizerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecognizerHelper.swift; sourceTree = "<group>"; };
 		4D22939021E8C62A0025C5A7 /* TrueOrFalseManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseManagerView.xib; sourceTree = "<group>"; };
 		4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseManagerView.swift; sourceTree = "<group>"; };
 		4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverManagerView.swift; sourceTree = "<group>"; };
@@ -473,6 +479,7 @@
 				4DC819722120E90400F09922 /* RockPaperScissorsView.xib */,
 				4DC819682120D46700F09922 /* MusicRecognizerView.swift */,
 				4DC8196A2120D50800F09922 /* MusicRecognizerView.xib */,
+				4D211AD3227305690065335E /* MusicRecognizerHelper.swift */,
 				4DC8196C2120E60500F09922 /* SwitchHandView.swift */,
 				4DC8196E2120E63200F09922 /* SwitchHandView.xib */,
 				4DC819742121099200F09922 /* FingerItView.swift */,
@@ -535,6 +542,7 @@
 		4DA36ADE21A421DE00B757BE /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				4D211AD12271EC9E0065335E /* 4031-voice-recognition.json */,
 				4D1A1D972231646C00B7626A /* 4386-connection-error.json */,
 				4DA283F7219B179000F6D377 /* sound_visualizer.json */,
 				4DA36ADF21A421FE00B757BE /* favourite_app_icon.json */,
@@ -605,6 +613,7 @@
 				4D1356FD224BC83300894390 /* BattleResultViewController.swift */,
 				4D211AC5226774B40065335E /* HorseRaceBetViewController.swift */,
 				4D211ACD226F44F60065335E /* SpectateBonusViewController.swift */,
+				4D211ACF2271C7C80065335E /* SpectatePenaltyViewController.swift */,
 			);
 			name = ViewController;
 			path = ../..;
@@ -887,6 +896,7 @@
 				4DA2840E219B1FD100F6D377 /* rihanna_work.mp3 in Resources */,
 				4DA2840F219B1FD100F6D377 /* Clean_Bandit_Solo_Demi_Lovato.mp3 in Resources */,
 				4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */,
+				4D211AD22271ECA00065335E /* 4031-voice-recognition.json in Resources */,
 				4D135704224CD62400894390 /* animation-loading.json in Resources */,
 				4DA36ADD21A41D9100B757BE /* RussianRouletteView.xib in Resources */,
 				4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */,
@@ -1060,6 +1070,7 @@
 				4DA36ADB21A41D6600B757BE /* RussianRouletteView.swift in Sources */,
 				4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */,
 				4D8DFB9F21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift in Sources */,
+				4D211AD02271C7C90065335E /* SpectatePenaltyViewController.swift in Sources */,
 				4DE11B2121F0DA52005A092E /* AnagramView.swift in Sources */,
 				4D77E70821F0E28E00B27E56 /* TheBottleView.swift in Sources */,
 				4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */,
@@ -1090,6 +1101,7 @@
 				4D3466652188661F00D379A9 /* BonusPlayerTableViewCell.swift in Sources */,
 				4D56D4D921513B23004A591A /* WhoAmIView.swift in Sources */,
 				4DA36B2821A6A54C00B757BE /* Song.swift in Sources */,
+				4D211AD4227305690065335E /* MusicRecognizerHelper.swift in Sources */,
 				4D1BDEDD21133AF100E51AA9 /* CarnivalWheelSlice.swift in Sources */,
 				4D5EB879210B41C50043A7F9 /* TrueOrFalseView.swift in Sources */,
 				4D9B7BC72111EE50000439AB /* CategoriesView.swift in Sources */,

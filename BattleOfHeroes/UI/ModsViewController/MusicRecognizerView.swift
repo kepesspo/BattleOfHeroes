@@ -28,15 +28,11 @@ class MusicRecognizerView: GameView {
     
     
     var audioPlayer: AVAudioPlayer = AVAudioPlayer()
-    var animationView = LOTAnimationView(name: "sound_visualizer")
+    var animationView = LOTAnimationView(name: "4031-voice-recognition")
     var songList = NetworkSevice.sharedInstance.musicRecognizer
     var gameTimer: Timer!
     var playedMusic: Int = 1
-    var songObject : Song?
     var playerList = NetworkSevice.sharedInstance.playerList
-    var tokenForSpotify : HTTPHeaders = HTTPHeaders()
-    var searchURL : String = ""
-    typealias JSONStandard = [String : AnyObject]
 
     
     override init(frame: CGRect) {
@@ -52,7 +48,7 @@ class MusicRecognizerView: GameView {
     
     func commonInit() {
         Bundle.main.loadNibNamed("MusicRecognizerView", owner: self, options: nil)
-        subscribeForNotification(name: .spotiTokenUpdate, selector: #selector(responseForGameVC), object: nil)
+        //subscribeForNotification(name: .spotiTokenUpdate, selector: #selector(responseForGameVC), object: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -65,7 +61,6 @@ class MusicRecognizerView: GameView {
         self.tap.isEnabled = false
         
         updateUI()
-        print("headers:\(tokenForSpotify)")
     }
     
     func updateUI() {
@@ -77,147 +72,35 @@ class MusicRecognizerView: GameView {
         postNotification(name: .updateGameData)
     }
     
-    func startCallMusic(completionBlock: @escaping(_ error : Error?) -> Void) {
-        if GameManagement.sharedInstance.spotifyToken == nil {
-            updateSpotifyToken()
-        } else {
-            let header = addSpotifyToken()
-            let randomIndex = Int(arc4random_uniform(UInt32(songList.count)))
-            if let year = Int(songList[randomIndex].releaseDate.prefix(4)) {
-                print(year)
-                if GameManagement.sharedInstance.allowedYears.contains(year) {
-                    searchURL = "https://api.spotify.com/v1/tracks/\(songList[randomIndex].id)"
-                    print(searchURL)
-                    completionBlock(nil)
-                }
-                else {
-                    startCallMusic { (error) in
-                        if error == nil {
-                            print("Error")
-                        }
-                    }
-                }
-            }
-        }
-        
-    }
-    
-    func updateSpotifyToken() {
-        if let topController = UIApplication.topViewController() {
-            SpotifyLoginPresenter.login(from: topController , scopes:
-                [.streaming,
-                 .userReadTop,
-                 .playlistReadPrivate,
-                 .userLibraryRead])
-        }
-    }
-    
-    @objc func responseForGameVC() {
-        self.startCallMusic { (error) in
+    func startToPlayMusic() {
+        MusicRecognizerHelper.helper.startCallMusic { (error, song) in
             if error == nil {
-                print("Error")
+                print("Song Parse Success")
+                self.playSoundAnimation()
+                self.songLabel.text = song?.name
+                self.artistLabel.text = song?.artist
+                let mainImageURL =  URL(string: song?.mainImage ?? "")
+                let mainImageData = NSData(contentsOf: mainImageURL!)
+                let mainImage = UIImage(data: mainImageData! as Data)
+                self.coverImageView.image = mainImage
+                
+                if let prevUrl = song?.previewURL {
+                    let url = URL(string: prevUrl)
+                    self.downloadFileFromURL(url: url!)
+                }
+            } else {
+                print("Song Parse Denied")
+                self.startToPlayMusic()
             }
         }
-    }
-    
-    func addSpotifyToken() -> HTTPHeaders {
-        if let token = GameManagement.sharedInstance.spotifyToken {
-            let headers: HTTPHeaders = [
-                "Authorization" : "Bearer \(token)"]
-            self.tokenForSpotify = headers
-            return headers
-        }
-        return HTTPHeaders()
     }
 
-    
-    func callAlamo(url : String, header : HTTPHeaders, completionBlock: @escaping(_ error : Error?) -> Void) {
-        NetworkSevice.sharedInstance.getSongJson(url: url, headers: header) { (error, response) in
-            if error != nil {
-                print("header file error")
-            } else {
-                self.parseData(JSONData: response as! Data, completionBlock: { (error) in
-                    if error == nil {
-                        completionBlock(nil)
-                    }
-                })
-                
-            }
-        }
-    }
-    
-    func parseData(JSONData : Data, completionBlock: @escaping(_ error : Error?) -> Void) {
-        var image: String?
-        do {
-            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
-            if let songPreviewUrl = readableJSON["preview_url"] ,
-                let songName = readableJSON["name"] {
-                
-                guard let url = songPreviewUrl as? String else {
-                    self.startCallMusic { (error) in
-                        if error == nil {
-                            print("success get another song")
-                        }
-                    }
-                    return
-                }
-                let song = songName as! String
-                
-                if let album = readableJSON["album"] as? JSONStandard {
-                    if let images = album["images"] as? [JSONStandard] {
-                        let imageData = images[0]
-                        let imageString = imageData["url"] as! String
-                        image = imageString
-                    }
-                }
-                
-                if let artistGroup = readableJSON["artists"] as? [JSONStandard] {
-                    if let artists = artistGroup[0] as? JSONStandard {
-                        let artist = artists["name"] as! String
-                        songObject = Song(mainImage: image ?? "", name: song, previewURL: url, artist: artist)
-                        completionBlock(nil)
-                    }
-                }
-            }
-        }
-        catch {
-            print(error)
-        }
-        
-        
-    }
-    
     @IBAction func playSound(_ sender: Any) {
-        startCallMusic { (error) in
-            if error == nil {
-                self.callAlamo(url: self.searchURL, header: self.tokenForSpotify,completionBlock: { (error) in
-                    if error == nil {
-                        self.playSoundAnimation()
-                        self.songLabel.text = self.songObject?.name ?? "Nincs song name"
-                        self.artistLabel.text = self.songObject?.artist ?? "Nincs artist"
-                        let mainImageURL =  URL(string: self.songObject?.mainImage ?? "")
-                        let mainImageData = NSData(contentsOf: mainImageURL!)
-                        let mainImage = UIImage(data: mainImageData! as Data)
-                        self.coverImageView.image = mainImage
-                        
-                        if let prevUrl = self.songObject?.previewURL {
-                            let url = URL(string: prevUrl)
-                            self.downloadFileFromURL(url: url!)
-                        }
-                    } else {
-                        print("error call Alamo")
-                    }
-                })
-                
-            } else {
-                print("Error playSound")
-            }
-        }
-        
+       startToPlayMusic()
     }
     
     func downloadFileFromURL(url: URL) {
-        self.playButton.isHidden = true
+        playButton.isHidden = true
         var downloadTask = URLSessionDownloadTask()
         downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: {
             customURL, response, error in
@@ -249,7 +132,7 @@ class MusicRecognizerView: GameView {
     
     func playSoundAnimation() {
         soundAnimationView.isHidden = false
-        animationView.frame = CGRect(x: (soundAnimationView.frame.width / 2) - 65, y: 0, width: 130, height: 100)
+        animationView.frame = CGRect(x: (soundAnimationView.frame.width / 2) - 100, y: 0, width: 200, height: 100)
         animationView.loopAnimation = true
         self.soundAnimationView.addSubview(animationView)
         animationView.play()

@@ -13,8 +13,6 @@ class HorseRaceView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var moveButton: UIButton!
-    @IBOutlet weak var horseColorImageView: UIImageView!
-    
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
@@ -84,25 +82,21 @@ class HorseRaceView: GameView {
             redCounter += 1
             redLabel.text = "R: \(redCounter)"
             changeHorsePosition(horse: redHorse)
-            horseColorImageView.image = #imageLiteral(resourceName: "002-knight-1.png")
             print("Red horse move")
         case "Yellow":
             yellowCounter += 1
             yellowLabel.text = "Y: \(yellowCounter)"
             changeHorsePosition(horse: yellowHorse)
-            horseColorImageView.image = #imageLiteral(resourceName: "001-knight.png")
             print("Yellow horse move")
         case "Green":
             greenCounter += 1
             greenLabel.text = "G: \(greenCounter)"
             changeHorsePosition(horse: greenHorse)
-            horseColorImageView.image = #imageLiteral(resourceName: "knight.png")
             print("Green horse move")
         case "Blue":
             blueCounter += 1
             blueLabel.text = "B: \(blueCounter)"
             changeHorsePosition(horse: blueHorse)
-            horseColorImageView.image = #imageLiteral(resourceName: "004-knight-2.png")
             print("Blue horse move")
         default:
             print("No horse move")

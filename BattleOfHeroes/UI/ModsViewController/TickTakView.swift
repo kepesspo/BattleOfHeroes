@@ -13,10 +13,6 @@ import AVFoundation
 class TickTakView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     @IBOutlet weak var timerBtn: UIButton!
     @IBOutlet weak var loadView: LottieView!
     
@@ -44,19 +40,15 @@ class TickTakView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Group"
-        playerName.text = playersList.randomElement()?.playerName
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea")
+        postNotification(name: .updateGameData)
     }
     
     @IBAction func timerAction(_ sender: Any) {

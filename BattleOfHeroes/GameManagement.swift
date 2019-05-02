@@ -509,6 +509,7 @@ class GameManagement {
     var isSpactate = false
     
     var selectedSpac = 0
+    var battleGameRun = false
     
     var horseRaceBettingPlayer: [Bet] = []
     var games = [Game]()

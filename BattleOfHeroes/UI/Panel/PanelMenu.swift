@@ -67,8 +67,8 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     
     @objc func createSlidesForSpac() -> [Slide] {
         let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide5.gameModeTitle.text = "Spectate"
-        slide5.gameModeDescription.text = "Az Sepctate jaták mod arra való hogy nyomon tudjátok követni a játék állását igy megkönnyitve a játékot."
+        slide5.gameModeTitle.text = "Megfigyelő"
+        slide5.gameModeDescription.text = "Az megfigyelő jaták mod arra való hogy nyomon tudjátok követni a játék állását igy megkönnyitve a játékot."
         slide5.actionBtn.setTitle("Kiválaszt", for: .normal)
         slide5.actionBtn.tag = 4
         slide5.actionBtn.isHidden = false
@@ -81,7 +81,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     @objc func createSlides() -> [Slide] {
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide1.gameModeTitle.text = "Egyszerű"
-        slide1.gameModeDescription.text = "Az egyszerű játéknál Nem tudsz válogatni a játékok közül hanem minden játék fog szerepelni. Illetve az egyéb beállitási lehetőségeket sem fogod tudni alkalmazni."
+        slide1.gameModeDescription.text = "Az egyszerű játéknál Nem tudsz válogatni a játékok közül hanem minden játék fog szerepelni. Illetve az egyéb beállítási lehetőségeket sem fogod tudni alkalmazni."
         slide1.actionBtn.setTitle("Kiválaszt", for: .normal)
         slide1.actionBtn.tag = 0
         slide1.actionBtn.isHidden = false
@@ -90,7 +90,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.gameModeTitle.text = "Összetett"
-        slide2.gameModeDescription.text = "Az összetett játéknál  ki tudod válogatni a játékok közül a neked megfelelőt és azokat Customizálni. Illetve az egyéb beállitásokban van lehetőséged plus funkciók bekapcsolására."
+        slide2.gameModeDescription.text = "Az összetett játéknál ki tudod válogatni a játékok közül a neked megfelelőt és azokat személyre tudod szabni. Illetve az egyéb beállításokban van lehetőséged plusz funkciók bekapcsolására."
         slide2.actionBtn.setTitle("Kiválaszt", for: .normal)
         slide2.actionBtn.tag = 1
         slide2.actionBtn.isHidden = false
@@ -99,7 +99,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide3.gameModeTitle.text = "Csata"
-        slide3.gameModeDescription.text = "A csata játékban 2 játékos vehet részt és előre megadott játéokakkal tudnak játszani. Aki elősszőr eléri a 10 pontot az fog gyözni."
+        slide3.gameModeDescription.text = "A csata játékban 2 játékos vehet részt és előre megadott játékosokkal tudnak játszani. Aki elősszőr eléri a 10 pontot az fog győzni."
         slide3.actionBtn.setTitle("Kiválaszt", for: .normal)
         slide3.actionBtn.tag = 2
         slide3.actionBtn.isHidden = false
@@ -108,7 +108,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
         let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide4.gameModeTitle.text = "Előző Játék"
-        slide4.gameModeDescription.text = "Az Előző játék opcióval a már elkezdett játékott tudjátok folytatni."
+        slide4.gameModeDescription.text = "Az előző játék opcióval a már elkezdett játékot tudjátok folytatni."
         slide4.actionBtn.setTitle("Kiválaszt", for: .normal)
         slide4.actionBtn.tag = 3
         slide4.actionBtn.isHidden = true
@@ -116,8 +116,8 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         slide4.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
         
         let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide5.gameModeTitle.text = "Spectate"
-        slide5.gameModeDescription.text = "Az Sepctate jaták mod arra való hogy nyomon tudjátok követni a játék állását igy megkönnyitve a játékot."
+        slide5.gameModeTitle.text = "Megfigyelő"
+        slide5.gameModeDescription.text = "Az megfigyelő játék mód arra való hogy nyomon tudjátok követni a játék állását így megkönnyítve a játékot."
         slide5.actionBtn.setTitle("Kiválaszt", for: .normal)
         slide5.actionBtn.tag = 4
         slide5.actionBtn.isHidden = false
@@ -162,7 +162,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
             print("Spactate")
             GameManagement.sharedInstance.selectedMode = 4
             nextButton.setTitle("Adatok Mutatása", for: .normal)
-            titleText.text = "Spactate"
+            titleText.text = "Megfigyelő"
             nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
             postNotification(name: .gameModeChanged)
         default:
@@ -175,14 +175,14 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     func triggeredGameMode() {
         if GameManagement.sharedInstance.selectedSpac == 4 {
             nextButton.setTitle("Adatok Mutatása", for: .normal)
-            titleText.text = "Spactate"
+            titleText.text = "Megfigyelő"
             nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
             GameManagement.sharedInstance.selectedMode = 4
         } else {
             nextButton.setTitle("Mehet", for: .normal)
             titleText.text = "Egyszerű"
             nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            GameManagement.sharedInstance.selectedMode = 0
+//            GameManagement.sharedInstance.selectedMode = 0
         }
     }
     
@@ -212,30 +212,23 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
             let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
             self.navigationController?.pushViewController(setUpVc, animated: true)
         case 2:
-            NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
-                if error != nil {
-                    print("Error to get player list in Panel View")
-                } else {
-                    print("Player update success in Panel View")
-                    if GameManagement.sharedInstance.selectedMode == 2 {
-                        let battleGames = GameManagement.sharedInstance.getBattleGames()
-                        GameManagement.sharedInstance.chosenGames = battleGames
-                        NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
-                        if NetworkSevice.sharedInstance.playerList.count < 2 {
-                            let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
-                            let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                            alert.addAction(okBtn)
-                            self.present(alert, animated: true, completion: nil)
-                            
-                        } else {
-                            self.showLoaderView()
-                            self.loadAllGameData { [weak self] in
-                                self?.dissmissLoaderView()
-                            }
-                        }
-                    }
+            if GameManagement.sharedInstance.battlePlayer.count < 2 {
+                let alert = UIAlertController(title: "Hiba", message: "Válasz ki két játékost aki csatázik egymással", preferredStyle: .alert)
+                let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(okBtn)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                GameManagement.sharedInstance.battleGameRun = true
+                let battleGames = GameManagement.sharedInstance.getBattleGames()
+                GameManagement.sharedInstance.chosenGames = battleGames
+                NetworkSevice.sharedInstance.playerList = GameManagement.sharedInstance.battlePlayer
+                
+                self.showLoaderView()
+                self.loadAllGameData { [weak self] in
+                    self?.dissmissLoaderView()
                 }
-            })
+                
+            }
         case 3:
             print("Prev Game")
         case 4:
@@ -249,15 +242,29 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         if GameManagement.sharedInstance.selectedMode == 4 {
             print("No game Start")
         } else {
-            NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
-                if error == nil {
-                    
-                    print("Lock Screen for other player")
-                } else {
-                    print("Error Lock Screen for other player ")
+            if GameManagement.sharedInstance.selectedMode == 2 && GameManagement.sharedInstance.battlePlayer.count > 2  {
+                NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
+                    if error == nil {
+                        print("Lock Screen for other player")
+                    } else {
+                        print("Error Lock Screen for other player ")
+                    }
                 }
+            }  else if GameManagement.sharedInstance.selectedMode == 0 ||
+                GameManagement.sharedInstance.selectedMode == 1 ||
+                GameManagement.sharedInstance.selectedMode == 3 {
+                NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
+                    if error == nil {
+                        print("Lock Screen for other player")
+                    } else {
+                        print("Error Lock Screen for other player ")
+                    }
+                }
+                
+            } else {
+                print("No Battle Player")
             }
-        }  
+        }
     }
 
     
@@ -384,7 +391,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         GameManagement.sharedInstance.randomPictogramAllow = false
         GameManagement.sharedInstance.showBonusView = false
         GameManagement.sharedInstance.drininkCounterView = false
-        
+        GameManagement.sharedInstance.selectedMode = 2
         let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.present(gameVc, animated: true, completion: nil)
     }
@@ -422,30 +429,6 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
         let _: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
         let _: CGFloat = currentVerticalOffset / maximumVerticalOffset
-        
-        /*
-         * below code scales the imageview on paging the scrollview
-         */
-//        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-//
-//        if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
-//
-//            slides[0].imageView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
-//            slides[1].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
-//
-//        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
-//            slides[1].imageView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
-//            slides[2].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-//
-//        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-//            slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-//
-//        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-//            slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-//        }
-        
     }
 }
 

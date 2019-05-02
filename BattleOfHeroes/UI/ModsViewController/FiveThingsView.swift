@@ -12,14 +12,10 @@ import UIKit
 class FiveThingsView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var boardImageView: UIImageView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     var category = GameManagement.sharedInstance.gamesCategories
@@ -44,26 +40,26 @@ class FiveThingsView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
-        
     }
     
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
     
     func updateUI() {
-        playerType.text = "Personal"
-        playerLabel.text = playersList.randomElement()?.playerName
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        postNotification(name: .updateGameData)
+        
         categoryLabel.isHidden = true
+        boardImageView.isHidden = true
         timerLabel.isHidden = true
-        gameInfoContainerView.layer.cornerRadius = 10
     }
     
     @IBAction func startTapped(_ sender: Any) {
         categoryLabel.isHidden = false
         startButton.isHidden = true
+        boardImageView.isHidden = false
         categoryLabel.text = category.randomElement()
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         
@@ -74,6 +70,7 @@ class FiveThingsView: GameView {
         if seconds == 0 {
             stopTimer()
             self.tap.isEnabled = true
+            timerLabel.text = "Vége"
         } else {
             seconds -= 1
             timerLabel.isHidden = false

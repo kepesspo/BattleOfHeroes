@@ -12,18 +12,14 @@ import UIKit
 class TapperView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var timerOneLabel: UILabel!
     @IBOutlet weak var timerTwoLabel: UILabel!
     @IBOutlet weak var timerOneButton: UIButton!
     @IBOutlet weak var timerTwoButton: UIButton!
-    @IBOutlet weak var separateView: UIView!
     @IBOutlet weak var winnerLabel: UILabel!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
     @IBOutlet weak var tapperText: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
+    @IBOutlet weak var tapperWinnerView: UIView!
     
     
     var second : Double = 5.00
@@ -57,26 +53,28 @@ class TapperView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerLabel.text = playersList.randomElement()?.playerName
-        playerType.text = "Battle"
+        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
+        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
+        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea")
+        postNotification(name: .updateGameData)
+        
         tapperText.text = "Légy te a legközelebb a 0-hoz."
-        timerOneLabel.text = "Start"
-        timerTwoLabel.text = "Start"
         winnerLabel.isHidden = true
         containerView.layer.cornerRadius = 6
         timerTwoLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         timerTwoButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        
+        tapperWinnerView.isHidden = true
+        tapperWinnerView.layer.cornerRadius = 10
+        tapperWinnerView.layer.masksToBounds = true
+        
+        containerView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
     }
     
     @IBAction func timerTwoDownTap(_ sender: Any) {
@@ -153,7 +151,6 @@ class TapperView: GameView {
     
     func result() {
         self.tap.isEnabled = true
-        separateView.isHidden = true
         let playerOneRes = 5 - abs(Double((playerOneTime.timeIntervalSince(gameTime))))
         let playerTwoRes = 5 - abs(Double((playerTwoTime.timeIntervalSince(gameTime))))
         //timerTwoLabel.text = String(format: "%.4f", playerTwoRes)
@@ -171,6 +168,7 @@ class TapperView: GameView {
         }
         
         winnerLabel.isHidden = false
+        tapperWinnerView.isHidden = false
         if playerTwoTime.timeIntervalSince(gameTime) > 0 && playerOneTime.timeIntervalSince(gameTime) > 0 {
             if playerTwoRes < playerOneRes && playerTwoRes > 0 {
                 winnerLabel.text = "Player Two nyert"

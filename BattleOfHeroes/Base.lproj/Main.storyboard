@@ -711,6 +711,86 @@
             </objects>
             <point key="canvasLocation" x="-5334" y="-990"/>
         </scene>
+        <!--Spectate Penalty View Controller-->
+        <scene sceneID="jrH-di-jTV">
+            <objects>
+                <viewController storyboardIdentifier="SpectatePenaltyViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IA6-1A-IFk" customClass="SpectatePenaltyViewController" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V21-DL-Hij">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wil-xE-9xo">
+                                <rect key="frame" x="20" y="60" width="335" height="567"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zka-W7-K61">
+                                        <rect key="frame" x="10" y="497" width="315" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="RYK-ds-GpJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="20"/>
+                                        <state key="normal" title="Ok" backgroundImage="igaz_nagyobb_gomb">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAction:" destination="tqW-Fk-Cro" eventType="touchUpInside" id="ze7-5y-swz"/>
+                                            <action selector="endGameAction:" destination="H3h-Hf-2pd" eventType="touchUpInside" id="jeM-EX-8AH"/>
+                                            <action selector="okAction:" destination="IA6-1A-IFk" eventType="touchUpInside" id="XAV-wM-mrg"/>
+                                            <action selector="okAction:" destination="Yin-AQ-KoH" eventType="touchUpInside" id="Y0g-Ye-F7J"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A megfigyelő sikeresen reagált a játék rejtett funkciójára így kiosztott egy piát. Aki ezt kapja:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WND-6m-eSO">
+                                        <rect key="frame" x="10" y="330" width="315" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC5-lW-M6B">
+                                        <rect key="frame" x="116.5" y="421" width="102" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" red="0.1529411765" green="0.7843137255" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="megfigyelo" translatesAutoresizingMaskIntoConstraints="NO" id="hPr-gY-h0W">
+                                        <rect key="frame" x="-832.5" y="-50" width="2000" height="500"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="500" id="2uF-He-eSH"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.86666666670000003" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WND-6m-eSO" firstAttribute="top" secondItem="hPr-gY-h0W" secondAttribute="bottom" constant="-120" id="2qF-vj-70q"/>
+                                    <constraint firstAttribute="bottom" secondItem="zka-W7-K61" secondAttribute="bottom" constant="20" id="5Ah-ja-0hI"/>
+                                    <constraint firstItem="eC5-lW-M6B" firstAttribute="centerX" secondItem="wil-xE-9xo" secondAttribute="centerX" id="F7K-kO-cyY"/>
+                                    <constraint firstAttribute="trailing" secondItem="zka-W7-K61" secondAttribute="trailing" constant="10" id="JmS-Ul-W8D"/>
+                                    <constraint firstItem="hPr-gY-h0W" firstAttribute="centerX" secondItem="wil-xE-9xo" secondAttribute="centerX" id="ZXo-xB-Wdk"/>
+                                    <constraint firstItem="WND-6m-eSO" firstAttribute="leading" secondItem="wil-xE-9xo" secondAttribute="leading" constant="10" id="mso-5i-r84"/>
+                                    <constraint firstItem="eC5-lW-M6B" firstAttribute="top" secondItem="WND-6m-eSO" secondAttribute="bottom" constant="30" id="r3l-aN-FI3"/>
+                                    <constraint firstItem="zka-W7-K61" firstAttribute="leading" secondItem="wil-xE-9xo" secondAttribute="leading" constant="10" id="tvJ-OG-KRr"/>
+                                    <constraint firstAttribute="trailing" secondItem="WND-6m-eSO" secondAttribute="trailing" constant="10" id="uDg-xL-Jg5"/>
+                                    <constraint firstItem="hPr-gY-h0W" firstAttribute="top" secondItem="wil-xE-9xo" secondAttribute="top" constant="-50" id="wcE-7V-nbt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3hd-lm-s2S" firstAttribute="trailing" secondItem="wil-xE-9xo" secondAttribute="trailing" constant="20" id="AJm-lC-2Pe"/>
+                            <constraint firstItem="3hd-lm-s2S" firstAttribute="bottom" secondItem="wil-xE-9xo" secondAttribute="bottom" constant="40" id="DTl-dq-u1e"/>
+                            <constraint firstItem="wil-xE-9xo" firstAttribute="top" secondItem="3hd-lm-s2S" secondAttribute="top" constant="40" id="WsM-4Q-J0V"/>
+                            <constraint firstItem="wil-xE-9xo" firstAttribute="leading" secondItem="3hd-lm-s2S" secondAttribute="leading" constant="20" id="nKv-3C-cB9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3hd-lm-s2S"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="wil-xE-9xo" id="TWc-sq-xkU"/>
+                        <outlet property="nameLabel" destination="eC5-lW-M6B" id="SQv-q9-SlL"/>
+                        <outlet property="okButton" destination="zka-W7-K61" id="UuC-5X-ppi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KXf-ye-eYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1282.4000000000001" y="793.8530734632684"/>
+        </scene>
         <!--Permission View Controller-->
         <scene sceneID="IuU-dr-Fnd">
             <objects>
@@ -995,7 +1075,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqx-i3-0O8">
                                 <rect key="frame" x="169.5" y="432" width="30" height="54"/>
-                                <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1968,13 +2048,13 @@
                                             <action selector="closeAndGameView:" destination="H3h-Hf-2pd" eventType="touchUpInside" id="cn4-ZC-gg8"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spactator +" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ot-Mf-SW5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Megfigyelő" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ot-Mf-SW5">
                                         <rect key="frame" x="0.0" y="10" width="325" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sikeresen reagáltál a spectator egyik funkciorára igy kioszthatsz egy piát annak az embertnek akinek szeretnél." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hv-ec-eDI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sikeresen reagáltál a megfigyelő egyik funkciorára igy kioszthatsz egy piát annak az embertnek akinek szeretnél." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hv-ec-eDI">
                                         <rect key="frame" x="10" y="88" width="315" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -2653,6 +2733,7 @@
         <image name="delete-button" width="120" height="120"/>
         <image name="igaz_nagyobb_gomb" width="339" height="91"/>
         <image name="information" width="128" height="128"/>
+        <image name="megfigyelo" width="2000" height="2000"/>
         <image name="plusButton" width="144" height="144"/>
         <namedColor name="inactiveColor">
             <color red="0.90700000524520874" green="0.164000004529953" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>

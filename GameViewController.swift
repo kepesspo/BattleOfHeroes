@@ -81,18 +81,10 @@
     @objc func showSpectatorBonus() {
         NetworkSevice.sharedInstance.getPlayerHowGetDrinksForSpectator { (error, playerName) in
             if error == nil && playerName != "" {
-                let spectatorBonusAlert = UIAlertController(title: "Drink", message: "\(playerName) 1 pia +", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Drinks", style: .default, handler: { _ in
-                    NetworkSevice.sharedInstance.playerHowGetDrinksForSpectator(playerName: "", completionBlock: { (error) in
-                        if error == nil {
-                            print("update spectator bonus name to empty")
-                        } else {
-                            print("error to update spectator bonus name to empty")
-                        }
-                    })
-                })
-                spectatorBonusAlert.addAction(okAction)
-                self.present(spectatorBonusAlert, animated: true, completion: nil)
+                
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SpectatePenaltyViewController") as! SpectatePenaltyViewController
+                vc.name = playerName
+                self.present(vc, animated: true, completion: nil)
             } else {
                 print("No spectator bonus player name")
             }
