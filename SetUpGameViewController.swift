@@ -272,7 +272,6 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         switch indexPath.section {
         case 0:
             if personalGames[indexPath.row].name == "Zene Felismerés" {

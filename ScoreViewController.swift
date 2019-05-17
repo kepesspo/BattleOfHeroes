@@ -13,7 +13,6 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var scoreTableView: UITableView!
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var BackButton: UIButton!
-    @IBOutlet weak var horseRaceBtn: UIButton!
     @IBOutlet weak var addDrinksBtn: UIButton!
     
     var playersList = NetworkSevice.sharedInstance.playerList
@@ -29,7 +28,6 @@ class ScoreViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(reloadScoreTableView), userInfo: nil, repeats: true)
         
-        horseRaceBtn.isHidden = true
         addDrinksBtn.isHidden = true
         // Do any additional setup after loading the view.
     }
@@ -67,14 +65,6 @@ class ScoreViewController: UIViewController {
                 self.scoreTableView.reloadData()
             })
             
-            
-            NetworkSevice.sharedInstance.getHorseRaceRunning(completionBlock: { (error, valueHorseRace) in
-                if valueHorseRace == 1 {
-                    self.horseRaceBtn.isHidden = false
-                } else {
-                    self.horseRaceBtn.isHidden = true
-                }
-            })
             
             NetworkSevice.sharedInstance.getPlayerHowGetDrinks(completionBlock: { (error, valuePlayerShow) in
                 if valuePlayerShow == 1 {

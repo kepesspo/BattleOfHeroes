@@ -45,7 +45,7 @@ class CheersToTheGovernorView: GameView {
         postNotification(name: .updateGameData)
 
         let cheersToTheGovernor = NSMutableAttributedString()
-        cheersToTheGovernor.appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1) , font: .regular(25), " - Számolj 5-ig.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Igyál.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Hoz létre szabályt.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Majd tartsd be.\n\n").appendColored(.black, font: .regular(25), "Ha nem sikerül akkor is igyál")
+        cheersToTheGovernor.appendColored(.white , font: .regular(25), " - Számolj 5-ig.\n").appendColored(.white, font: .regular(25), " - Igyál.\n").appendColored(.white, font: .regular(25), " - Hoz létre szabályt.\n").appendColored(.white, font: .regular(25), " - Majd tartsd be.\n\n").appendColored(.black, font: .regular(25), "Ha nem sikerül akkor is igyál")
         cheersToTheGovernorLabel.attributedText = cheersToTheGovernor
     }
 }

@@ -27,6 +27,7 @@ class DrinkCounterViewController: UIViewController {
         howDrinksTableView.separatorStyle = .none
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
+        
         drinkingSegmentedControl.itemTitles = []
         drinkingSegmentedControl.defaultTextFont = UIFont.helveticaNeueLight(15)
         drinkingSegmentedControl.selectedTextFont = UIFont.helveticaNeueLight(15)

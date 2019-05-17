@@ -35,6 +35,7 @@ class GameCollectionViewCell: UICollectionViewCell {
     }
 
     public func configure(with game: Game) {
+        self.layer.cornerRadius = 10
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(showDescription))
         longPressGesture.minimumPressDuration = 0.5
         self.addGestureRecognizer(longPressGesture)

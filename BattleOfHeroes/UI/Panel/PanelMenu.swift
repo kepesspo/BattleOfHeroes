@@ -13,45 +13,34 @@ import Panels
 class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     @IBOutlet var headerHeight: NSLayoutConstraint!
     @IBOutlet var headerPanel: UIView!
-    @IBOutlet weak var pageScrollView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var gameDetailsBtn: UIButton!
     
-    var slides:[Slide] = []
+    @IBOutlet weak var normalBtn: UIButton!
+    @IBOutlet weak var customBtn: UIButton!
+    @IBOutlet weak var battleBtn: UIButton!
+    @IBOutlet weak var spectatorBtn: UIButton!
+    @IBOutlet weak var closeRoomBtn: UIButton!
+    
     var roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName)
     var roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        subscribeForNotification(name: .updateGameIsSpectate, selector: #selector(createSlidesForSpac))
-        subscribeForNotification(name: .updateGameIsAll, selector: #selector(createSlides))
         self.view.addBlurBackgroundToMenu()
         curveTopCornersToMenuView()
         self.view.layoutIfNeeded()
         
+        subscribeForNotification(name: .updateGameIsSpectate, selector: #selector(updatePanelToInactive))
+        subscribeForNotification(name: .updateGameIsAll, selector: #selector(updatePanelToActive))
         NetworkSevice.sharedInstance.getGameRunning { (error, value) in
             if value == 1 {
-                self.removeScrollViewElements()
-                self.slides = self.createSlidesForSpac()
-                self.setupSlideScrollView(slides: self.slides)
-                self.pageScrollView.delegate = self
-                self.pageControl.numberOfPages = self.slides.count
-                self.pageControl.currentPage = 0
-                self.view.bringSubviewToFront(self.pageControl)
                 self.nextButton.layer.cornerRadius = 10
                 GameManagement.sharedInstance.selectedSpac = 4
                 GameManagement.sharedInstance.isSpactate = true
                 self.triggeredGameMode()
             } else {
-                self.removeScrollViewElements()
-                self.slides = self.createSlides()
-                self.setupSlideScrollView(slides: self.slides)
-                self.pageScrollView.delegate = self
-                self.pageControl.numberOfPages = self.slides.count
-                self.pageControl.currentPage = 0
-                self.view.bringSubviewToFront(self.pageControl)
                 self.nextButton.layer.cornerRadius = 10
                 GameManagement.sharedInstance.selectedSpac = 0
                 GameManagement.sharedInstance.isSpactate = false
@@ -65,113 +54,18 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
     }
     
-    @objc func createSlidesForSpac() -> [Slide] {
-        let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide5.gameModeTitle.text = "Megfigyelő"
-        slide5.gameModeDescription.text = "Az megfigyelő jaták mod arra való hogy nyomon tudjátok követni a játék állását igy megkönnyitve a játékot."
-        slide5.actionBtn.setTitle("Kiválaszt", for: .normal)
-        slide5.actionBtn.tag = 4
-        slide5.actionBtn.isHidden = false
-        slide5.actionBtn.layer.cornerRadius = 10
-        slide5.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
-        
-        return [slide5]
+    @objc func updatePanelToInactive() {
+        normalBtn.isEnabled = false
+        customBtn.isEnabled = false
+        battleBtn.isEnabled = false
     }
     
-    @objc func createSlides() -> [Slide] {
-        let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.gameModeTitle.text = "Egyszerű"
-        slide1.gameModeDescription.text = "Az egyszerű játéknál Nem tudsz válogatni a játékok közül hanem minden játék fog szerepelni. Illetve az egyéb beállítási lehetőségeket sem fogod tudni alkalmazni."
-        slide1.actionBtn.setTitle("Kiválaszt", for: .normal)
-        slide1.actionBtn.tag = 0
-        slide1.actionBtn.isHidden = false
-        slide1.actionBtn.layer.cornerRadius = 10
-        slide1.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
-        
-        let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.gameModeTitle.text = "Összetett"
-        slide2.gameModeDescription.text = "Az összetett játéknál ki tudod válogatni a játékok közül a neked megfelelőt és azokat személyre tudod szabni. Illetve az egyéb beállításokban van lehetőséged plusz funkciók bekapcsolására."
-        slide2.actionBtn.setTitle("Kiválaszt", for: .normal)
-        slide2.actionBtn.tag = 1
-        slide2.actionBtn.isHidden = false
-        slide2.actionBtn.layer.cornerRadius = 10
-        slide2.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
-        
-        let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.gameModeTitle.text = "Csata"
-        slide3.gameModeDescription.text = "A csata játékban 2 játékos vehet részt és előre megadott játékosokkal tudnak játszani. Aki elősszőr eléri a 10 pontot az fog győzni."
-        slide3.actionBtn.setTitle("Kiválaszt", for: .normal)
-        slide3.actionBtn.tag = 2
-        slide3.actionBtn.isHidden = false
-        slide3.actionBtn.layer.cornerRadius = 10
-        slide3.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
-        
-        let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide4.gameModeTitle.text = "Előző Játék"
-        slide4.gameModeDescription.text = "Az előző játék opcióval a már elkezdett játékot tudjátok folytatni."
-        slide4.actionBtn.setTitle("Kiválaszt", for: .normal)
-        slide4.actionBtn.tag = 3
-        slide4.actionBtn.isHidden = true
-        slide4.actionBtn.layer.cornerRadius = 10
-        slide4.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
-        
-        let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide5.gameModeTitle.text = "Megfigyelő"
-        slide5.gameModeDescription.text = "Az megfigyelő játék mód arra való hogy nyomon tudjátok követni a játék állását így megkönnyítve a játékot."
-        slide5.actionBtn.setTitle("Kiválaszt", for: .normal)
-        slide5.actionBtn.tag = 4
-        slide5.actionBtn.isHidden = false
-        slide5.actionBtn.layer.cornerRadius = 10
-        slide5.actionBtn.addTarget(self, action: #selector(sliderButtonAction), for: .touchUpInside)
+    @objc func updatePanelToActive() {
+        normalBtn.isEnabled = true
+        customBtn.isEnabled = true
+        battleBtn.isEnabled = true
+    }
 
-        return [slide1, slide2, slide3, slide4, slide5]
-    }
-    
-    @objc func sliderButtonAction(sender: UIButton!) {
-        print("Button Clicked")
-        switch sender.tag {
-        case 0:
-            print("Egyszerű")
-            GameManagement.sharedInstance.selectedMode = 0
-            nextButton.setTitle("Mehet", for: .normal)
-            titleText.text = "Egyszerű"
-            nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            postNotification(name: .gameModeChanged)
-        case 1:
-            print("Összetett")
-            GameManagement.sharedInstance.selectedMode = 1
-            nextButton.setTitle("Beállitás", for: .normal)
-            titleText.text = "Összetett"
-            nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            postNotification(name: .gameModeChanged)
-        case 2:
-            print("Csata")
-            GameManagement.sharedInstance.selectedMode = 2
-            nextButton.setTitle("Mehet", for: .normal)
-            nextButton.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-            titleText.text = "Csata"
-            postNotification(name: .gameModeChanged)
-        case 3:
-            print("Prev Game")
-            GameManagement.sharedInstance.selectedMode = 3
-            nextButton.setTitle("Mehet", for: .normal)
-            titleText.text = "Prev Game"
-            nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            postNotification(name: .gameModeChanged)
-        case 4:
-            print("Spactate")
-            GameManagement.sharedInstance.selectedMode = 4
-            nextButton.setTitle("Adatok Mutatása", for: .normal)
-            titleText.text = "Megfigyelő"
-            nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            postNotification(name: .gameModeChanged)
-        default:
-            print("Default")
-        }
-        print("Selected item \(GameManagement.sharedInstance.selectedMode)")
-    }
-    
-    
     func triggeredGameMode() {
         if GameManagement.sharedInstance.selectedSpac == 4 {
             nextButton.setTitle("Adatok Mutatása", for: .normal)
@@ -182,7 +76,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
             nextButton.setTitle("Mehet", for: .normal)
             titleText.text = "Egyszerű"
             nextButton.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-//            GameManagement.sharedInstance.selectedMode = 0
+          //GameManagement.sharedInstance.selectedMode = 0
         }
     }
     
@@ -335,13 +229,6 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         returnedBlock(nil)
     }
     
-    func removeScrollViewElements() {
-        let subViews = self.pageScrollView.subviews
-        for subview in subViews{
-            subview.removeFromSuperview()
-        }
-    }
-    
     func showLoaderView() {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoaderViewController") as! LoaderViewController
         popOverVC.modalPresentationStyle = .overFullScreen
@@ -365,6 +252,42 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
     }
     
+    
+    @IBAction func normalGameAction(_ sender: Any) {
+        print("Egyszerű")
+        GameManagement.sharedInstance.selectedMode = 0
+        nextButton.setTitle("Mehet", for: .normal)
+        titleText.text = "Egyszerű"
+        postNotification(name: .gameModeChanged)
+    }
+    
+    @IBAction func customGameAction(_ sender: Any) {
+        print("Összetett")
+        GameManagement.sharedInstance.selectedMode = 1
+        nextButton.setTitle("Beállitás", for: .normal)
+        titleText.text = "Összetett"
+        postNotification(name: .gameModeChanged)
+    }
+    
+    @IBAction func battleGameAction(_ sender: Any) {
+        print("Csata")
+        GameManagement.sharedInstance.selectedMode = 2
+        nextButton.setTitle("Mehet", for: .normal)
+        titleText.text = "Csata"
+        postNotification(name: .gameModeChanged)
+    }
+    @IBAction func spectatorGameAction(_ sender: Any) {
+        print("Spactator")
+        GameManagement.sharedInstance.selectedMode = 4
+        nextButton.setTitle("Adatok Mutatása", for: .normal)
+        titleText.text = "Megfigyelő"
+        postNotification(name: .gameModeChanged)
+    }
+    
+    @IBAction func closeRoomAction(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func gameDetailsAction(_ sender: Any) {
         let alert = UIAlertController(title: "Szoba Adatok", message: "Szoba név: \(roomName!) \n Szoba jelszó: \(roomPass!)", preferredStyle: .alert)
         let okBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -373,13 +296,11 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
                 if error == nil {
                     print("Reseted Player Score")
                 } else {
-                    print(error?.localizedDescription)
+                    print(MyError.runtimeError("Reset Player Data in game manu alert view"))
                 }
             })
         }
-        let resetData = UIAlertAction(title: "Develop", style: .default, handler: nil)
         alert.addAction(resetScore)
-        //alert.addAction(resetData)
         alert.addAction(okBtn)
         if let topController = UIApplication.topViewController() {
             topController.present(alert, animated: true, completion: nil)
@@ -405,31 +326,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         self.present(gameVc, animated: true, completion: nil)
     }
     
-    func setupSlideScrollView(slides : [Slide]) {
-        pageScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 200)
-        pageScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: 200)
-        pageScrollView.isPagingEnabled = true
-        
-        for i in 0 ..< slides.count {
-            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
-            pageScrollView.addSubview(slides[i])
-        }
-    }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
-        pageControl.currentPage = Int(pageIndex)
-        
-        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
-        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
-        
-        // vertical
-        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
-        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
-        
-        let _: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-        let _: CGFloat = currentVerticalOffset / maximumVerticalOffset
-    }
 }
 
 extension UIView {

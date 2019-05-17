@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
                 <outlet property="moveButton" destination="i3F-l1-gxK" id="4sW-lv-t8d"/>
                 <outlet property="redHorse" destination="Azg-Tj-JhZ" id="0nf-AZ-fXA"/>
                 <outlet property="redLabel" destination="SlI-my-dOC" id="PMg-iL-ZAk"/>
-                <outlet property="winnerLabel" destination="Qd7-QC-2dE" id="5W5-jb-wSI"/>
+                <outlet property="winnerLabel" destination="TG8-6M-R3C" id="jKZ-pw-o5D"/>
                 <outlet property="yellowHorse" destination="MjM-8U-f5M" id="Mgh-kd-OlI"/>
                 <outlet property="yellowLabel" destination="g1c-aG-kGb" id="qMN-FL-rYn"/>
             </connections>
@@ -37,6 +36,7 @@
                         <constraint firstAttribute="width" secondItem="i3F-l1-gxK" secondAttribute="height" multiplier="1:1" id="iv3-4R-Afs"/>
                         <constraint firstAttribute="height" constant="60" id="xYs-J2-tAD"/>
                     </constraints>
+                    <inset key="titleEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="GO" backgroundImage="start_gomb">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -89,12 +89,6 @@
                         <constraint firstItem="qdR-o6-bIM" firstAttribute="height" secondItem="mWo-5D-ajq" secondAttribute="height" id="ura-SN-K8A"/>
                     </constraints>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qd7-QC-2dE">
-                    <rect key="frame" x="187.5" y="600.5" width="0.0" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                    <color key="textColor" name="whiteColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redHorse" translatesAutoresizingMaskIntoConstraints="NO" id="Azg-Tj-JhZ">
                     <rect key="frame" x="0.0" y="320.5" width="50" height="50"/>
                     <constraints>
@@ -154,10 +148,10 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nY5-Xg-ew0">
-                    <rect key="frame" x="285.5" y="245.5" width="50" height="50"/>
+                    <rect key="frame" x="285.5" y="250.5" width="40" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="CwI-mM-BfZ"/>
-                        <constraint firstAttribute="height" constant="50" id="cOt-bu-dxI"/>
+                        <constraint firstAttribute="width" constant="40" id="CwI-mM-BfZ"/>
+                        <constraint firstAttribute="height" constant="40" id="cOt-bu-dxI"/>
                     </constraints>
                     <state key="normal" backgroundImage="bingo"/>
                     <connections>
@@ -165,7 +159,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.9216609589041096" green="0.78037042289861203" blue="0.60380083789602546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="nY5-Xg-ew0" firstAttribute="centerY" secondItem="TG8-6M-R3C" secondAttribute="centerY" id="0pH-Ap-TVR"/>
                 <constraint firstItem="TG8-6M-R3C" firstAttribute="leading" secondItem="i3F-l1-gxK" secondAttribute="trailing" constant="40" id="1zu-RP-7BL"/>
@@ -186,7 +180,6 @@
                 <constraint firstItem="e7n-US-E1L" firstAttribute="trailing" secondItem="tW9-ip-qtI" secondAttribute="trailing" id="dx4-jD-xSx"/>
                 <constraint firstItem="e7n-US-E1L" firstAttribute="top" secondItem="MjM-8U-f5M" secondAttribute="bottom" constant="-10" id="gBT-yR-ZAQ"/>
                 <constraint firstItem="e7n-US-E1L" firstAttribute="leading" secondItem="3yj-es-Fcw" secondAttribute="leading" id="gRX-B2-PW0"/>
-                <constraint firstItem="Qd7-QC-2dE" firstAttribute="top" secondItem="kT0-5k-LDX" secondAttribute="bottom" constant="20" id="gYY-jo-2M4"/>
                 <constraint firstItem="Rjo-xP-Aez" firstAttribute="top" secondItem="MjM-8U-f5M" secondAttribute="bottom" constant="20" id="gw0-Zg-pFZ"/>
                 <constraint firstItem="umC-MM-bAe" firstAttribute="top" secondItem="T70-vV-Otg" secondAttribute="bottom" constant="-10" id="ib1-Gy-xlJ"/>
                 <constraint firstItem="T70-vV-Otg" firstAttribute="centerX" secondItem="Rjo-xP-Aez" secondAttribute="centerX" id="iye-xZ-qPs"/>
@@ -194,7 +187,6 @@
                 <constraint firstItem="MjM-8U-f5M" firstAttribute="centerX" secondItem="Azg-Tj-JhZ" secondAttribute="centerX" id="ldi-EP-DLT"/>
                 <constraint firstItem="Azg-Tj-JhZ" firstAttribute="leading" secondItem="tW9-ip-qtI" secondAttribute="leading" id="lku-SC-3Y7"/>
                 <constraint firstItem="dxw-HG-2u2" firstAttribute="centerX" secondItem="3yj-es-Fcw" secondAttribute="centerX" id="qAS-XG-8DH"/>
-                <constraint firstItem="Qd7-QC-2dE" firstAttribute="centerX" secondItem="3yj-es-Fcw" secondAttribute="centerX" id="qDv-CE-akR"/>
                 <constraint firstItem="kT0-5k-LDX" firstAttribute="top" secondItem="TG8-6M-R3C" secondAttribute="bottom" constant="40" id="shn-WZ-w16"/>
                 <constraint firstItem="Azg-Tj-JhZ" firstAttribute="top" secondItem="kT0-5k-LDX" secondAttribute="top" id="tvF-aL-sYh"/>
                 <constraint firstItem="S5i-xA-iH8" firstAttribute="leading" secondItem="3yj-es-Fcw" secondAttribute="leading" id="tyf-hG-Gwz"/>
@@ -213,8 +205,5 @@
         <image name="redHorse" width="1000" height="694"/>
         <image name="start_gomb" width="187" height="187"/>
         <image name="yellowHorse" width="1000" height="694"/>
-        <namedColor name="whiteColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

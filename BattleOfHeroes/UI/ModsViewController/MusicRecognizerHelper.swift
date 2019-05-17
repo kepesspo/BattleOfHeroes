@@ -89,6 +89,11 @@ class MusicRecognizerHelper {
         var image: String?
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
+            if let expiredToken = readableJSON["error"] {
+                print("expired Token")
+                MusicRecognizerHelper.helper.updateSpotifyToken()
+                return
+            }
             if let songPreviewUrl = readableJSON["preview_url"] ,
                 let songName = readableJSON["name"] {
                 

@@ -45,7 +45,7 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3K-YW-Ayx" customClass="TTFortuneWheel" customModule="TTFortuneWheel">
                     <rect key="frame" x="72.5" y="240" width="230" height="230"/>
-                    <color key="backgroundColor" red="0.96862745098039216" green="0.69803921568627447" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="230" id="V0q-Sw-HN2"/>
                         <constraint firstAttribute="height" constant="230" id="Yl1-j0-LN3"/>
@@ -71,7 +71,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.97254901960784312" green="0.69803921568627447" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="IC6-nB-VuW" firstAttribute="centerY" secondItem="k7N-l9-s37" secondAttribute="centerY" constant="-3" id="1vf-5z-gKi"/>
                 <constraint firstItem="Fat-5Q-L8U" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5bZ-qz-LBJ"/>

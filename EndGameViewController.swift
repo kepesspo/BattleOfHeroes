@@ -48,6 +48,7 @@ class EndGameViewController: UIViewController {
         GameManagement.sharedInstance.battlePlayer = []
         GameManagement.sharedInstance.actuallyPlayedGameCounter = 0
         GameManagement.sharedInstance.gameStarted = false
+        GameManagement.sharedInstance.battleGameRun = false
         self.dismiss(animated: false, completion: nil)
         postNotification(name: .endGame)
         

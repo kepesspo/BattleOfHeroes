@@ -15,6 +15,7 @@ class TickTakView: GameView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var timerBtn: UIButton!
     @IBOutlet weak var loadView: LottieView!
+    @IBOutlet weak var boomImageVirew: UIImageView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     let randomInterval = 5...30
@@ -44,6 +45,7 @@ class TickTakView: GameView {
     }
     
     func updateUI() {
+        boomImageVirew.isHidden = true
         let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
         GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
@@ -78,6 +80,7 @@ class TickTakView: GameView {
     
     func stopTimer() {
         loadView.stop()
+        boomImageVirew.isHidden = false
         loadView.isHidden = true
         playSound()
         if timer != nil {

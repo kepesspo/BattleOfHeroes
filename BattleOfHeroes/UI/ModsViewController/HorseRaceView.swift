@@ -17,12 +17,12 @@ class HorseRaceView: GameView {
     @IBOutlet weak var blueLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var yellowLabel: UILabel!
-    @IBOutlet weak var winnerLabel: UILabel!
     
     @IBOutlet weak var redHorse: UIImageView!
     @IBOutlet weak var yellowHorse: UIImageView!
     @IBOutlet weak var blueHorse: UIImageView!
     @IBOutlet weak var greenHorse: UIImageView!
+    @IBOutlet weak var winnerLabel: UILabel!
     
     let horses = ["Red","Yellow","Green","Blue"]
     

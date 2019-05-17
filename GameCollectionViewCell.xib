@@ -34,11 +34,11 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qs1-ED-Uqd">
                         <rect key="frame" x="0.0" y="0.0" width="307" height="400"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="backgroundColor" white="0.5" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.89340194838984766" green="0.80537666936058261" blue="0.8137546119330995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.90600000000000003" blue="0.88" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="aQ5-6X-tLe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-20" id="FCL-7f-61j"/>
                 <constraint firstAttribute="trailing" secondItem="qs1-ED-Uqd" secondAttribute="trailing" id="Hvw-km-Zze"/>

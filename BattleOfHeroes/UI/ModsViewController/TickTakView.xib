@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TickTakView" customModule="BattleOfHeroes" customModuleProvider="target">
             <connections>
+                <outlet property="boomImageVirew" destination="HHl-9v-hCS" id="YMA-8X-IEI"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="EBB-sZ-2F6"/>
                 <outlet property="loadView" destination="fgR-mt-CVK" id="kUL-XB-b0W"/>
                 <outlet property="timerBtn" destination="Ksu-Qz-xqz" id="wQQ-dy-PWX"/>
@@ -22,49 +23,63 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgR-mt-CVK" customClass="LottieView" customModule="BattleOfHeroes" customModuleProvider="target">
+                    <rect key="frame" x="37.5" y="301" width="300" height="300"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="clock.json"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksu-Qz-xqz">
-                    <rect key="frame" x="87.5" y="270" width="200" height="200"/>
+                    <rect key="frame" x="37.5" y="301" width="300" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="j5D-kR-TjR"/>
-                        <constraint firstAttribute="height" constant="200" id="mmN-QV-qUb"/>
+                        <constraint firstAttribute="width" constant="300" id="j5D-kR-TjR"/>
+                        <constraint firstAttribute="height" constant="300" id="mmN-QV-qUb"/>
                     </constraints>
-                    <state key="normal" backgroundImage="timer"/>
                     <connections>
                         <action selector="timerAction:" destination="-1" eventType="touchUpInside" id="4f7-Yg-3pj"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgR-mt-CVK" customClass="LottieView" customModule="BattleOfHeroes" customModuleProvider="target">
-                    <rect key="frame" x="12.5" y="480" width="350" height="100"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="350" id="GDd-rv-pUe"/>
-                        <constraint firstAttribute="height" constant="100" id="qQD-Yg-flL"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="animation-loading"/>
-                    </userDefinedRuntimeAttributes>
-                </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tickTakBoom10000" translatesAutoresizingMaskIntoConstraints="NO" id="7Zy-jv-A5S">
                     <rect key="frame" x="-256" y="40" width="887" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="MCY-00-F25"/>
                     </constraints>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boom" translatesAutoresizingMaskIntoConstraints="NO" id="HHl-9v-hCS">
+                    <rect key="frame" x="37.5" y="301" width="300" height="300"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indítsd el a visszaszámlálót és add körbe a poharat. Akinél felrobban az vesztett." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G9-TT-eXh">
+                    <rect key="frame" x="20" y="248" width="335" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="0.72549019607843135" green="0.8666666666666667" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fgR-mt-CVK" firstAttribute="top" secondItem="7Zy-jv-A5S" secondAttribute="bottom" constant="240" id="2OX-4Q-pK3"/>
+                <constraint firstItem="9G9-TT-eXh" firstAttribute="top" secondItem="7Zy-jv-A5S" secondAttribute="bottom" constant="8" id="2Gc-Cd-DSF"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="centerY" secondItem="Ksu-Qz-xqz" secondAttribute="centerY" id="5kX-lM-HKt"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="centerX" secondItem="Ksu-Qz-xqz" secondAttribute="centerX" id="EFu-5y-AtO"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="height" secondItem="Ksu-Qz-xqz" secondAttribute="height" id="GmK-fA-FMp"/>
                 <constraint firstItem="Ksu-Qz-xqz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="INR-pI-aoH"/>
-                <constraint firstItem="Ksu-Qz-xqz" firstAttribute="top" secondItem="7Zy-jv-A5S" secondAttribute="bottom" constant="30" id="Lye-ai-oL1"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="centerX" secondItem="Ksu-Qz-xqz" secondAttribute="centerX" id="IjN-a0-tld"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9G9-TT-eXh" secondAttribute="trailing" constant="20" id="Suf-mV-rS4"/>
+                <constraint firstItem="9G9-TT-eXh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Y6z-zZ-FNz"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="width" secondItem="Ksu-Qz-xqz" secondAttribute="width" id="cxr-ZR-REB"/>
                 <constraint firstItem="7Zy-jv-A5S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="d0D-oI-842"/>
                 <constraint firstItem="7Zy-jv-A5S" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jRE-e1-yps"/>
-                <constraint firstItem="fgR-mt-CVK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lZO-rs-Ljy"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="top" secondItem="9G9-TT-eXh" secondAttribute="bottom" constant="10" id="lyA-MN-rdB"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="centerY" secondItem="Ksu-Qz-xqz" secondAttribute="centerY" id="nff-Ku-mgP"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="width" secondItem="Ksu-Qz-xqz" secondAttribute="width" id="oMG-FL-0aR"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="height" secondItem="Ksu-Qz-xqz" secondAttribute="height" id="pMH-bN-paC"/>
+                <constraint firstItem="9G9-TT-eXh" firstAttribute="centerX" secondItem="7Zy-jv-A5S" secondAttribute="centerX" id="qCE-hW-9vE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
     <resources>
+        <image name="boom" width="1000" height="718"/>
         <image name="tickTakBoom10000" width="887" height="1000"/>
-        <image name="timer" width="256" height="256"/>
     </resources>
 </document>

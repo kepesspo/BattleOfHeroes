@@ -10,21 +10,15 @@ import UIKit
 
 class DatabaseViewController: UIViewController {
 
+    @IBOutlet weak var gearView: LottieView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        animated()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func animated() {
+        gearView.loopAnimation = true
+        gearView.play()
     }
-    */
-
 }

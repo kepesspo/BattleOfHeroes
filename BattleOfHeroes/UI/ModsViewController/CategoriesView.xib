@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Medium.ttf">
+            <string>Rubik-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoriesView" customModule="BattleOfHeroes" customModuleProvider="target">
             <connections>
-                <outlet property="categoriesLabel" destination="LwR-ng-aRt" id="WYj-Kv-tDa"/>
+                <outlet property="categoriesLabel" destination="au5-zK-c1j" id="J2u-mT-yxR"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="gvI-fI-HAK"/>
             </connections>
         </placeholder>
@@ -21,32 +26,57 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwR-ng-aRt">
-                    <rect key="frame" x="20" y="256" width="335" height="24"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kategoriak" translatesAutoresizingMaskIntoConstraints="NO" id="rFM-dw-nR9">
+                    <rect key="frame" x="179.5" y="50" width="16" height="210"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="210" id="iTF-HA-Ij0"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="categoryBanner" translatesAutoresizingMaskIntoConstraints="NO" id="Agn-Ug-neN">
+                    <rect key="frame" x="179.5" y="429.5" width="16" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="ytE-q3-7oW"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au5-zK-c1j">
+                    <rect key="frame" x="157" y="449.5" width="61.5" height="30"/>
+                    <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="25"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A kategória a következő:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcQ-qh-jb2">
+                    <rect key="frame" x="82" y="365.5" width="211" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kategóriák" translatesAutoresizingMaskIntoConstraints="NO" id="rFM-dw-nR9">
-                    <rect key="frame" x="37.5" y="70" width="300" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="ake-57-1j5"/>
-                        <constraint firstAttribute="height" constant="80" id="iTF-HA-Ij0"/>
-                    </constraints>
-                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minden szó utolsó betűjével folytasd a sort." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9y-Ky-Ty7">
+                    <rect key="frame" x="20" y="290" width="335" height="45.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="0.62829369310000005" green="0.84790033099999995" blue="0.84498292210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="F9y-Ky-Ty7" firstAttribute="centerX" secondItem="rFM-dw-nR9" secondAttribute="centerX" id="4nM-ZR-XTR"/>
+                <constraint firstItem="F9y-Ky-Ty7" firstAttribute="top" secondItem="rFM-dw-nR9" secondAttribute="bottom" constant="30" id="9ok-XL-ykk"/>
+                <constraint firstItem="au5-zK-c1j" firstAttribute="centerX" secondItem="Agn-Ug-neN" secondAttribute="centerX" id="EGB-jf-mUd"/>
+                <constraint firstItem="au5-zK-c1j" firstAttribute="centerY" secondItem="Agn-Ug-neN" secondAttribute="centerY" id="Ebo-zW-FlV"/>
+                <constraint firstItem="NcQ-qh-jb2" firstAttribute="top" secondItem="F9y-Ky-Ty7" secondAttribute="bottom" constant="30" id="H9J-nH-ax9"/>
                 <constraint firstItem="rFM-dw-nR9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Iif-Ml-n8L"/>
-                <constraint firstItem="LwR-ng-aRt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="MpL-a5-8wO"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LwR-ng-aRt" secondAttribute="trailing" constant="20" id="oor-Qy-gUu"/>
-                <constraint firstItem="LwR-ng-aRt" firstAttribute="top" secondItem="rFM-dw-nR9" secondAttribute="bottom" constant="106" id="r7g-CM-Qqg"/>
-                <constraint firstItem="rFM-dw-nR9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="z8C-bR-09A"/>
+                <constraint firstItem="F9y-Ky-Ty7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="WL2-Sh-A7R"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="F9y-Ky-Ty7" secondAttribute="trailing" constant="20" id="WcA-yI-RAu"/>
+                <constraint firstItem="NcQ-qh-jb2" firstAttribute="centerX" secondItem="F9y-Ky-Ty7" secondAttribute="centerX" id="cdb-xy-jgy"/>
+                <constraint firstItem="Agn-Ug-neN" firstAttribute="top" secondItem="NcQ-qh-jb2" secondAttribute="bottom" constant="40" id="rpH-7e-twj"/>
+                <constraint firstItem="Agn-Ug-neN" firstAttribute="centerX" secondItem="NcQ-qh-jb2" secondAttribute="centerX" id="wRB-tR-6ff"/>
+                <constraint firstItem="rFM-dw-nR9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="z8C-bR-09A"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
     <resources>
-        <image name="kategóriák" width="256" height="51"/>
+        <image name="categoryBanner" width="1000" height="230"/>
+        <image name="kategoriak" width="1000" height="1571"/>
     </resources>
 </document>

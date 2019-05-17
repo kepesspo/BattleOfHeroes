@@ -28,6 +28,7 @@ class SetUpPlayersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         subscribeForNotification(name: .gameModeChanged, selector: #selector(gameModeChanged), object: nil)
         showPanel()
         
@@ -86,22 +87,16 @@ class SetUpPlayersViewController: UIViewController {
         switch GameManagement.sharedInstance.selectedMode {
         case 0:
             print("Egyszerű")
-            self.view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            self.headerView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
             GameManagement.sharedInstance.selectedMode = 0
             self.setUpTableView.reloadData()
             self.setUpTableView.allowsSelection = false
         case 1:
             print("Összetett")
-            self.view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            self.headerView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
             GameManagement.sharedInstance.selectedMode = 1
             self.setUpTableView.reloadData()
             self.setUpTableView.allowsSelection = false
         case 2:
             print("Csata")
-            self.headerView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-            self.view.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
             GameManagement.sharedInstance.selectedMode = 2
             self.reloadTableView()
             self.setUpTableView.allowsSelection = true

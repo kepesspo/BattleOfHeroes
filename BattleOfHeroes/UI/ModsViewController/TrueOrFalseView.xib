@@ -76,7 +76,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ho5-J5-Hs9">
-                    <rect key="frame" x="20" y="521" width="335" height="50"/>
+                    <rect key="frame" x="20" y="511" width="335" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy5-OE-NDY">
                             <rect key="frame" x="0.0" y="0.0" width="165" height="50"/>
@@ -106,9 +106,9 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="0.92549019607843142" green="0.8232679738562092" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Ho5-J5-Hs9" firstAttribute="top" secondItem="wkM-ze-8Fj" secondAttribute="bottom" constant="40" id="8nf-j3-XIV"/>
+                <constraint firstItem="Ho5-J5-Hs9" firstAttribute="top" secondItem="wkM-ze-8Fj" secondAttribute="bottom" constant="30" id="8nf-j3-XIV"/>
                 <constraint firstItem="wkM-ze-8Fj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9Yc-Qx-bOV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UZg-DO-UMV" secondAttribute="trailing" constant="20" id="9li-ZZ-OVH"/>
                 <constraint firstItem="3CL-CZ-gQz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="BcO-cI-vtb"/>

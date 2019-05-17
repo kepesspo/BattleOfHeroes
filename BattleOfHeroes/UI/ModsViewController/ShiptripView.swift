@@ -29,7 +29,6 @@ class ShiptripView: GameView {
     @IBOutlet weak var event3View: UIView!
     @IBOutlet weak var event4View: UIView!
     @IBOutlet weak var event5View: UIView!
-    @IBOutlet weak var plusDrinkLabel: UILabel!
     
     @IBOutlet weak var captainLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -47,6 +46,11 @@ class ShiptripView: GameView {
     var event5Count = 0
     var allEvent = 0
     var captains : [String] = []
+    
+    
+
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,6 +100,14 @@ class ShiptripView: GameView {
     }
     
     func updateUI() {
+        
+        event1View.layer.cornerRadius = 10
+        event2View.layer.cornerRadius = 10
+        event3View.layer.cornerRadius = 10
+        event4View.layer.cornerRadius = 10
+        event5View.layer.cornerRadius = 10
+
+        
         let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
         GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
@@ -148,7 +160,7 @@ class ShiptripView: GameView {
         allEvent = event1Count != 0 ? allEvent - 1 : allEvent
         event1Count = event1Count != 0 ? event1Count - 1 : event1Count
         event1Value.text = "\(event1Count)"
-        plusDrinkLabel.text = ""
+        captainLabel.text = ""
         checkEndGame()
     }
     
@@ -156,7 +168,7 @@ class ShiptripView: GameView {
         allEvent = event2Count != 0 ? allEvent - 1 : allEvent
         event2Count = event2Count != 0 ? event2Count - 1 : event2Count
         event2Value.text = "\(event2Count)"
-        plusDrinkLabel.text = ""
+        captainLabel.text = ""
         checkEndGame()
     }
     
@@ -164,14 +176,14 @@ class ShiptripView: GameView {
         allEvent = event3Count != 0 ? allEvent - 1 : allEvent
         event3Count = event3Count != 0 ? event3Count - 1 : event3Count
         event3Value.text = "\(event3Count)"
-        plusDrinkLabel.text = ""
+        captainLabel.text = ""
         checkEndGame()
     }
     @IBAction func event4Action(_ sender: Any) {
         allEvent = event4Count != 0 ? allEvent - 1 : allEvent
         event4Count = event4Count != 0 ? event4Count - 1 : event4Count
         event4Value.text = "\(event4Count)"
-        plusDrinkLabel.text = "+ egy pia : \(playersList.randomElement()!.playerName)"
+        captainLabel.text = "+ egy pia : \(playersList.randomElement()!.playerName)"
         checkEndGame()
     }
     
@@ -179,7 +191,7 @@ class ShiptripView: GameView {
         allEvent = event5Count != 0 ? allEvent - 1 : allEvent
         event5Count = event5Count != 0 ? event5Count - 1 : event5Count
         event5Value.text = "\(event5Count)"
-        plusDrinkLabel.text = ""
+        captainLabel.text = ""
         checkEndGame()
     }
 }

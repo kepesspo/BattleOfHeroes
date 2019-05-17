@@ -78,6 +78,7 @@ class BattleResultViewController: UIViewController {
     @IBAction func nextGameAction(_ sender: Any) {
         if checkTheWinner() {
             GameManagement.sharedInstance.battlePlayer = []
+            GameManagement.sharedInstance.battleGameRun = false
             self.dismiss(animated: true, completion: nil)
             postNotification(name: .endGame)
         } else {

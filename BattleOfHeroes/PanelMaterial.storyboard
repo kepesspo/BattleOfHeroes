@@ -55,7 +55,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="aNY-eS-uSc" firstAttribute="leading" secondItem="38o-nC-UFf" secondAttribute="leading" id="1Fx-1i-u4o"/>
                                     <constraint firstItem="aNY-eS-uSc" firstAttribute="leading" secondItem="38o-nC-UFf" secondAttribute="leading" id="1ks-yk-5Pd"/>
@@ -124,14 +124,14 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Játék kihagyása">
-                                            <color key="titleColor" name="yellowOfSeg"/>
+                                            <color key="titleColor" name="BattleRed"/>
                                         </state>
                                         <connections>
                                             <action selector="skipGameAction:" destination="cKZ-sD-UtL" eventType="touchUpInside" id="PG6-MM-Bm7"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="M42-m1-eJD" firstAttribute="centerX" secondItem="62Q-e7-RjU" secondAttribute="centerX" id="2yz-C8-v2h"/>
                                     <constraint firstItem="Hjy-cd-9ev" firstAttribute="leading" secondItem="89K-27-1bE" secondAttribute="trailing" constant="60" id="5uk-xz-kmU"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="Rrr-Qw-Pha" firstAttribute="trailing" secondItem="oSZ-rI-pHh" secondAttribute="trailing" id="8GN-66-1bP"/>
                             <constraint firstItem="DpB-ii-x0L" firstAttribute="trailing" secondItem="oSZ-rI-pHh" secondAttribute="trailing" id="JXb-Xd-oOc"/>
                             <constraint firstItem="DpB-ii-x0L" firstAttribute="top" secondItem="qSo-Oi-ZAj" secondAttribute="top" id="Tg4-QD-J5U"/>
-                            <constraint firstItem="Rrr-Qw-Pha" firstAttribute="bottom" secondItem="oSZ-rI-pHh" secondAttribute="bottom" id="e03-96-S2h"/>
+                            <constraint firstItem="Rrr-Qw-Pha" firstAttribute="bottom" secondItem="qSo-Oi-ZAj" secondAttribute="bottom" id="e03-96-S2h"/>
                             <constraint firstItem="89K-27-1bE" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="bottom" constant="20" id="iF3-b6-oc8"/>
                             <constraint firstItem="Rrr-Qw-Pha" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="bottom" id="vAx-3S-KWe"/>
                         </constraints>
@@ -182,8 +182,8 @@
         <image name="info_ikon_aktiv" width="52" height="52.333332061767578"/>
         <image name="jatekok_ikon_Aktiv" width="65" height="58"/>
         <image name="teamwork" width="256" height="256"/>
-        <namedColor name="yellowOfSeg">
-            <color red="0.84705882352941175" green="0.84313725490196079" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="BattleRed">
+            <color red="0.72699999809265137" green="0.86699998378753662" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -59,7 +59,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ9-pa-d04">
-                            <rect key="frame" x="70" y="175" width="0.0" height="0.0"/>
+                            <rect key="frame" x="20" y="175" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="whiteColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIV-3k-GMD">
+                            <rect key="frame" x="335" y="75" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" name="whiteColor"/>
                             <nil key="highlightedColor"/>
@@ -94,31 +100,25 @@
                                 <action selector="timerTwoTouchUpAction:" destination="-1" eventType="touchUpInside" id="BJx-4k-kvc"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIV-3k-GMD">
-                            <rect key="frame" x="285" y="75" width="0.0" height="0.0"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" name="whiteColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.96300119159999997" green="0.86616843939999999" blue="0.8735498786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="w8s-0v-6nx" secondAttribute="bottom" id="49h-qW-Tm8"/>
                         <constraint firstItem="7L8-c7-xRw" firstAttribute="leading" secondItem="TzD-ca-dnF" secondAttribute="leading" id="8iz-Zj-w6D"/>
                         <constraint firstItem="E3k-E9-ngk" firstAttribute="centerX" secondItem="TzD-ca-dnF" secondAttribute="centerX" id="8zX-8X-Dka"/>
-                        <constraint firstItem="aIV-3k-GMD" firstAttribute="leading" secondItem="7L8-c7-xRw" secondAttribute="trailing" constant="-70" id="9fV-l9-aI0"/>
                         <constraint firstItem="alI-mQ-bBl" firstAttribute="centerY" secondItem="TzD-ca-dnF" secondAttribute="centerY" id="CQh-Le-ZeS"/>
                         <constraint firstItem="ilY-f6-PSa" firstAttribute="centerX" secondItem="7L8-c7-xRw" secondAttribute="centerX" id="KZz-v2-acY"/>
                         <constraint firstAttribute="trailing" secondItem="7L8-c7-xRw" secondAttribute="trailing" id="NIS-1x-JAJ"/>
                         <constraint firstItem="ilY-f6-PSa" firstAttribute="top" secondItem="7L8-c7-xRw" secondAttribute="top" constant="20" id="PTp-jQ-XZU"/>
                         <constraint firstAttribute="trailing" secondItem="w8s-0v-6nx" secondAttribute="trailing" id="TAR-Lx-IA0"/>
+                        <constraint firstItem="aIV-3k-GMD" firstAttribute="trailing" secondItem="7L8-c7-xRw" secondAttribute="trailing" constant="-20" id="UAQ-vI-znM"/>
                         <constraint firstItem="aIV-3k-GMD" firstAttribute="top" secondItem="7L8-c7-xRw" secondAttribute="bottom" constant="-50" id="de6-8d-KdD"/>
                         <constraint firstItem="7L8-c7-xRw" firstAttribute="top" secondItem="TzD-ca-dnF" secondAttribute="top" id="fKZ-nE-d6v"/>
                         <constraint firstItem="alI-mQ-bBl" firstAttribute="centerX" secondItem="TzD-ca-dnF" secondAttribute="centerX" id="ir0-wW-QIO"/>
                         <constraint firstItem="NwG-BU-5eB" firstAttribute="bottom" secondItem="w8s-0v-6nx" secondAttribute="bottom" constant="-20" id="laO-Ok-22a"/>
-                        <constraint firstItem="w8s-0v-6nx" firstAttribute="leading" secondItem="DJ9-pa-d04" secondAttribute="trailing" constant="-70" id="nOS-AI-df9"/>
                         <constraint firstItem="w8s-0v-6nx" firstAttribute="top" secondItem="DJ9-pa-d04" secondAttribute="bottom" constant="-50" id="q91-a8-83a"/>
                         <constraint firstItem="w8s-0v-6nx" firstAttribute="top" secondItem="E3k-E9-ngk" secondAttribute="bottom" constant="-20" id="saz-7R-ZW4"/>
+                        <constraint firstItem="DJ9-pa-d04" firstAttribute="leading" secondItem="w8s-0v-6nx" secondAttribute="leading" constant="20" id="tUz-2G-qTn"/>
                         <constraint firstItem="NwG-BU-5eB" firstAttribute="centerX" secondItem="w8s-0v-6nx" secondAttribute="centerX" id="vKg-nt-USj"/>
                         <constraint firstItem="w8s-0v-6nx" firstAttribute="leading" secondItem="TzD-ca-dnF" secondAttribute="leading" id="ylM-DC-sm3"/>
                         <constraint firstAttribute="height" constant="250" id="zaN-LU-b3T"/>
@@ -138,7 +138,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" cyan="0.43383775684931503" magenta="0.018220248287671232" yellow="0.76622715796509833" black="0.30858213682432434" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vVG-GA-NNm" firstAttribute="top" secondItem="VY6-RV-y4F" secondAttribute="bottom" constant="20" id="5Om-0G-3tA"/>
                 <constraint firstItem="TzD-ca-dnF" firstAttribute="leading" secondItem="HD8-yx-F0J" secondAttribute="leading" constant="10" id="5Rh-x7-8O8"/>
