@@ -34,6 +34,8 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
         subscribeForNotification(name: .updateGameIsSpectate, selector: #selector(updatePanelToInactive))
         subscribeForNotification(name: .updateGameIsAll, selector: #selector(updatePanelToActive))
+        subscribeForNotification(name: .updateStartButton, selector: #selector(updateStartButton))
+        
         NetworkSevice.sharedInstance.getGameRunning { (error, value) in
             if value == 1 {
                 self.nextButton.layer.cornerRadius = 10
@@ -64,6 +66,14 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         normalBtn.isEnabled = true
         customBtn.isEnabled = true
         battleBtn.isEnabled = true
+    }
+    
+    @objc func updateStartButton() {
+        if NetworkSevice.sharedInstance.playerList.count == 0 {
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
     }
 
     func triggeredGameMode() {
@@ -137,23 +147,11 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
             print("No game Start")
         } else {
             if GameManagement.sharedInstance.selectedMode == 2 && GameManagement.sharedInstance.battlePlayer.count > 2  {
-                NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
-                    if error == nil {
-                        print("Lock Screen for other player")
-                    } else {
-                        print("Error Lock Screen for other player ")
-                    }
-                }
+                updateGameRun(value: true)
             }  else if GameManagement.sharedInstance.selectedMode == 0 ||
                 GameManagement.sharedInstance.selectedMode == 1 ||
                 GameManagement.sharedInstance.selectedMode == 3 {
-                NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
-                    if error == nil {
-                        print("Lock Screen for other player")
-                    } else {
-                        print("Error Lock Screen for other player ")
-                    }
-                }
+                updateGameRun(value: true)
                 
             } else {
                 print("No Battle Player")
@@ -161,6 +159,15 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         }
     }
 
+    func updateGameRun(value: Bool) {
+        NetworkSevice.sharedInstance.gameRunning(isRun: true) { (error) in
+            if error == nil {
+                print("Lock Screen for other player")
+            } else {
+                print("Error Lock Screen for other player ")
+            }
+        }
+    }
     
     
     func loadAllGameData(completion: (() -> Void)?) {
@@ -289,7 +296,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     }
     
     @IBAction func gameDetailsAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Szoba Adatok", message: "Szoba név: \(roomName!) \n Szoba jelszó: \(roomPass!)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Szoba Adatok", message: "Szoba név: \(roomName!)", preferredStyle: .alert)
         let okBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
         let resetScore = UIAlertAction(title: "Reset Score", style: .destructive) { (alert) in
             NetworkSevice.sharedInstance.resetPlayerData(players: NetworkSevice.sharedInstance.playerList, competionBlock: { (error) in

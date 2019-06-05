@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoNew" translatesAutoresizingMaskIntoConstraints="NO" id="1sC-ly-s5i">
-                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <rect key="frame" x="199" y="440" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="3Xf-5r-ZJt"/>
                                     <constraint firstAttribute="width" secondItem="1sC-ly-s5i" secondAttribute="height" multiplier="1:1" id="xrr-2z-PDy"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94117647058823528" green="0.78431372549019607" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.49803921568627452" green="0.66274509803921566" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1sC-ly-s5i" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Wej-Li-ucM"/>
                             <constraint firstItem="1sC-ly-s5i" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xiL-i1-9VJ"/>
