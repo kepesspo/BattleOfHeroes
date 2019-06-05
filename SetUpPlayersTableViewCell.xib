@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,16 +22,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzM-HD-osy">
                         <rect key="frame" x="0.0" y="3" width="320" height="72.5"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTM-QP-D1Z">
-                                <rect key="frame" x="280" y="34.5" width="10" height="4"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="10" id="aHc-Xb-I1x"/>
-                                    <constraint firstAttribute="height" constant="4" id="b5Q-UW-PAk"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgo-1m-tRP">
-                                <rect key="frame" x="30" y="26" width="220" height="21"/>
+                                <rect key="frame" x="30" y="26" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,9 +31,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jTM-QP-D1Z" secondAttribute="trailing" constant="30" id="Aza-Tv-uIc"/>
-                            <constraint firstItem="jTM-QP-D1Z" firstAttribute="centerY" secondItem="jzM-HD-osy" secondAttribute="centerY" id="R6T-Re-8ad"/>
-                            <constraint firstItem="jTM-QP-D1Z" firstAttribute="leading" secondItem="Vgo-1m-tRP" secondAttribute="trailing" constant="30" id="j0Q-VT-WCd"/>
                             <constraint firstItem="Vgo-1m-tRP" firstAttribute="centerY" secondItem="jzM-HD-osy" secondAttribute="centerY" id="sok-A6-c2Z"/>
                             <constraint firstItem="Vgo-1m-tRP" firstAttribute="leading" secondItem="jzM-HD-osy" secondAttribute="leading" constant="30" id="wpT-FK-i0g"/>
                         </constraints>

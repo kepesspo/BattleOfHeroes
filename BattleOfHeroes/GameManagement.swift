@@ -511,7 +511,7 @@ class GameManagement {
     var selectedSpac = 0
     var battleGameRun = false
     
-    var horseRaceBettingPlayer: [Bet] = []
+    var horseRaceBettingPlayer: [HorseBet] = []
     var games = [Game]()
     func getGames() -> [Game] {
         getChosenGameMode()

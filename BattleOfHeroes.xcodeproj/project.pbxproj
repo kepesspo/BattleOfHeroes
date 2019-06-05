@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4B388C4824D6752DEF764C5A /* Pods_BattleOfHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE479D9079C25974625AA34F /* Pods_BattleOfHeroes.framework */; };
+		4D0266F522A54AAE00053894 /* person.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D0266F422A54AAE00053894 /* person.json */; };
+		4D0266F722A5503E00053894 /* person2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D0266F622A5503D00053894 /* person2.json */; };
+		4D0266F922A5529C00053894 /* person3.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D0266F822A5529C00053894 /* person3.json */; };
 		4D0711D621F0CD62006D4563 /* ShiptripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0711D521F0CD62006D4563 /* ShiptripView.swift */; };
 		4D0711D821F0CD76006D4563 /* ShiptripView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0711D721F0CD76006D4563 /* ShiptripView.xib */; };
 		4D0711DA21F0D84C006D4563 /* HorseRaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0711D921F0D84C006D4563 /* HorseRaceView.xib */; };
@@ -195,6 +198,9 @@
 
 /* Begin PBXFileReference section */
 		001AF14290CFAB459355AE18 /* Pods-BattleOfHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattleOfHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes.debug.xcconfig"; sourceTree = "<group>"; };
+		4D0266F422A54AAE00053894 /* person.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = person.json; sourceTree = "<group>"; };
+		4D0266F622A5503D00053894 /* person2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = person2.json; sourceTree = "<group>"; };
+		4D0266F822A5529C00053894 /* person3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = person3.json; sourceTree = "<group>"; };
 		4D0711D521F0CD62006D4563 /* ShiptripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiptripView.swift; sourceTree = "<group>"; };
 		4D0711D721F0CD76006D4563 /* ShiptripView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShiptripView.xib; sourceTree = "<group>"; };
 		4D0711D921F0D84C006D4563 /* HorseRaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorseRaceView.xib; sourceTree = "<group>"; };
@@ -488,6 +494,9 @@
 		4DA36ADE21A421DE00B757BE /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				4D0266F822A5529C00053894 /* person3.json */,
+				4D0266F422A54AAE00053894 /* person.json */,
+				4D0266F622A5503D00053894 /* person2.json */,
 				4D211AD12271EC9E0065335E /* 4031-voice-recognition.json */,
 				4D1A1D972231646C00B7626A /* 4386-connection-error.json */,
 				4DA283F7219B179000F6D377 /* sound_visualizer.json */,
@@ -797,6 +806,11 @@
 					4DE1230720EE33C90004C28E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					4DE1231D20EE33C90004C28E = {
 						CreatedOnToolsVersion = 9.2;
@@ -863,7 +877,9 @@
 				4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */,
 				4D56D4D721512DC4004A591A /* HaveIEverNeverView.xib in Resources */,
 				4DFFD5C42135667300A4989B /* Rubik-Medium.ttf in Resources */,
+				4D0266F922A5529C00053894 /* person3.json in Resources */,
 				4D0E59F821F0E0C60027CCA5 /* CollectAndBoomView.xib in Resources */,
+				4D0266F722A5503E00053894 /* person2.json in Resources */,
 				4DDEB1AA2195B63700C6E8D7 /* ThePeopleChoiceView.xib in Resources */,
 				4D3A8E642128C8B50018C047 /* SetUpPlayersTableViewCell.xib in Resources */,
 				4DFFD5C92135667300A4989B /* Rubik-Italic.ttf in Resources */,
@@ -881,6 +897,7 @@
 				4D22939721E8C8600025C5A7 /* HaveIEverNeverManagerView.xib in Resources */,
 				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
 				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
+				4D0266F522A54AAE00053894 /* person.json in Resources */,
 				4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */,
 				4D3466662188661F00D379A9 /* BonusPlayerTableViewCell.xib in Resources */,
 				4DA283F8219B179000F6D377 /* sound_visualizer.json in Resources */,

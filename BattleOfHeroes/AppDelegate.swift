@@ -16,6 +16,7 @@ import SpotifyLogin
 
     var window: UIWindow?
     var reachability = Reachability()!
+    var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -78,6 +79,9 @@ import SpotifyLogin
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        
+        
+        
         NetworkSevice.sharedInstance.getGameRunning { (error, run) in
             if run == 1 && GameManagement.sharedInstance.isSpactate {
                 print("No Delete is Run")
@@ -109,7 +113,7 @@ import SpotifyLogin
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        
+       
     }
 
 

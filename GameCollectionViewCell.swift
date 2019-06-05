@@ -20,6 +20,7 @@ class GameCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var descriptionBtn: UIButton!
     
     var gameData : Game? {
         didSet {
@@ -53,6 +54,10 @@ class GameCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func showDescription() {
+        delegate?.sharePressed(game: gameData!)
+    }
+    
+    @IBAction func descriptionAction(_ sender: Any) {
         delegate?.sharePressed(game: gameData!)
     }
 }

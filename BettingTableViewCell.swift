@@ -14,7 +14,7 @@ class BettingTableViewCell: UITableViewCell {
     @IBOutlet weak var betHorseColorLabel: UILabel!
     @IBOutlet weak var colorView: UIView!
     
-    var player: Bet? {
+    var player: HorseBet? {
         didSet {
             loadData()
         }
@@ -22,7 +22,7 @@ class BettingTableViewCell: UITableViewCell {
     
     var cellColor: UIColor? {
         didSet {
-            setCellColor()
+            setCellColor(color: cellColor ?? UIColor.white)
         }
     }
     
@@ -42,11 +42,11 @@ class BettingTableViewCell: UITableViewCell {
         if let playerDrink = player?.drinkValue {
             drinkCountLabel.text = "\(playerDrink)"
         }
-        betHorseColorLabel.text = player?.horseColorName
-        colorView.backgroundColor = player?.horseColor
+        betHorseColorLabel.text = player?.horseColor.text
+        colorView.backgroundColor = player?.horseColor.uiColor
     }
     
-    func setCellColor() {
+    func setCellColor(color: UIColor) {
         self.colorView.backgroundColor = cellColor
     }
     

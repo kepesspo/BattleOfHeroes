@@ -42,7 +42,6 @@ class NetworkSevice {
     func addGameToDatabase(room: Room, competionBlock: @escaping(_ error: Error?) -> Void) {
         let game = ["id" : room.gameRoom,
                     "gameRoom" : room.gameRoom,
-                    "gamePass" : room.gamePassword,
                     "randomMemberShow" : false,
                     "playerNameWhoGetDrinks" : "",
                     "HorseRace" : false,
@@ -154,23 +153,15 @@ class NetworkSevice {
     }
     
     // check room Autenticate
-    func roomExist(gameName: String, gamePass: String, competionBlock: @escaping(_ error: String? , _ success: Bool) -> Void) {
+    func roomExist(gameName: String, competionBlock: @escaping(_ error: String? , _ success: Bool) -> Void) {
         self.refGame.queryOrdered(byChild: "gameRoom")
             .queryEqual(toValue: gameName)
             .observeSingleEvent(of: .value, with: { (snapshot) in
                 if ( snapshot.value is NSNull ) {
                     competionBlock("Room doesn't exist",false)
                 } else {
-                    self.refGame.queryOrdered(byChild: "gamePass")
-                        .queryEqual(toValue: gamePass)
-                        .observeSingleEvent(of: .value) { (snapshotForPass) in
-                            if ( snapshotForPass.value is NSNull ) {
-                                competionBlock("Room Pass not correct",false)
-                            } else {
-                                print("Room Pass correct")
-                                competionBlock(nil,true)
-                            }
-                    }
+                    print("Room Pass correct")
+                    competionBlock(nil,true)
                 }
             })
     }
@@ -278,7 +269,9 @@ class NetworkSevice {
             print("No room id to use")
             completionBlock(MyError.emptyRoomIDError("No room id to use error"))
         } else {
-            refGame.child(roomId).child("GameRun").setValue(isRun)
+            let gameRun = refGame.child(roomId).child("GameRun")
+            gameRun.setValue(isRun)
+            gameRun.onDisconnectSetValue(false)
             completionBlock(nil)
         }
         
@@ -428,6 +421,5 @@ class NetworkSevice {
             }
             
         }
-    }
-    
+    } 
 }

@@ -343,7 +343,7 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 3 - 4, height: gameCollectionView.bounds.width / 3 + 50)
+        return CGSize(width: gameCollectionView.bounds.width / 2 - 4, height: gameCollectionView.bounds.width / 3 + 50)
     }
     
     func collectionView(_ collectionView: UICollectionView,

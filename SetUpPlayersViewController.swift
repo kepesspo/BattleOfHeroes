@@ -11,7 +11,7 @@ import FirebaseDatabase
 import Firebase
 import Reachability
 import Panels
-
+import Lottie
 
 class SetUpPlayersViewController: UIViewController {
     @IBOutlet weak var setUpTableView: UITableView!
@@ -19,6 +19,8 @@ class SetUpPlayersViewController: UIViewController {
     @IBOutlet weak var playerNavigationItem: UINavigationItem!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var plusButtonImageView: UIImageView!
+    @IBOutlet weak var personAnimationView: LOTAnimationView!
+    @IBOutlet weak var gameStartLabel: UILabel!
     
     var refPlayer = fireBaseRefData.playerRef
     var playerList = [Player]()
@@ -28,6 +30,18 @@ class SetUpPlayersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpTableView.isHidden = true
+        
+        
+        if playerList.count == 0 {
+            setUpTableView.isHidden = true
+            personAnimationView.loopAnimation = true
+            personAnimationView.play()
+        } else {
+            personAnimationView.isHidden = true
+            setUpTableView.isHidden = false
+        }
         
         subscribeForNotification(name: .gameModeChanged, selector: #selector(gameModeChanged), object: nil)
         showPanel()
@@ -47,9 +61,6 @@ class SetUpPlayersViewController: UIViewController {
         super.viewWillAppear(animated)
         panelManager.collapsePanel()
         self.checkGameRunning()
-
-        
-        
         self.setUpTableView.reloadData()
         self.setUpTableView.allowsSelection = false
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -76,7 +87,7 @@ class SetUpPlayersViewController: UIViewController {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelMenu")
         var panelConfiguration = PanelConfiguration(size: .custom(450))
         panelConfiguration.animateEntry = true
-        panelConfiguration.panelVisibleArea = 140
+        panelConfiguration.panelVisibleArea = 100
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
     
@@ -86,17 +97,17 @@ class SetUpPlayersViewController: UIViewController {
         panelManager.collapsePanel()
         switch GameManagement.sharedInstance.selectedMode {
         case 0:
-            print("Egyszerű")
+            print("Egyszerű játékmod")
             GameManagement.sharedInstance.selectedMode = 0
             self.setUpTableView.reloadData()
             self.setUpTableView.allowsSelection = false
         case 1:
-            print("Összetett")
+            print("Összetett játékmod")
             GameManagement.sharedInstance.selectedMode = 1
             self.setUpTableView.reloadData()
             self.setUpTableView.allowsSelection = false
         case 2:
-            print("Csata")
+            print("Csata játékmod")
             GameManagement.sharedInstance.selectedMode = 2
             self.reloadTableView()
             self.setUpTableView.allowsSelection = true
@@ -127,6 +138,7 @@ class SetUpPlayersViewController: UIViewController {
                     if error != nil {
                         print(error?.localizedDescription)
                     } else {
+                        self.updateView()
                         self.checkGameParam()
                         self.setUpTableView.reloadData()
                     }
@@ -161,12 +173,25 @@ class SetUpPlayersViewController: UIViewController {
                 print("hiba")
             } else {
                 self.playerList = NetworkSevice.sharedInstance.playerList
+                self.updateView()
                 self.setUpTableView.reloadData()
                 completionBlock(nil)
             }
         })
-        
-        
+    }
+    
+    func updateView() {
+        if playerList.count == 0 {
+            setUpTableView.isHidden = true
+            gameStartLabel.isHidden = false
+            personAnimationView.isHidden = false
+            personAnimationView.loopAnimation = true
+            personAnimationView.play()
+        } else {
+            personAnimationView.isHidden = true
+            setUpTableView.isHidden = false
+            gameStartLabel.isHidden = true
+        }
     }
 
     
@@ -251,10 +276,13 @@ extension SetUpPlayersViewController: UITableViewDelegate ,UITableViewDataSource
             NetworkSevice.sharedInstance.deletePlayerToDatabase(player: playerList[indexPath.row], competionBlock: { (error) in
                 if (error != nil) {
                     print("Hiba")
+                } else {
+                    postNotification(name: .updateStartButton)
                 }
             })
             playerList.remove(at: indexPath.row)
             self.setUpTableView.deleteRows(at: [indexPath], with: .fade)
+            updateView()
             checkGameParam()
         default:
             return
