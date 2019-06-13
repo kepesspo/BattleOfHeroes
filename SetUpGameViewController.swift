@@ -8,6 +8,7 @@
 
 import UIKit
 import SpotifyLogin
+import Panels
 
 class SetUpGameViewController: UIViewController {
     
@@ -15,7 +16,6 @@ class SetUpGameViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var sectionHeader: GameSectionHeaderCollectionReusableView!
     
     var games = GameManagement.sharedInstance.games
     var groupGames : [Game] = [Game]()
@@ -24,11 +24,12 @@ class SetUpGameViewController: UIViewController {
     var BattleGames : [Game] = [Game]()
     
     var chosenGames : [Game] = [Game]()
-    
+    lazy var panelManager = Panels(target: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addGame()
+        showPanel()
         GameManagement.sharedInstance.isSpactate = false
         gameCollectionView.register(UINib.init(nibName: "GameCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCollectionViewCell")
         gameCollectionView.showsVerticalScrollIndicator  = false
@@ -65,6 +66,14 @@ class SetUpGameViewController: UIViewController {
     
     }
     
+    func showPanel() {
+        let panel = UIStoryboard.instantiatePanel(identifier: "PanelGames")
+        var panelConfiguration = PanelConfiguration(size: .custom(350))
+        panelConfiguration.animateEntry = false
+        panelConfiguration.panelVisibleArea = 100
+        self.panelManager.show(panel: panel, config: panelConfiguration)
+    }
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
             if error == nil {
@@ -73,14 +82,11 @@ class SetUpGameViewController: UIViewController {
                 print("Error Lock Screen for other player ")
             }
         }
-        
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         doneTapped()
-        
     }
     
     
@@ -249,12 +255,7 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
         return GameType.allValues.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "GameSectionHeaderCollectionReusableView", for: indexPath) as? GameSectionHeaderCollectionReusableView
-        
-        sectionHeaderView?.typeTitle = GameType.allValues[indexPath.section].rawValue
-        return sectionHeaderView!
-    }
+   
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
@@ -343,7 +344,7 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 2 - 4, height: gameCollectionView.bounds.width / 3 + 50)
+        return CGSize(width: gameCollectionView.bounds.width / 3 - 4, height: gameCollectionView.bounds.height / 3 - 4)
     }
     
     func collectionView(_ collectionView: UICollectionView,

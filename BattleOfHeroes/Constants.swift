@@ -58,6 +58,7 @@ extension Notification.Name {
     static let updateGameIsSpectate = Notification.Name("updateGameIsSpectate")
     static let updateGameIsAll = Notification.Name("updateGameIsAll")
     static let updateStartButton = Notification.Name("updateStartButton")
+    static let updatePlayerCollectionView = Notification.Name("updatePlayerCollectionView")
 }
 
 

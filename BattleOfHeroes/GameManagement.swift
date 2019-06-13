@@ -511,6 +511,12 @@ class GameManagement {
     var selectedSpac = 0
     var battleGameRun = false
     
+    var figures = ["black_figures-1","blue_figures-1","yellow_figures-1",
+                   "pink_figures-1","green_figures-1","gray_figures-1",
+                   "orange_figures-1","dark_figures-1","purple_figures-1","gray_figures-1"]
+    
+    var showExtraSetUp = false
+    
     var horseRaceBettingPlayer: [HorseBet] = []
     var games = [Game]()
     func getGames() -> [Game] {

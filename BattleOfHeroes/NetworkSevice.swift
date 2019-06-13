@@ -54,22 +54,18 @@ class NetworkSevice {
     
     // Add Player To Database
     func addPlayerToDatabase(player: Player, competionBlock: @escaping(_ error: Error?) -> Void) {
-        if player.playerName == "" {
-            competionBlock(MyError.runtimeError("Player Neve nem megfelelő"))
-            
-        } else {
-            let roomId = GameManagement.sharedInstance.getRoomName()
-            let playerKey = refPlayer.childByAutoId().key
-            let player = ["id":playerKey,
-                          "playerName": player.playerName as String,
-                          "playerTeamId" : player.teamId as String,
-                          "playerDrinks" : player.allDrink as Int,
-                          "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
-            refGame.child(roomId).child("Players").child(playerKey ?? "").setValue(player)
-            competionBlock(nil)
-        }
-        
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        let playerKey = refPlayer.childByAutoId().key
+        let player = ["id":playerKey,
+                      "playerName": player.playerName as String,
+                      "playerTeamId" : player.teamId as String,
+                      "playerDrinks" : player.allDrink as Int,
+                      "playerColor" : player.color as String,
+                      "playerUsedBonus" : player.usedBonus as Int] as [String : Any]
+        refGame.child(roomId).child("Players").child(playerKey ?? "").setValue(player)
+        competionBlock(nil)
     }
+
     
     // Delete player To Database
     func deletePlayerToDatabase(player: Player, competionBlock: @escaping(_ error: Error?) -> Void) {
@@ -182,8 +178,8 @@ class NetworkSevice {
     func getPlayerList(completionBlock: @escaping(_ error : Error?) -> Void) {
         let roomId = GameManagement.sharedInstance.getRoomName()
         refGame.child(roomId).child("Players").observe(DataEventType.value) { (snapshot) in
+            self.playerList.removeAll()
             if snapshot.childrenCount > 0 {
-                self.playerList.removeAll()
                 
                 for player in snapshot.children.allObjects as! [DataSnapshot] {
                     let playerObject = player.value as? [String: AnyObject]
@@ -192,11 +188,14 @@ class NetworkSevice {
                     let playerTeam = playerObject?["playerTeamId"] as? String
                     let playerDrinks = playerObject?["playerDrinks"] as? Int
                     let playerUsedBonus = playerObject!["playerUsedBonus"] as? Int
+                    let playerColor = playerObject!["playerColor"] as? String
                     
-                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, allDrink: playerDrinks!, usedBonus: playerUsedBonus!)
+                    let player = Player(id: playerId!, playerName: playerName!, teamId: playerTeam!, allDrink: playerDrinks!, usedBonus: playerUsedBonus!, color: playerColor!)
                     self.playerList.append(player)
                     
                 }
+                completionBlock(nil)
+            } else {
                 completionBlock(nil)
             }
         }

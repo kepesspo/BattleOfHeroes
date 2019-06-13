@@ -122,6 +122,8 @@
 		4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */; };
 		4DB8BA49210B27D500DAF932 /* CustomInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8BA47210B27D500DAF932 /* CustomInfoTableViewCell.xib */; };
 		4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */; };
+		4DC09D6522AFE6940037D415 /* PanelGames.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC09D6422AFE6940037D415 /* PanelGames.storyboard */; };
+		4DC09D6722AFE6B40037D415 /* PanelGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC09D6622AFE6B40037D415 /* PanelGames.swift */; };
 		4DC81963211C511700F09922 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC81962211C511700F09922 /* UIApplication.swift */; };
 		4DC819662120C2AD00F09922 /* HowDrinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC819642120C2AC00F09922 /* HowDrinksTableViewCell.swift */; };
 		4DC819672120C2AD00F09922 /* HowDrinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC819652120C2AC00F09922 /* HowDrinksTableViewCell.xib */; };
@@ -133,6 +135,8 @@
 		4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC819722120E90400F09922 /* RockPaperScissorsView.xib */; };
 		4DC819752121099200F09922 /* FingerItView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC819742121099200F09922 /* FingerItView.swift */; };
 		4DC81977212109B000F09922 /* FingerItView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC81976212109B000F09922 /* FingerItView.xib */; };
+		4DCA265322AA941300FA8E46 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA265122AA941300FA8E46 /* PlayerCollectionViewCell.swift */; };
+		4DCA265422AA941300FA8E46 /* PlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA265222AA941300FA8E46 /* PlayerCollectionViewCell.xib */; };
 		4DCC02EA211B8FFD00D71186 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02E8211B8FFD00D71186 /* ScoreTableViewCell.swift */; };
 		4DCC02EB211B8FFD00D71186 /* ScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC02E9211B8FFD00D71186 /* ScoreTableViewCell.xib */; };
 		4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */; };
@@ -159,6 +163,8 @@
 		4DE1234820F350F90004C28E /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234720F350F90004C28E /* Team.swift */; };
 		4DE1234B20F3512B0004C28E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1234A20F3512B0004C28E /* Player.swift */; };
 		4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */; };
+		4DE706B222AFA9B00079C66C /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE706B022AFA9B00079C66C /* AddPlayerCollectionViewCell.swift */; };
+		4DE706B322AFA9B00079C66C /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE706B122AFA9B00079C66C /* AddPlayerCollectionViewCell.xib */; };
 		4DF709EC21C7BE27007A5317 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF709EB21C7BE26007A5317 /* InfoViewController.swift */; };
 		4DF709EE21C93D7D007A5317 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF709ED21C93D7D007A5317 /* EndGameViewController.swift */; };
 		4DF7E65321AEE9FD00BA178F /* MusicRecognizerManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */; };
@@ -313,6 +319,8 @@
 		4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoTableViewCell.swift; sourceTree = "<group>"; };
 		4DB8BA47210B27D500DAF932 /* CustomInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoTableViewCell.xib; sourceTree = "<group>"; };
 		4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSevice.swift; sourceTree = "<group>"; };
+		4DC09D6422AFE6940037D415 /* PanelGames.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PanelGames.storyboard; sourceTree = "<group>"; };
+		4DC09D6622AFE6B40037D415 /* PanelGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGames.swift; sourceTree = "<group>"; };
 		4DC81962211C511700F09922 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		4DC819642120C2AC00F09922 /* HowDrinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowDrinksTableViewCell.swift; sourceTree = "<group>"; };
 		4DC819652120C2AC00F09922 /* HowDrinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HowDrinksTableViewCell.xib; sourceTree = "<group>"; };
@@ -324,6 +332,8 @@
 		4DC819722120E90400F09922 /* RockPaperScissorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RockPaperScissorsView.xib; sourceTree = "<group>"; };
 		4DC819742121099200F09922 /* FingerItView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerItView.swift; sourceTree = "<group>"; };
 		4DC81976212109B000F09922 /* FingerItView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FingerItView.xib; sourceTree = "<group>"; };
+		4DCA265122AA941300FA8E46 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DCA265222AA941300FA8E46 /* PlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		4DCC02E8211B8FFD00D71186 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		4DCC02E9211B8FFD00D71186 /* ScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableViewCell.xib; sourceTree = "<group>"; };
 		4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -356,6 +366,8 @@
 		4DE1234720F350F90004C28E /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4DE1234A20F3512B0004C28E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4DE1234C20F35C1A0004C28E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DE706B022AFA9B00079C66C /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DE706B122AFA9B00079C66C /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		4DF709EB21C7BE26007A5317 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4DF709ED21C93D7D007A5317 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecognizerManagerView.swift; sourceTree = "<group>"; };
@@ -423,6 +435,7 @@
 			children = (
 				4D92A656225E12E90074405E /* PanelMaterial.swift */,
 				4D3E49EE226082E30037D899 /* PanelMenu.swift */,
+				4DC09D6622AFE6B40037D415 /* PanelGames.swift */,
 			);
 			path = Panel;
 			sourceTree = "<group>";
@@ -528,8 +541,6 @@
 				4DC819652120C2AC00F09922 /* HowDrinksTableViewCell.xib */,
 				4D3A8E612128C8B50018C047 /* SetUpPlayersTableViewCell.swift */,
 				4D3A8E622128C8B50018C047 /* SetUpPlayersTableViewCell.xib */,
-				4DFFD5CB213D5DF200A4989B /* GameCollectionViewCell.swift */,
-				4DFFD5CC213D5DF200A4989B /* GameCollectionViewCell.xib */,
 				4D68038A2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift */,
 				4D3466632188661F00D379A9 /* BonusPlayerTableViewCell.swift */,
 				4D3466642188661F00D379A9 /* BonusPlayerTableViewCell.xib */,
@@ -537,6 +548,12 @@
 				4DA6ED7B21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib */,
 				4D211AC7226864140065335E /* BettingTableViewCell.swift */,
 				4D211AC8226864140065335E /* BettingTableViewCell.xib */,
+				4DFFD5CB213D5DF200A4989B /* GameCollectionViewCell.swift */,
+				4DFFD5CC213D5DF200A4989B /* GameCollectionViewCell.xib */,
+				4DCA265122AA941300FA8E46 /* PlayerCollectionViewCell.swift */,
+				4DCA265222AA941300FA8E46 /* PlayerCollectionViewCell.xib */,
+				4DE706B022AFA9B00079C66C /* AddPlayerCollectionViewCell.swift */,
+				4DE706B122AFA9B00079C66C /* AddPlayerCollectionViewCell.xib */,
 			);
 			name = CustomCell;
 			path = ../..;
@@ -616,6 +633,7 @@
 				4DE1231120EE33C90004C28E /* Main.storyboard */,
 				4D92A658225E13110074405E /* PanelMaterial.storyboard */,
 				4D3E49EA226082910037D899 /* PanelMenu.storyboard */,
+				4DC09D6422AFE6940037D415 /* PanelGames.storyboard */,
 				4DE1231620EE33C90004C28E /* LaunchScreen.storyboard */,
 				4DE1231420EE33C90004C28E /* Assets.xcassets */,
 				4DE1231920EE33C90004C28E /* Info.plist */,
@@ -870,6 +888,7 @@
 				4D1BDEDB211321AF00E51AA9 /* WheelOfFortuneView.xib in Resources */,
 				4DFFD5C22135667300A4989B /* Rubik-Light.ttf in Resources */,
 				4D766E9521F0DDDE0027EF1F /* FiveThingsView.xib in Resources */,
+				4DCA265422AA941300FA8E46 /* PlayerCollectionViewCell.xib in Resources */,
 				4D9B7BC52111ED77000439AB /* CategoriesView.xib in Resources */,
 				4DE11B2321F0DA5F005A092E /* AnagramView.xib in Resources */,
 				4DFFD5C12135667300A4989B /* Rubik-Black.ttf in Resources */,
@@ -901,11 +920,13 @@
 				4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */,
 				4D3466662188661F00D379A9 /* BonusPlayerTableViewCell.xib in Resources */,
 				4DA283F8219B179000F6D377 /* sound_visualizer.json in Resources */,
+				4DC09D6522AFE6940037D415 /* PanelGames.storyboard in Resources */,
 				4DC819672120C2AD00F09922 /* HowDrinksTableViewCell.xib in Resources */,
 				4D56D4DB21513B3A004A591A /* WhoAmIView.xib in Resources */,
 				4DF7E65621AEEA6500BA178F /* MusicRecognizerManagerView.xib in Resources */,
 				4D27AABF210C87B500716C6D /* TrueOrFalseView.xib in Resources */,
 				4DFFD5C52135667300A4989B /* Rubik-LightItalic.ttf in Resources */,
+				4DE706B322AFA9B00079C66C /* AddPlayerCollectionViewCell.xib in Resources */,
 				4DFFD5C62135667300A4989B /* Rubik-Bold.ttf in Resources */,
 				4D1BDED721131D9600E51AA9 /* EverybodyDrinksView.xib in Resources */,
 				4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */,
@@ -1016,6 +1037,7 @@
 				4D77255421B97875006ED67C /* DatabaseViewController.swift in Sources */,
 				4DE1233F20EE584E0004C28E /* AttributedString.swift in Sources */,
 				4DF709EE21C93D7D007A5317 /* EndGameViewController.swift in Sources */,
+				4DE706B222AFA9B00079C66C /* AddPlayerCollectionViewCell.swift in Sources */,
 				4D94B665216762FD002D7B03 /* SpoonView.swift in Sources */,
 				4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */,
 				4DA36ADB21A41D6600B757BE /* RussianRouletteView.swift in Sources */,
@@ -1064,6 +1086,7 @@
 				4D28A9C821A2C8F8007F4F0D /* FamousPerson.swift in Sources */,
 				4D211AC6226774B40065335E /* HorseRaceBetViewController.swift in Sources */,
 				4DA36AD921A41A7400B757BE /* HaveIEverNever.swift in Sources */,
+				4DC09D6722AFE6B40037D415 /* PanelGames.swift in Sources */,
 				4D79986321149CD3006FE28B /* GameManagement.swift in Sources */,
 				4D68038B2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift in Sources */,
 				4DCC02EA211B8FFD00D71186 /* ScoreTableViewCell.swift in Sources */,
@@ -1099,6 +1122,7 @@
 				4D1BDED521131D5500E51AA9 /* EverybodyDrinksView.swift in Sources */,
 				4DDDEBA121E39898006FDA6E /* WhoAmIManagerView.swift in Sources */,
 				4D3A8E5721241BCC0018C047 /* CheersToTheGovernorView.swift in Sources */,
+				4DCA265322AA941300FA8E46 /* PlayerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
