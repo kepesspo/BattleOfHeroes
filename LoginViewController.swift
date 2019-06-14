@@ -8,69 +8,37 @@
 
 import UIKit
 import Reachability
+import TTSegmentedControl
 
 class LoginViewController: UIViewController ,UITextFieldDelegate {
 
     @IBOutlet weak var createGame: UIButton!
-    @IBOutlet weak var login: UIButton!
-    
-    @IBOutlet weak var gameNameTextfield: UITextField!
     @IBOutlet weak var versionLabel: UILabel!
-    @IBOutlet weak var offlineSwitch: UISwitch!
+    @IBOutlet weak var gameTypeSegmentedControl: TTSegmentedControl!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        self.view.addGestureRecognizer(tap)
-        offlineSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
-        offlineSwitch.isEnabled = false
-        offlineSwitch.layer.borderColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    @objc func tapped() {
-       gameNameTextfield.resignFirstResponder()
-    }
-    
-    @objc func switchChanged(mySwitch: UISwitch) {
-        if mySwitch.isOn == true {
-            print("Online")
-            gameNameTextfield.isHidden = false
-        } else {
-            print("Offline")
-            gameNameTextfield.isHidden = true
-        }
-    }
-    
     
     func setUpView() {
-        gameNameTextfield.layer.borderColor = UIColor.black.cgColor
-        gameNameTextfield.layer.borderWidth = 4
-        gameNameTextfield.layer.cornerRadius = 4
-        gameNameTextfield.clipsToBounds = true
-        
-        
-        self.gameNameTextfield.delegate = self
-        
-        if DevOptions.autoFill == 1 {
-            gameNameTextfield.text = "1371"
+        gameTypeSegmentedControl.itemTitles = ["Online", "Offline"]
+        gameTypeSegmentedControl.layer.cornerRadius = 7
+        gameTypeSegmentedControl.defaultTextFont = UIFont.rubic(19)
+        gameTypeSegmentedControl.selectedTextFont = UIFont.rubic(19)
+        gameTypeSegmentedControl.defaultTextColor = #colorLiteral(red: 0.01176470588, green: 0.7490196078, blue: 0.7490196078, alpha: 1)
+        gameTypeSegmentedControl.allowChangeThumbWidth = false
+        gameTypeSegmentedControl.didSelectItemWith = { (index, title) -> () in
+            switch index {
+            case 0:
+                print("Online Mode")
+            case 1:
+                print("Offline Mode")
+            default:
+                print("Default")
+            }
+            print("Selected item \(index)")  
         }
         
         if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String,
@@ -86,7 +54,6 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     
     
     @IBAction func createGameAction(_ sender: Any) {
-        
         startEmptyLogin()
     }
     
@@ -112,12 +79,12 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
         })
     }
     
-    @IBAction func loginAction(_ sender: Any) {
+    func loginWithSpectate() {
         if validateLogin() {
-            NetworkSevice.sharedInstance.roomExist(gameName: gameNameTextfield.text ?? "") { (error,success)  in
+            NetworkSevice.sharedInstance.roomExist(gameName: "") { (error,success)  in
                 if success == true {
                     if GameManagement.sharedInstance.isOnboardingClosed() == true {
-                        UserDefaults.standard.set(self.gameNameTextfield.text, forKey: UserDefaultsKeys.roomName)
+                        UserDefaults.standard.set("", forKey: UserDefaultsKeys.roomName)
                         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
                         self.present(vc, animated: true, completion: nil)
                     } else {
@@ -133,14 +100,13 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
                     UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
                 }
             }
-            
-            
         }
     }
     
     
     func validateLogin() -> Bool {
-        if (gameNameTextfield.text?.isEmpty)! {
+        let roomName = ""
+        if (roomName.isEmpty) {
             let alert = UIAlertController(title: "Warning".localized(),
                                           message: "Minden mezőt ki kell tölteni",
                                           preferredStyle: .alert)

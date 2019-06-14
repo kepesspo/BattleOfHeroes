@@ -100,7 +100,6 @@ class ShiptripView: GameView {
     }
     
     func updateUI() {
-        
         event1View.layer.cornerRadius = 10
         event2View.layer.cornerRadius = 10
         event3View.layer.cornerRadius = 10

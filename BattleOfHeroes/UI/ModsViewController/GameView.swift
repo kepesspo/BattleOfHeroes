@@ -11,13 +11,9 @@ import UIKit
 
 class GameView : UIView {
     var gameCounter : String?
-    
     var tap: UITapGestureRecognizer!
     var actuallyInfo: String?
-    //var infoDescription: String?
-    
     var personData : [String] = []
-    
     var drinkSegCount = [0,1,2,3]
     
     override init(frame: CGRect) {
@@ -37,7 +33,6 @@ class GameView : UIView {
     
     @objc func tapped() {
         GameManagement.sharedInstance.horseRaceBettingPlayer = []
-        
         NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
             if error == nil {
                 print("Horse race with database work")

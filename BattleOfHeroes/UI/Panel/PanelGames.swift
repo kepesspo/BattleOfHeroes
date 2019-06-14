@@ -30,17 +30,15 @@ class PanelGames: UIViewController, Panelable {
         
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if GameManagement.sharedInstance.showExtraSetUp == false {
-            GameManagement.sharedInstance.groupDrinksAllow = false
-            GameManagement.sharedInstance.randomPictogramAllow = false
-            GameManagement.sharedInstance.showBonusView = false
-            GameManagement.sharedInstance.drininkCounterView = false
-            let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-            self.present(gameVc, animated: true, completion: nil)
-        } else {
-            let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ExtraSetUpViewController") as! ExtraSetUpViewController
-            self.present(gameVc, animated: true, completion: nil)
+        GameSetup.sharedInstance.createGame { (error) in
+            if error == nil {
+                print("Success to Create Game")
+                postNotification(name: .gameNext)
+            } else {
+                print("Error to download Games")
+            }
         }
+        
     }
     
     func setUpLevelCounterView() {

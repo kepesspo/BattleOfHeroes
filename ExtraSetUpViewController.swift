@@ -11,14 +11,11 @@ import TTSegmentedControl
 
 class ExtraSetUpViewController: UIViewController {
     
-    @IBOutlet weak var levelView: UIView!
     @IBOutlet weak var uiOptionsView: UIView!
     @IBOutlet weak var moreDrinkingOptionsView: UIView!
     @IBOutlet weak var newOptionsView: UIView!
-    @IBOutlet weak var levelDrinkLabel: UILabel!
     @IBOutlet weak var randomPictorgram: UIButton!
     @IBOutlet weak var randomGroupDrink: UIButton!
-    @IBOutlet weak var levelSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var bonusViewSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var drinkCounterSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var randomPictogramSegmentedControl: TTSegmentedControl!
@@ -53,47 +50,24 @@ class ExtraSetUpViewController: UIViewController {
     
     @IBAction func backButtonAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        
     }
   
+    @IBAction func startGame(_ sender: Any) {
+        let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        self.present(gameVc, animated: true, completion: nil)
+    }
     
     func setUpView() {
-        setUpLevelCounterView()
         setUpBonusView()
         setUpDrinkCounter()
         setUpGroupDrinkView()
         setUpRandomPictogramView()
         setUpLevel()
         
-        levelView.layer.cornerRadius = 10
         uiOptionsView.layer.cornerRadius = 10
         moreDrinkingOptionsView.layer.cornerRadius = 10
         newOptionsView.layer.cornerRadius = 10
         
-    }
-    
-    func setUpLevelCounterView() {
-        levelSegmentedControl.itemTitles = ["Könnyű","Kőzepes","Nehéz"]
-        levelSegmentedControl.layer.cornerRadius = 5
-        levelSegmentedControl.allowChangeThumbWidth = false
-        levelSegmentedControl.didSelectItemWith = { (index, title) -> () in
-            switch index {
-            case 0:
-                self.levelDrinkLabel.text = "ExtraSetUpViewController_Level_easy".localized()
-                GameManagement.sharedInstance.gameDrinkMultiplier = 1
-            case 1:
-                self.levelDrinkLabel.text = "ExtraSetUpViewController_Level_medim".localized()
-                GameManagement.sharedInstance.gameDrinkMultiplier = 2
-            case 2:
-                self.levelDrinkLabel.text = "ExtraSetUpViewController_Level_hard".localized()
-                GameManagement.sharedInstance.gameDrinkMultiplier = 3
-            default:
-                print("Default")
-            }
-            print("Selected item \(index)")
-            
-            
-        }
     }
     
     func setUpLevel() {

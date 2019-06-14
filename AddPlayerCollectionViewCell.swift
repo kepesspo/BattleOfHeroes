@@ -38,13 +38,19 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
     
     @IBAction func plusButtonAction(_ sender: Any) {
         let randomFigure = GameManagement.sharedInstance.figures.randomElement()
-        NetworkSevice.sharedInstance.addPlayerToDatabase(player: Player(id: "Player", playerName: "Player", teamId: "", allDrink: 0, usedBonus: 0, color: randomFigure ?? "")) { (error) in
+        let randomNumber = fourDigitNumber
+        NetworkSevice.sharedInstance.addPlayerToDatabase(player: Player(id: "", playerName: "Player\(randomNumber)", teamId: "", allDrink: 0, usedBonus: 0, color: randomFigure ?? "")) { (error) in
             if error != nil {
                 print("Error to add player")
             } else {
                 print("Success add player")
             }
         }
+    }
+    
+    var fourDigitNumber: String {
+        let randomRoomId = Int.random(in: 1000...9999)
+        return "\(randomRoomId)"
     }
     
 }

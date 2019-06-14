@@ -18,6 +18,7 @@ class SetUpPlayersViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var playerCollectionView: UICollectionView!
     
+    @IBOutlet weak var closeRoom: UIButton!
     var playerList = [Player]()
     var gameMode = GameManagement.sharedInstance.selectedMode
     lazy var panelManager = Panels(target: self)
@@ -51,6 +52,22 @@ class SetUpPlayersViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
+    
+    @IBAction func closeRoomAction(_ sender: Any) {
+        let closeAlert = UIAlertController(title: "Kilépés!", message: "Biztos hogy kilépsz a szobából? Ha kilépsz már nem tudsz visszalépni.", preferredStyle: UIAlertController.Style.alert)
+        
+        closeAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            print("Handle Ok logic here")
+            self.dismiss(animated: false, completion: nil)
+        }))
+        
+        closeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(closeAlert, animated: true, completion: nil)
+    }
+    
     
     func checkGameRunning() {
         NetworkSevice.sharedInstance.getGameRunning(completionBlock: { (error, run) in

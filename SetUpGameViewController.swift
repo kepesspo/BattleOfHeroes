@@ -14,56 +14,19 @@ class SetUpGameViewController: UIViewController {
     
     @IBOutlet weak var gameCollectionView: UICollectionView!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
     
     var games = GameManagement.sharedInstance.games
-    var groupGames : [Game] = [Game]()
-    var personalGames : [Game] = [Game]()
-    var LineGames : [Game] = [Game]()
-    var BattleGames : [Game] = [Game]()
-    
     var chosenGames : [Game] = [Game]()
     lazy var panelManager = Panels(target: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addGame()
         showPanel()
+        
         GameManagement.sharedInstance.isSpactate = false
         gameCollectionView.register(UINib.init(nibName: "GameCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCollectionViewCell")
         gameCollectionView.showsVerticalScrollIndicator  = false
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
-            print("Spotify Token: \(token ?? "")")
-            if(token != nil) {
-                GameManagement.sharedInstance.spotifyToken = token
-                
-            } else {
-                SpotifyLogin.shared.logout()
-            }
-        }
-        
-        if GameManagement.sharedInstance.firstRun() == false {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
-
-            self.present(vc, animated: true, completion: nil)
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    
+        subscribeForNotification(name: .gameNext, selector: #selector(showNextView))
     }
     
     func showPanel() {
@@ -85,254 +48,53 @@ class SetUpGameViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func doneButtonTapped(_ sender: Any) {
-        doneTapped()
-    }
-    
-    
-    @IBAction func infoButtonTapped(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
-    
-    @objc func doneTapped() {
-        if chosenGames.count == 0 {
-            GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.games
-            self.showLoaderView()
-            loadAllGameData { [weak self] in
-                self?.dissmissLoaderView()
-            }
+    @objc func showNextView() {
+        if GameManagement.sharedInstance.showExtraSetUp == false {
+            let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ExtraSetUpViewController") as! ExtraSetUpViewController
+            self.navigationController?.pushViewController(gameVc, animated: true)
         } else {
-            GameManagement.sharedInstance.chosenGames = chosenGames
-            self.showLoaderView()
-            loadAllGameData { [weak self] in
-                self?.dissmissLoaderView()
-            }
+            let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+            self.present(gameVc, animated: true, completion: nil)
         }
-    }
-    
-    func loadAllGameData(completion: (() -> Void)?) {
-        var remainingCompletions = 0
-        var errors = ""
-        
-        for game in GameManagement.sharedInstance.chosenGames {
-            if game.downloadsData {
-                remainingCompletions += 1
-            }
-        }
-        
-        let returnedBlock: ((_ error: Error?) -> Void) = { error in
-            errors.append("\(error?.localizedDescription ?? "")\n")
-            if remainingCompletions == 0 {
-                completion?()
-            } else {
-                remainingCompletions -= 1
-            }
-            
-        }
-        
-        for game in GameManagement.sharedInstance.chosenGames {
-            switch game.name {
-            case "Ki Vagyok Én":
-                NetworkSevice.sharedInstance.getFamousPersons { (error) in
-                    returnedBlock(error)
-                    if error == nil {
-                        print("Minden rendben. famous person sikeresen letöltödőt.")
-                    }
-                }
-            case "Igaz Hamis":
-                NetworkSevice.sharedInstance.getTrueOrFalse { (error) in
-                    returnedBlock(error)
-                    if error == nil {
-                        print("Minden rendben. Igaz Hamis kérdések sikeresen letöltödőt.")
-                    }
-                }
-            case "Én még soha":
-                NetworkSevice.sharedInstance.getHaveIEverNever { (error) in
-                    returnedBlock(error)
-                    if error == nil {
-                        print("Minden rendben. Én még soha kérdések sikeresen letöltödőt.")
-                    }
-                }
-            case "Zene Felismerés":
-                
-                NetworkSevice.sharedInstance.getSongs { (error) in
-                    returnedBlock(error)
-                    if error == nil {
-                        print("Minden rendben. Minden zene sikeresen letöltödőt.")
-                    }
-                }
-            case "Anagramma":
-                
-                NetworkSevice.sharedInstance.getAnagrammaWord { (error) in
-                    returnedBlock(error)
-                    if error == nil {
-                        print("Minden rendben. Minden Anagramma sikeresen letöltödőt.")
-                    }
-                }
-            default:
-                print("Nem kell letölteni semit.")
-                
-            }
-            returnedBlock(nil)
-            
-        }
-    }
-    
-    
-    func showLoaderView() {
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoaderViewController") as! LoaderViewController
-        popOverVC.modalPresentationStyle = .overFullScreen
-        if let topController = UIApplication.topViewController() {
-            topController.present(popOverVC, animated: true, completion: nil)
-            
-        }
-    }
-    
-    func dissmissLoaderView() {
-        if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: nil) 
-        }
-    }
-    
-    
-    func addGame() {
-        groupGames = games.filter { $0.gameType!.rawValue == "GameType_GroupGame".localized() }
-        LineGames = games.filter { $0.gameType!.rawValue == "GameType_LineGame".localized() }
-        personalGames = games.filter { $0.gameType!.rawValue == "GameType_PersonalGame".localized() }
-        BattleGames = games.filter { $0.gameType!.rawValue == "GameType_BattleGame".localized()}
+       
     }
     
     func removeGame(item : String) {
-        chosenGames = chosenGames.filter {$0.name != item }
+        GameManagement.sharedInstance.chosenGames = chosenGames.filter {$0.name != item }
     }
     
-    func checkSpotifyTokenGame(game : Game) -> Bool {
-        var isSelectableMusicRecGame = false
-        print("Set music recognizer")
-        if GameManagement.sharedInstance.spotifyToken == nil {
-            isSelectableMusicRecGame = false
-            let alert = UIAlertController(title: "Warning", message: "Ehhez a jatékhoz spotify hozzáférés kell jelentkez be ha szeretnél játszani. ", preferredStyle: UIAlertController.Style.alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            cancelAction.setValue(UIColor.red, forKey: "titleTextColor")
-            alert.addAction(cancelAction)
-            alert.addAction(UIAlertAction(title: "Spotify Login", style: .default, handler: { (action) in
-                SpotifyLoginPresenter.login(from: self, scopes:
-                    [.streaming,
-                     .userReadTop,
-                     .playlistReadPrivate,
-                     .userLibraryRead])
-            }))
-            
-            if let topController = UIApplication.topViewController() {
-                topController.present(alert, animated: true)
-                
-            }
-        } else {
-            isSelectableMusicRecGame = true
-        }
-        return isSelectableMusicRecGame
+    func addGame(item: Game) {
+        GameManagement.sharedInstance.chosenGames.append(item)
     }
-    
 }
 
 extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return personalGames.count
-        } else if section == 1 {
-            return groupGames.count
-        } else if section == 2 {
-            return LineGames.count
-        } else {
-            return BattleGames.count
-        }
+        return games.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return GameType.allValues.count
+        return 1
     }
-    
-   
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
         cell.delegate = self as CustomCellInfoDelegate
-        if indexPath.section == 0 {
-            cell.gameData = personalGames[indexPath.row]
-        } else if indexPath.section == 1 {
-            cell.gameData = groupGames[indexPath.row]
-        } else if indexPath.section == 2 {
-            cell.gameData = LineGames[indexPath.row]
-        } else {
-            cell.gameData = BattleGames[indexPath.row]
-        }
+        cell.gameData = games[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            if personalGames[indexPath.row].name == "Zene Felismerés" {
-                let isSelected = checkSpotifyTokenGame(game: personalGames[indexPath.row])
-                
-                if isSelected == false {
-                    personalGames[indexPath.row].isSelected = false
-                    removeGame(item: personalGames[indexPath.row].name)
-                } else if isSelected == true && personalGames[indexPath.row].isSelected == false {
-                    personalGames[indexPath.row].isSelected = true
-                    chosenGames.append(personalGames[indexPath.row])
-                } else {
-                    personalGames[indexPath.row].isSelected = false
-                    removeGame(item: personalGames[indexPath.row].name)
-                }
-            } else {
-                if personalGames[indexPath.row].isSelected == true {
-                    personalGames[indexPath.row].isSelected = false
-                    removeGame(item: personalGames[indexPath.row].name)
-                } else {
-                    personalGames[indexPath.row].isSelected = true
-                    chosenGames.append(personalGames[indexPath.row])
-                }
-            }
-            
-            
-        case 1:
-            if groupGames[indexPath.row].isSelected == true {
-                groupGames[indexPath.row].isSelected = false
-                removeGame(item: groupGames[indexPath.row].name)
-            } else {
-                groupGames[indexPath.row].isSelected = true
-                chosenGames.append(groupGames[indexPath.row])
-            }
-        case 2:
-            if LineGames[indexPath.row].isSelected == true {
-                LineGames[indexPath.row].isSelected = false
-                removeGame(item: LineGames[indexPath.row].name)
-            } else {
-                LineGames[indexPath.row].isSelected = true
-                chosenGames.append(LineGames[indexPath.row])
-            }
-            
-        case 3:
-            if BattleGames[indexPath.row].isSelected == true {
-                BattleGames[indexPath.row].isSelected = false
-                removeGame(item: BattleGames[indexPath.row].name)
-            } else {
-                BattleGames[indexPath.row].isSelected = true
-                chosenGames.append(BattleGames[indexPath.row])
-            }
-        default:
-            print("Def")
+        if games[indexPath.row].isSelected == true {
+            games[indexPath.row].isSelected = false
+            removeGame(item: games[indexPath.row].name)
+        } else {
+            games[indexPath.row].isSelected = true
+            addGame(item: games[indexPath.row])
         }
         gameCollectionView.reloadData()
     }
 }
-
-
-
 
 extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,

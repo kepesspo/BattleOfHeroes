@@ -14,9 +14,6 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     @IBOutlet var headerHeight: NSLayoutConstraint!
     @IBOutlet var headerPanel: UIView!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var normalBtn: UIButton!
-    @IBOutlet weak var spectatorBtn: UIButton!
-    @IBOutlet weak var closeRoomBtn: UIButton!
     @IBOutlet weak var dataView: UIView!
     
     var roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName)
@@ -103,18 +100,6 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
                 print("Error Lock Screen for other player ")
             }
         }
-    }
-    
-    
-    @IBAction func normalGameAction(_ sender: Any) {
-        GameManagement.sharedInstance.selectedMode = 0
-        postNotification(name: .gameModeChanged)
-    }
-    
-    @IBAction func spectatorGameAction(_ sender: Any) {
-        print("Spactator")
-        GameManagement.sharedInstance.selectedMode = 4
-        postNotification(name: .gameModeChanged)
     }
     
     @IBAction func closeRoomAction(_ sender: Any) {

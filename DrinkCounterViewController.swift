@@ -16,6 +16,9 @@ class DrinkCounterViewController: UIViewController {
     @IBOutlet weak var drinkingSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var infoText: UILabel!
     
+    @IBOutlet weak var personalGameView: UIView!
+    
+    
     let playersList = NetworkSevice.sharedInstance.playerList
     
     var actullyDrinkCount = 0
@@ -144,8 +147,3 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
     }   
 }
 
-extension UIFont {
-    class func helveticaNeueLight(_ size: CGFloat) -> UIFont {
-        return UIFont(name: "HelveticaNeue-Light", size: size)!
-    }
-}
