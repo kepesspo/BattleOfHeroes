@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
+  - Arrows (1.0.0)
   - Firebase/Auth (5.19.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.4.1)
@@ -77,6 +78,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Arrows
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -90,6 +92,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Arrows
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -111,6 +114,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Arrows: 5256fcdc123a17a0852a4348f73c1fb0a9c3de07
   Firebase: c60d49e9c2630875a96207d15e2affb8364996d1
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseAuth: cbb892a66baed025efc179372598941252acf853
@@ -130,6 +134,6 @@ SPEC CHECKSUMS:
   TTFortuneWheel: d0a8a5fd7f9e1960bac81af76f3b62848de3c32e
   TTSegmentedControl: 422a8fab507a02a60050476d69d577052550f592
 
-PODFILE CHECKSUM: 893e4c7c5ed777705a23787b2ebfe8e66548a088
+PODFILE CHECKSUM: 604cc82a29b200e000c78ed63aa9acb13356db3a
 
 COCOAPODS: 1.5.3

@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 import Panels
+import Arrows
 
 class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     @IBOutlet var headerHeight: NSLayoutConstraint!
     @IBOutlet var headerPanel: UIView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var dataView: UIView!
+    @IBOutlet weak var arrowView: ArrowView!
+    @IBOutlet weak var idLabel: UILabel!
     
     var roomName = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName)
     var roomPass = UserDefaults.standard.string(forKey: UserDefaultsKeys.roomPass)
@@ -22,9 +25,13 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
-
-        dataView.layer.cornerRadius = 10
         subscribeForNotification(name: .updateStartButton, selector: #selector(updateStartButton))
+        idLabel.text = "A szoba azonositója: \(roomName!)"
+        
+        self.view.addBlurBackground()
+        self.curveTopCorners()
+        arrowView.update(to: .up, animated: true)
+        arrowView.arrowColor = #colorLiteral(red: 0.01176470588, green: 0.7490196078, blue: 0.7490196078, alpha: 1)
         
         NetworkSevice.sharedInstance.getGameRunning { (error, value) in
             if value == 1 {
@@ -38,6 +45,12 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
             }
         }
         
+        if GameManagement.sharedInstance.playerCount < 2 {
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +60,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
 
     
     @objc func updateStartButton() {
-        if NetworkSevice.sharedInstance.playerList.count == 0 {
+        if GameManagement.sharedInstance.playerCount < 2 {
             nextButton.isEnabled = false
         } else {
             nextButton.isEnabled = true
@@ -114,6 +127,22 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         GameManagement.sharedInstance.drininkCounterView = false
         let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
         self.navigationController?.pushViewController(setUpVc, animated: true)
+    }
+    
+    
+}
+
+extension PanelMenu: PanelNotifications {
+    func panelDidPresented() {
+        arrowView.update(to: .middle, animated: true)
+    }
+    
+    func panelDidCollapse() {
+        arrowView.update(to: .up, animated: true)
+    }
+    
+    func panelDidOpen() {
+        arrowView.update(to: .down, animated: true)
     }
     
     

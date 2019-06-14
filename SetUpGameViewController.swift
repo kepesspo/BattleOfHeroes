@@ -31,9 +31,10 @@ class SetUpGameViewController: UIViewController {
     
     func showPanel() {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelGames")
-        var panelConfiguration = PanelConfiguration(size: .custom(350))
+        var panelConfiguration = PanelConfiguration(size: .custom(450))
         panelConfiguration.animateEntry = false
         panelConfiguration.panelVisibleArea = 100
+        panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
     
@@ -49,14 +50,8 @@ class SetUpGameViewController: UIViewController {
     }
     
     @objc func showNextView() {
-        if GameManagement.sharedInstance.showExtraSetUp == false {
-            let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ExtraSetUpViewController") as! ExtraSetUpViewController
-            self.navigationController?.pushViewController(gameVc, animated: true)
-        } else {
             let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-            self.present(gameVc, animated: true, completion: nil)
-        }
-       
+            self.navigationController?.pushViewController(gameVc, animated: true)
     }
     
     func removeGame(item : String) {

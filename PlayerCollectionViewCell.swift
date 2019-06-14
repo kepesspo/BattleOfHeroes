@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerCollectionViewCell: UICollectionViewCell {
+class PlayerCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var playerImageView: UIImageView!
     @IBOutlet weak var playerName: UITextField!
@@ -21,6 +21,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        playerName.delegate = self as? UITextFieldDelegate
         configure(with: player)
     }
 
@@ -38,7 +39,41 @@ class PlayerCollectionViewCell: UICollectionViewCell {
             } else {
                 print("Deleted player success")
                 postNotification(name: .updatePlayerCollectionView)
+                GameManagement.sharedInstance.playerCount = GameManagement.sharedInstance.playerCount - 1
+                postNotification(name: .updateStartButton)
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        print("Save player Name")
+        NetworkSevice.sharedInstance.updatePlayer(player: self.player!, name: playerName.text ?? "") { (error) in
+            if error != nil {
+                print("Error update player")
+            } else {
+                print("update player success")
+                postNotification(name: .updatePlayerCollectionView)
+            }
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if playerName.text?.isEmpty == true {
+            print("Empty Name ")
+            postNotification(name: .updatePlayerCollectionView)
+        } else {
+            NetworkSevice.sharedInstance.updatePlayer(player: self.player!, name: playerName.text ?? "") { (error) in
+                if error != nil {
+                    print("Error update player")
+                } else {
+                    print("update player success")
+                    postNotification(name: .updatePlayerCollectionView)
+                    
+                }
+            }
+        }
+        
     }
 }

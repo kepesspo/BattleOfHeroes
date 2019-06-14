@@ -24,7 +24,7 @@ class PanelMaterial: UIViewController, Panelable {
 
         updateGameData()
         self.view.addBlurBackground()
-        curveTopCorners()
+        self.curveTopCorners()
         self.view.layoutIfNeeded()
         super.viewDidLoad()
     }
@@ -56,13 +56,13 @@ class PanelMaterial: UIViewController, Panelable {
     @objc func dismissGame() {
         if GameManagement.sharedInstance.selectedMode == 0 {
             // Simple Game
-            self.dismiss(animated: true, completion: nil)
+             self.navigationController?.popToRootViewController(animated: true)
         } else if GameManagement.sharedInstance.selectedMode == 1 {
             // Combinate Game
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             // Battle Game
-           self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         GameManagement.sharedInstance.selectedMode = 0
     }
@@ -105,31 +105,4 @@ class PanelMaterial: UIViewController, Panelable {
         
     }
     
-}
-
-extension UIView {
-    func addBlurBackground() {
-        self.backgroundColor = .clear
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.translatesAutoresizingMaskIntoConstraints = false
-        self.insertSubview(blurView, at: 0)
-        NSLayoutConstraint.activate([
-            blurView.heightAnchor.constraint(equalTo: self.heightAnchor),
-            blurView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            ])
-
-    }
-}
-
-extension UIViewController {
-    func curveTopCorners() {
-        let path = UIBezierPath(roundedRect: self.view.bounds,
-                                byRoundingCorners: [.topLeft, .topRight],
-                                cornerRadii: CGSize(width: 30, height: 0))
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = self.view.bounds
-        maskLayer.path = path.cgPath
-        self.view.layer.mask = maskLayer
-    }
 }

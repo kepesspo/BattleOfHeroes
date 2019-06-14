@@ -12,7 +12,8 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var containerView: UIView!
-
+    @IBOutlet weak var playerCountLabel: UILabel!
+    
     var dashedLayer : CAShapeLayer!
     
     static let identifier = "AddPlayerCollectionViewCell"
@@ -33,6 +34,7 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
         dashedLayer.fillColor = nil
         dashedLayer.path = UIBezierPath(rect: containerView.bounds).cgPath
         containerView.layer.addSublayer(dashedLayer)
+        playerCountLabel.text = "\(GameManagement.sharedInstance.playerCount)\n Játékos"
         
     }
     
@@ -44,6 +46,8 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
                 print("Error to add player")
             } else {
                 print("Success add player")
+                GameManagement.sharedInstance.playerCount = GameManagement.sharedInstance.playerCount + 1
+                postNotification(name: .updateStartButton)
             }
         }
     }

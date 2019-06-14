@@ -17,8 +17,8 @@ class SetUpPlayersViewController: UIViewController {
     @IBOutlet weak var playerNavigationItem: UINavigationItem!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var playerCollectionView: UICollectionView!
-    
     @IBOutlet weak var closeRoom: UIButton!
+    
     var playerList = [Player]()
     var gameMode = GameManagement.sharedInstance.selectedMode
     lazy var panelManager = Panels(target: self)
@@ -56,7 +56,7 @@ class SetUpPlayersViewController: UIViewController {
     @IBAction func closeRoomAction(_ sender: Any) {
         let closeAlert = UIAlertController(title: "Kilépés!", message: "Biztos hogy kilépsz a szobából? Ha kilépsz már nem tudsz visszalépni.", preferredStyle: UIAlertController.Style.alert)
         
-        closeAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+        closeAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             print("Handle Ok logic here")
             self.dismiss(animated: false, completion: nil)
         }))
@@ -64,7 +64,6 @@ class SetUpPlayersViewController: UIViewController {
         closeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Handle Cancel Logic here")
         }))
-        
         present(closeAlert, animated: true, completion: nil)
     }
     
@@ -83,9 +82,10 @@ class SetUpPlayersViewController: UIViewController {
     
     func showPanel() {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelMenu")
-        var panelConfiguration = PanelConfiguration(size: .custom(350))
+        var panelConfiguration = PanelConfiguration(size: .custom(250))
         panelConfiguration.animateEntry = false
         panelConfiguration.panelVisibleArea = 100
+        panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
     
@@ -106,7 +106,7 @@ class SetUpPlayersViewController: UIViewController {
     
     @objc func reloadCollectionView() {
         NetworkSevice.sharedInstance.getPlayerList { (error) in
-            if error != nil {
+            if error == nil {
                 self.playerList = NetworkSevice.sharedInstance.playerList
                 self.playerCollectionView.reloadData()
             } else {

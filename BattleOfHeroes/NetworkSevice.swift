@@ -86,6 +86,7 @@ class NetworkSevice {
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String,
                       "playerDrinks" : playerDrinks as Int,
+                      "playerColor" : player.color as String,
                       "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
 
         refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
@@ -103,6 +104,8 @@ class NetworkSevice {
         
     }
     
+    
+    
     func resetPlayerData(players: [Player], competionBlock: @escaping(_ error: Error?) -> Void) {
         let roomId = GameManagement.sharedInstance.getRoomName()
         for player in players {
@@ -114,6 +117,7 @@ class NetworkSevice {
                           "playerName": player.playerName as String,
                           "playerTeamId" : player.teamId as String,
                           "playerDrinks" : 0 as Int,
+                          "playerColor" : player.color as String,
                           "playerUsedBonus" : 0 as Int] as [String : Any]
             refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
         }
@@ -132,6 +136,7 @@ class NetworkSevice {
                       "playerName": player.playerName as String,
                       "playerTeamId" : player.teamId as String,
                       "playerDrinks" : playerDrinks as Int,
+                      "playerColor" : player.color as String,
                       "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
         
         refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
@@ -139,13 +144,25 @@ class NetworkSevice {
         
     }
     
-    // Add Team To Database
-    func addTeamToDataBase(team: Team, competionBlock: @escaping(_ error: Error?) -> Void) {
-        let teamKey = refTeam.childByAutoId().key
-        let team = ["id": teamKey,
-                    "teamName": team.name as String]
-        refTeam.child(teamKey ?? "").setValue(team)
+    // UpdatePlayerUseBonus
+    func updatePlayer(player: Player, name: String, competionBlock: @escaping(_ error: Error?) -> Void) {
+        let roomId = GameManagement.sharedInstance.getRoomName()
+        let playerKey = player.id
+        let playerName = name
+        let playerDrinks = player.allDrink
+        let playerUserBonus = player.usedBonus
+        var playerData: [String:Any]?
+        
+        playerData = ["id":playerKey,
+                      "playerTeamId" : player.teamId as String,
+                      "playerName" : playerName as String,
+                      "playerDrinks" : playerDrinks as Int,
+                      "playerColor" : player.color as String,
+                      "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
+        
+        refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
         competionBlock(nil)
+        
     }
     
     // check room Autenticate

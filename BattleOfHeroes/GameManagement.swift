@@ -493,6 +493,7 @@ class GameManagement {
     var randomPictogramTime : Int = 420
     
     var drinkVariation : [Int] = [0,1,2,3]
+    
     var userDefDrinkVariation = true
     
     var selectedMode = 0
@@ -511,12 +512,13 @@ class GameManagement {
     var selectedSpac = 0
     var battleGameRun = false
     
+    
     var figures = ["black_figures-1","blue_figures-1","yellow_figures-1",
                    "pink_figures-1","green_figures-1","gray_figures-1",
                    "orange_figures-1","dark_figures-1","purple_figures-1","gray_figures-1"]
     
     var showExtraSetUp = false
-    
+    var playerCount = 0
     var horseRaceBettingPlayer: [HorseBet] = []
     var games = [Game]()
     func getGames() -> [Game] {

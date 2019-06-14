@@ -89,6 +89,9 @@
 		4D7998652115F388006FE28B /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7998642115F388006FE28B /* ScoreViewController.swift */; };
 		4D79986D21174276006FE28B /* RingOfFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D79986C21174276006FE28B /* RingOfFireView.swift */; };
 		4D79986F211742A5006FE28B /* RingOfFireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D79986E211742A5006FE28B /* RingOfFireView.xib */; };
+		4D8CE61D22B39D8B00399344 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8CE61C22B39D8B00399344 /* UIViewController.swift */; };
+		4D8CE61F22B39DA500399344 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8CE61E22B39DA500399344 /* UIView.swift */; };
+		4D8CE62222B3BA4500399344 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8CE62122B3BA4500399344 /* CheckboxButton.swift */; };
 		4D8DFB9F21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8DFB9E21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift */; };
 		4D906ECD211A43D200B7B7E0 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D906ECC211A43D200B7B7E0 /* MemoryView.swift */; };
 		4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D906ECE211A443F00B7B7E0 /* MemoryView.xib */; };
@@ -288,6 +291,9 @@
 		4D7998642115F388006FE28B /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		4D79986C21174276006FE28B /* RingOfFireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingOfFireView.swift; sourceTree = "<group>"; };
 		4D79986E211742A5006FE28B /* RingOfFireView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RingOfFireView.xib; sourceTree = "<group>"; };
+		4D8CE61C22B39D8B00399344 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		4D8CE61E22B39DA500399344 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		4D8CE62122B3BA4500399344 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = SOURCE_ROOT; };
 		4D8DFB9E21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraSetUpViewController.swift; sourceTree = "<group>"; };
 		4D906ECC211A43D200B7B7E0 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
 		4D906ECE211A443F00B7B7E0 /* MemoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoryView.xib; sourceTree = "<group>"; };
@@ -668,12 +674,15 @@
 			isa = PBXGroup;
 			children = (
 				4D92A653225CBE600074405E /* GradientView.swift */,
+				4D8CE62122B3BA4500399344 /* CheckboxButton.swift */,
 				4D906ED2211B3FBD00B7B7E0 /* NotificationExtension.swift */,
 				4DE1233E20EE584E0004C28E /* AttributedString.swift */,
 				4DE1233C20EE45120004C28E /* UIColorExtension.swift */,
 				4D3D0969210B24BC00C74CC6 /* StringExtensions.swift */,
 				4DC81962211C511700F09922 /* UIApplication.swift */,
 				4DB29FF922B391A9007D8E10 /* UIFont.swift */,
+				4D8CE61C22B39D8B00399344 /* UIViewController.swift */,
+				4D8CE61E22B39DA500399344 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -995,6 +1004,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BattleOfHeroes/Pods-BattleOfHeroes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Arrows/Arrows.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
@@ -1009,6 +1019,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Arrows.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
@@ -1052,6 +1063,7 @@
 				4DB29FFA22B391A9007D8E10 /* UIFont.swift in Sources */,
 				4D211AD02271C7C90065335E /* SpectatePenaltyViewController.swift in Sources */,
 				4DE11B2121F0DA52005A092E /* AnagramView.swift in Sources */,
+				4D8CE61F22B39DA500399344 /* UIView.swift in Sources */,
 				4D77E70821F0E28E00B27E56 /* TheBottleView.swift in Sources */,
 				4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */,
 				4DE0883A21FB487A00898A9A /* GroupDrinkViewController.swift in Sources */,
@@ -1071,6 +1083,7 @@
 				4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */,
 				4DE1234320EF6F5A0004C28E /* SetUpPlayersViewController.swift in Sources */,
 				4D94B6692167A08C002D7B03 /* BonusViewController.swift in Sources */,
+				4D8CE62222B3BA4500399344 /* CheckboxButton.swift in Sources */,
 				4DFFD5CD213D5DF200A4989B /* GameCollectionViewCell.swift in Sources */,
 				4D56D4D521512DA7004A591A /* HaveIEverNeverView.swift in Sources */,
 				4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */,
@@ -1086,6 +1099,7 @@
 				4D5EB879210B41C50043A7F9 /* TrueOrFalseView.swift in Sources */,
 				4D9B7BC72111EE50000439AB /* CategoriesView.swift in Sources */,
 				4D9B7BC32111BFE4000439AB /* GameViewController.swift in Sources */,
+				4D8CE61D22B39D8B00399344 /* UIViewController.swift in Sources */,
 				4D906ED3211B3FBD00B7B7E0 /* NotificationExtension.swift in Sources */,
 				4DA36AE821A4606F00B757BE /* LottieView.swift in Sources */,
 				4DC819662120C2AD00F09922 /* HowDrinksTableViewCell.swift in Sources */,

@@ -52,6 +52,7 @@ class EndGameViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
         postNotification(name: .endGame)
         
+        GameManagement.sharedInstance.playerCount = 0
         NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
             if error == nil {
                 
