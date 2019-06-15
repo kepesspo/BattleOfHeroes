@@ -61,6 +61,7 @@ extension Notification.Name {
     static let updatePlayerCollectionView = Notification.Name("updatePlayerCollectionView")
     
     static let gameNext = Notification.Name("gameNext")
+    static let bonus = Notification.Name("bonus")
 }
 
 

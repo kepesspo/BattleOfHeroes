@@ -33,36 +33,21 @@ class EverybodyDrinksView: GameView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        sequencedPlayer()
         updateUI()
         
     }
     
     @objc func updateUI() {
         everybodyDrinksTextLabel.text = "Most ő iszik"
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-        postNotification(name: .updateGameData)
+        
+        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
+            print("Player: \(player.playerName)")
+            GameManagement.sharedInstance.actuallyPlayer = player
+            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+            postNotification(name: .updateGameData)
+        }
         
     }
-    
-    
-    func sequencedPlayer() {
-        var playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
-        if playerIndex + 1 > playerList.count {
-            GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = 0
-            
-            playerIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex
-            GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
-            GameManagement.sharedInstance.actuallyPlayerName  = playerList[playerIndex].playerName
-        } else {
-            GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex = GameManagement.sharedInstance.everyBodyDrinksPlayerCountIndex + 1
-            GameManagement.sharedInstance.actuallyPlayerName  = playerList[playerIndex].playerName
-        }
-    }
-    
-     
-    
-    
 }
 

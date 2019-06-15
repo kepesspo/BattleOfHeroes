@@ -95,8 +95,6 @@
     @objc func startGameAction() {
         letPlayText.isHidden = true
         showView()
-        
-       
     }
     
     func showPlayerWhoDrinks() {
@@ -171,6 +169,8 @@
     
     func generateView(indexOfGame : Int) {
         if let game = chosenGames[indexOfGame].gameMode?.gameView() {
+            GameManagement.sharedInstance.actuallyGame = chosenGames[indexOfGame]
+            print("------- Actually Game:  \(chosenGames[indexOfGame].name) ----------")
             GameManagement.sharedInstance.actuallyGameDesc = chosenGames[indexOfGame].gameMode?.gameDescription() ?? ""
             game.frame = self.view.bounds
             self.view.insertSubview(game, at: 1)

@@ -49,7 +49,7 @@ class HajimeView: GameView {
         hajimeTextLabel.attributedText = numbers
         
         let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
+        //GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
         GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
         postNotification(name: .updateGameData)

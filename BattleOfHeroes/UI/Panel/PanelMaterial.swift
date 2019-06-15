@@ -69,7 +69,7 @@ class PanelMaterial: UIViewController, Panelable {
     
     @objc func updateGameData() {
         playedGameCounter.text = "\(GameManagement.sharedInstance.actuallyPlayedGameCounter)"
-        PlayerName.text = GameManagement.sharedInstance.actuallyPlayerName
+        PlayerName.text = GameManagement.sharedInstance.actuallyPlayer?.playerName
         typeImageView.image = GameManagement.sharedInstance.actuallyPlayedGameType   
     }
     

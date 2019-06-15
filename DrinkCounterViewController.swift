@@ -12,94 +12,206 @@ import TTSegmentedControl
 class DrinkCounterViewController: UIViewController {
     
     @IBOutlet weak var howDrinksTableView: UITableView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var drinkingSegmentedControl: TTSegmentedControl!
-    @IBOutlet weak var infoText: UILabel!
+    @IBOutlet weak var groupView: UIView!
+    @IBOutlet weak var groupScoreLabel: UILabel!
+    @IBOutlet weak var groupValueLabel: UILabel!
     
+    
+    
+    @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var personalGameView: UIView!
-    
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var extraLabel: UILabel!
+    @IBOutlet weak var successCheckBox: CheckboxButton!
+    @IBOutlet weak var extraCheckBox: CheckboxButton!
+    @IBOutlet weak var personalSaveButton: UIButton!
+    @IBOutlet weak var playerFigureImageView: UIImageView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     
+    var game: Game?
+    var player: Player?
+    var extraDrink : Int = 0
     var actullyDrinkCount = 0
     var drinkValue : [Int] = []
+    
+    var selectedPlayer: Player?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeForNotification(name: .showBonus, selector: #selector(showBonusView(notification:)), object: nil)
-        howDrinksTableView.separatorStyle = .none
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
         
-        drinkingSegmentedControl.itemTitles = []
-        drinkingSegmentedControl.defaultTextFont = UIFont.helveticaNeueLight(15)
-        drinkingSegmentedControl.selectedTextFont = UIFont.helveticaNeueLight(15)
-        drinkingSegmentedControl.layer.cornerRadius = 5
-        drinkingSegmentedControl.allowChangeThumbWidth = false
-       
-        
-        infoText.text = "DrinkCounterViewController_infoText".localized()
-        
-        for valueOfDrink in drinkValue {
-            drinkingSegmentedControl.itemTitles.append("\(valueOfDrink)")
-        }
-        
-        if drinkValue.count == 1 {
-            self.actullyDrinkCount = drinkValue[0]
-            drinkingSegmentedControl.isUserInteractionEnabled = false
-        } else {
-            self.actullyDrinkCount = drinkValue[0]
-            drinkingSegmentedControl.isUserInteractionEnabled = true
-        }
-    
-        
-        
-        drinkingSegmentedControl.didSelectItemWith = { (index, title) -> () in
-            switch index {
-            case 0:
-                self.actullyDrinkCount = self.drinkValue[0]
-                print("")
-            case 1:
-                self.actullyDrinkCount = self.drinkValue[1]
-               print("")
-            case 2:
-                self.actullyDrinkCount = self.drinkValue[2]
-                print("")
-            case 3:
-                self.actullyDrinkCount = self.drinkValue[3]
-                print("")
+        if let gameData = game {
+            print("--------- Drink Counter View passed game: \(gameData.name) -------------")
+            print("--------- Drink Counter View passed game: \(gameData.addedScore) -------------")
+            print("--------- Drink Counter View passed game: \(gameData.gameType) -------------")
+
+            switch gameData.gameType!.rawValue {
+            case "personal": return personalGame()
+            case "winGroup": return winGroup()
+            case "LoseGroup": return loseGroup()
             default:
-                print("Default")
+                return personalGame()
             }
-            print("Selected item \(index)")
-            
-            
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        
+        // Curve View
+        groupView.layer.cornerRadius = 10
+        groupView.layer.masksToBounds = true
+        personalGameView.layer.cornerRadius = 10
+        personalGameView.layer.masksToBounds = true
+        
+        howDrinksTableView.separatorStyle = .none
+       
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func personalGame() {
+        groupView.isHidden = true
+        personalGameView.isHidden = false
+        playerFigureImageView.image = UIImage(named: player!.color)
+        extraDrink = Int.random(in: 1...3)
+        scoreLabel.text = "+\(game!.addedScore) Pont"
+        extraLabel.text = "+\(extraDrink) Pont"
+        playerLabel.text = player?.playerName ?? ""
+        
+        let drinkV = extraDrink * GameManagement.sharedInstance.gameDrinkMultiplier
+        for elem in 1...drinkV {
+            let step = elem * 40
+            let image = UIImage(named: "shot-glass")
+            let imageView = UIImageView(image: image!)
+            if elem == 1 {
+                imageView.frame = CGRect(x: 40, y: 420, width: 50, height: 50)
+                view.addSubview(imageView)
+            } else if elem > 7 {
+                imageView.frame = CGRect(x: 40, y: 490, width: 50, height: 50)
+                view.addSubview(imageView)
+            } else  {
+                imageView.frame = CGRect(x: step, y: 420, width: 50, height: 50)
+                view.addSubview(imageView)
+            }
+            
+        }
+    }
+    
+    func winGroup() {
+        groupView.isHidden = false
+        personalGameView.isHidden = true
+        groupValueLabel.text = "Nyertes"
+        groupScoreLabel.text = "+\(game!.addedScore) Pont"
+    }
+    
+    func loseGroup() {
+        groupView.isHidden = false
+        personalGameView.isHidden = true
+        groupValueLabel.text = "Vesztes"
+        groupScoreLabel.text = "+\(game!.addedScore) Pont"
+    }
+    
+    @IBAction func savePersonalGame(_ sender: Any) {
+        if successCheckBox.on && extraCheckBox.on {
+            let allScore = game!.addedScore + extraDrink
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: allScore) { (error, bonus, player) in
+                if error == nil {
+                    print("Success save score")
+                    self.dismiss(animated: false, completion: {
+                        self.checkBonus(bonus: bonus, playerData: player)
+                    })
+                } else {
+                     print("No success save score")
+                }
+            }
+            return
+        } else if extraCheckBox.on {
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: extraDrink) { (error, bonus, player)  in
+                if error == nil {
+                    print("Success save score")
+                    self.dismiss(animated: false, completion: {
+                         self.checkBonus(bonus: bonus, playerData: player)
+                    })
+                   
+                } else {
+                    print("No success save score")
+                }
+            }
+            return
+        } else if successCheckBox.on {
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: game!.addedScore) { (error, bonus, player) in
+                if error == nil {
+                    print("Success save score")
+                    self.dismiss(animated: false, completion: {
+                        self.checkBonus(bonus: bonus, playerData: player)
+                    })
+                    
+                } else {
+                    print("No success save score")
+                }
+            }
+            return
+        } else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+    }
+    
+    
+    func checkBonus(bonus: Bool?, playerData: Player?) {
+        if bonus == true {
+            postNotification(name: .showBonus, object: playerData)
+        } else {
+            print("No bonus")
+        }
+        
     }
     
     @IBAction func saveDrinksData(_ sender: Any) {
-        GameManagement.sharedInstance.userDefDrinkVariation = true
-        GameManagement.sharedInstance.drinkVariation = []
-        self.dismiss(animated: true, completion: nil)
+        if let player = selectedPlayer {
+            if game?.gameType!.rawValue == "winGroup" {
+                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player, drinks: game!.addedScore) { (error, bonus, player)  in
+                    if error == nil {
+                        print("Success save score")
+                        self.dismiss(animated: false, completion: {
+                            self.checkBonus(bonus: bonus, playerData: player)
+                        })
+                        
+                    } else {
+                        print("No success save score")
+                    }
+                }
+            } else {
+                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player, drinks: game!.addedScore) { (error, bonus, player)  in
+                    if error == nil {
+                        print("Success save score")
+                        self.dismiss(animated: false, completion: {
+                            self.checkBonus(bonus: bonus, playerData: player)
+                        })
+                        
+                    } else {
+                        print("No success save score")
+                    }
+                }
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
+    
     
     
     @objc func showBonusView(notification : Notification) {
         let player = notification.object as? Player
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BonusViewController") as! BonusViewController
-        vc.playerForBonus.append(player!)
-        vc.name = player?.playerName
-        self.present(vc, animated: true, completion: nil)
+        if let topController = UIApplication.topViewController() {
+            topController.present(vc, animated: true, completion: {
+                vc.playerForBonus.append(player!)
+                vc.name = player?.playerName
+            })
+        }
+        
     }
+    
 
 }
 
@@ -116,9 +228,6 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
         if let customCell = Bundle.main.loadNibNamed("HowDrinksTableViewCell",
                                                      owner: self,
                                                      options: nil)?.first as? HowDrinksTableViewCell {
-            
-            let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
-            customCell.contentView.backgroundColor = lightYellowColor
             customCell.player = playersList[indexPath.row]
             return customCell
         }
@@ -132,15 +241,7 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
             let currentCell = howDrinksTableView.cellForRow(at: indexPath) as? HowDrinksTableViewCell
             currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
             let updatedPlayer = playersList[indexPath.row]
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: updatedPlayer, drinks: actullyDrinkCount) { (error) in
-                if error != nil {
-                    print("error")
-                } else {
-                    currentCell?.drinkCountLabel.text = "\(self.actullyDrinkCount)"
-                    print(updatedPlayer)
-                }
-            }
-            
+            selectedPlayer = updatedPlayer
         }
         
         

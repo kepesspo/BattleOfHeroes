@@ -75,7 +75,7 @@ class NetworkSevice {
     }
     
     // UpdatePlayerDrinks
-    func updatePlayerDrinks(player: Player, drinks: Int, competionBlock: @escaping(_ error: Error?) -> Void) {
+    func updatePlayerDrinks(player: Player, drinks: Int, competionBlock: @escaping(_ error: Error?, _ bonus: Bool?, _ player: Player?) -> Void) {
         let roomId = GameManagement.sharedInstance.getRoomName()
         let playerKey = player.id
         let playerDrinks = player.allDrink + drinks
@@ -97,10 +97,14 @@ class NetworkSevice {
             let bonus = playData.usedBonus + 1
             let notShowedBonus = (Double(playerDrinks) / Double(10)) / Double(bonus) > 1.0
             if playerDrinks % 10 == 0 || notShowedBonus &&  playerDrinks != 0 && GameManagement.sharedInstance.showBonusView == true {
-                postNotification(name: .showBonus, object: playData)
+                competionBlock(nil, true, playData)
+            } else {
+                competionBlock(nil, false, nil)
             }
+        } else {
+            competionBlock(nil, false, nil)
         }
-        competionBlock(nil)
+        
         
     }
     

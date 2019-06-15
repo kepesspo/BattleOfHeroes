@@ -141,14 +141,14 @@ class SetUpPlayersViewController: UIViewController {
         
     }
     
-    func startNormalGame() {
-        GameManagement.sharedInstance.groupDrinksAllow = false
-        GameManagement.sharedInstance.randomPictogramAllow = false
-        GameManagement.sharedInstance.showBonusView = false
-        GameManagement.sharedInstance.drininkCounterView = false
-        let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        self.present(gameVc, animated: true, completion: nil)
-    }
+//    func startNormalGame() {
+//        GameManagement.sharedInstance.groupDrinksAllow = false
+//        GameManagement.sharedInstance.randomPictogramAllow = false
+//        GameManagement.sharedInstance.showBonusView = false
+//        GameManagement.sharedInstance.drininkCounterView = false
+//        let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+//        self.present(gameVc, animated: true, completion: nil)
+//    }
     
     
 }

@@ -95,12 +95,13 @@ class PanelGames: UIViewController, Panelable {
     
     @IBAction func scoreCollectAction(_ sender: Any) {
         if scoreCollectCheckBox.on {
-            //GameManagement.sharedInstance.groupDrinksAllow = true
+            
+            GameManagement.sharedInstance.drininkCounterView = true
             bonusStackView.isHidden = false
             scoreCollectCheckBox.on = true
             print("Score view ON")
         } else {
-            //GameManagement.sharedInstance.groupDrinksAllow = false
+            GameManagement.sharedInstance.drininkCounterView = false
             bonusStackView.isHidden = true
             scoreCollectCheckBox.on = false
             bonusCheckBox.on = false

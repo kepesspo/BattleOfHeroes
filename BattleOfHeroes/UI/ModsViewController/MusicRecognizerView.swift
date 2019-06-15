@@ -65,11 +65,13 @@ class MusicRecognizerView: GameView {
     
     func updateUI() {
         musicRecognizerLabel.text = "Fülelj mert csak 5 másodperced van"
-        let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
-        postNotification(name: .updateGameData)
+        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
+            print("Player: \(player.playerName)")
+            GameManagement.sharedInstance.actuallyPlayer = player
+            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+            postNotification(name: .updateGameData)
+        }
     }
     
     func startToPlayMusic() {

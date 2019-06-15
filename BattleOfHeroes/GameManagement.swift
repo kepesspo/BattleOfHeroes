@@ -138,32 +138,32 @@ enum GameMode: String {
     func gameType() -> GameType {
         switch self {
         case .trueOrFalse: return .personalGame
-        case .categories: return .lineGame
-        case .hajime: return .lineGame
+        case .categories: return .groupWinGame
+        case .hajime: return .groupWinGame
         case .everybodyDrinks: return .personalGame
-        case .wheelOfFortune:return .groupGame
-        case .upAndDown: return .lineGame
-        case .ringOfFire: return .groupGame
-        case .memory: return .lineGame
+        case .wheelOfFortune:return .groupLoseGame
+        case .upAndDown: return .groupLoseGame
+        case .ringOfFire: return .groupLoseGame
+        case .memory: return .groupWinGame
         case .musicRecognizer: return .personalGame
-        case .switchHand: return .groupGame
-        case .rockPaperScissors: return .battleGame
-        case .fingerIt: return .groupGame
-        case .cheersToTheGovernor: return .lineGame
-        case .haveIEverNever: return .groupGame
+        case .switchHand: return .groupWinGame
+        case .rockPaperScissors: return .groupWinGame
+        case .fingerIt: return .personalGame
+        case .cheersToTheGovernor: return .groupWinGame
+        case .haveIEverNever: return .groupLoseGame
         case .whoAmI: return .personalGame
-        case .spoon: return .groupGame
+        case .spoon: return .groupWinGame
         case .thePeopleChoice: return .personalGame
         case .russianRoulette: return .personalGame
-        case .shipTrip: return .groupGame
-        case .horseRace: return .groupGame
+        case .shipTrip: return .groupWinGame
+        case .horseRace: return .groupWinGame
         case .anagram: return .personalGame
-        case .coinFlip: return .battleGame
+        case .coinFlip: return .personalGame
         case .fiveThing: return .personalGame
-        case .collectAndBoom: return .lineGame
-        case .theBottle: return .groupGame
-        case .tapper: return .battleGame
-        case .tickTak: return .groupGame
+        case .collectAndBoom: return .groupLoseGame
+        case .theBottle: return .groupLoseGame
+        case .tapper: return .personalGame
+        case .tickTak: return .groupLoseGame
         }
     }
     
@@ -242,6 +242,38 @@ enum GameMode: String {
         case .tickTak: return #imageLiteral(resourceName: "048-letter.png")
         }
     }
+    
+    func gameScore() -> Int {
+        switch self {
+        case .trueOrFalse: return 1
+        case .categories: return 3
+        case .hajime: return 3
+        case .everybodyDrinks: return 1
+        case .wheelOfFortune: return 2
+        case .upAndDown: return 2
+        case .ringOfFire: return 2
+        case .memory: return 3
+        case .musicRecognizer: return 2
+        case .switchHand: return 3
+        case .rockPaperScissors: return 3
+        case .fingerIt: return 1
+        case .cheersToTheGovernor: return 0
+        case .haveIEverNever: return 2
+        case .whoAmI: return 2
+        case .spoon: return 0
+        case .thePeopleChoice: return 0
+        case .russianRoulette: return 1
+        case .shipTrip: return 0
+        case .horseRace: return 2
+        case .anagram: return 1
+        case .coinFlip: return 1
+        case .fiveThing: return 1
+        case .collectAndBoom: return 2
+        case .theBottle: return 2
+        case .tapper: return 1
+        case .tickTak: return 2
+        }
+    }
 }
 
 
@@ -255,11 +287,11 @@ let GamesDownloadingData: [GameMode] = [
 
 
 enum GameType : String {
-    case personalGame = "Egyéni Játékok"
-    case groupGame = "Csoportos Játékok"
-    case lineGame = "Sor Játékok"
+    case personalGame = "personal"
+    case groupWinGame = "winGroup"
+    case groupLoseGame = "LoseGroup"
     case battleGame = "Kétszemélyes Játékok"
-    static let allValues = [personalGame,groupGame,lineGame,battleGame]
+    static let allValues = [personalGame,groupWinGame,groupLoseGame,battleGame]
     
 }
 
@@ -479,7 +511,6 @@ class GameManagement {
         return battleGameModes
     }
     
-    var battlePlayer: [Player] = []
     
     var gameDrinkMultiplier : Int = 1
     
@@ -498,11 +529,8 @@ class GameManagement {
     
     var selectedMode = 0
     
-    var battlePlayerOneValue = 0
-    var battlePlayerTwoValue = 0
-    
     var actuallyPlayedGameCounter = 0
-    var actuallyPlayerName = ""
+    var actuallyPlayer: Player?
     var actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
     var actuallyGameDesc = ""
     
@@ -510,8 +538,6 @@ class GameManagement {
     var isSpactate = false
     
     var selectedSpac = 0
-    var battleGameRun = false
-    
     
     var figures = ["black_figures-1","blue_figures-1","yellow_figures-1",
                    "pink_figures-1","green_figures-1","gray_figures-1",
@@ -519,7 +545,27 @@ class GameManagement {
     
     var showExtraSetUp = false
     var playerCount = 0
+    
+    var actuallyGameType = 0
+    var actuallyGame : Game?
+    
+    var playerIndex = 0
+    
+    func getNextGamePlayer() -> Player? {
+        if  playerIndex == GameManagement.sharedInstance.playerCount {
+            playerIndex = 1
+        } else {
+            playerIndex = playerIndex + 1
+        }
+        let player = NetworkSevice.sharedInstance.playerList[playerIndex - 1]
+        print("----------- Player: \(player.playerName) --------------")
+        return player
+    }
+    
     var horseRaceBettingPlayer: [HorseBet] = []
+    
+    
+    
     var games = [Game]()
     func getGames() -> [Game] {
         getChosenGameMode()
@@ -530,6 +576,7 @@ class GameManagement {
             let description = game.gameDescription()
             let type = game.gameType()
             let gameImage = game.gameImage()
+            let gameScore = game.gameScore()
             let gameManagement = game.gameManagementView()
             let gameData = Game(id: "",
                                 name: name,
@@ -539,34 +586,10 @@ class GameManagement {
                                 gameType: type,
                                 gameImage: gameImage,
                                 gameManagement: gameManagement,
-                                downloadsData: GamesDownloadingData.contains(mode))
+                                downloadsData: GamesDownloadingData.contains(mode),
+                                addedScore: gameScore)
             games.append(gameData)
         }
         return games
-    }
-    
-    var battleGames = [Game]()
-    func getBattleGames() -> [Game] {
-        getBattleGameMode()
-        battleGames.removeAll()
-        for battleGamesItem in battleGameModes {
-            let mode = battleGamesItem.gameMode()
-            let name = battleGamesItem.gameTitle()
-            let description = battleGamesItem.gameDescription()
-            let type = battleGamesItem.gameType()
-            let gameImage = battleGamesItem.gameImage()
-            let gameManagement = battleGamesItem.gameManagementView()
-            let gameData = Game(id: "",
-                                name: name,
-                                description: description,
-                                isSelected: false,
-                                gameMode: mode,
-                                gameType: type,
-                                gameImage: gameImage,
-                                gameManagement: gameManagement,
-                                downloadsData: GamesDownloadingData.contains(mode))
-            battleGames.append(gameData)
-        }
-        return battleGames
     }
 }

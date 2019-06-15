@@ -41,7 +41,7 @@ class WheelOfFortuneView: GameView {
     
     func updateUI() {
         playerNameLabel.isHidden = true
-        GameManagement.sharedInstance.actuallyPlayerName = ""
+        //GameManagement.sharedInstance.actuallyPlayerName = ""
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
         GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
         postNotification(name: .updateGameData)

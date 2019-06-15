@@ -48,7 +48,7 @@ class MemoryView: GameView {
         categoriesTextLabel.attributedText = categoria
 
         
-        GameManagement.sharedInstance.actuallyPlayerName = playersList.randomElement()?.playerName ?? ""
+        //GameManagement.sharedInstance.actuallyPlayerName = playersList.randomElement()?.playerName ?? ""
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
         GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
         postNotification(name: .updateGameData)

@@ -41,14 +41,20 @@ class GameView : UIView {
             }
         }
 
+        
         if GameManagement.sharedInstance.drininkCounterView == true {
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
             popOverVC.modalPresentationStyle = .overFullScreen
             
-            if GameManagement.sharedInstance.userDefDrinkVariation == true {
-                popOverVC.drinkValue = drinkSegCount
+            popOverVC.game = GameManagement.sharedInstance.actuallyGame
+            let player = GameManagement.sharedInstance.actuallyPlayer
+            
+            if GameManagement.sharedInstance.actuallyGameType == 0 {
+                print("Egyéni")
+                popOverVC.player = player
             } else {
-                popOverVC.drinkValue = GameManagement.sharedInstance.drinkVariation
+                print("Csapat")
+                popOverVC.player = nil
             }
             
             if let topController = UIApplication.topViewController() {
@@ -57,26 +63,9 @@ class GameView : UIView {
                     postNotification(name: .generateNewGame)
                 })
             }
-        }
-        if GameManagement.sharedInstance.battleGameRun {
-            let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BattleResultViewController") as! BattleResultViewController
-            popOverVC.modalPresentationStyle = .overFullScreen
-            if let topController = UIApplication.topViewController() {
-                topController.present(popOverVC, animated: true, completion: {
-                    self.removeFromSuperview()
-                    postNotification(name: .generateNewGame)
-                    
-                })
-            }
         } else {
-            print("Drinking Counter Off")
             self.removeFromSuperview()
             postNotification(name: .generateNewGame)
         }
-        
-        
-        
-        
-
     }
 }

@@ -61,7 +61,7 @@ class RingOfFireView : GameView {
     func updateUI() {
         ruleLabel.isHidden = true
         let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
+        //GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
         GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
         postNotification(name: .updateGameData)
@@ -117,10 +117,10 @@ class RingOfFireView : GameView {
             
             playerIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
+            //GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
         } else {
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
+            //GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
         }
     }
     

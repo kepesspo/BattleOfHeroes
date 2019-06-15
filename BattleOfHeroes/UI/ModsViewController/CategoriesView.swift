@@ -39,7 +39,7 @@ class CategoriesView: GameView {
     
     @objc func updateUI() {
         let randomPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomPlayer].playerName
+        //GameManagement.sharedInstance.actuallyPlayerName = playersList[randomPlayer].playerName
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
         GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
         postNotification(name: .updateGameData)

@@ -37,7 +37,6 @@ class ExtraSetUpViewController: UIViewController {
         randomPictogramLabel.text = "7p"
         randomGroupDrinkLabel.text = "5p"
         
-        GameManagement.sharedInstance.showBonusView = true
         GameManagement.sharedInstance.drininkCounterView = true
         
     }
@@ -58,7 +57,6 @@ class ExtraSetUpViewController: UIViewController {
     }
     
     func setUpView() {
-        setUpBonusView()
         setUpDrinkCounter()
         setUpGroupDrinkView()
         setUpRandomPictogramView()
@@ -101,26 +99,6 @@ class ExtraSetUpViewController: UIViewController {
             case 1:
                 print("Off")
                 GameManagement.sharedInstance.drininkCounterView = false
-            default:
-                print("Default")
-            }
-            print("Selected item \(index)")
-            
-        }
-    }
-    
-    func setUpBonusView() {
-        bonusViewSegmentedControl.itemTitles = ["On","Off"]
-        bonusViewSegmentedControl.layer.cornerRadius = 5
-        bonusViewSegmentedControl.allowChangeThumbWidth = false
-        bonusViewSegmentedControl.didSelectItemWith = { (index, title) -> () in
-            switch index {
-            case 0:
-                print("On")
-                GameManagement.sharedInstance.showBonusView = true
-            case 1:
-                print("Off")
-                GameManagement.sharedInstance.showBonusView = false
             default:
                 print("Default")
             }

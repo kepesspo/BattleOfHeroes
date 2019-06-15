@@ -47,7 +47,7 @@ class HaveIEverNeverView: GameView {
         haveIEverNeverLabel.text = haveIEverNeverList[randomIndex].question
         
         let randomIndexForPlayer = Int(arc4random_uniform(UInt32(playersList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndexForPlayer].playerName
+        //GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndexForPlayer].playerName
         GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
         GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
         postNotification(name: .updateGameData)

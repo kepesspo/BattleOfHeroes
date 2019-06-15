@@ -19,9 +19,10 @@ struct Game {
     var gameImage : UIImage?
     var gameManagement : UIView?
     var downloadsData = false
+    var addedScore = 0
 
     
-    init(id : String, name: String, description: String, isSelected: Bool, gameMode: GameMode, gameType: GameType, gameImage: UIImage, gameManagement: UIView, downloadsData: Bool = false) {
+    init(id : String, name: String, description: String, isSelected: Bool, gameMode: GameMode, gameType: GameType, gameImage: UIImage, gameManagement: UIView, downloadsData: Bool = false, addedScore : Int) {
         self.id = id
         self.name = name
         self.description = description
@@ -31,5 +32,6 @@ struct Game {
         self.gameImage = gameImage
         self.gameManagement = gameManagement
         self.downloadsData = downloadsData
+        self.addedScore = addedScore
     }
 }

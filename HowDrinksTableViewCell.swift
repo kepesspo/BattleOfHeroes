@@ -11,8 +11,6 @@ import UIKit
 class HowDrinksTableViewCell: UITableViewCell {
 
     @IBOutlet weak var drinksPlayerLabel: UILabel!
-    @IBOutlet weak var drinkCountLabel: UILabel!
-    
     
     var player: Player? {
         didSet {
