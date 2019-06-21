@@ -23,7 +23,7 @@ class ScoreViewController: UIViewController {
         super.viewDidLoad()
         subscribeForNotification(name: .reloadScoreTableView, selector: #selector(reloadScoreTableView), object: nil)
         scoreTableView.separatorStyle = .none
-        popView.layer.cornerRadius = 10
+        popView.layer.cornerRadius = 30
         popView.layer.masksToBounds = true
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(reloadScoreTableView), userInfo: nil, repeats: true)
@@ -110,13 +110,12 @@ extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
             let playerL = playersList.sorted(by: { $0.allDrink > $1.allDrink })
             
             if  indexPath.row % 2 == 0 {
-                let lightOrage = UIColor(red:0.96, green:0.59, blue:0.48, alpha:0.5)
-                customCell.contentView.backgroundColor = lightOrage
-                //customCell.backgroundColor = lightBlueColor
-            } else {
                 let lightYellow = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
                 customCell.contentView.backgroundColor = lightYellow
-                customCell.playerNameLabel.textColor = UIColor(red:0.96, green:0.59, blue:0.48, alpha:1.0)
+            } else {
+                let lightOrage = UIColor(hexString: "#FFD393")
+                customCell.contentView.backgroundColor = lightOrage
+                customCell.playerNameLabel.textColor = UIColor(hexString: "#FFFFFF")
             }
             
             

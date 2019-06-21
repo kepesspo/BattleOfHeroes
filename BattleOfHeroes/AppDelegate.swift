@@ -1,7 +1,6 @@
 //
 //  AppDelegate.swift
 //  BattleOfHeroes
-//
 //  Created by Mark on 7/5/18.
 //  Copyright © 2018 Mark. All rights reserved.
 //

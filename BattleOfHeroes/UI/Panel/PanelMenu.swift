@@ -30,8 +30,9 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         
         self.view.addBlurBackground()
         self.curveTopCorners()
+        nextButton.layer.cornerRadius = 8
         arrowView.update(to: .up, animated: true)
-        arrowView.arrowColor = #colorLiteral(red: 0.01176470588, green: 0.7490196078, blue: 0.7490196078, alpha: 1)
+        arrowView.arrowColor = #colorLiteral(red: 1, green: 0.5933062434, blue: 0.3104811311, alpha: 1)
         
         NetworkSevice.sharedInstance.getGameRunning { (error, value) in
             if value == 1 {

@@ -19,6 +19,7 @@ class PanelGames: UIViewController, Panelable {
     @IBOutlet weak var dataView: UIView!
     @IBOutlet weak var arrowView: ArrowView!
     
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scoreCollectCheckBox: CheckboxButton!
     @IBOutlet weak var bonusCheckBox: CheckboxButton!
     @IBOutlet weak var randomPictogramCheckBox: CheckboxButton!
@@ -33,8 +34,8 @@ class PanelGames: UIViewController, Panelable {
         self.view.addBlurBackground()
         self.curveTopCorners()
         arrowView.update(to: .up, animated: true)
-        arrowView.arrowColor = #colorLiteral(red: 0.01176470588, green: 0.7490196078, blue: 0.7490196078, alpha: 1)
-        
+        arrowView.arrowColor = #colorLiteral(red: 1, green: 0.5933062434, blue: 0.3104811311, alpha: 1)
+        nextButton.layer.cornerRadius = 8
         gameSegmentedControl.defaultTextFont = UIFont.rubic(19)
         gameSegmentedControl.selectedTextFont = UIFont.rubic(19)
         bonusStackView.isHidden = true

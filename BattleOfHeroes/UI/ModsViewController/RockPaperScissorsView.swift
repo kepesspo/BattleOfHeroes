@@ -37,11 +37,14 @@ class RockPaperScissorsView: GameView {
     }
     
     func updateUI() {
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        //GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
-        postNotification(name: .updateGameData)
+        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
+            print("Player: \(player.playerName)")
+            GameManagement.sharedInstance.actuallyPlayer = player
+            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+            postNotification(name: .updateGameData)
+        }
+        
         let rockPaperScissors = NSMutableAttributedString()
         rockPaperScissors.appendColored(.black , font: .regular(20), "A játékot kezdéséhez válassz egy játékost jobbról vagy balról akivel megküzdesz\n\n").appendColored(.red, font: .regular(22), "- győzelemnél nem kell innod\n").appendColored(.red, font: .regular(22), " - vereségnél innod kell és megint rajtad a sor\n\n").appendColored(.black, font: .regular(20), "5 csata után a büntetéseket meg kell inni")
         rockPaperScissorsViewLabel.attributedText = rockPaperScissors

@@ -65,6 +65,8 @@
 		4D3DB0072280587A00DF3091 /* clock.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D3DB0062280587A00DF3091 /* clock.json */; };
 		4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3E49EA226082910037D899 /* PanelMenu.storyboard */; };
 		4D3E49EF226082E30037D899 /* PanelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E49EE226082E30037D899 /* PanelMenu.swift */; };
+		4D4988B822BBA7C300CCD785 /* TwentyOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4988B722BBA7C200CCD785 /* TwentyOneView.swift */; };
+		4D4988BA22BBA7D100CCD785 /* TwentyOneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4988B922BBA7D100CCD785 /* TwentyOneView.xib */; };
 		4D4A8F7C21F0E46300D0AD6F /* TapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */; };
 		4D4A8F7E21F0E47100D0AD6F /* TapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */; };
 		4D56D4D3214FF403004A591A /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56D4D2214FF403004A591A /* GameInfoViewController.swift */; };
@@ -266,6 +268,8 @@
 		4D3DB0062280587A00DF3091 /* clock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clock.json; sourceTree = "<group>"; };
 		4D3E49EA226082910037D899 /* PanelMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMenu.storyboard; sourceTree = "<group>"; };
 		4D3E49EE226082E30037D899 /* PanelMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelMenu.swift; sourceTree = "<group>"; };
+		4D4988B722BBA7C200CCD785 /* TwentyOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentyOneView.swift; sourceTree = "<group>"; };
+		4D4988B922BBA7D100CCD785 /* TwentyOneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwentyOneView.xib; sourceTree = "<group>"; };
 		4D4A8F7B21F0E46300D0AD6F /* TapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapperView.swift; sourceTree = "<group>"; };
 		4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapperView.xib; sourceTree = "<group>"; };
 		4D56D4D0214A6607004A591A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -510,6 +514,8 @@
 				4D4A8F7D21F0E47100D0AD6F /* TapperView.xib */,
 				4D1356FF224CC76D00894390 /* TickTakView.swift */,
 				4D135701224CC7B200894390 /* TickTakView.xib */,
+				4D4988B722BBA7C200CCD785 /* TwentyOneView.swift */,
+				4D4988B922BBA7D100CCD785 /* TwentyOneView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -895,6 +901,7 @@
 				4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */,
 				4D3D096C210B251E00C74CC6 /* Localizable.strings in Resources */,
 				4D3DB0072280587A00DF3091 /* clock.json in Resources */,
+				4D4988BA22BBA7D100CCD785 /* TwentyOneView.xib in Resources */,
 				4D77E70A21F0E29A00B27E56 /* TheBottleView.xib in Resources */,
 				4DA36AE421A4220C00B757BE /* newAnimation.json in Resources */,
 				4D4A8F7E21F0E47100D0AD6F /* TapperView.xib in Resources */,
@@ -1058,6 +1065,7 @@
 				4D94B665216762FD002D7B03 /* SpoonView.swift in Sources */,
 				4D906ED1211B31FA00B7B7E0 /* GameView.swift in Sources */,
 				4DA36ADB21A41D6600B757BE /* RussianRouletteView.swift in Sources */,
+				4D4988B822BBA7C300CCD785 /* TwentyOneView.swift in Sources */,
 				4D12F7C321A6C007004FAB50 /* NavigationViewController.swift in Sources */,
 				4D8DFB9F21FB0A3B00C3D6E3 /* ExtraSetUpViewController.swift in Sources */,
 				4DB29FFA22B391A9007D8E10 /* UIFont.swift in Sources */,

@@ -41,25 +41,18 @@ class WheelOfFortuneView: GameView {
     
     func updateUI() {
         playerNameLabel.isHidden = true
-        //GameManagement.sharedInstance.actuallyPlayerName = ""
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
-        postNotification(name: .updateGameData)
+        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
+            print("Player: \(player.playerName)")
+            GameManagement.sharedInstance.actuallyPlayer = player
+            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+            postNotification(name: .updateGameData)
+        }
+        
     }
     
     
     func showFortuneWheel() {
-//        var slices : [FortuneWheelSlice] = []
-//        for player in playersList{
-//            slices.append(FortuneWheelSlice(title: "\(player.playerName)"))
-//
-//
-//        }
-//        spinningWheel.shadow?.shadowColor = UIColor.red
-//        spinningWheel.slices = slices
-//        spinningWheel.equalSlices = true
-//        spinningWheel.frameStroke.width = 1
-//        spinningWheel.frameStroke.color = .white
         var slices : [Any] = []
         for player in playersList {
             slices.append(CarnivalWheelSlice.init(title: player.playerName))

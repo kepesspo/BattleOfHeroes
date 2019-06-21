@@ -17,6 +17,7 @@ class DrinkCounterViewController: UIViewController {
     @IBOutlet weak var groupValueLabel: UILabel!
     
     
+    @IBOutlet weak var containerVirew: UIView!
     
     @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var personalGameView: UIView!
@@ -57,13 +58,32 @@ class DrinkCounterViewController: UIViewController {
         
         
         // Curve View
+        containerVirew.layer.cornerRadius = 10
+        containerVirew.layer.masksToBounds = true
+        
         groupView.layer.cornerRadius = 10
         groupView.layer.masksToBounds = true
+        
         personalGameView.layer.cornerRadius = 10
         personalGameView.layer.masksToBounds = true
         
         howDrinksTableView.separatorStyle = .none
        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        containerVirew.layer.cornerRadius = 10
+        containerVirew.layer.masksToBounds = true
+        
+        groupView.layer.cornerRadius = 10
+        groupView.layer.masksToBounds = true
+        
+        personalGameView.layer.cornerRadius = 10
+        personalGameView.layer.masksToBounds = true
+        
+        howDrinksTableView.separatorStyle = .none
+        
     }
 
     func personalGame() {
@@ -81,13 +101,13 @@ class DrinkCounterViewController: UIViewController {
             let image = UIImage(named: "shot-glass")
             let imageView = UIImageView(image: image!)
             if elem == 1 {
-                imageView.frame = CGRect(x: 40, y: 420, width: 50, height: 50)
+                imageView.frame = CGRect(x: 40, y: 430, width: 50, height: 50)
                 view.addSubview(imageView)
             } else if elem > 7 {
-                imageView.frame = CGRect(x: 40, y: 490, width: 50, height: 50)
+                imageView.frame = CGRect(x: 40, y: 500, width: 50, height: 50)
                 view.addSubview(imageView)
             } else  {
-                imageView.frame = CGRect(x: step, y: 420, width: 50, height: 50)
+                imageView.frame = CGRect(x: step, y: 430, width: 50, height: 50)
                 view.addSubview(imageView)
             }
             
@@ -111,7 +131,7 @@ class DrinkCounterViewController: UIViewController {
     @IBAction func savePersonalGame(_ sender: Any) {
         if successCheckBox.on && extraCheckBox.on {
             let allScore = game!.addedScore + extraDrink
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: allScore) { (error, bonus, player) in
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: allScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player) in
                 if error == nil {
                     print("Success save score")
                     self.dismiss(animated: false, completion: {
@@ -123,7 +143,7 @@ class DrinkCounterViewController: UIViewController {
             }
             return
         } else if extraCheckBox.on {
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: extraDrink) { (error, bonus, player)  in
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: extraDrink, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
                 if error == nil {
                     print("Success save score")
                     self.dismiss(animated: false, completion: {
@@ -136,7 +156,7 @@ class DrinkCounterViewController: UIViewController {
             }
             return
         } else if successCheckBox.on {
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: game!.addedScore) { (error, bonus, player) in
+            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: game!.addedScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player) in
                 if error == nil {
                     print("Success save score")
                     self.dismiss(animated: false, completion: {
@@ -168,7 +188,9 @@ class DrinkCounterViewController: UIViewController {
     @IBAction func saveDrinksData(_ sender: Any) {
         if let player = selectedPlayer {
             if game?.gameType!.rawValue == "winGroup" {
-                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player, drinks: game!.addedScore) { (error, bonus, player)  in
+                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player,
+                                                                drinks: game!.addedScore,
+                                                                gameType: (game?.gameType!.rawValue)! ) { (error, bonus, player)  in
                     if error == nil {
                         print("Success save score")
                         self.dismiss(animated: false, completion: {
@@ -180,11 +202,11 @@ class DrinkCounterViewController: UIViewController {
                     }
                 }
             } else {
-                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player, drinks: game!.addedScore) { (error, bonus, player)  in
+                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player, drinks: game!.addedScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
                     if error == nil {
                         print("Success save score")
                         self.dismiss(animated: false, completion: {
-                            self.checkBonus(bonus: bonus, playerData: player)
+                            //self.checkBonus(bonus: bonus, playerData: player)
                         })
                         
                     } else {

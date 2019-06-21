@@ -58,6 +58,7 @@ class SetUpPlayersViewController: UIViewController {
         
         closeAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             print("Handle Ok logic here")
+            GameManagement.sharedInstance.playerCount = 0
             self.dismiss(animated: false, completion: nil)
         }))
         
@@ -83,8 +84,9 @@ class SetUpPlayersViewController: UIViewController {
     func showPanel() {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelMenu")
         var panelConfiguration = PanelConfiguration(size: .custom(250))
+        panelConfiguration.enclosedNavigationBar = true
         panelConfiguration.animateEntry = false
-        panelConfiguration.panelVisibleArea = 100
+        panelConfiguration.panelVisibleArea = 90
         panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
@@ -169,7 +171,10 @@ extension SetUpPlayersViewController: UICollectionViewDelegate, UICollectionView
             }
         } else {
             if let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: PlayerCollectionViewCell.identifier, for: indexPath) as? PlayerCollectionViewCell {
+                var color : UIColor? = UIColor(hexString: "#FFFFFF")
+                customCell.color = color!
                 customCell.player = playerList[indexPath.row]
+                
                 return customCell
             }
         }
@@ -182,19 +187,19 @@ extension SetUpPlayersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2.0
+        return 6.0
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: playerCollectionView.bounds.width / 3 - 4, height: playerCollectionView.bounds.height / 3 - 4)
+        return CGSize(width: playerCollectionView.bounds.width / 3 - 6, height: playerCollectionView.bounds.height / 3 - 10)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 4.0
+        return 10.0
     }
     
 }

@@ -20,10 +20,11 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         dashedLayer = CAShapeLayer()
-        dashedLayer.strokeColor = UIColor.black.cgColor
+        dashedLayer.strokeColor = UIColor.white.cgColor
         dashedLayer.lineDashPattern = [11, 11]
         dashedLayer.lineWidth = 1
         dashedLayer.cornerRadius = 10
+        
     }
     
     override func layoutSubviews() {
@@ -40,7 +41,7 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
     
     @IBAction func plusButtonAction(_ sender: Any) {
         let randomFigure = GameManagement.sharedInstance.figures.randomElement()
-        let randomNumber = fourDigitNumber
+        let randomNumber = twoDigitNumber
         NetworkSevice.sharedInstance.addPlayerToDatabase(player: Player(id: "", playerName: "Player\(randomNumber)", teamId: "", allDrink: 0, usedBonus: 0, color: randomFigure ?? "")) { (error) in
             if error != nil {
                 print("Error to add player")
@@ -52,8 +53,8 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var fourDigitNumber: String {
-        let randomRoomId = Int.random(in: 1000...9999)
+    var twoDigitNumber: String {
+        let randomRoomId = Int.random(in: 10...99)
         return "\(randomRoomId)"
     }
     

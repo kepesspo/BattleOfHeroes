@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,13 +31,13 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRf-E0-X8T">
                                         <rect key="frame" x="30" y="25" width="315" height="60"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="1" green="0.59215686274509804" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="K2e-G3-f4T"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="DB7-Ut-MzI"/>
                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="20"/>
-                                        <state key="normal" title="Tovább" backgroundImage="LoginButton">
+                                        <state key="normal" title="Tovább">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -64,8 +63,7 @@
                                 <constraints>
                                     <constraint firstItem="WpZ-n6-8Iw" firstAttribute="top" secondItem="nvg-E0-ava" secondAttribute="top" id="3GK-5L-cuR"/>
                                     <constraint firstItem="mRf-E0-X8T" firstAttribute="leading" secondItem="nvg-E0-ava" secondAttribute="leading" constant="30" id="5dV-3L-KAV"/>
-                                    <constraint firstItem="mRf-E0-X8T" firstAttribute="centerX" secondItem="nvg-E0-ava" secondAttribute="centerX" id="dAy-WA-9o9"/>
-                                    <constraint firstItem="mRf-E0-X8T" firstAttribute="centerY" secondItem="nvg-E0-ava" secondAttribute="centerY" constant="5" id="jS4-Ep-Rl1"/>
+                                    <constraint firstItem="mRf-E0-X8T" firstAttribute="top" secondItem="nvg-E0-ava" secondAttribute="top" constant="30" id="ktj-ZX-YB0"/>
                                     <constraint firstItem="WpZ-n6-8Iw" firstAttribute="centerX" secondItem="nvg-E0-ava" secondAttribute="centerX" id="qm7-ty-BXA"/>
                                     <constraint firstAttribute="height" constant="100" id="tiK-5J-aQI"/>
                                     <constraint firstAttribute="trailing" secondItem="mRf-E0-X8T" secondAttribute="trailing" constant="30" id="xLa-ob-Bm4"/>
@@ -75,12 +73,12 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="410"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Játékmenet:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTA-7C-TTt">
-                                        <rect key="frame" x="30" y="10" width="315" height="23"/>
+                                        <rect key="frame" x="30" y="20" width="315" height="23"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hrt-k6-u8d">
-                                        <rect key="frame" x="62.5" y="53" width="250" height="142"/>
+                                        <rect key="frame" x="62.5" y="63" width="250" height="142"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="OXB-PR-pYW">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="25"/>
@@ -101,10 +99,10 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -132,10 +130,10 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -163,10 +161,10 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -194,10 +192,10 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                                                <color key="value" name="Color"/>
+                                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -218,13 +216,13 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nehézségi Szint:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikn-fQ-heC">
-                                        <rect key="frame" x="114.5" y="215" width="146" height="23"/>
+                                        <rect key="frame" x="114.5" y="225" width="146" height="23"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-Mp-uth" customClass="TTSegmentedControl" customModule="TTSegmentedControl">
-                                        <rect key="frame" x="30" y="258" width="315" height="50"/>
+                                        <rect key="frame" x="30" y="268" width="315" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="XOM-vk-7kK"/>
@@ -234,7 +232,7 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="defaultTextColor">
-                                                <color key="value" name="Color"/>
+                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -244,7 +242,7 @@
                                                 <color key="value" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
-                                                <color key="value" name="Color"/>
+                                                <color key="value" red="1" green="0.59215686270000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="thumbShadowColor">
                                                 <color key="value" red="1" green="0.54682213069999996" blue="0.96889466049999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -269,7 +267,7 @@
                                     <constraint firstItem="o3O-Mp-uth" firstAttribute="centerX" secondItem="75U-S4-BYH" secondAttribute="centerX" id="lJc-p2-cIy"/>
                                     <constraint firstAttribute="trailing" secondItem="o3O-Mp-uth" secondAttribute="trailing" constant="30" id="p6x-QG-BFl"/>
                                     <constraint firstItem="hrt-k6-u8d" firstAttribute="centerX" secondItem="75U-S4-BYH" secondAttribute="centerX" id="pAy-nR-FBP"/>
-                                    <constraint firstItem="WTA-7C-TTt" firstAttribute="top" secondItem="75U-S4-BYH" secondAttribute="top" constant="10" id="ryb-30-5Bg"/>
+                                    <constraint firstItem="WTA-7C-TTt" firstAttribute="top" secondItem="75U-S4-BYH" secondAttribute="top" constant="20" id="ryb-30-5Bg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -295,6 +293,7 @@
                         <outlet property="groupDrinkCheckBox" destination="Qox-Ub-2WO" id="Hl7-OM-2nh"/>
                         <outlet property="headerHeight" destination="tiK-5J-aQI" id="CJ3-45-cPf"/>
                         <outlet property="headerPanel" destination="nvg-E0-ava" id="i2k-Te-OvG"/>
+                        <outlet property="nextButton" destination="mRf-E0-X8T" id="Hzr-Jp-99h"/>
                         <outlet property="randomPictogramCheckBox" destination="mlt-4d-28r" id="OfF-eT-kWz"/>
                         <outlet property="scoreCollectCheckBox" destination="d3o-em-To3" id="pTw-AA-ZnT"/>
                     </connections>
@@ -304,10 +303,4 @@
             <point key="canvasLocation" x="134.05797101449275" y="109.15178571428571"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LoginButton" width="608" height="93"/>
-        <namedColor name="Color">
-            <color red="0.011764705882352941" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

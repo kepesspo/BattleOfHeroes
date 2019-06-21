@@ -30,14 +30,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3w-Kt-Awb">
-                                        <rect key="frame" x="30" y="25" width="315" height="60"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="30" y="30" width="315" height="60"/>
+                                        <color key="backgroundColor" red="1" green="0.59215686274509804" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="SdM-wP-JTw"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="BZy-xw-t7V"/>
                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="20"/>
-                                        <state key="normal" title="Tovább" backgroundImage="LoginButton">
+                                        <state key="normal" title="Tovább">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -62,26 +62,24 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="O3w-Kt-Awb" secondAttribute="trailing" constant="30" id="1tm-Yy-DMW"/>
-                                    <constraint firstItem="O3w-Kt-Awb" firstAttribute="centerY" secondItem="DpB-ii-x0L" secondAttribute="centerY" constant="-5" id="HEh-fL-i85"/>
+                                    <constraint firstItem="O3w-Kt-Awb" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="top" constant="30" id="AL0-pT-Nuy"/>
                                     <constraint firstItem="O3w-Kt-Awb" firstAttribute="leading" secondItem="DpB-ii-x0L" secondAttribute="leading" constant="30" id="MCt-Hc-7Ly"/>
                                     <constraint firstItem="fjc-8p-LLf" firstAttribute="centerX" secondItem="DpB-ii-x0L" secondAttribute="centerX" id="UK4-IH-qRk"/>
                                     <constraint firstItem="fjc-8p-LLf" firstAttribute="top" secondItem="DpB-ii-x0L" secondAttribute="top" id="bce-Q6-SfL"/>
                                     <constraint firstAttribute="height" constant="120" id="riN-xS-O8z"/>
-                                    <constraint firstItem="O3w-Kt-Awb" firstAttribute="centerX" secondItem="DpB-ii-x0L" secondAttribute="centerX" id="uW6-hy-YS6"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrr-Qw-Pha">
                                 <rect key="frame" x="0.0" y="120" width="375" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szoba" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3S-0p-9BN">
-                                        <rect key="frame" x="20" y="10" width="335" height="24"/>
+                                        <rect key="frame" x="20" y="30" width="335" height="24"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quC-aE-rNl">
-                                        <rect key="frame" x="166.5" y="54" width="42" height="21"/>
+                                        <rect key="frame" x="166.5" y="74" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -91,7 +89,6 @@
                                     <constraint firstItem="quC-aE-rNl" firstAttribute="centerX" secondItem="Rrr-Qw-Pha" secondAttribute="centerX" id="QLh-2c-9Er"/>
                                     <constraint firstAttribute="trailing" secondItem="N3S-0p-9BN" secondAttribute="trailing" constant="20" id="WOg-bs-I9G"/>
                                     <constraint firstItem="quC-aE-rNl" firstAttribute="top" secondItem="N3S-0p-9BN" secondAttribute="bottom" constant="20" id="kYL-L6-Xhd"/>
-                                    <constraint firstItem="N3S-0p-9BN" firstAttribute="top" secondItem="Rrr-Qw-Pha" secondAttribute="top" constant="10" id="yo2-oo-2ML"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -104,6 +101,7 @@
                             <constraint firstItem="DpB-ii-x0L" firstAttribute="trailing" secondItem="oSZ-rI-pHh" secondAttribute="trailing" id="JXb-Xd-oOc"/>
                             <constraint firstItem="DpB-ii-x0L" firstAttribute="top" secondItem="qSo-Oi-ZAj" secondAttribute="top" id="Tg4-QD-J5U"/>
                             <constraint firstItem="Rrr-Qw-Pha" firstAttribute="bottom" secondItem="qSo-Oi-ZAj" secondAttribute="bottom" id="e03-96-S2h"/>
+                            <constraint firstItem="N3S-0p-9BN" firstAttribute="top" secondItem="O3w-Kt-Awb" secondAttribute="bottom" constant="60" id="kye-D3-LZw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oSZ-rI-pHh"/>
                     </view>
@@ -122,7 +120,4 @@
             <point key="canvasLocation" x="136.80000000000001" y="109.74512743628186"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LoginButton" width="608" height="93"/>
-    </resources>
 </document>

@@ -75,21 +75,60 @@ class NetworkSevice {
     }
     
     // UpdatePlayerDrinks
-    func updatePlayerDrinks(player: Player, drinks: Int, competionBlock: @escaping(_ error: Error?, _ bonus: Bool?, _ player: Player?) -> Void) {
+    func updatePlayerDrinks(player: Player, drinks: Int, gameType: String, competionBlock: @escaping(_ error: Error?, _ bonus: Bool?, _ player: Player?) -> Void) {
+        
+        let gameType = gameType
         let roomId = GameManagement.sharedInstance.getRoomName()
         let playerKey = player.id
         let playerDrinks = player.allDrink + drinks
         let playerUserBonus = player.usedBonus
         var playerData: [String:Any]?
     
-        playerData = ["id":playerKey,
-                      "playerName": player.playerName as String,
-                      "playerTeamId" : player.teamId as String,
-                      "playerDrinks" : playerDrinks as Int,
-                      "playerColor" : player.color as String,
-                      "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
 
-        refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
+        if gameType == "winGroup" {
+            playerData = ["id":playerKey,
+                          "playerName": player.playerName as String,
+                          "playerTeamId" : player.teamId as String,
+                          "playerDrinks" : playerDrinks as Int,
+                          "playerColor" : player.color as String,
+                          "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
+            
+            refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
+            
+        } else if gameType == "LoseGroup" {
+            for losePlayer in playerList {
+                if losePlayer.id != player.id {
+                    playerData = ["id":losePlayer.id,
+                                 "playerName": losePlayer.playerName as String,
+                                 "playerTeamId" : losePlayer.teamId as String,
+                                 "playerDrinks" : losePlayer.allDrink + drinks as Int,
+                                 "playerColor" : losePlayer.color as String,
+                                 "playerUsedBonus" : losePlayer.usedBonus as Int] as [String : Any]
+                    
+                    refGame.child(roomId).child("Players").child(losePlayer.id).setValue(playerData)
+                } else {
+                    print("Player how lose the game")
+                }
+            }
+        } else {
+            playerData = ["id":playerKey,
+                          "playerName": player.playerName as String,
+                          "playerTeamId" : player.teamId as String,
+                          "playerDrinks" : playerDrinks as Int,
+                          "playerColor" : player.color as String,
+                          "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
+            
+            refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
+        }
+        
+//        playerData = ["id":playerKey,
+//                      "playerName": player.playerName as String,
+//                      "playerTeamId" : player.teamId as String,
+//                      "playerDrinks" : playerDrinks as Int,
+//                      "playerColor" : player.color as String,
+//                      "playerUsedBonus" : playerUserBonus as Int] as [String : Any]
+//
+//        refGame.child(roomId).child("Players").child(playerKey).setValue(playerData)
         
         var playData = player
         playData.allDrink = playerDrinks

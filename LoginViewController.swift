@@ -33,8 +33,10 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
             switch index {
             case 0:
                 print("Online Mode")
+                GameManagement.sharedInstance.online = true
             case 1:
                 print("Offline Mode")
+                GameManagement.sharedInstance.online = false
             default:
                 print("Default")
             }

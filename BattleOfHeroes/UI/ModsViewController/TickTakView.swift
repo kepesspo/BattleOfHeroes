@@ -46,11 +46,13 @@ class TickTakView: GameView {
     
     func updateUI() {
         boomImageVirew.isHidden = true
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        //GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea")
-        postNotification(name: .updateGameData)
+        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
+            print("Player: \(player.playerName)")
+            GameManagement.sharedInstance.actuallyPlayer = player
+            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+            postNotification(name: .updateGameData)
+        }
     }
     
     @IBAction func timerAction(_ sender: Any) {

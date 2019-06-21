@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Rubik-Regular.ttf">
-            <string>Rubik-Regular</string>
+        <array key="Rubik-Bold.ttf">
+            <string>Rubik-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -24,21 +24,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-l9-PMf">
-                        <rect key="frame" x="5" y="110" width="240" height="17"/>
-                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="020-affection" translatesAutoresizingMaskIntoConstraints="NO" id="aQ5-6X-tLe">
-                        <rect key="frame" x="95" y="20" width="60" height="60"/>
+                        <rect key="frame" x="90" y="20" width="70" height="70"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="8Me-wG-xpN"/>
-                            <constraint firstAttribute="width" constant="60" id="zjS-uK-Y12"/>
+                            <constraint firstAttribute="height" constant="70" id="8Me-wG-xpN"/>
+                            <constraint firstAttribute="width" constant="70" id="zjS-uK-Y12"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-iu-Jqg">
+                        <rect key="frame" x="0.0" y="150" width="250" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-l9-PMf">
+                                <rect key="frame" x="10" y="10" width="230" height="80"/>
+                                <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.75686274509803919" green="0.34509803921568627" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Ax-l9-PMf" firstAttribute="centerX" secondItem="Chi-iu-Jqg" secondAttribute="centerX" id="34o-YP-5t2"/>
+                            <constraint firstAttribute="trailing" secondItem="7Ax-l9-PMf" secondAttribute="trailing" constant="10" id="3dO-JL-XTL"/>
+                            <constraint firstAttribute="height" constant="100" id="6gR-mK-zdE"/>
+                            <constraint firstAttribute="bottom" secondItem="7Ax-l9-PMf" secondAttribute="bottom" constant="10" id="Kff-0V-pbu"/>
+                            <constraint firstItem="7Ax-l9-PMf" firstAttribute="top" secondItem="Chi-iu-Jqg" secondAttribute="top" constant="10" id="NSm-kj-d5p"/>
+                            <constraint firstItem="7Ax-l9-PMf" firstAttribute="leading" secondItem="Chi-iu-Jqg" secondAttribute="leading" constant="10" id="UaA-2s-ouC"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qs1-ED-Uqd">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
-                        <color key="backgroundColor" white="0.70475706335616439" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.5490196078431373" green="0.5607843137254902" blue="0.45098039215686275" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY8-iz-2XN">
                         <rect key="frame" x="215" y="-5" width="40" height="40"/>
@@ -61,15 +76,15 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="TY8-iz-2XN" secondAttribute="trailing" constant="-5" id="G0b-KO-bRD"/>
                 <constraint firstAttribute="trailing" secondItem="qs1-ED-Uqd" secondAttribute="trailing" id="Hvw-km-Zze"/>
-                <constraint firstItem="7Ax-l9-PMf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="KI0-aB-Ao7"/>
-                <constraint firstItem="7Ax-l9-PMf" firstAttribute="top" secondItem="aQ5-6X-tLe" secondAttribute="bottom" constant="30" id="N3D-n4-qnn"/>
+                <constraint firstAttribute="trailing" secondItem="Chi-iu-Jqg" secondAttribute="trailing" id="Mi8-aq-ZCQ"/>
                 <constraint firstItem="qs1-ED-Uqd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NcU-8W-iC0"/>
+                <constraint firstItem="Chi-iu-Jqg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Uuk-Z4-3Dt"/>
                 <constraint firstItem="TY8-iz-2XN" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="-5" id="haV-8h-j2B"/>
                 <constraint firstItem="aQ5-6X-tLe" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="20" id="itx-jJ-6cH"/>
                 <constraint firstItem="aQ5-6X-tLe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="kxY-D9-o4o"/>
+                <constraint firstAttribute="bottom" secondItem="Chi-iu-Jqg" secondAttribute="bottom" id="o0B-SU-meJ"/>
                 <constraint firstItem="qs1-ED-Uqd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="p5o-Qt-2OO"/>
                 <constraint firstAttribute="bottom" secondItem="qs1-ED-Uqd" secondAttribute="bottom" id="svT-o0-bLa"/>
-                <constraint firstAttribute="trailing" secondItem="7Ax-l9-PMf" secondAttribute="trailing" constant="5" id="zu3-Tp-3Ic"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="250" height="148"/>
@@ -78,6 +93,7 @@
                 <outlet property="descriptionBtn" destination="TY8-iz-2XN" id="1aG-Zq-qZ0"/>
                 <outlet property="gameImageView" destination="aQ5-6X-tLe" id="Qm7-Xk-QP8"/>
                 <outlet property="gameNameLabel" destination="7Ax-l9-PMf" id="kTC-6k-3qk"/>
+                <outlet property="gameTypeColorView" destination="Chi-iu-Jqg" id="amf-S4-lIl"/>
             </connections>
             <point key="canvasLocation" x="-104" y="-34.182908545727138"/>
         </collectionViewCell>

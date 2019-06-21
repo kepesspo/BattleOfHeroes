@@ -16,6 +16,10 @@ class PanelMaterial: UIViewController, Panelable {
     @IBOutlet weak var PlayerName: UILabel!
     @IBOutlet weak var playedGameCounter: UILabel!
     @IBOutlet weak var typeImageView: UIImageView!
+    @IBOutlet weak var endGameView: UIView!
+    @IBOutlet weak var scoreView: UIView!
+    @IBOutlet weak var nextGameView: UIView!
+    @IBOutlet weak var showRoomView: UIView!
     
     
     override func viewDidLoad() {
@@ -27,6 +31,11 @@ class PanelMaterial: UIViewController, Panelable {
         self.curveTopCorners()
         self.view.layoutIfNeeded()
         super.viewDidLoad()
+        
+        endGameView.layer.cornerRadius = 20
+        scoreView.layer.cornerRadius = 20
+        nextGameView.layer.cornerRadius = 20
+        showRoomView.layer.cornerRadius = 20
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +58,7 @@ class PanelMaterial: UIViewController, Panelable {
     func showInfoView(description: String) {
         let infoPopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
         infoPopVC.infoText = description
+        //infoPopVC.image = GameManagement.sharedInstance.actuallyGame?.gameImage
         infoPopVC.modalPresentationStyle = .overFullScreen
         self.present(infoPopVC, animated: true, completion: nil)
     }
@@ -87,6 +97,9 @@ class PanelMaterial: UIViewController, Panelable {
         showInfoView(description: gameDescription)
     }
     
+    @IBAction func showRoomData(_ sender: Any) {
+        
+    }
     @IBAction func skipGameAction(_ sender: Any) {
         NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
             if error == nil {

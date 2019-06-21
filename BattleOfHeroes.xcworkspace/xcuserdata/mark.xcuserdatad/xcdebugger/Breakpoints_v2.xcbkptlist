@@ -230,7 +230,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BattleOfHeroes/NetworkSevice.swift"
-            timestampString = "582302941.615152"
+            timestampString = "582796383.023436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -326,7 +326,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BattleOfHeroes/UI/ModsViewController/ShiptripView.swift"
-            timestampString = "582302941.6166281"
+            timestampString = "582796383.027779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -341,13 +341,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DrinkCounterViewController.swift"
-            timestampString = "582302941.61683"
+            filePath = "BattleOfHeroes/NetworkSevice.swift"
+            timestampString = "582796383.0281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "showBonusView(notification:)"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "updatePlayerDrinks(player:drinks:gameType:competionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -358,45 +358,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BattleOfHeroes/NetworkSevice.swift"
-            timestampString = "582302941.6176521"
+            timestampString = "582796383.028643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "updatePlayerDrinks(player:drinks:competionBlock:)"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "updatePlayerDrinks(player:drinks:gameType:competionBlock:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BattleOfHeroes.NetworkSevice.updatePlayerDrinks(player: BattleOfHeroes.Player, drinks: Swift.Int, competionBlock: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Swift.Bool&gt;, Swift.Optional&lt;BattleOfHeroes.Player&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "BattleOfHeroes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/BattleOfHeroes/NetworkSevice.swift"
-                  timestampString = "582302942.339502"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "3024">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BattleOfHeroes.NetworkSevice.updatePlayerDrinks(player: BattleOfHeroes.Player, drinks: Swift.Int, competionBlock: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Swift.Bool&gt;, Swift.Optional&lt;BattleOfHeroes.Player&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "BattleOfHeroes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/BattleOfHeroes/NetworkSevice.swift"
-                  timestampString = "582302942.342189"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "3093">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlayerCollectionViewCell.swift"
+            timestampString = "582796383.029144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "textFieldDidBeginEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlayerCollectionViewCell.swift"
+            timestampString = "582796383.031575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BattleOfHeroes/UI/Panel/PanelMaterial.swift"
+            timestampString = "582798594.342739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "updateGameData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

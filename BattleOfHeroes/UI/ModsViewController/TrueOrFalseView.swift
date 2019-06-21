@@ -46,11 +46,6 @@ class TrueOrFalseView: GameView {
             postNotification(name: .updateGameData)
         }
         
-        
-        
-        
-        
-        
         self.tap.isEnabled = false
         Bundle.main.loadNibNamed("TrueOrFalseView", owner: self, options: nil)
         addSubview(contentView)

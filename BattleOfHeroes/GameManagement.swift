@@ -135,35 +135,35 @@ enum GameMode: String {
         }
     }
     
-    func gameType() -> GameType {
+    func gameType() -> (GameType,UIColor){
         switch self {
-        case .trueOrFalse: return .personalGame
-        case .categories: return .groupWinGame
-        case .hajime: return .groupWinGame
-        case .everybodyDrinks: return .personalGame
-        case .wheelOfFortune:return .groupLoseGame
-        case .upAndDown: return .groupLoseGame
-        case .ringOfFire: return .groupLoseGame
-        case .memory: return .groupWinGame
-        case .musicRecognizer: return .personalGame
-        case .switchHand: return .groupWinGame
-        case .rockPaperScissors: return .groupWinGame
-        case .fingerIt: return .personalGame
-        case .cheersToTheGovernor: return .groupWinGame
-        case .haveIEverNever: return .groupLoseGame
-        case .whoAmI: return .personalGame
-        case .spoon: return .groupWinGame
-        case .thePeopleChoice: return .personalGame
-        case .russianRoulette: return .personalGame
-        case .shipTrip: return .groupWinGame
-        case .horseRace: return .groupWinGame
-        case .anagram: return .personalGame
-        case .coinFlip: return .personalGame
-        case .fiveThing: return .personalGame
-        case .collectAndBoom: return .groupLoseGame
-        case .theBottle: return .groupLoseGame
-        case .tapper: return .personalGame
-        case .tickTak: return .groupLoseGame
+        case .trueOrFalse: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .categories: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .hajime: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .everybodyDrinks: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .wheelOfFortune:return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .upAndDown: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .ringOfFire: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .memory: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .musicRecognizer: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .switchHand: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .rockPaperScissors: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .fingerIt: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .cheersToTheGovernor: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .haveIEverNever: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .whoAmI: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .spoon: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .thePeopleChoice: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .russianRoulette: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .shipTrip: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .horseRace: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .anagram: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .coinFlip: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .fiveThing: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .collectAndBoom: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .theBottle: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .tapper: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .tickTak: return (.groupLoseGame,.init(hexString: "#7FA16E"))
         }
     }
     
@@ -209,7 +209,6 @@ enum GameMode: String {
             return UIView()
         }
     }
-    
     
     func gameImage() -> UIImage {
         switch self {
@@ -452,16 +451,12 @@ class GameManagement {
     }
     
     
-    
-    
-    
-    
     // Game Setup
     var chosenGames = [Game]()
     var defChosenGames = [Game]()
     
     var gameModes : [GameMode] = [GameMode]()
-    func getChosenGameMode() -> [GameMode] {
+    func getAllGameModes() -> [GameMode] {
         gameModes = [GameMode.trueOrFalse,
                      GameMode.categories,
                      GameMode.hajime,
@@ -490,54 +485,72 @@ class GameManagement {
                      GameMode.tapper,
                      GameMode.tickTak
         ]
-        
         return gameModes
     }
     
-    
-    var battleGameModes : [GameMode] = [GameMode]()
-    func getBattleGameMode() -> [GameMode] {
-        battleGameModes = [GameMode.hajime,
-                           GameMode.upAndDown,
-                           GameMode.memory,
-                           GameMode.rockPaperScissors,
-                           GameMode.musicRecognizer,
-                           GameMode.whoAmI,
-                           GameMode.coinFlip,
-                           GameMode.fiveThing,
-                           GameMode.collectAndBoom,
-                           GameMode.tapper,
-                           GameMode.tickTak]
-        return battleGameModes
+    func getOfflineGameModes() -> [GameMode] {
+        gameModes = [//GameMode.trueOrFalse,
+            GameMode.categories,
+            GameMode.hajime,
+            GameMode.everybodyDrinks,
+            GameMode.wheelOfFortune,
+            GameMode.upAndDown,
+            GameMode.ringOfFire,
+            GameMode.memory,
+            //GameMode.musicRecognizer,
+            GameMode.switchHand,
+            GameMode.rockPaperScissors,
+            GameMode.fingerIt,
+            //GameMode.cheersToTheGovernor,
+            //GameMode.haveIEverNever,
+            //GameMode.whoAmI,
+            //GameMode.spoon,
+            //GameMode.thePeopleChoice,
+            GameMode.russianRoulette,
+            //GameMode.shipTrip,
+            GameMode.horseRace,
+            //GameMode.anagram,
+            GameMode.coinFlip,
+            GameMode.fiveThing,
+            GameMode.collectAndBoom,
+            GameMode.theBottle,
+            GameMode.tapper,
+            GameMode.tickTak
+        ]
+        return gameModes
     }
     
-    
+    // Game difficulty
     var gameDrinkMultiplier : Int = 1
     
+    // Game bonus View
     var showBonusView : Bool = true
-    var drininkCounterView : Bool = true
     
+    // Game Group Drink
     var groupDrinksAllow : Bool = true
     var groupDrinkTime : Int = 300
     
+    // Game Random Pictogram
     var randomPictogramAllow : Bool = true
     var randomPictogramTime : Int = 420
     
-    var drinkVariation : [Int] = [0,1,2,3]
     
-    var userDefDrinkVariation = true
     
-    var selectedMode = 0
+    
     
     var actuallyPlayedGameCounter = 0
     var actuallyPlayer: Player?
     var actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
     var actuallyGameDesc = ""
+    var actuallyGameType = 0
+    var actuallyGame : Game?
     
     var gameStarted = false
     var isSpactate = false
-    
+    var selectedMode = 0
     var selectedSpac = 0
+    var online = true
+    var drininkCounterView : Bool = true
     
     var figures = ["black_figures-1","blue_figures-1","yellow_figures-1",
                    "pink_figures-1","green_figures-1","gray_figures-1",
@@ -545,10 +558,6 @@ class GameManagement {
     
     var showExtraSetUp = false
     var playerCount = 0
-    
-    var actuallyGameType = 0
-    var actuallyGame : Game?
-    
     var playerIndex = 0
     
     func getNextGamePlayer() -> Player? {
@@ -568,7 +577,7 @@ class GameManagement {
     
     var games = [Game]()
     func getGames() -> [Game] {
-        getChosenGameMode()
+        online == true ? getAllGameModes() : getOfflineGameModes()
         games.removeAll()
         for game in gameModes {
             let mode = game.gameMode()
@@ -583,7 +592,8 @@ class GameManagement {
                                 description: description,
                                 isSelected: false,
                                 gameMode: mode,
-                                gameType: type,
+                                gameType: type.0,
+                                gameTypeColor: type.1,
                                 gameImage: gameImage,
                                 gameManagement: gameManagement,
                                 downloadsData: GamesDownloadingData.contains(mode),

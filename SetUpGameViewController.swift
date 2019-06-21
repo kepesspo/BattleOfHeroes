@@ -33,7 +33,7 @@ class SetUpGameViewController: UIViewController {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelGames")
         var panelConfiguration = PanelConfiguration(size: .custom(450))
         panelConfiguration.animateEntry = false
-        panelConfiguration.panelVisibleArea = 100
+        panelConfiguration.panelVisibleArea = 90
         panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
@@ -95,19 +95,19 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2.0
+        return 6.0
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 3 - 4, height: gameCollectionView.bounds.height / 3 - 4)
+        return CGSize(width: gameCollectionView.bounds.width / 3 - 6, height: gameCollectionView.bounds.height / 3 - 10)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 4.0
+        return 10.0
     }
     
 }

@@ -24,7 +24,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="35V-jV-qfZ">
                     <rect key="frame" x="37.5" y="260" width="300" height="300"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="27r-8O-KZu"/>
                         <constraint firstAttribute="width" constant="300" id="Dbi-xG-rOl"/>
@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="COE-Bg-3Gu" firstAttribute="trailing" secondItem="7wD-yq-jP2" secondAttribute="trailing" constant="20" id="5aD-6Y-wk3"/>
                 <constraint firstItem="35V-jV-qfZ" firstAttribute="top" secondItem="cxQ-Y3-iGu" secondAttribute="bottom" constant="20" id="6H9-KH-cxL"/>

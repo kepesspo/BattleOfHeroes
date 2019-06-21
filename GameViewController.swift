@@ -26,10 +26,7 @@
     override func viewDidLoad() {
         super.viewDidLoad()
         GameManagement.sharedInstance.isSpactate = false
-        let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
-        var panelConfiguration = PanelConfiguration(size: .custom(300))
-        panelConfiguration.animateEntry = true
-        self.panelManager.show(panel: panel, config: panelConfiguration)
+        
         
         subscribeForNotification(name: .reloadGroupDrinkTimer, selector: #selector(showGroupDrinkView), object: nil)
         subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
@@ -42,12 +39,14 @@
         GameManagement.sharedInstance.setCopyCardsList()
         chosenGames = GameManagement.sharedInstance.chosenGames
         
+        showPanel()
         showPlayerWhoDrinks()
         showGroupDrinkView()
         showRandomPictogram()
         
         timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(showSpectatorBonus), userInfo: nil, repeats: true)
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -66,16 +65,17 @@
         }
         
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        getPlyarerWhoGetDrinks?.invalidate()
-    }
-    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func showPanel() {
+        let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
+        var panelConfiguration = PanelConfiguration(size: .custom(300))
+        panelConfiguration.enclosedNavigationBar = true
+        panelConfiguration.useSafeArea = true
+        panelConfiguration.animateEntry = true
+        panelConfiguration.panelVisibleArea = 90
+        panelManager.delegate = panel as? PanelNotifications
+        self.panelManager.show(panel: panel, config: panelConfiguration)
     }
     
     @objc func showSpectatorBonus() {

@@ -48,11 +48,13 @@ class HajimeView: GameView {
         numbers.appendColored(.black, font: .regular(20), "- bármelyik szám, amely tartalmazza\naz 5 és 7 számokat").appendColored(.red, font: .regular(22), "(7,17,27...) \n").appendColored(.black, font: .regular(20), "\n- bármely szám mely osztható 5-tel \nvagy 7-tel").appendColored(.red, font: .regular(22), "(14,15,20...)").appendColored(.black, font: .regular(20), "\n\n- minden egyes ").appendColored(.red, font: .regular(22), "HAJIME").appendColored(.black, font: .regular(20), "-nél a kör megfordul.")
         hajimeTextLabel.attributedText = numbers
         
-        let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
-        //GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
-        postNotification(name: .updateGameData)
+        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
+            print("Player: \(player.playerName)")
+            GameManagement.sharedInstance.actuallyPlayer = player
+            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
+            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
+            postNotification(name: .updateGameData)
+        }
         
     }
     
