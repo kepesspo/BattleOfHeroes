@@ -8,12 +8,14 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class MemoryView: GameView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var memoryTextLabel: UILabel!
     @IBOutlet weak var categoriesTextLabel: UILabel!
+    @IBOutlet weak var categoriesLabel: UILabel!
     
     let categories = GameManagement.sharedInstance.gamesCategories
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -43,16 +45,15 @@ class MemoryView: GameView {
         let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
         
         let categoria = NSMutableAttributedString()
-        categoria.appendColored(.black,font: .regular(20), "Következő kategória:\n ")
-            .appendColored(.red, font: .regular(30), "\(categories[randomIndex])")
+        categoria.appendColored(.black,font: .regular(20), "A kategória a következő :\n ")
         categoriesTextLabel.attributedText = categoria
 
         
-        GameManagement.sharedInstance.actuallyPlayerName = playersList.randomElement()?.playerName ?? ""
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
         postNotification(name: .updateGameData)
         
+        categoriesLabel.text = categories[randomIndex]
         
     }
      

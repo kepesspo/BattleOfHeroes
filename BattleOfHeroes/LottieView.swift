@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 import Lottie
 
 class LottieView: LOTAnimationView {

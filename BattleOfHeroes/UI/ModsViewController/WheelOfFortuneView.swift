@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 import TTFortuneWheel
 
 class WheelOfFortuneView: GameView {
@@ -17,7 +18,7 @@ class WheelOfFortuneView: GameView {
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var spinLabel: UILabel!
     
-    let playersList = NetworkSevice.sharedInstance.playerList
+    let playersList = Factory.shared.playerList
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -41,25 +42,14 @@ class WheelOfFortuneView: GameView {
     
     func updateUI() {
         playerNameLabel.isHidden = true
-        GameManagement.sharedInstance.actuallyPlayerName = ""
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
         postNotification(name: .updateGameData)
+        
     }
     
     
     func showFortuneWheel() {
-//        var slices : [FortuneWheelSlice] = []
-//        for player in playersList{
-//            slices.append(FortuneWheelSlice(title: "\(player.playerName)"))
-//
-//
-//        }
-//        spinningWheel.shadow?.shadowColor = UIColor.red
-//        spinningWheel.slices = slices
-//        spinningWheel.equalSlices = true
-//        spinningWheel.frameStroke.width = 1
-//        spinningWheel.frameStroke.color = .white
         var slices : [Any] = []
         for player in playersList {
             slices.append(CarnivalWheelSlice.init(title: player.playerName))

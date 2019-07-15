@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 public extension UIFont {
     public static func regular(_ fontSize: CGFloat = 12) -> UIFont {

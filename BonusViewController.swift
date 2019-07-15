@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 import Lottie
 
 class BonusViewController: UIViewController {
@@ -29,7 +30,7 @@ class BonusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameLabel.text = name
+        nameLabel.text = playerForBonus[0].playerName
         playerTableView.isHidden = true
         okButton.isHidden = true
         resultLabel.isHidden = true
@@ -39,11 +40,10 @@ class BonusViewController: UIViewController {
         contentView.layer.masksToBounds = true
         
         playerTableView.separatorStyle = .none
-        playerTableView.layer.cornerRadius = 10
         tableviewHeight = playerTableView.rowHeight * CGFloat(playerList.count)
         playerTableView.contentSize.height = tableviewHeight ?? 0
         
-        playerList = NetworkSevice.sharedInstance.playerList
+        playerList = Factory.shared.playerList
         let gesture = UITapGestureRecognizer(target: self, action: #selector(openBonus))
         bonusAnimationView.addGestureRecognizer(gesture)
         playBonusAnimation()
@@ -58,14 +58,13 @@ class BonusViewController: UIViewController {
 
     
     @IBAction func closeAction(_ sender: Any) {
-        NetworkSevice.sharedInstance.updatePlayerUseBonus(player: playerForBonus[0], bonus: 1) { (error) in
+        Factory.shared.dataManager.updatePlayerUseBonus(player: playerForBonus[0], bonus: 1) { (error) in
             if error == nil {
                 self.dismiss(animated: true, completion: nil)
             } else {
                 print(error?.localizedDescription)
             }
         }
-        
     }
     
     @IBAction func giveDrinks(_ sender: Any) {
@@ -90,23 +89,15 @@ class BonusViewController: UIViewController {
 
 extension BonusViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NetworkSevice.sharedInstance.playerList.count
+        return Factory.shared.playerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let customCell = Bundle.main.loadNibNamed("BonusPlayerTableViewCell",
                                                      owner: self,
                                                      options: nil)?.first as? BonusPlayerTableViewCell {
-            if  indexPath.row % 2 == 0 {
-                let lightBlueColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:0.5)
-                customCell.contentView.backgroundColor = lightBlueColor
-                //customCell.backgroundColor = lightBlueColor
-            } else {
-                let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
-                customCell.contentView.backgroundColor = lightYellowColor
-                customCell.nameLabel.textColor = UIColor(red:0.06, green:0.78, blue:0.80, alpha:1.0)
-            }
-            
+            customCell.selectionStyle = .none
+            customCell.contentView.backgroundColor = UIColor(hexString: "#FFD393")
             let player = playerList[indexPath.row]
             customCell.nameLabel.text = player.playerName
             
@@ -125,5 +116,9 @@ extension BonusViewController : UITableViewDelegate , UITableViewDataSource {
         let randomDrinks = Int(arc4random_uniform(UInt32(drinks.count)))
         resultLabel.text = "\(selectedPlayer.playerName) a büntetésed \(drinks[randomDrinks]) pia"
         
+        if let indexPath = playerTableView.indexPathForSelectedRow {
+            let currentCell = playerTableView.cellForRow(at: indexPath) as? BonusPlayerTableViewCell
+            currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
+        }
     }
 }

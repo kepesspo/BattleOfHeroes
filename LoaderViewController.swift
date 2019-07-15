@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 import Lottie
 
 class LoaderViewController: UIViewController {
@@ -16,14 +17,6 @@ class LoaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if GameManagement.sharedInstance.selectedMode == 1 {
-            self.view.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-            loaderView.backgroundColor = #colorLiteral(red: 0.7269999981, green: 0.8669999838, blue: 0.875, alpha: 1)
-            
-        } else {
-            self.view.backgroundColor =  #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-            loaderView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1)
-        }
         // Do any additional setup after loading the view.
     }
     

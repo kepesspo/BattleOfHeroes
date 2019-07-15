@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class CollectAndBoomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var randomElementLabel: UILabel!

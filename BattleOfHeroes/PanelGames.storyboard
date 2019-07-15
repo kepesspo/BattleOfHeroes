@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="00X-8b-icA">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Medium.ttf">
+            <string>Rubik-Medium</string>
+        </array>
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Panel Games-->
+        <scene sceneID="NQp-ph-HNe">
+            <objects>
+                <viewController id="00X-8b-icA" customClass="PanelGames" customModule="BattleOfHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AFe-5t-dv3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvg-E0-ava">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRf-E0-X8T">
+                                        <rect key="frame" x="30" y="30" width="315" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="K2e-G3-f4T"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="DB7-Ut-MzI"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="20"/>
+                                        <state key="normal" title="Tovább" backgroundImage="zold_gomb">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonTapped:" destination="00X-8b-icA" eventType="touchUpInside" id="9ev-nq-Mai"/>
+                                        </connections>
+                                    </button>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpZ-n6-8Iw" customClass="ArrowView" customModule="Arrows">
+                                        <rect key="frame" x="157.5" y="0.0" width="60" height="16"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="AV3-eh-fVi"/>
+                                            <constraint firstAttribute="width" constant="60" id="kz5-da-ojr"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="arrowColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="WpZ-n6-8Iw" firstAttribute="top" secondItem="nvg-E0-ava" secondAttribute="top" id="3GK-5L-cuR"/>
+                                    <constraint firstItem="mRf-E0-X8T" firstAttribute="leading" secondItem="nvg-E0-ava" secondAttribute="leading" constant="30" id="5dV-3L-KAV"/>
+                                    <constraint firstItem="mRf-E0-X8T" firstAttribute="top" secondItem="nvg-E0-ava" secondAttribute="top" constant="30" id="ktj-ZX-YB0"/>
+                                    <constraint firstItem="WpZ-n6-8Iw" firstAttribute="centerX" secondItem="nvg-E0-ava" secondAttribute="centerX" id="qm7-ty-BXA"/>
+                                    <constraint firstAttribute="height" constant="100" id="tiK-5J-aQI"/>
+                                    <constraint firstAttribute="trailing" secondItem="mRf-E0-X8T" secondAttribute="trailing" constant="30" id="xLa-ob-Bm4"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75U-S4-BYH">
+                                <rect key="frame" x="0.0" y="100" width="375" height="410"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Játékmenet:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTA-7C-TTt">
+                                        <rect key="frame" x="30" y="20" width="315" height="23"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hrt-k6-u8d">
+                                        <rect key="frame" x="62.5" y="63" width="250" height="142"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="OXB-PR-pYW">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="25"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontgyüjtés" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV2-Vx-ua1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="151" height="25"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3o-em-To3" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="25" height="25"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="Qse-xk-3jp"/>
+                                                            <constraint firstAttribute="width" constant="25" id="c46-qN-76e"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="scoreCollectAction:" destination="00X-8b-icA" eventType="valueChanged" id="9er-E7-0wD"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="hMd-2e-R0q">
+                                                <rect key="frame" x="0.0" y="39" width="250" height="25"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonus Képernyő" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWl-9o-yyd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="184" height="25"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqe-em-xWu" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="25" height="25"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="25" id="2h7-Xd-A38"/>
+                                                            <constraint firstAttribute="height" constant="25" id="pPi-rP-xr4"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="bonusAction:" destination="00X-8b-icA" eventType="valueChanged" id="gOL-JV-e6W"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-EX-e9h">
+                                                <rect key="frame" x="0.0" y="78" width="250" height="25"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Pictogram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWa-Bn-Q1e">
+                                                        <rect key="frame" x="0.0" y="0.0" width="204" height="25"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlt-4d-28r" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="25" height="25"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="K4O-VB-XQ2"/>
+                                                            <constraint firstAttribute="width" constant="25" id="TTM-CB-qQK"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="randomPictogramAction:" destination="00X-8b-icA" eventType="valueChanged" id="aRg-QX-BJf"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="tsM-KM-fVo">
+                                                <rect key="frame" x="0.0" y="117" width="250" height="25"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Csoportos Ivás" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h25-nl-7N9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="25"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qox-Ub-2WO" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
+                                                        <rect key="frame" x="225" y="0.0" width="25" height="25"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="25" id="C9p-mc-Qpy"/>
+                                                            <constraint firstAttribute="height" constant="25" id="Toh-Du-cPF"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="groupDrinkAction:" destination="00X-8b-icA" eventType="valueChanged" id="LjX-Yb-Ayr"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="3jo-xD-FOy"/>
+                                            <constraint firstItem="OXB-PR-pYW" firstAttribute="height" secondItem="hMd-2e-R0q" secondAttribute="height" id="Em4-0u-e02"/>
+                                            <constraint firstItem="OXB-PR-pYW" firstAttribute="width" secondItem="hMd-2e-R0q" secondAttribute="width" id="UD8-w9-3qy"/>
+                                            <constraint firstItem="hMd-2e-R0q" firstAttribute="height" secondItem="RrB-EX-e9h" secondAttribute="height" id="WNC-2d-aRK"/>
+                                            <constraint firstItem="hMd-2e-R0q" firstAttribute="width" secondItem="RrB-EX-e9h" secondAttribute="width" id="aUA-vS-X1f"/>
+                                            <constraint firstItem="RrB-EX-e9h" firstAttribute="width" secondItem="tsM-KM-fVo" secondAttribute="width" id="pJo-x5-7cm"/>
+                                            <constraint firstItem="RrB-EX-e9h" firstAttribute="height" secondItem="tsM-KM-fVo" secondAttribute="height" id="zDY-Yn-ufi"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nehézségi Szint:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikn-fQ-heC">
+                                        <rect key="frame" x="114.5" y="225" width="146" height="23"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-Mp-uth" customClass="TTSegmentedControl" customModule="TTSegmentedControl">
+                                        <rect key="frame" x="30" y="268" width="315" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="XOM-vk-7kK"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultTextColor">
+                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="useGradient" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="containerBackgroundColor">
+                                                <color key="value" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                                <color key="value" red="0.27417814730000001" green="0.74420785899999997" blue="0.63038516040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="thumbShadowColor">
+                                                <color key="value" red="1" green="0.54682213069999996" blue="0.96889466049999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="useShadow" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="padding">
+                                                <size key="value" width="20" height="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="o3O-Mp-uth" firstAttribute="leading" secondItem="75U-S4-BYH" secondAttribute="leading" constant="30" id="1Ju-LT-glP"/>
+                                    <constraint firstItem="WTA-7C-TTt" firstAttribute="centerX" secondItem="75U-S4-BYH" secondAttribute="centerX" id="DkF-Hn-6RC"/>
+                                    <constraint firstItem="ikn-fQ-heC" firstAttribute="centerX" secondItem="75U-S4-BYH" secondAttribute="centerX" id="FTI-Zs-GYd"/>
+                                    <constraint firstItem="o3O-Mp-uth" firstAttribute="top" secondItem="ikn-fQ-heC" secondAttribute="bottom" constant="20" id="Hl4-3H-es3"/>
+                                    <constraint firstItem="hrt-k6-u8d" firstAttribute="top" secondItem="WTA-7C-TTt" secondAttribute="bottom" constant="20" id="PFw-UH-hk7"/>
+                                    <constraint firstItem="WTA-7C-TTt" firstAttribute="leading" secondItem="75U-S4-BYH" secondAttribute="leading" constant="30" id="QIV-P3-Tze"/>
+                                    <constraint firstItem="ikn-fQ-heC" firstAttribute="top" secondItem="hrt-k6-u8d" secondAttribute="bottom" constant="20" id="aM7-EU-kzh"/>
+                                    <constraint firstAttribute="trailing" secondItem="WTA-7C-TTt" secondAttribute="trailing" constant="30" id="h7I-vS-eHT"/>
+                                    <constraint firstItem="o3O-Mp-uth" firstAttribute="centerX" secondItem="75U-S4-BYH" secondAttribute="centerX" id="lJc-p2-cIy"/>
+                                    <constraint firstAttribute="trailing" secondItem="o3O-Mp-uth" secondAttribute="trailing" constant="30" id="p6x-QG-BFl"/>
+                                    <constraint firstItem="hrt-k6-u8d" firstAttribute="centerX" secondItem="75U-S4-BYH" secondAttribute="centerX" id="pAy-nR-FBP"/>
+                                    <constraint firstItem="WTA-7C-TTt" firstAttribute="top" secondItem="75U-S4-BYH" secondAttribute="top" constant="20" id="ryb-30-5Bg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="75U-S4-BYH" firstAttribute="top" secondItem="nvg-E0-ava" secondAttribute="bottom" id="0N0-5L-QZc"/>
+                            <constraint firstItem="75U-S4-BYH" firstAttribute="bottom" secondItem="AFe-5t-dv3" secondAttribute="bottom" id="9og-vv-3kc"/>
+                            <constraint firstItem="nvg-E0-ava" firstAttribute="leading" secondItem="wj8-xk-pgT" secondAttribute="leading" id="IJp-bS-Iop"/>
+                            <constraint firstItem="75U-S4-BYH" firstAttribute="trailing" secondItem="wj8-xk-pgT" secondAttribute="trailing" id="MkN-Q0-BjO"/>
+                            <constraint firstItem="75U-S4-BYH" firstAttribute="leading" secondItem="wj8-xk-pgT" secondAttribute="leading" id="Tdk-K5-ROc"/>
+                            <constraint firstItem="nvg-E0-ava" firstAttribute="trailing" secondItem="wj8-xk-pgT" secondAttribute="trailing" id="fh6-LI-FfG"/>
+                            <constraint firstItem="nvg-E0-ava" firstAttribute="top" secondItem="AFe-5t-dv3" secondAttribute="top" id="j4z-NX-l9R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wj8-xk-pgT"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="510"/>
+                    <connections>
+                        <outlet property="arrowView" destination="WpZ-n6-8Iw" id="iPd-so-8wo"/>
+                        <outlet property="bonusCheckBox" destination="oqe-em-xWu" id="QVr-Ig-8zZ"/>
+                        <outlet property="bonusStackView" destination="hMd-2e-R0q" id="lE3-Cz-VSr"/>
+                        <outlet property="dataView" destination="75U-S4-BYH" id="Wkv-Qw-vH7"/>
+                        <outlet property="gameSegmentedControl" destination="o3O-Mp-uth" id="nDV-Vo-0g9"/>
+                        <outlet property="groupDrinkCheckBox" destination="Qox-Ub-2WO" id="Hl7-OM-2nh"/>
+                        <outlet property="headerHeight" destination="tiK-5J-aQI" id="CJ3-45-cPf"/>
+                        <outlet property="headerPanel" destination="nvg-E0-ava" id="i2k-Te-OvG"/>
+                        <outlet property="nextButton" destination="mRf-E0-X8T" id="Hzr-Jp-99h"/>
+                        <outlet property="randomPictogramCheckBox" destination="mlt-4d-28r" id="OfF-eT-kWz"/>
+                        <outlet property="scoreCollectCheckBox" destination="d3o-em-To3" id="pTw-AA-ZnT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xmD-oD-N66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.05797101449275" y="109.15178571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="zold_gomb" width="608" height="93"/>
+    </resources>
+</document>

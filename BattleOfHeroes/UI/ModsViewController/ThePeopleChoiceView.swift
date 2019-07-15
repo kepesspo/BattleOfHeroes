@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MDCCommon
+import MDCCommon
 
 class ThePeopleChoiceView: GameView {
     
@@ -62,8 +64,10 @@ class ThePeopleChoiceView: GameView {
     }
     
     func updateUI() {
-        //let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        //playerName.text = "Aki a kört kezdi: \(playersList[randomIndex].playerName)"
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
+        
         thePeopleChoiceLabel.text = "A nép szava dönt!"
         
         ifLabel.text = "akármilyen játékot ingyen letölthetnél"

@@ -8,23 +8,22 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 import AVFoundation
 
 class TickTakView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     @IBOutlet weak var timerBtn: UIButton!
     @IBOutlet weak var loadView: LottieView!
+    @IBOutlet weak var boomImageVirew: UIImageView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     let randomInterval = 5...30
     var timer : Timer?
     var endTime = 0
     var bombSoundEffect: AVAudioPlayer?
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,19 +43,14 @@ class TickTakView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
-    }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
     }
     
     func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Group"
-        playerName.text = playersList.randomElement()?.playerName
+        boomImageVirew.isHidden = true
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
     }
     
     @IBAction func timerAction(_ sender: Any) {
@@ -86,6 +80,7 @@ class TickTakView: GameView {
     
     func stopTimer() {
         loadView.stop()
+        boomImageVirew.isHidden = false
         loadView.isHidden = true
         playSound()
         if timer != nil {

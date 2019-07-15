@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MDCCommon
 
 class NetworkViewController: UIViewController {
 
     @IBOutlet weak var networkErrorView: LottieView!
     @IBOutlet weak var networkLabel: UILabel!
+    @IBOutlet weak var continueButton: UIButton!
     
     @IBOutlet weak var contentView: UIView!
     override func viewDidLoad() {
@@ -30,7 +32,7 @@ class NetworkViewController: UIViewController {
         contentView.layer.masksToBounds = true
         
         print("Play Network Error Animation")
-        networkLabel.text = "Waiting for internet connection..."
+        networkLabel.text = "Ha nincs internet hozzáférés akkor az olyan játékok ahol internet kapcsolatra van szükség azok a játékok tovább lesznek léptetve"
         networkErrorView.loopAnimation = true
         networkErrorView.play()
         
@@ -41,14 +43,9 @@ class NetworkViewController: UIViewController {
         self.removeFromParent()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func continueAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }

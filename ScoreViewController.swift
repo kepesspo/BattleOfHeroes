@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import MDCCommon
 
 class ScoreViewController: UIViewController {
 
     @IBOutlet weak var scoreTableView: UITableView!
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var BackButton: UIButton!
-    @IBOutlet weak var horseRaceBtn: UIButton!
+    @IBOutlet weak var addDrinksBtn: UIButton!
     
-    var playersList = NetworkSevice.sharedInstance.playerList
+    var playersList = Factory.shared.playerList
     var timer : Timer?
     
     
@@ -23,12 +24,12 @@ class ScoreViewController: UIViewController {
         super.viewDidLoad()
         subscribeForNotification(name: .reloadScoreTableView, selector: #selector(reloadScoreTableView), object: nil)
         scoreTableView.separatorStyle = .none
-        popView.layer.cornerRadius = 10
+        popView.layer.cornerRadius = 30
         popView.layer.masksToBounds = true
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(reloadScoreTableView), userInfo: nil, repeats: true)
         
-        horseRaceBtn.isHidden = true
+        addDrinksBtn.isHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -49,22 +50,28 @@ class ScoreViewController: UIViewController {
         self.present(raceBet, animated: true, completion: nil)
     }
     
+    @IBAction func addDrinksAction(_ sender: Any) {
+        let spectateBonus = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SpectateBonusViewController") as! SpectateBonusViewController
+        spectateBonus.modalPresentationStyle = .overFullScreen
+        self.present(spectateBonus, animated: true, completion: nil)
+    }
+    
     @objc func reloadScoreTableView() {
         DispatchQueue.main.async {
-            NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+            Factory.shared.dataManager.getPlayerList(completionBlock: { (error) in
                 if error != nil {
                     print("Error")
-                } 
-                self.playersList = NetworkSevice.sharedInstance.playerList
+                }
+                self.playersList = Factory.shared.playerList
                 self.scoreTableView.reloadData()
             })
             
             
-            NetworkSevice.sharedInstance.getHorseRaceRunning(completionBlock: { (error, valueHorseRace) in
-                if valueHorseRace == 1 {
-                    self.horseRaceBtn.isHidden = false
+            NetworkSevice.sharedInstance.getPlayerHowGetDrinks(completionBlock: { (error, valuePlayerShow) in
+                if valuePlayerShow == 1 {
+                    self.addDrinksBtn.isHidden = false
                 } else {
-                    self.horseRaceBtn.isHidden = true
+                    self.addDrinksBtn.isHidden = true
                 }
             })
             
@@ -104,13 +111,12 @@ extension ScoreViewController : UITableViewDelegate, UITableViewDataSource {
             let playerL = playersList.sorted(by: { $0.allDrink > $1.allDrink })
             
             if  indexPath.row % 2 == 0 {
-                let lightOrage = UIColor(red:0.96, green:0.59, blue:0.48, alpha:0.5)
-                customCell.contentView.backgroundColor = lightOrage
-                //customCell.backgroundColor = lightBlueColor
-            } else {
                 let lightYellow = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
                 customCell.contentView.backgroundColor = lightYellow
-                customCell.playerNameLabel.textColor = UIColor(red:0.96, green:0.59, blue:0.48, alpha:1.0)
+            } else {
+                let lightOrage = UIColor(hexString: "#FFD393")
+                customCell.contentView.backgroundColor = lightOrage
+                customCell.playerNameLabel.textColor = UIColor(hexString: "#FFFFFF")
             }
             
             

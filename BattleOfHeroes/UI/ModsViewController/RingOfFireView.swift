@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class RingOfFireView : GameView {
     @IBOutlet var contentView: UIView!
@@ -60,10 +61,8 @@ class RingOfFireView : GameView {
     
     func updateUI() {
         ruleLabel.isHidden = true
-        let randomIndex = Int(arc4random_uniform(UInt32(playerList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playerList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
         postNotification(name: .updateGameData)
     }
     
@@ -91,7 +90,6 @@ class RingOfFireView : GameView {
         cardStackView.isUserInteractionEnabled = false
         cardsCopy = GameManagement.sharedInstance.copyCards
         print(cardsCopy.count)
-        GameManagement.sharedInstance.drinkVariation = [0,1,2,3]
         
     }
     
@@ -117,10 +115,10 @@ class RingOfFireView : GameView {
             
             playerIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
+            //GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
         } else {
             GameManagement.sharedInstance.ringOfFirePlayerCountIndex = GameManagement.sharedInstance.ringOfFirePlayerCountIndex + 1
-            GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
+            //GameManagement.sharedInstance.actuallyPlayerName = playerList[playerIndex].playerName
         }
     }
     

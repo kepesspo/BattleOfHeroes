@@ -8,16 +8,13 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class CollectAndBoomView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var collectAndBoomCollectionView: UICollectionView!
     @IBOutlet weak var drinkCounterLabel: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
     
     var shuffledElements = [0,0,0,1,1,1,2,2,2].shuffled()
     var selected = [false,false,false,false,false,false,false,false,false]
@@ -45,19 +42,13 @@ class CollectAndBoomView: GameView {
         collectAndBoomCollectionView.delegate = self
         collectAndBoomCollectionView.allowsSelection = true
         drinkCounterLabel.text = ""
-        updateLevelCounterUI()
         updateUI()
         
     }
-    
-    @objc func updateLevelCounterUI() {
-        gameInLevelLabel.text = self.gameCounter
-    }
-    
     func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerLabel.text = playersList.randomElement()?.playerName
-        playerType.text = "Line"
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
     }
 }
 
@@ -97,8 +88,6 @@ extension CollectAndBoomView : UICollectionViewDelegate ,UICollectionViewDataSou
                 self.tap.isEnabled = true
                 drinkCounterLabel.text = "Amit meg kell inni : \(drinkCount)"
                 print("Boom game ended")
-                GameManagement.sharedInstance.drinkVariation = [drinkCount]
-                GameManagement.sharedInstance.userDefDrinkVariation = false
             } else {
                 print("Game continue")
                 drinkCount += selectedElementValue
@@ -117,7 +106,7 @@ extension CollectAndBoomView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5.0
+        return 10.0
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -129,7 +118,7 @@ extension CollectAndBoomView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5.0
+        return 20.0
     }
     
     

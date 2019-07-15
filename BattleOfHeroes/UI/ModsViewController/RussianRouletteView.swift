@@ -8,23 +8,21 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 import Lottie
 
 class RussianRouletteView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var russianRouletteLabel: UILabel!
-    
     @IBOutlet weak var optionOneBtn: LottieView!
     @IBOutlet weak var optionTwoBtn: LottieView!
     @IBOutlet weak var optionThreeBtn: LottieView!
     @IBOutlet weak var optionesStackView: UIStackView!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var box1ImageView: UIImageView!
+    @IBOutlet weak var box2ImageView: UIImageView!
+    @IBOutlet weak var box3ImageView: UIImageView!
     
     var elements = ["drink","favourite_app_icon","favourite_app_icon"]
     
@@ -55,7 +53,6 @@ class RussianRouletteView: GameView {
             button?.addGestureRecognizer(gesture)
         }
         
-        updateLevelCounterUI()
         updateUI()
     }
     
@@ -73,6 +70,11 @@ class RussianRouletteView: GameView {
         optionOneBtn.loopAnimation = true
         optionTwoBtn.loopAnimation = true
         optionThreeBtn.loopAnimation = true
+        
+        box1ImageView.isHidden = true
+        box2ImageView.isHidden = true
+        box3ImageView.isHidden = true
+        
         
         var elementsCopy = [String]()
         elements.forEach { element in elementsCopy.append(element) }
@@ -109,15 +111,15 @@ class RussianRouletteView: GameView {
         
     }
     
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
     
     func updateUI() {
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerType.text = "Personal"
-        playerLabel.text = playersList.randomElement()?.playerName
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
+        
+        box1ImageView.isHidden = false
+        box2ImageView.isHidden = false
+        box3ImageView.isHidden = false
     }
     
     

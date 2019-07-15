@@ -7,13 +7,11 @@
 //
 
 import UIKit
+import MDCCommon
 
 class EndGameViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var showResultBtn: UIButton!
-    @IBOutlet weak var endGameBtn: UIButton!
-    @IBOutlet weak var endGameTitle: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -21,12 +19,8 @@ class EndGameViewController: UIViewController {
     }
     
     func setUpView() {
-        contentView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 30
         contentView.layer.masksToBounds = true
-        //showResultBtn.setTitle("EndGameViewController_showResultBtnTitle".localized(), for: .normal)
-        //endGameBtn.setTitle("EndGameViewController_endGameBtnTitle".localized(), for: .normal)
-        //endGameTitle.text = "EndGameViewController_titleText".localized()
-        
     }
 
     @IBAction func closeAndGameView(_ sender: Any) {
@@ -45,29 +39,31 @@ class EndGameViewController: UIViewController {
     }
     
     @IBAction func endGameAction(_ sender: Any) {
-        GameManagement.sharedInstance.battlePlayer = []
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = 0
         GameManagement.sharedInstance.gameStarted = false
+        GameManagement.sharedInstance.chosenGames = []
         
+        Factory.shared.playedGame = 0
+        Factory.shared.actuallyPlayer = nil
+        Factory.shared.playerIndex = 0
+        
+        self.dismiss(animated: false, completion: nil)
+        
+        postNotification(name: .endGame)
         NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
             if error == nil {
+                
                 print("Lock Screen for other player")
             } else {
                 print("Error Lock Screen for other player ")
             }
         }
         
-        self.dismiss(animated: false, completion: nil)
-        postNotification(name: .endGame)
+        NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
+            if error == nil {
+                print("Horse race with database work")
+            } else {
+                print("error")
+            }
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class MusicRecognizerManagerView: UIView {
     @IBOutlet weak var switch1980: UISwitch!

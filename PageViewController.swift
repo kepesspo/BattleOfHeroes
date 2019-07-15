@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import MDCCommon
 
 class PageViewController: UIPageViewController {
 
     lazy var pages: [UIViewController] = {
         return [self.newVc(viewController: "Welcome"),
-                self.newVc(viewController: "DataBase"),
-                self.newVc(viewController: "Permission")] }()
+                self.newVc(viewController: "DataBase")] }()
     
     var pageControl = UIPageControl()
     var nextButton = UIButton()
@@ -37,9 +37,6 @@ class PageViewController: UIPageViewController {
                                animated: false,
                                completion: nil)
         }
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     
@@ -53,7 +50,7 @@ class PageViewController: UIPageViewController {
         
         self.nextButton.center.x = self.view.frame.size.width / 2
         self.nextButton.backgroundColor = UIColor.GameColors.lightBule
-        self.nextButton.setTitle("Next", for: .normal)
+        self.nextButton.setTitle("Tovább", for: .normal)
         self.nextButton.layer.cornerRadius = 8
         self.nextButton.addTarget(self, action: #selector(nextButtonTap), for: .touchUpInside)
         self.view.addSubview(nextButton)
@@ -81,12 +78,6 @@ class PageViewController: UIPageViewController {
                                         completion: nil)
                 checkPageView()
             case 1:
-                self.setViewControllers([self.pages[2]],
-                                        direction: .forward,
-                                        animated: true,
-                                        completion: nil)
-                checkPageView()
-            case 2:
                 UserDefaults.standard.set(true, forKey: UserDefaultsKeys.onboardingClosed)
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
                 self.present(vc, animated: true, completion: nil)
@@ -130,16 +121,12 @@ class PageViewController: UIPageViewController {
                 backButton.setTitle("", for: .normal)
                 pageControl.currentPage = 0
             case 1:
-                nextButton.setTitle("Next", for: .normal)
-                backButton.setTitle("Back", for: .normal)
+                nextButton.setTitle("Mehet", for: .normal)
+                backButton.setTitle("Vissza", for: .normal)
                 pageControl.currentPage = 1
-            case 2:
-                nextButton.setTitle("Start Game", for: .normal)
-                backButton.setTitle("Back", for: .normal)
-                pageControl.currentPage = 2
             default:
                 nextButton.setTitle("Next", for: .normal)
-                backButton.setTitle("Back", for: .normal)
+                backButton.setTitle("Vissza", for: .normal)
             }
         }
     }

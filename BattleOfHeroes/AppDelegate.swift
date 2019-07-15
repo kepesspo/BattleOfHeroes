@@ -1,21 +1,22 @@
 //
 //  AppDelegate.swift
 //  BattleOfHeroes
-//
 //  Created by Mark on 7/5/18.
 //  Copyright © 2018 Mark. All rights reserved.
 //
 
 import UIKit
+import MDCCommon
 import Firebase
 import FirebaseDatabase
 import Reachability
 import SpotifyLogin
 
-@UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
+ @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var reachability = Reachability()!
+    var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -45,24 +46,20 @@ import SpotifyLogin
         
         // Check Internet Connection
         reachability.whenReachable = { _ in
+             GameManagement.sharedInstance.networkWorks = true
             print("Network works")
-            GameManagement.sharedInstance.networkWorks = true
-            self.dismissErrorPopup()
+             
         }
         
         reachability.whenUnreachable = { _ in
             GameManagement.sharedInstance.networkWorks = false
             self.showNetworkErrorPopup()
+            //postNotification(name: .deselectGame)
             
         }
+        GameManagement.sharedInstance.networkWorks = reachability.isReachable ? true : false
     }
-    func dismissErrorPopup() {
-        print("Dismiss top VC")
-        if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: nil)
-            
-        }
-    }
+    
     func showNetworkErrorPopup() {
         let networkVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NetworkViewController") as! NetworkViewController
         networkVC.modalPresentationStyle = .overFullScreen
@@ -78,11 +75,24 @@ import SpotifyLogin
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
-            if error == nil {
-                print("Lock Screen for other player")
+        NetworkSevice.sharedInstance.getGameRunning { (error, run) in
+            if run == 1 && GameManagement.sharedInstance.isSpactate {
+                print("No Delete is Run")
             } else {
-                print("Error Lock Screen for other player ")
+                NetworkSevice.sharedInstance.gameRunning(isRun: false) { (error) in
+                    if error == nil {
+                        print("Lock Screen for other player")
+                    } else {
+                        print("Error Lock Screen for other player ")
+                    }
+                }
+                NetworkSevice.sharedInstance.horseRaceRunning(isRun: false) { (error) in
+                    if error == nil {
+                        print("Horse race with database work")
+                    } else {
+                        print("error")
+                    }
+                }
             }
         }
     }
@@ -96,7 +106,7 @@ import SpotifyLogin
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        
+       
     }
 
 

@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-f8-3Bv">
-                    <rect key="frame" x="20" y="330.5" width="335" height="160"/>
+                    <rect key="frame" x="20" y="310.5" width="335" height="160"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOt-aJ-Xaw">
                             <rect key="frame" x="0.0" y="0.0" width="101.5" height="160"/>
@@ -65,19 +65,19 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válassz egy lapot:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc3-55-RiG">
-                    <rect key="frame" x="118.5" y="290" width="138" height="20.5"/>
+                    <rect key="frame" x="118.5" y="270" width="138" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szabály" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foj-hb-RLD">
-                    <rect key="frame" x="20" y="510.5" width="335" height="19.5"/>
+                    <rect key="frame" x="20" y="485.5" width="335" height="19.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.99950855969999997" green="0.82713145020000001" blue="0.57718551159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Tc3-55-RiG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Bp-J5-Y0s"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="foj-hb-RLD" secondAttribute="trailing" constant="20" id="1wt-eH-Q5r"/>
@@ -87,9 +87,9 @@
                 <constraint firstItem="IOm-gx-lXl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TWr-dg-Zlg"/>
                 <constraint firstItem="qWa-f8-3Bv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="VqX-73-6NY"/>
                 <constraint firstItem="foj-hb-RLD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dGc-Mz-osi"/>
-                <constraint firstItem="Tc3-55-RiG" firstAttribute="top" secondItem="IOm-gx-lXl" secondAttribute="bottom" constant="40" id="dmN-b4-0Ab"/>
+                <constraint firstItem="Tc3-55-RiG" firstAttribute="top" secondItem="IOm-gx-lXl" secondAttribute="bottom" constant="20" id="dmN-b4-0Ab"/>
                 <constraint firstItem="qWa-f8-3Bv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hVP-ml-AbQ"/>
-                <constraint firstItem="foj-hb-RLD" firstAttribute="top" secondItem="2vJ-N8-kD8" secondAttribute="bottom" constant="20" id="hhZ-Ay-FgT"/>
+                <constraint firstItem="foj-hb-RLD" firstAttribute="top" secondItem="2vJ-N8-kD8" secondAttribute="bottom" constant="15" id="hhZ-Ay-FgT"/>
                 <constraint firstItem="IOm-gx-lXl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="qhD-tl-ela"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

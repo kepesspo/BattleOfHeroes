@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TickTakView" customModule="BattleOfHeroes" customModuleProvider="target">
             <connections>
+                <outlet property="boomImageVirew" destination="HHl-9v-hCS" id="YMA-8X-IEI"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="EBB-sZ-2F6"/>
-                <outlet property="gameInLevelLabel" destination="ADT-zm-I8t" id="vhd-xl-NlY"/>
-                <outlet property="gameInfoContainerView" destination="Fbb-BU-fDz" id="4X0-tD-9zE"/>
                 <outlet property="loadView" destination="fgR-mt-CVK" id="kUL-XB-b0W"/>
-                <outlet property="playerName" destination="L0l-ah-NFN" id="DvG-jM-XsJ"/>
-                <outlet property="playerType" destination="eYD-V6-Wa1" id="u5h-Su-eBw"/>
                 <outlet property="timerBtn" destination="Ksu-Qz-xqz" id="wQQ-dy-PWX"/>
             </connections>
         </placeholder>
@@ -26,84 +23,63 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbb-BU-fDz">
-                    <rect key="frame" x="20" y="40" width="335" height="60"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADT-zm-I8t">
-                            <rect key="frame" x="20" y="18" width="48" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYD-V6-Wa1">
-                            <rect key="frame" x="267" y="18" width="48" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0l-ah-NFN">
-                            <rect key="frame" x="138" y="15" width="59.5" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                            <color key="textColor" red="0.0" green="0.3294117647" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.55582959641255603" green="0.66429147982062786" blue="0.67000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="L0l-ah-NFN" firstAttribute="centerX" secondItem="Fbb-BU-fDz" secondAttribute="centerX" id="8iW-7u-tWu"/>
-                        <constraint firstAttribute="trailing" secondItem="eYD-V6-Wa1" secondAttribute="trailing" constant="20" id="Deg-bT-rq2"/>
-                        <constraint firstItem="L0l-ah-NFN" firstAttribute="centerY" secondItem="Fbb-BU-fDz" secondAttribute="centerY" id="Esx-is-agH"/>
-                        <constraint firstItem="ADT-zm-I8t" firstAttribute="leading" secondItem="Fbb-BU-fDz" secondAttribute="leading" constant="20" id="QrB-h1-3bG"/>
-                        <constraint firstItem="eYD-V6-Wa1" firstAttribute="centerY" secondItem="Fbb-BU-fDz" secondAttribute="centerY" id="W7o-eK-xNK"/>
-                        <constraint firstAttribute="height" constant="60" id="gnj-uc-Bch"/>
-                        <constraint firstItem="ADT-zm-I8t" firstAttribute="centerY" secondItem="Fbb-BU-fDz" secondAttribute="centerY" id="zzP-VP-UF4"/>
-                    </constraints>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgR-mt-CVK" customClass="LottieView" customModule="BattleOfHeroes" customModuleProvider="target">
+                    <rect key="frame" x="47.5" y="299" width="280" height="280"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="clock.json"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tick Tak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-uW-ptC">
-                    <rect key="frame" x="149" y="130" width="77.5" height="26.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksu-Qz-xqz">
-                    <rect key="frame" x="87.5" y="166.5" width="200" height="200"/>
+                    <rect key="frame" x="47.5" y="299" width="280" height="280"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="j5D-kR-TjR"/>
-                        <constraint firstAttribute="height" constant="200" id="mmN-QV-qUb"/>
+                        <constraint firstAttribute="width" constant="280" id="j5D-kR-TjR"/>
+                        <constraint firstAttribute="height" constant="280" id="mmN-QV-qUb"/>
                     </constraints>
-                    <state key="normal" backgroundImage="timer"/>
                     <connections>
                         <action selector="timerAction:" destination="-1" eventType="touchUpInside" id="4f7-Yg-3pj"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgR-mt-CVK" customClass="LottieView" customModule="BattleOfHeroes" customModuleProvider="target">
-                    <rect key="frame" x="12.5" y="366.5" width="350" height="350"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tickTakBoom10000" translatesAutoresizingMaskIntoConstraints="NO" id="7Zy-jv-A5S">
+                    <rect key="frame" x="-256" y="40" width="887" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="350" id="GDd-rv-pUe"/>
-                        <constraint firstAttribute="height" constant="350" id="qQD-Yg-flL"/>
+                        <constraint firstAttribute="height" constant="200" id="MCY-00-F25"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="animation-loading"/>
-                    </userDefinedRuntimeAttributes>
-                </view>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boom" translatesAutoresizingMaskIntoConstraints="NO" id="HHl-9v-hCS">
+                    <rect key="frame" x="47.5" y="299" width="280" height="280"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indítsd el a visszaszámlálót és add körbe a poharat. Akinél felrobban az vesztett." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G9-TT-eXh">
+                    <rect key="frame" x="20" y="248" width="335" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="0.72549019607843135" green="0.8666666666666667" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Fbb-BU-fDz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="0I2-jq-aZS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fbb-BU-fDz" secondAttribute="trailing" constant="20" id="RUe-wS-T4f"/>
-                <constraint firstItem="6tJ-uW-ptC" firstAttribute="top" secondItem="Fbb-BU-fDz" secondAttribute="bottom" constant="30" id="Rgj-qw-RB8"/>
-                <constraint firstItem="Ksu-Qz-xqz" firstAttribute="centerX" secondItem="6tJ-uW-ptC" secondAttribute="centerX" id="Rie-1O-I3F"/>
-                <constraint firstItem="6tJ-uW-ptC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SGq-NF-zEI"/>
-                <constraint firstItem="Fbb-BU-fDz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="T7j-Pe-E67"/>
-                <constraint firstItem="fgR-mt-CVK" firstAttribute="top" secondItem="Ksu-Qz-xqz" secondAttribute="bottom" id="jhl-27-ohG"/>
-                <constraint firstItem="fgR-mt-CVK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lZO-rs-Ljy"/>
-                <constraint firstItem="Ksu-Qz-xqz" firstAttribute="top" secondItem="6tJ-uW-ptC" secondAttribute="bottom" constant="10" id="s5x-c4-pku"/>
+                <constraint firstItem="9G9-TT-eXh" firstAttribute="top" secondItem="7Zy-jv-A5S" secondAttribute="bottom" constant="8" id="2Gc-Cd-DSF"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="centerY" secondItem="Ksu-Qz-xqz" secondAttribute="centerY" id="5kX-lM-HKt"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="centerX" secondItem="Ksu-Qz-xqz" secondAttribute="centerX" id="EFu-5y-AtO"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="height" secondItem="Ksu-Qz-xqz" secondAttribute="height" id="GmK-fA-FMp"/>
+                <constraint firstItem="Ksu-Qz-xqz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="INR-pI-aoH"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="centerX" secondItem="Ksu-Qz-xqz" secondAttribute="centerX" id="IjN-a0-tld"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9G9-TT-eXh" secondAttribute="trailing" constant="20" id="Suf-mV-rS4"/>
+                <constraint firstItem="9G9-TT-eXh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Y6z-zZ-FNz"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="width" secondItem="Ksu-Qz-xqz" secondAttribute="width" id="cxr-ZR-REB"/>
+                <constraint firstItem="7Zy-jv-A5S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="d0D-oI-842"/>
+                <constraint firstItem="7Zy-jv-A5S" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jRE-e1-yps"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="top" secondItem="9G9-TT-eXh" secondAttribute="bottom" constant="8" id="lyA-MN-rdB"/>
+                <constraint firstItem="HHl-9v-hCS" firstAttribute="centerY" secondItem="Ksu-Qz-xqz" secondAttribute="centerY" id="nff-Ku-mgP"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="width" secondItem="Ksu-Qz-xqz" secondAttribute="width" id="oMG-FL-0aR"/>
+                <constraint firstItem="fgR-mt-CVK" firstAttribute="height" secondItem="Ksu-Qz-xqz" secondAttribute="height" id="pMH-bN-paC"/>
+                <constraint firstItem="9G9-TT-eXh" firstAttribute="centerX" secondItem="7Zy-jv-A5S" secondAttribute="centerX" id="qCE-hW-9vE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
     <resources>
-        <image name="timer" width="384" height="384"/>
+        <image name="boom" width="1000" height="718"/>
+        <image name="tickTakBoom10000" width="887" height="1000"/>
     </resources>
 </document>

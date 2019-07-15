@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 import TTSegmentedControl
 
 class HorseRaceBetViewController: UIViewController {
@@ -21,7 +22,7 @@ class HorseRaceBetViewController: UIViewController {
     var drinkValue : [Int] = [1,2,3]
     var color = "Válasz Szint"
     let lightYellowColor = UIColor(red:0.97, green:0.91, blue:0.40, alpha:0.5)
-    var betPlayerData: [Bet] = []
+    var betPlayerData: [HorseBet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,9 @@ class HorseRaceBetViewController: UIViewController {
         
         if GameManagement.sharedInstance.horseRaceBettingPlayer.count == 0 {
             for player in playersList {
-                GameManagement.sharedInstance.horseRaceBettingPlayer.append(Bet(playerName: player.playerName, drinkValue: 0, horseColorName: "", horseColor: lightYellowColor))
+                GameManagement.sharedInstance.horseRaceBettingPlayer.append(HorseBet(playerName: player.playerName,
+                                                                                     drinkValue: 0,
+                                                                                     horseColor: .none))
             }
         } else {
             print("Show Good Betting Stat")
@@ -83,6 +86,7 @@ extension HorseRaceBetViewController: UITableViewDelegate , UITableViewDataSourc
                                                      owner: self,
                                                      options: nil)?.first as? BettingTableViewCell {
             customCell.player = GameManagement.sharedInstance.horseRaceBettingPlayer[indexPath.row]
+            
             return customCell
         }
         return UITableViewCell()
@@ -93,34 +97,13 @@ extension HorseRaceBetViewController: UITableViewDelegate , UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let indexPath = bettingTableView.indexPathForSelectedRow {
             let currentCell = bettingTableView.cellForRow(at: indexPath) as? BettingTableViewCell
-            var colorName = GameManagement.sharedInstance.horseRaceBettingPlayer[indexPath.row].horseColorName
-            var color = UIColor.white
-            switch colorName {
-            case "":
-                colorName = "Kék"
-                color = UIColor.blue
-            case "Kék":
-                colorName = "Sárga"
-                color = UIColor.yellow
-            case "Sárga":
-                colorName = "Zöld"
-                color = UIColor.green
-            case "Zöld":
-                colorName = "Piros"
-                color = UIColor.red
-            default:
-                print("Default")
-                colorName = "Kék"
-                color = UIColor.red
-            }
+            let color = GameManagement.sharedInstance.horseRaceBettingPlayer[indexPath.row].horseColor.next()
+            currentCell?.cellColor = color.uiColor
+            currentCell?.betHorseColorLabel.text = color.text
+
             var betPlayer = GameManagement.sharedInstance.horseRaceBettingPlayer[indexPath.row]
-            betPlayer.horseColorName = colorName
-            betPlayer.drinkValue = actullyDrinkCount
             betPlayer.horseColor = color
-           
-            GameManagement.sharedInstance.horseRaceBettingPlayer.append(betPlayer)
-            GameManagement.sharedInstance.horseRaceBettingPlayer.remove(at: indexPath.row)
-            bettingTableView.reloadData()
+            betPlayer.drinkValue = actullyDrinkCount
         }
     }
 }

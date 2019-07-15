@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.8.1)
+  - Arrows (1.0.0)
+  - Cosmos (19.0.3)
   - Firebase/Auth (5.19.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.4.1)
@@ -64,6 +66,7 @@ PODS:
   - GTMSessionFetcher/Core (1.2.1)
   - leveldb-library (1.20)
   - lottie-ios (2.5.3)
+  - MDCCommon (1.0.2)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -71,18 +74,27 @@ PODS:
   - nanopb/encode (0.3.901)
   - Panels (2.0.3)
   - ReachabilitySwift (4.3.0)
+  - Realm (3.16.1):
+    - Realm/Headers (= 3.16.1)
+  - Realm/Headers (3.16.1)
+  - RealmSwift (3.16.1):
+    - Realm (= 3.16.1)
   - SpotifyLogin (0.1.6)
   - TTFortuneWheel (0.1.6)
   - TTSegmentedControl (0.4.7)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Arrows
+  - Cosmos (~> 19.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - lottie-ios (~> 2.5.2)
+  - MDCCommon
   - Panels
   - ReachabilitySwift
+  - RealmSwift
   - SpotifyLogin
   - TTFortuneWheel
   - TTSegmentedControl (~> 0.3)
@@ -90,6 +102,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Arrows
+    - Cosmos
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -105,12 +119,18 @@ SPEC REPOS:
     - nanopb
     - Panels
     - ReachabilitySwift
+    - Realm
+    - RealmSwift
     - SpotifyLogin
     - TTFortuneWheel
     - TTSegmentedControl
+  "ssh://git@git.sanomamdc.com:7999/sanpod/mdccommon.git":
+    - MDCCommon
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Arrows: 5256fcdc123a17a0852a4348f73c1fb0a9c3de07
+  Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
   Firebase: c60d49e9c2630875a96207d15e2affb8364996d1
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseAuth: cbb892a66baed025efc179372598941252acf853
@@ -123,13 +143,16 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+  MDCCommon: 5541ea575e065c76d9700f365745e8cbbe3bd6b5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Panels: bd346a08593b64b9d295de21c366400a93437e79
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
+  RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
   TTFortuneWheel: d0a8a5fd7f9e1960bac81af76f3b62848de3c32e
   TTSegmentedControl: 422a8fab507a02a60050476d69d577052550f592
 
-PODFILE CHECKSUM: 893e4c7c5ed777705a23787b2ebfe8e66548a088
+PODFILE CHECKSUM: 72a20d5cb0b4f93f3b464c9c80ca2902963588dc
 
 COCOAPODS: 1.5.3

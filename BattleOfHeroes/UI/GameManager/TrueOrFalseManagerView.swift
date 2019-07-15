@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class TrueOrFalseManagerView: UIView {
     

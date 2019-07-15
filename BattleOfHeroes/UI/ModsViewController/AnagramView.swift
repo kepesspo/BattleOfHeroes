@@ -8,25 +8,25 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class AnagramView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var letterOneLabel: UILabel!
     @IBOutlet weak var letterTwoLabel: UILabel!
     @IBOutlet weak var letterThreeLabel: UILabel!
     @IBOutlet weak var letterFourLabel: UILabel!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
-    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var statButton: UIButton!
     @IBOutlet weak var wordLabel: UILabel!
     var anagrammaList = NetworkSevice.sharedInstance.anagrammaWord
     let playersList = NetworkSevice.sharedInstance.playerList
 
+    @IBOutlet weak var letterOneImageView: UIImageView!
+    @IBOutlet weak var lettertwoImageView: UIImageView!
+    @IBOutlet weak var letterThreeImageView: UIImageView!
+    @IBOutlet weak var letterFourImageView: UIImageView!
     var letterList : [Character] = []
     
     
@@ -52,30 +52,35 @@ class AnagramView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
         
     }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
+
     
     func updateUI() {
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
+        
+        letterOneImageView.isHidden = true
+        lettertwoImageView.isHidden = true
+        letterThreeImageView.isHidden = true
+        letterFourImageView.isHidden = true
+        
+        
+        
         letterOneLabel.isHidden = true
         letterTwoLabel.isHidden = true
         letterThreeLabel.isHidden = true
         letterFourLabel.isHidden = true
         wordLabel.isHidden = true
         timerLabel.isHidden = true
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerLabel.text = playersList.randomElement()?.playerName
-        playerType.text = "Personal"
+
         
         statButton.setTitle("Start", for: .normal)
         let randomWord = anagrammaList.randomElement()?.anagramma
-        wordLabel.text = randomWord
-        for letter in randomWord ?? "" {
+        let upperWord = randomWord?.uppercased()
+        wordLabel.text = upperWord
+        for letter in upperWord ?? "" {
             letterList.append(letter)
         }
         
@@ -87,6 +92,11 @@ class AnagramView: GameView {
         
     }
     @IBAction func showAnagramAction(_ sender: Any) {
+        letterOneImageView.isHidden = false
+        lettertwoImageView.isHidden = false
+        letterThreeImageView.isHidden = false
+        letterFourImageView.isHidden = false
+        
         letterOneLabel.isHidden = false
         letterTwoLabel.isHidden = false
         letterThreeLabel.isHidden = false
@@ -110,7 +120,7 @@ class AnagramView: GameView {
     
     func stopTimer() {
         statButton.isEnabled = false
-        
+        timerLabel.isHidden = true
         if gameTimer != nil {
             gameTimer?.invalidate()
             gameTimer = nil

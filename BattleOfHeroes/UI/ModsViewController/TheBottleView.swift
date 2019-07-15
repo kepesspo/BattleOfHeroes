@@ -8,16 +8,13 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class TheBottleView: GameView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameInLevelLabel: UILabel!
     @IBOutlet weak var bottleImageView: UIImageView!
     @IBOutlet weak var spinButton: UIButton!
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerType: UILabel!
-    @IBOutlet weak var gameInfoContainerView: UIView!
     
     var randomTimer : Timer?
     let playersList = NetworkSevice.sharedInstance.playerList
@@ -40,19 +37,13 @@ class TheBottleView: GameView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
-        updateLevelCounterUI()
-        
     }
-    
-    @objc func updateLevelCounterUI() {
-        
-        gameInLevelLabel.text = self.gameCounter
-    }
+
     
     func updateUI() {
-        playerType.text = "Group"
-        gameInfoContainerView.layer.cornerRadius = 10
-        playerLabel.text = playersList.randomElement()?.playerName
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
     }
     @IBAction func spinnTapped(_ sender: Any) {
         self.tap.isEnabled = true

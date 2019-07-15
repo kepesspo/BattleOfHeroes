@@ -8,17 +8,51 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
-struct Bet {
+enum HorseColor: CaseIterable {
+    case none
+    case red
+    case blue
+    case green
+    case yellow
+    
+    func next() -> HorseColor {
+        let allCases = HorseColor.allCases
+        let index = (allCases.index(of: self)! + 1) % allCases.count
+        return allCases[index]
+    }
+    
+    var uiColor: UIColor {
+        switch self {
+        case .none: return UIColor.white
+        case .red: return UIColor.red
+        case .blue: return UIColor.blue
+        case .green: return UIColor.green
+        case .yellow: return UIColor.yellow
+        }
+    }
+    
+    var text: String {
+        switch self {
+        case .none: return "Nem fogadott"
+        case .red: return "Piros"
+        case .blue: return "kék"
+        case .green: return "Zöld"
+        case .yellow: return "Sárga"
+        }
+    }
+}
+
+class HorseBet {
     var playerName = ""
     var drinkValue = 0
-    var horseColorName = ""
-    var horseColor = UIColor()
+    var horseColor: HorseColor = .none
     
-    init(playerName : String, drinkValue: Int, horseColorName: String, horseColor: UIColor ) {
+    init(playerName : String, drinkValue: Int, horseColor: HorseColor) {
         self.playerName = playerName
         self.drinkValue = drinkValue
         self.horseColor = horseColor
-        self.horseColorName = horseColorName
     }
+    
 }

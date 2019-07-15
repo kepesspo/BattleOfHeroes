@@ -16,7 +16,7 @@ struct SegueIdentifiers {
     
 }
 
-struct fireBaseRefData {
+struct FirebaseRefData {
     static let playerRef = Database.database().reference().child("Player")
     static let teamRef = Database.database().reference().child("Team")
     static let gameRef = Database.database().reference().child("Game")
@@ -57,6 +57,16 @@ extension Notification.Name {
     static let spotiTokenUpdate = Notification.Name("spotiTokenUpdate")
     static let updateGameIsSpectate = Notification.Name("updateGameIsSpectate")
     static let updateGameIsAll = Notification.Name("updateGameIsAll")
+    static let updateStartButton = Notification.Name("updateStartButton")
+    static let updatePlayerList = Notification.Name("updatePlayerCollectionView")
+    
+    static let gameNext = Notification.Name("gameNext")
+    static let bonus = Notification.Name("bonus")
+    
+    
+    static let playerListUpdate = Notification.Name("playerListUpdate")
+    static let deselectGame = Notification.Name("deselectGame")
+    static let pulseCell = Notification.Name("pulseCell")
 }
 
 

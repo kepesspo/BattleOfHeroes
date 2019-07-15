@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MDCCommon
+import MDCCommon
 
 class SwitchHandView: GameView {
     
@@ -36,10 +38,8 @@ class SwitchHandView: GameView {
     }
     
     func updateUI() {
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
         postNotification(name: .updateGameData)
         
         let switchHand = NSMutableAttributedString()

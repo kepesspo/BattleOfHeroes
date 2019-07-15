@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class CheersToTheGovernorView: GameView {
     
@@ -37,15 +38,12 @@ class CheersToTheGovernorView: GameView {
     }
     
     func updateUI() {
-        
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "003-teamwork.png")
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
         postNotification(name: .updateGameData)
 
         let cheersToTheGovernor = NSMutableAttributedString()
-        cheersToTheGovernor.appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1) , font: .regular(25), " - Számolj 5-ig.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Igyál.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Hoz létre szabályt.\n").appendColored(#colorLiteral(red: 0.9647058824, green: 0.8666666667, blue: 0.8745098039, alpha: 1), font: .regular(25), " - Majd tartsd be.\n\n").appendColored(.black, font: .regular(25), "Ha nem sikerül akkor is igyál")
+        cheersToTheGovernor.appendColored(.white , font: .regular(25), " - Számolj 5-ig.\n").appendColored(.white, font: .regular(25), " - Igyál.\n").appendColored(.white, font: .regular(25), " - Hoz létre szabályt.\n").appendColored(.white, font: .regular(25), " - Majd tartsd be.\n\n").appendColored(.black, font: .regular(25), "Ha nem sikerül akkor is igyál")
         cheersToTheGovernorLabel.attributedText = cheersToTheGovernor
     }
 }

@@ -7,17 +7,23 @@
 //
 
 import Foundation
-import UIKit
+import RealmSwift
 
-struct Room {
-    var id = ""
-    var gameRoom = ""
-    var gamePassword = ""
+@objcMembers
+class Room: Object {
+    dynamic var id: String = ""
+    dynamic var gameRoom: String = ""
+    dynamic var gameRun: Bool = false
+    dynamic var randomMemberShow: Bool = false
+    dynamic var playerNameWhoGetDrinks: String = ""
     
     
-    init(id : String, gameRoom: String, gamePassword: String) {
+    convenience init(id: String, gameRoom: String, gameRun: Bool, randomMemberShow: Bool, playerNameWhoGetDrinks: String) {
+        self.init()
         self.id = id
         self.gameRoom = gameRoom
-        self.gamePassword = gamePassword
+        self.gameRun = gameRun
+        self.randomMemberShow = randomMemberShow
+        self.playerNameWhoGetDrinks = playerNameWhoGetDrinks
     }
 }

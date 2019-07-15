@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class FingerItView: GameView {
     
@@ -38,11 +39,10 @@ class FingerItView: GameView {
     }
     
     func updateUI() {
-        let randomIndex = Int(arc4random_uniform(UInt32(playersList.count)))
-        GameManagement.sharedInstance.actuallyPlayerName = playersList[randomIndex].playerName
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-        GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "004-teamwork-1.png")
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
         postNotification(name: .updateGameData)
+        
         let fingerIt = NSMutableAttributedString()
         fingerIt.appendColored(.black , font: .regular(20), "Kezeket az asztalra\n számolj 3-ig majd mondj egy számot\n\n").appendColored(.red, font: .regular(22), "- ha jó a szám akkor megusztad és válasz uj játékost\n").appendColored(.red, font: .regular(22), "- ha rossz a szám akkor innod kell és megint te jössz\n\n").appendColored(.black, font: .regular(20), "5 kört kell játszani")
         fingerItViewLabel.attributedText = fingerIt   

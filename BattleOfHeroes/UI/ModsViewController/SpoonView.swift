@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class SpoonView: GameView {
     
@@ -47,6 +48,9 @@ class SpoonView: GameView {
     }
     
     func updateUI() {
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
         spoonLabel.text = ""
     }
 }

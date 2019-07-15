@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 extension String {
     func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
@@ -21,4 +22,5 @@ extension String {
     var asParagraph: String {
             return "\n\(self)\n"
     }
+    
 }

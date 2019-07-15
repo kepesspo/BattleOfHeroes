@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class CustomInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
