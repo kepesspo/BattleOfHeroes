@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class BattleResultViewController: UIViewController {
 

@@ -28,14 +28,14 @@
                         <constraint firstAttribute="height" constant="180" id="7nk-n6-Qpf"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FW-yd-pxf">
-                    <rect key="frame" x="20" y="333" width="335" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQy-Au-30k">
+                    <rect key="frame" x="10" y="270" width="355" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQy-Au-30k">
-                    <rect key="frame" x="10" y="285" width="355" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FW-yd-pxf">
+                    <rect key="frame" x="20" y="304" width="335" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -45,12 +45,12 @@
             <constraints>
                 <constraint firstItem="2he-Mg-Ejc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Dqv-7V-eYX"/>
                 <constraint firstItem="5FW-yd-pxf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Eae-tJ-XKt"/>
-                <constraint firstItem="5FW-yd-pxf" firstAttribute="top" secondItem="uQy-Au-30k" secondAttribute="bottom" constant="24" id="Ghu-eF-zOg"/>
+                <constraint firstItem="5FW-yd-pxf" firstAttribute="top" secondItem="uQy-Au-30k" secondAttribute="bottom" constant="10" id="Ghu-eF-zOg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5FW-yd-pxf" secondAttribute="trailing" constant="20" id="Jjs-iM-dxd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uQy-Au-30k" secondAttribute="trailing" constant="10" id="R5R-nu-fjK"/>
                 <constraint firstItem="2he-Mg-Ejc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="VYf-9L-8fQ"/>
                 <constraint firstItem="uQy-Au-30k" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="rLc-DV-Rht"/>
-                <constraint firstItem="uQy-Au-30k" firstAttribute="top" secondItem="2he-Mg-Ejc" secondAttribute="bottom" constant="35" id="uJW-7x-Xeo"/>
+                <constraint firstItem="uQy-Au-30k" firstAttribute="top" secondItem="2he-Mg-Ejc" secondAttribute="bottom" constant="20" id="uJW-7x-Xeo"/>
                 <constraint firstItem="5FW-yd-pxf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="vUC-XF-eTj"/>
                 <constraint firstItem="uQy-Au-30k" firstAttribute="centerX" secondItem="2he-Mg-Ejc" secondAttribute="centerX" id="ySz-V2-P7u"/>
             </constraints>

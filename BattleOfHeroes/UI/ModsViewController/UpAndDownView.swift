@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MDCCommon
+import MDCCommon
 
 class UpAndDownView: GameView {
     
@@ -47,13 +49,9 @@ class UpAndDownView: GameView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         descriptionText.text = "Következő szám kisebb vagy nagyobb lesz,mint:"
         
-        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
-            print("Player: \(player.playerName)")
-            GameManagement.sharedInstance.actuallyPlayer = player
-            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-            postNotification(name: .updateGameData)
-        }
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
         
         // First Init randNumb
         randCardIndex = Int(arc4random_uniform(UInt32(cardWithValue.count)))
@@ -78,15 +76,15 @@ class UpAndDownView: GameView {
         
         switch drinks {
         case 0 ..< 2:
-            drinksCounter.text = "Piák száma: \(1 * GameManagement.sharedInstance.gameDrinkMultiplier)"
+            drinksCounter.text = "Piák száma: \(1 * Factory.shared.gameDrinkMultiplier)"
         case 2 ..< 3:
-            drinksCounter.text = "Piák száma: \(2 * GameManagement.sharedInstance.gameDrinkMultiplier)"
+            drinksCounter.text = "Piák száma: \(2 * Factory.shared.gameDrinkMultiplier)"
         case 3 ..< 5:
-            drinksCounter.text = "Piák száma: \(3 * GameManagement.sharedInstance.gameDrinkMultiplier)"
+            drinksCounter.text = "Piák száma: \(3 * Factory.shared.gameDrinkMultiplier)"
         case 5 ..< 7:
-            drinksCounter.text = "Piák száma: \(4 * GameManagement.sharedInstance.gameDrinkMultiplier)"
+            drinksCounter.text = "Piák száma: \(4 * Factory.shared.gameDrinkMultiplier)"
         case 7 ..< 1000:
-            drinksCounter.text = "Piák száma: \(5 * GameManagement.sharedInstance.gameDrinkMultiplier)"
+            drinksCounter.text = "Piák száma: \(5 * Factory.shared.gameDrinkMultiplier)"
         default:
             drinksCounter.text = "Az egészet meg kell inni: Szerencséd van"
         }

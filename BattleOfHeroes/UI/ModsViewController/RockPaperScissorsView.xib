@@ -28,7 +28,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb4-jQ-HhZ">
-                    <rect key="frame" x="30" y="305" width="315" height="24"/>
+                    <rect key="frame" x="30" y="290" width="315" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                 <constraint firstItem="6fF-BS-H3r" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MGv-5r-18o"/>
                 <constraint firstItem="eb4-jQ-HhZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="Wyn-zq-T7y"/>
                 <constraint firstItem="eb4-jQ-HhZ" firstAttribute="centerX" secondItem="6fF-BS-H3r" secondAttribute="centerX" id="aOZ-0D-KQy"/>
-                <constraint firstItem="eb4-jQ-HhZ" firstAttribute="top" secondItem="6fF-BS-H3r" secondAttribute="bottom" constant="35" id="oXa-Ay-IHL"/>
+                <constraint firstItem="eb4-jQ-HhZ" firstAttribute="top" secondItem="6fF-BS-H3r" secondAttribute="bottom" constant="20" id="oXa-Ay-IHL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

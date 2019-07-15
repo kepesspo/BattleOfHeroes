@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MDCCommon
+import MDCCommon
 
 class SwitchHandView: GameView {
     
@@ -36,13 +38,9 @@ class SwitchHandView: GameView {
     }
     
     func updateUI() {
-        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
-            print("Player: \(player.playerName)")
-            GameManagement.sharedInstance.actuallyPlayer = player
-            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-            postNotification(name: .updateGameData)
-        }
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
         
         let switchHand = NSMutableAttributedString()
         switchHand.appendColored(.black , font: .regular(20), "Rakd a melletted űlő játékosok kezén át a tiédet keresztbe.\n\n").appendColored(#colorLiteral(red: 0, green: 0.3294117647, blue: 0.5764705882, alpha: 1), font: .regular(21), "1 koppintás = folytatás\n").appendColored(#colorLiteral(red: 0, green: 0.3294117647, blue: 0.5764705882, alpha: 1), font: .regular(21), "2 koppintás = fordul az irány\n").appendColored(#colorLiteral(red: 0, green: 0.3294117647, blue: 0.5764705882, alpha: 1), font: .regular(21), "3 koppintás = kimarad egy játékos\n\n").appendColored(.black, font: .regular(20), "5 csata után a büntetéseket meg kell inni")

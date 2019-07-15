@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class GameSetup {
     static let sharedInstance = GameSetup()
@@ -22,42 +23,34 @@ class GameSetup {
         }
     }
     
-    func dissmissLoaderView(competionBlock: @escaping(_ error: Error?) -> Void) {
+    func dissmissLoaderView(completionBlock: @escaping() -> Void) {
         if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: nil)
-            competionBlock(nil)
-        }
-    }
-    
-    func createGame(competionBlock: @escaping(_ error: Error?) -> Void) {
-        if GameManagement.sharedInstance.chosenGames.count == 0 {
-            GameManagement.sharedInstance.chosenGames = GameManagement.sharedInstance.games
-            self.showLoaderView()
-            self.dissmissLoaderView(competionBlock: { (error) in
-                self.loadAllGameData { [weak self] in
-                    if error == nil {
-                        competionBlock(nil)
-                    } else {
-                        print("Error to dissmissLoaderView ")
-                    }
-                }
-            }) 
-        } else {
-            self.showLoaderView()
-            self.dissmissLoaderView(competionBlock: { (error) in
-                self.loadAllGameData { [weak self] in
-                    if error == nil {
-                        competionBlock(nil)
-                    } else {
-                        print("Error to dissmiss LoaderView ")
-                    }
-                }
+            topController.dismiss(animated: true, completion: {
+                completionBlock()
             })
         }
     }
     
+    func createGame(completionBlock: @escaping(_ error: Error?) -> Void) {
+        if GameManagement.sharedInstance.chosenGames.count == 0 {
+            let management = GameManagement.sharedInstance
+            management.chosenGames = management.games
+        }
+        self.showLoaderView()
+        self.dissmissLoaderView(completionBlock: {
+            self.loadAllGameData { error in
+                completionBlock(error)
+            }
+        })
+    }
     
-    func loadAllGameData(completion: (() -> Void)?) {
+    
+    func loadAllGameData(completion: ((_ error: Error?) -> Void)?) {
+        guard GameManagement.sharedInstance.networkWorks else {
+            completion?(MyError.noInternetAccess)
+            return
+        }
+        
         var remainingCompletions = 0
         var errors = ""
         
@@ -70,7 +63,7 @@ class GameSetup {
         let returnedBlock: ((_ error: Error?) -> Void) = { error in
             errors.append("\(error?.localizedDescription ?? "")\n")
             if remainingCompletions == 0 {
-                completion?()
+                completion?(error)
             } else {
                 remainingCompletions -= 1
             }

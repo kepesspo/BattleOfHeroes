@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 extension UIView {
     func addBlurBackground() {
@@ -21,5 +22,15 @@ extension UIView {
             blurView.widthAnchor.constraint(equalTo: self.widthAnchor),
             ])
         
+    }
+    
+    func curveTopCorners() {
+        let path = UIBezierPath(roundedRect: self.bounds,
+                                byRoundingCorners: [.topLeft, .topRight],
+                                cornerRadii: CGSize(width: 30, height: 0))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
     }
 }

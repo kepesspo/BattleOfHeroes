@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xB6-GU-RqD">
-                    <rect key="frame" x="30" y="514" width="315" height="50"/>
+                    <rect key="frame" x="30" y="489" width="315" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="QEg-NI-s5w"/>
                     </constraints>
@@ -36,21 +36,21 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoFrame5" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-q8-0Tx">
-                    <rect key="frame" x="-312.5" y="245" width="1000" height="280"/>
+                    <rect key="frame" x="-312.5" y="230" width="1000" height="270"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="280" id="XNd-Fm-kZj"/>
+                        <constraint firstAttribute="height" constant="270" id="XNd-Fm-kZj"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AH8-Jp-uS0">
-                    <rect key="frame" x="101" y="275" width="175" height="180"/>
+                    <rect key="frame" x="101" y="260" width="175" height="170"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="175" id="Nmr-Yb-UhJ"/>
-                        <constraint firstAttribute="height" constant="180" id="UiY-ao-lss"/>
+                        <constraint firstAttribute="height" constant="170" id="UiY-ao-lss"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYJ-8c-9W7">
-                    <rect key="frame" x="52.5" y="460" width="270" height="24"/>
+                    <rect key="frame" x="52.5" y="435" width="270" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="270" id="Zp0-kr-qNl"/>
                     </constraints>
@@ -79,7 +79,7 @@
                 <constraint firstItem="UYI-Rt-wRw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bxu-yY-njl"/>
                 <constraint firstItem="uYJ-8c-9W7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gFT-hw-G4K"/>
                 <constraint firstItem="UYI-Rt-wRw" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="104.5" id="gx8-eB-HLg"/>
-                <constraint firstItem="bdO-q8-0Tx" firstAttribute="top" secondItem="UYI-Rt-wRw" secondAttribute="bottom" constant="10" id="q08-pP-zKP"/>
+                <constraint firstItem="bdO-q8-0Tx" firstAttribute="top" secondItem="UYI-Rt-wRw" secondAttribute="bottom" constant="-5" id="q08-pP-zKP"/>
                 <constraint firstItem="AH8-Jp-uS0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="1" id="sqb-dJ-GKg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

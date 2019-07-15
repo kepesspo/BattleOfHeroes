@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MDCCommon
+import MDCCommon
 
 class HorseRaceView: GameView {
     
@@ -139,12 +141,8 @@ class HorseRaceView: GameView {
             }
         }
         
-        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
-            print("Player: \(player.playerName)")
-            GameManagement.sharedInstance.actuallyPlayer = player
-            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-            postNotification(name: .updateGameData)
-        }
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
     }
 }

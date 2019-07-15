@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 extension String {
     func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {

@@ -9,6 +9,7 @@
 import Foundation
 import SpotifyLogin
 import UIKit
+import MDCCommon
 import Alamofire
 
 class MusicRecognizerHelper {

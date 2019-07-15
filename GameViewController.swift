@@ -7,6 +7,7 @@
  //
  
  import UIKit
+ import MDCCommon
  import Panels
  import SpotifyLogin
  
@@ -16,11 +17,14 @@
     var groupDrinkTimer : Timer?
     var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
-    var chosenGames : [Game] = [Game]()
+    var chosenGames: [Game] {
+        get { return GameManagement.sharedInstance.chosenGames }
+        set { GameManagement.sharedInstance.chosenGames = newValue }
+    }
     var timer : Timer?
     
     lazy var panelManager = Panels(target: self)
-    @IBOutlet weak var levelImageView: UIImageView!
+    @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var letPlayText: UILabel!
 
     override func viewDidLoad() {
@@ -32,12 +36,7 @@
         subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
         subscribeForNotification(name: .generateNewGame, selector: #selector(startGameAction), object: nil)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(startGameAction))
-        levelImageView.isUserInteractionEnabled = true
-        levelImageView.addGestureRecognizer(tap)
-        
         GameManagement.sharedInstance.setCopyCardsList()
-        chosenGames = GameManagement.sharedInstance.chosenGames
         
         showPanel()
         showPlayerWhoDrinks()
@@ -47,7 +46,6 @@
         timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(showSpectatorBonus), userInfo: nil, repeats: true)
     }
 
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if GameManagement.sharedInstance.gameStarted == true {
@@ -63,37 +61,41 @@
         } else {
             GameManagement.sharedInstance.gameStarted = true
         }
-        
+        view.addTapGestureRecognizer(numberOfTapsRequired: 1, numberOfTouchesRequired: 5, delegate: nil) {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
-
     
     func showPanel() {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
-        var panelConfiguration = PanelConfiguration(size: .custom(300))
+        var panelConfiguration = PanelConfiguration(size: .custom(360))
         panelConfiguration.enclosedNavigationBar = true
         panelConfiguration.useSafeArea = true
         panelConfiguration.animateEntry = true
-        panelConfiguration.panelVisibleArea = 90
+        panelConfiguration.panelVisibleArea = 100
         panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
     
     @objc func showSpectatorBonus() {
-        NetworkSevice.sharedInstance.getPlayerHowGetDrinksForSpectator { (error, playerName) in
-            if error == nil && playerName != "" {
-                
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SpectatePenaltyViewController") as! SpectatePenaltyViewController
-                vc.name = playerName
-                self.present(vc, animated: true, completion: nil)
-            } else {
-                print("No spectator bonus player name")
+        if Factory.shared.isOnline {
+            NetworkSevice.sharedInstance.getPlayerHowGetDrinksForSpectator { (error, playerName) in
+                if error == nil && playerName != "" {
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SpectatePenaltyViewController") as! SpectatePenaltyViewController
+                    vc.name = playerName
+                    self.present(vc, animated: true, completion: nil)
+                } else {
+                    print("No spectator bonus player name")
+                }
             }
+        } else {
+            print("showSpectatorBonus not worked because it's a Offline game")
         }
-        
     }
 
     @objc func startGameAction() {
         letPlayText.isHidden = true
+        startButton.isHidden = true
         showView()
     }
     
@@ -119,11 +121,16 @@
             }
         }
     }
+    @IBAction func gameAction(_ sender: Any) {
+        letPlayText.isHidden = true
+        startButton.isHidden = true
+        showView()
+    }
     
     //Extra Game
     @objc func showGroupDrinkView() {
-        let time = GameManagement.sharedInstance.groupDrinkTime
-        if GameManagement.sharedInstance.groupDrinksAllow == true {
+        let time = Factory.shared.groupDrinkTime
+        if Factory.shared.groupDrinksAllow == true {
             self.groupDrinkTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(time) , repeats: true, block: { _ in
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GroupDrinkViewController") as! GroupDrinkViewController
                 self.present(vc, animated: true, completion: nil)
@@ -134,8 +141,8 @@
     }
     
     @objc func showRandomPictogram() {
-        let time = GameManagement.sharedInstance.randomPictogramTime
-        if GameManagement.sharedInstance.randomPictogramAllow == true {
+        let time = Factory.shared.randomPictogramTime
+        if Factory.shared.randomPictogramAllow == true {
             self.randomPictogramTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(time) , repeats: true, block: { _ in
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RandomPictogramViewController") as! RandomPictogramViewController
                 self.present(vc, animated: true, completion: nil)
@@ -169,9 +176,12 @@
     
     func generateView(indexOfGame : Int) {
         if let game = chosenGames[indexOfGame].gameMode?.gameView() {
-            GameManagement.sharedInstance.actuallyGame = chosenGames[indexOfGame]
+            Factory.shared.actuallyGame = chosenGames[indexOfGame]
+            //GameManagement.sharedInstance.actuallyGame = chosenGames[indexOfGame]
             print("------- Actually Game:  \(chosenGames[indexOfGame].name) ----------")
-            GameManagement.sharedInstance.actuallyGameDesc = chosenGames[indexOfGame].gameMode?.gameDescription() ?? ""
+            Factory.shared.actuallyGame?.description = chosenGames[indexOfGame].gameMode?.gameDescription() ?? ""
+
+            //GameManagement.sharedInstance.actuallyGameDesc = chosenGames[indexOfGame].gameMode?.gameDescription() ?? ""
             game.frame = self.view.bounds
             self.view.insertSubview(game, at: 1)
             print("Game index : \(indexOfGame)")

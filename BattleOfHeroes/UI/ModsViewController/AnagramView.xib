@@ -104,8 +104,8 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rakj ki 3 másodperc alatt egy értelmes szót." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlo-PZ-F1A">
-                    <rect key="frame" x="10" y="260" width="355" height="13"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="10" y="255" width="355" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -135,7 +135,7 @@
                 <constraint firstItem="Cl1-oP-9T5" firstAttribute="centerY" secondItem="C4G-n8-cem" secondAttribute="centerY" id="Cxc-xQ-Pt2"/>
                 <constraint firstItem="wan-1Q-iVM" firstAttribute="centerX" secondItem="dUu-9J-78m" secondAttribute="centerX" id="D10-lG-yTn"/>
                 <constraint firstItem="dUu-9J-78m" firstAttribute="top" secondItem="Wlo-PZ-F1A" secondAttribute="bottom" constant="50" id="Enh-Vn-7SF"/>
-                <constraint firstItem="Wlo-PZ-F1A" firstAttribute="top" secondItem="iUk-ft-lFe" secondAttribute="bottom" constant="10" id="FkA-1l-Kdt"/>
+                <constraint firstItem="Wlo-PZ-F1A" firstAttribute="top" secondItem="iUk-ft-lFe" secondAttribute="bottom" constant="5" id="FkA-1l-Kdt"/>
                 <constraint firstItem="wan-1Q-iVM" firstAttribute="top" secondItem="dUu-9J-78m" secondAttribute="bottom" constant="100" id="Iyg-EX-FtC"/>
                 <constraint firstItem="dUu-9J-78m" firstAttribute="centerX" secondItem="IGH-lT-4KR" secondAttribute="centerX" constant="-80" id="SWS-TB-cuI"/>
                 <constraint firstItem="jYA-dV-Ckx" firstAttribute="centerX" secondItem="wan-1Q-iVM" secondAttribute="centerX" id="Wae-1Z-ifR"/>

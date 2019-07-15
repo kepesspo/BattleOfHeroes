@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 extension UIFont {
     class func helveticaNeueLight(_ size: CGFloat) -> UIFont {

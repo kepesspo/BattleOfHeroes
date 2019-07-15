@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class TapperView: GameView {
     
@@ -57,13 +58,9 @@ class TapperView: GameView {
     }
     
     func updateUI() {
-        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
-            print("Player: \(player.playerName)")
-            GameManagement.sharedInstance.actuallyPlayer = player
-            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-            postNotification(name: .updateGameData)
-        }
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
         
         tapperText.text = "Légy te a legközelebb a 0-hoz."
         winnerLabel.isHidden = true

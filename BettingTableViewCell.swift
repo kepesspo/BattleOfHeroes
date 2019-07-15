@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class BettingTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!

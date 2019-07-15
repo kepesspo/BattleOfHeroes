@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 import Panels
 import TTSegmentedControl
 import Arrows
+import MDCCommon
 
 class PanelGames: UIViewController, Panelable {
     @IBOutlet var headerHeight: NSLayoutConstraint!
@@ -31,10 +33,10 @@ class PanelGames: UIViewController, Panelable {
         super.viewDidLoad()
         setUpLevelCounterView()
         
-        self.view.addBlurBackground()
+        //self.view.addBlurBackground()
         self.curveTopCorners()
         arrowView.update(to: .up, animated: true)
-        arrowView.arrowColor = #colorLiteral(red: 1, green: 0.5933062434, blue: 0.3104811311, alpha: 1)
+        arrowView.arrowColor = #colorLiteral(red: 0.2745098039, green: 0.7450980392, blue: 0.631372549, alpha: 1)
         nextButton.layer.cornerRadius = 8
         gameSegmentedControl.defaultTextFont = UIFont.rubic(19)
         gameSegmentedControl.selectedTextFont = UIFont.rubic(19)
@@ -48,10 +50,20 @@ class PanelGames: UIViewController, Panelable {
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
         GameSetup.sharedInstance.createGame { (error) in
+            let management = GameManagement.sharedInstance
+            guard management.networkWorks || management.chosenGames.contains(where: { $0.downloadsData == false }) else {
+                MDCAlertPresenter.showAlert(title: "Hiba!",
+                                            message: "Nincs internetkapcsolat és nincs kiválasztva olyan játék, ami ne igényelne internet hozzáférést!",
+                                            presentingViewController: self,
+                                            dismissButtonTitle: "Ok")
+                return
+            }
+            
             if error == nil {
                 print("Success to Create Game")
                 postNotification(name: .gameNext)
             } else {
+                postNotification(name: .gameNext)
                 print("Error to download Games")
             }
         }
@@ -60,11 +72,11 @@ class PanelGames: UIViewController, Panelable {
     
     @IBAction func bonusAction(_ sender: Any) {
         if bonusCheckBox.on {
-            GameManagement.sharedInstance.showBonusView = true
+            Factory.shared.showBonusView = true
             bonusCheckBox.on = true
             print("Bonus view ON")
         } else {
-            GameManagement.sharedInstance.showBonusView = false
+            Factory.shared.showBonusView = false
             bonusCheckBox.on = false
             print("Bonus view OFF")
         }
@@ -72,11 +84,11 @@ class PanelGames: UIViewController, Panelable {
     
     @IBAction func randomPictogramAction(_ sender: Any) {
         if randomPictogramCheckBox.on {
-            GameManagement.sharedInstance.randomPictogramAllow = true
+            Factory.shared.randomPictogramAllow = true
             randomPictogramCheckBox.on = true
             print("Random Pictogram view ON")
         } else {
-            GameManagement.sharedInstance.randomPictogramAllow = false
+            Factory.shared.randomPictogramAllow = false
             randomPictogramCheckBox.on = false
             print("Random Pictogram view OFF")
         }
@@ -84,11 +96,11 @@ class PanelGames: UIViewController, Panelable {
     
     @IBAction func groupDrinkAction(_ sender: Any) {
         if groupDrinkCheckBox.on {
-            GameManagement.sharedInstance.groupDrinksAllow = true
+            Factory.shared.groupDrinksAllow = true
             groupDrinkCheckBox.on = true
             print("Group Drink view ON")
         } else {
-            GameManagement.sharedInstance.groupDrinksAllow = false
+            Factory.shared.groupDrinksAllow = false
             groupDrinkCheckBox.on = false
             print("Group Drink view OFF")
         }
@@ -106,7 +118,7 @@ class PanelGames: UIViewController, Panelable {
             bonusStackView.isHidden = true
             scoreCollectCheckBox.on = false
             bonusCheckBox.on = false
-            GameManagement.sharedInstance.showBonusView = false
+            Factory.shared.showBonusView = false
             print("Score view OFF")
         }
     }
@@ -118,13 +130,13 @@ class PanelGames: UIViewController, Panelable {
         gameSegmentedControl.didSelectItemWith = { (index, title) -> () in
             switch index {
             case 0:
-                GameManagement.sharedInstance.gameDrinkMultiplier = 1
+                Factory.shared.gameDrinkMultiplier = 1
             case 1:
 
-                GameManagement.sharedInstance.gameDrinkMultiplier = 2
+                Factory.shared.gameDrinkMultiplier = 2
             case 2:
 
-                GameManagement.sharedInstance.gameDrinkMultiplier = 3
+                Factory.shared.gameDrinkMultiplier = 3
             default:
                 print("Default")
             }

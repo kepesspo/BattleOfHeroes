@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class GroupDrinkViewController: UIViewController {
     @IBOutlet weak var drinkView: LottieView!

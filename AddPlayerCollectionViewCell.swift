@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class AddPlayerCollectionViewCell: UICollectionViewCell {
 
@@ -29,26 +30,27 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         dashedLayer.removeFromSuperlayer()
         dashedLayer.frame = containerView.bounds
         dashedLayer.fillColor = nil
         dashedLayer.path = UIBezierPath(rect: containerView.bounds).cgPath
         containerView.layer.addSublayer(dashedLayer)
-        playerCountLabel.text = "\(GameManagement.sharedInstance.playerCount)\n Játékos"
-        
+        playerCountLabel.text = "\(Factory.shared.playerList.count)\n Játékos"
     }
     
     @IBAction func plusButtonAction(_ sender: Any) {
-        let randomFigure = GameManagement.sharedInstance.figures.randomElement()
+        if Factory.shared.figuresIndex >= Factory.shared.figures.count {
+            Factory.shared.figuresIndex = 0
+        }
+        let randomFigure = Factory.shared.figures[Factory.shared.figuresIndex]
+        Factory.shared.figuresIndex = Factory.shared.figuresIndex + 1
         let randomNumber = twoDigitNumber
-        NetworkSevice.sharedInstance.addPlayerToDatabase(player: Player(id: "", playerName: "Player\(randomNumber)", teamId: "", allDrink: 0, usedBonus: 0, color: randomFigure ?? "")) { (error) in
+        Factory.shared.dataManager.createPlayer(player: Player(id: "", playerName: "Player\(randomNumber)", teamId: "", allDrink: 0, usedBonus: 0, color: randomFigure ?? "")) { (error) in
             if error != nil {
                 print("Error to add player")
             } else {
                 print("Success add player")
-                GameManagement.sharedInstance.playerCount = GameManagement.sharedInstance.playerCount + 1
-                postNotification(name: .updateStartButton)
+                postNotification(name: .updatePlayerList)
             }
         }
     }

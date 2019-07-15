@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 import SpotifyLogin
 import Panels
 
@@ -55,11 +56,18 @@ class SetUpGameViewController: UIViewController {
     }
     
     func removeGame(item : String) {
-        GameManagement.sharedInstance.chosenGames = chosenGames.filter {$0.name != item }
+        var games = GameManagement.sharedInstance.chosenGames
+        let index = games.firstIndex(where: { $0.name == item })
+        if let gameIndex = index {
+            games.remove(at: gameIndex)
+        }
+        GameManagement.sharedInstance.chosenGames = games
+//        gameCollectionView.reloadData()
     }
     
     func addGame(item: Game) {
         GameManagement.sharedInstance.chosenGames.append(item)
+//        gameCollectionView.reloadData()
     }
 }
 
@@ -80,14 +88,15 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if games[indexPath.row].isSelected == true {
-            games[indexPath.row].isSelected = false
-            removeGame(item: games[indexPath.row].name)
-        } else {
-            games[indexPath.row].isSelected = true
-            addGame(item: games[indexPath.row])
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GameCollectionViewCell else { return }
+        let row = indexPath.row
+        if games[indexPath.row].downloadsData == true && !GameManagement.sharedInstance.networkWorks {
+            print("Network Don't Working")
+            cell.pulseWifiIcon()  
         }
-        gameCollectionView.reloadData()
+        games[row].isSelected ? removeGame(item: games[row].name) : addGame(item: games[row])
+        games[row].isSelected.toggle()
+       cell.blurView.isHidden = games[row].isSelected
     }
 }
 
@@ -101,7 +110,7 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 3 - 6, height: gameCollectionView.bounds.height / 3 - 10)
+        return CGSize(width: gameCollectionView.bounds.width / 1 - 6, height: gameCollectionView.bounds.height / 5 - 10)
     }
     
     func collectionView(_ collectionView: UICollectionView,

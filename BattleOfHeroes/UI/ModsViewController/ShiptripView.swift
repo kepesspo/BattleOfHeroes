@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class ShiptripView: GameView {
     
@@ -107,13 +108,9 @@ class ShiptripView: GameView {
         event5View.layer.cornerRadius = 10
 
         
-        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
-            print("Player: \(player.playerName)")
-            GameManagement.sharedInstance.actuallyPlayer = player
-            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-            postNotification(name: .updateGameData)
-        }
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
         
         setCaptains()
         let arr = captains.map { (player) -> String in

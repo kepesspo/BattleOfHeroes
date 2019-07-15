@@ -33,25 +33,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mondj őt szót az adott témakőrben 5 másodperc alatt." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tip-m9-p6Z">
-                    <rect key="frame" x="20" y="279" width="335" height="53"/>
+                    <rect key="frame" x="20" y="260" width="335" height="53"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="categoryBanner" translatesAutoresizingMaskIntoConstraints="NO" id="6S5-mb-uv6">
-                    <rect key="frame" x="179.5" y="362" width="16" height="70"/>
+                    <rect key="frame" x="179.5" y="343" width="16" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="8x2-j2-JBB"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-MV-4Vr">
-                    <rect key="frame" x="157" y="382" width="61.5" height="30"/>
+                    <rect key="frame" x="157" y="363" width="61.5" height="30"/>
                     <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpg-Lp-IoO">
-                    <rect key="frame" x="137.5" y="452" width="100" height="100"/>
+                    <rect key="frame" x="137.5" y="433" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="zpg-Lp-IoO" secondAttribute="height" multiplier="1:1" id="TT0-00-o8Z"/>
                         <constraint firstAttribute="height" constant="100" id="tNa-ck-Lg9"/>
@@ -69,7 +69,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZr-lo-gZn">
-                    <rect key="frame" x="138.5" y="472" width="98" height="47"/>
+                    <rect key="frame" x="138.5" y="453" width="98" height="47"/>
                     <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="40"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                 <constraint firstItem="fFs-MV-4Vr" firstAttribute="centerX" secondItem="6S5-mb-uv6" secondAttribute="centerX" id="fbp-Hl-cFm"/>
                 <constraint firstAttribute="trailing" secondItem="Tip-m9-p6Z" secondAttribute="trailing" constant="20" id="gvu-kb-wcG"/>
                 <constraint firstItem="fFs-MV-4Vr" firstAttribute="centerX" secondItem="zd2-xg-Vdd" secondAttribute="centerX" id="ipr-V4-FN3"/>
-                <constraint firstItem="Tip-m9-p6Z" firstAttribute="top" secondItem="fMx-Sd-c01" secondAttribute="bottom" constant="39" id="j30-wL-reO"/>
+                <constraint firstItem="Tip-m9-p6Z" firstAttribute="top" secondItem="fMx-Sd-c01" secondAttribute="bottom" constant="20" id="j30-wL-reO"/>
                 <constraint firstItem="fMx-Sd-c01" firstAttribute="centerX" secondItem="wof-7g-Fic" secondAttribute="centerX" id="ohn-tv-QEp"/>
                 <constraint firstItem="6S5-mb-uv6" firstAttribute="top" secondItem="Tip-m9-p6Z" secondAttribute="bottom" constant="30" id="zfp-DK-GLe"/>
             </constraints>

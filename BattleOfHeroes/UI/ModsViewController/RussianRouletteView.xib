@@ -61,7 +61,7 @@
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiV-Xx-yWL">
-                    <rect key="frame" x="20" y="490.5" width="335" height="0.0"/>
+                    <rect key="frame" x="20" y="470.5" width="335" height="0.0"/>
                     <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="28"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="iZk-Zs-j8H" firstAttribute="centerY" secondItem="f4P-c2-dN0" secondAttribute="centerY" id="9NR-cb-yRN"/>
                 <constraint firstItem="iZk-Zs-j8H" firstAttribute="width" secondItem="f4P-c2-dN0" secondAttribute="width" constant="10" id="BX4-if-oZd"/>
                 <constraint firstItem="5oA-W7-itA" firstAttribute="height" secondItem="9sE-1J-GJo" secondAttribute="height" constant="10" id="Bdd-ZK-SWY"/>
-                <constraint firstItem="ZiV-Xx-yWL" firstAttribute="top" secondItem="oDV-Jb-Fte" secondAttribute="bottom" constant="40" id="ES4-7a-jyj"/>
+                <constraint firstItem="ZiV-Xx-yWL" firstAttribute="top" secondItem="oDV-Jb-Fte" secondAttribute="bottom" constant="20" id="ES4-7a-jyj"/>
                 <constraint firstItem="ZiV-Xx-yWL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Ehx-5k-bKG"/>
                 <constraint firstItem="2wV-Kq-2Jd" firstAttribute="top" secondItem="UiX-6I-Rnv" secondAttribute="bottom" constant="40" id="FHm-1h-qfM"/>
                 <constraint firstItem="5oA-W7-itA" firstAttribute="centerX" secondItem="9sE-1J-GJo" secondAttribute="centerX" id="Pm3-Hk-Zqr"/>

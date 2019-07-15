@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class ScoreViewController: UIViewController {
 
@@ -15,7 +16,7 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var BackButton: UIButton!
     @IBOutlet weak var addDrinksBtn: UIButton!
     
-    var playersList = NetworkSevice.sharedInstance.playerList
+    var playersList = Factory.shared.playerList
     var timer : Timer?
     
     
@@ -57,11 +58,11 @@ class ScoreViewController: UIViewController {
     
     @objc func reloadScoreTableView() {
         DispatchQueue.main.async {
-            NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+            Factory.shared.dataManager.getPlayerList(completionBlock: { (error) in
                 if error != nil {
                     print("Error")
-                } 
-                self.playersList = NetworkSevice.sharedInstance.playerList
+                }
+                self.playersList = Factory.shared.playerList
                 self.scoreTableView.reloadData()
             })
             

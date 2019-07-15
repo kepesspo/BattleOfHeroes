@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import MDCCommon
 import TTSegmentedControl
+import MDCCommon
 
 class DrinkCounterViewController: UIViewController {
     
@@ -27,8 +29,9 @@ class DrinkCounterViewController: UIViewController {
     @IBOutlet weak var extraCheckBox: CheckboxButton!
     @IBOutlet weak var personalSaveButton: UIButton!
     @IBOutlet weak var playerFigureImageView: UIImageView!
+    @IBOutlet weak var drinksStackView: UIStackView!
     
-    let playersList = NetworkSevice.sharedInstance.playerList
+    let playersList = Factory.shared.playerList
     
     var game: Game?
     var player: Player?
@@ -36,7 +39,7 @@ class DrinkCounterViewController: UIViewController {
     var actullyDrinkCount = 0
     var drinkValue : [Int] = []
     
-    var selectedPlayer: Player?
+    var selectedPlayers: [Player] = [Player]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,9 @@ class DrinkCounterViewController: UIViewController {
             print("--------- Drink Counter View passed game: \(gameData.name) -------------")
             print("--------- Drink Counter View passed game: \(gameData.addedScore) -------------")
             print("--------- Drink Counter View passed game: \(gameData.gameType) -------------")
-
+            
+            howDrinksTableView.allowsMultipleSelection = false
+            
             switch gameData.gameType!.rawValue {
             case "personal": return personalGame()
             case "winGroup": return winGroup()
@@ -55,7 +60,6 @@ class DrinkCounterViewController: UIViewController {
                 return personalGame()
             }
         }
-        
         
         // Curve View
         containerVirew.layer.cornerRadius = 10
@@ -95,23 +99,25 @@ class DrinkCounterViewController: UIViewController {
         extraLabel.text = "+\(extraDrink) Pont"
         playerLabel.text = player?.playerName ?? ""
         
-        let drinkV = extraDrink * GameManagement.sharedInstance.gameDrinkMultiplier
+        let drinkV = extraDrink * Factory.shared.gameDrinkMultiplier
+        
         for elem in 1...drinkV {
-            let step = elem * 40
+            //let step = elem * 40
             let image = UIImage(named: "shot-glass")
             let imageView = UIImageView(image: image!)
-            if elem == 1 {
-                imageView.frame = CGRect(x: 40, y: 430, width: 50, height: 50)
-                view.addSubview(imageView)
-            } else if elem > 7 {
-                imageView.frame = CGRect(x: 40, y: 500, width: 50, height: 50)
-                view.addSubview(imageView)
-            } else  {
-                imageView.frame = CGRect(x: step, y: 430, width: 50, height: 50)
-                view.addSubview(imageView)
-            }
+//            imageView.addConstraint(NSLayoutConstraint(item: self, attribute: .height,
+//                                                       relatedBy: .equal, toItem: nil,
+//                                                       attribute: .notAnAttribute,
+//                                                       multiplier: 1, constant: 40))
             
+            drinksStackView.addArrangedSubview(imageView)
+            imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width,
+                                                       relatedBy: .equal, toItem: nil,
+                                                       attribute: .notAnAttribute,
+                                                       multiplier: 1, constant: 30))
+
         }
+        
     }
     
     func winGroup() {
@@ -131,7 +137,7 @@ class DrinkCounterViewController: UIViewController {
     @IBAction func savePersonalGame(_ sender: Any) {
         if successCheckBox.on && extraCheckBox.on {
             let allScore = game!.addedScore + extraDrink
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: allScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player) in
+            Factory.shared.dataManager.updatePlayerDrinks(player: player!, drinks: allScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player) in
                 if error == nil {
                     print("Success save score")
                     self.dismiss(animated: false, completion: {
@@ -143,7 +149,7 @@ class DrinkCounterViewController: UIViewController {
             }
             return
         } else if extraCheckBox.on {
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: extraDrink, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
+            Factory.shared.dataManager.updatePlayerDrinks(player: player!, drinks: extraDrink, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
                 if error == nil {
                     print("Success save score")
                     self.dismiss(animated: false, completion: {
@@ -156,7 +162,7 @@ class DrinkCounterViewController: UIViewController {
             }
             return
         } else if successCheckBox.on {
-            NetworkSevice.sharedInstance.updatePlayerDrinks(player: player!, drinks: game!.addedScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player) in
+            Factory.shared.dataManager.updatePlayerDrinks(player: player!, drinks: game!.addedScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player) in
                 if error == nil {
                     print("Success save score")
                     self.dismiss(animated: false, completion: {
@@ -186,9 +192,13 @@ class DrinkCounterViewController: UIViewController {
     }
     
     @IBAction func saveDrinksData(_ sender: Any) {
-        if let player = selectedPlayer {
+        guard selectedPlayers.count != 0 else {
+            return self.dismiss(animated: false, completion: nil)
+        }
+        
+        for player in selectedPlayers {
             if game?.gameType!.rawValue == "winGroup" {
-                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player,
+                Factory.shared.dataManager.updatePlayerDrinks(player: player,
                                                                 drinks: game!.addedScore,
                                                                 gameType: (game?.gameType!.rawValue)! ) { (error, bonus, player)  in
                     if error == nil {
@@ -202,7 +212,7 @@ class DrinkCounterViewController: UIViewController {
                     }
                 }
             } else {
-                NetworkSevice.sharedInstance.updatePlayerDrinks(player: player, drinks: game!.addedScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
+                Factory.shared.dataManager.updatePlayerDrinks(player: player, drinks: game!.addedScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
                     if error == nil {
                         print("Success save score")
                         self.dismiss(animated: false, completion: {
@@ -214,7 +224,6 @@ class DrinkCounterViewController: UIViewController {
                     }
                 }
             }
-            
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -225,10 +234,9 @@ class DrinkCounterViewController: UIViewController {
     @objc func showBonusView(notification : Notification) {
         let player = notification.object as? Player
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BonusViewController") as! BonusViewController
+        vc.playerForBonus.append(player!)
         if let topController = UIApplication.topViewController() {
             topController.present(vc, animated: true, completion: {
-                vc.playerForBonus.append(player!)
-                vc.name = player?.playerName
             })
         }
         
@@ -250,6 +258,7 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
         if let customCell = Bundle.main.loadNibNamed("HowDrinksTableViewCell",
                                                      owner: self,
                                                      options: nil)?.first as? HowDrinksTableViewCell {
+            customCell.selectionStyle = .none
             customCell.player = playersList[indexPath.row]
             return customCell
         }
@@ -261,12 +270,19 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let indexPath = howDrinksTableView.indexPathForSelectedRow {
             let currentCell = howDrinksTableView.cellForRow(at: indexPath) as? HowDrinksTableViewCell
-            currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
+            
             let updatedPlayer = playersList[indexPath.row]
-            selectedPlayer = updatedPlayer
+            
+            if currentCell!.select {
+                currentCell?.contentView.backgroundColor = UIColor(hexString: "#FFD393")
+                selectedPlayers.removeAll(where: {$0.playerName == updatedPlayer.playerName})
+                currentCell?.select = false
+            } else {
+                currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
+                selectedPlayers.append(updatedPlayer)
+                currentCell?.select = true
+            }
         }
-        
-        
     }   
 }
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MDCCommon
+import MDCCommon
 
 class PlayerCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
@@ -36,12 +38,12 @@ class PlayerCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         self.contentView.layer.borderColor = UIColor.clear.cgColor
         self.contentView.layer.masksToBounds = true;
         
-       self.layer.shadowColor = UIColor.lightGray.cgColor
-       self.layer.shadowOffset = CGSize(width:0,height: 3.0)
-       self.layer.shadowRadius = 2.0
-       self.layer.shadowOpacity = 1.0
-       self.layer.masksToBounds = false;
-       self.layer.shadowPath = UIBezierPath(roundedRect:self.bounds, cornerRadius:self.contentView.layer.cornerRadius).cgPath
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width:0,height: 3.0)
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 1.0
+        self.layer.masksToBounds = false;
+        self.layer.shadowPath = UIBezierPath(roundedRect:self.bounds, cornerRadius:self.contentView.layer.cornerRadius).cgPath
     }
     
     public func configure(with player: Player?, color: UIColor) {
@@ -51,13 +53,12 @@ class PlayerCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     @IBAction func deletePlayer(_ sender: Any) {
-        NetworkSevice.sharedInstance.deletePlayerToDatabase(player: self.player!) { (error) in
+        Factory.shared.dataManager.deletePlayer(player: self.player!) { (error) in
             if error != nil {
                 print("Error delete player")
             } else {
                 print("Deleted player success")
-                postNotification(name: .updatePlayerCollectionView)
-                GameManagement.sharedInstance.playerCount = GameManagement.sharedInstance.playerCount - 1
+                postNotification(name: .updatePlayerList)
                 postNotification(name: .updateStartButton)
             }
         }
@@ -67,34 +68,34 @@ class PlayerCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         textField.resignFirstResponder()
         if playerName.text?.isEmpty == true {
             print("Empty Name ")
-            postNotification(name: .updatePlayerCollectionView)
+            postNotification(name: .updatePlayerList)
             return true
         } else {
             print("Save player Name")
-            NetworkSevice.sharedInstance.updatePlayer(player: self.player!, name: playerName.text ?? "") { (error) in
+            Factory.shared.dataManager.updatePlayer(player: self.player!, name: playerName.text ?? "") { (error) in
                 if error != nil {
                     print("Error update player")
                 } else {
                     print("update player success")
-                    postNotification(name: .updatePlayerCollectionView)
+                    postNotification(name: .updatePlayerList)
                 }
             }
             return true
         }
-       
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if playerName.text?.isEmpty == true {
             print("Empty Name ")
-            postNotification(name: .updatePlayerCollectionView)
+            postNotification(name: .updatePlayerList)
         } else {
-            NetworkSevice.sharedInstance.updatePlayer(player: self.player!, name: playerName.text ?? "") { (error) in
+            Factory.shared.dataManager.updatePlayer(player: self.player!, name: playerName.text ?? "") { (error) in
                 if error != nil {
                     print("Error update player")
                 } else {
                     print("update player success")
-                    postNotification(name: .updatePlayerCollectionView)
+                    postNotification(name: .updatePlayerList)
                 }
             }
         }

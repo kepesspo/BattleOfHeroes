@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 class EndGameViewController: UIViewController {
 
@@ -38,11 +39,13 @@ class EndGameViewController: UIViewController {
     }
     
     @IBAction func endGameAction(_ sender: Any) {
-        GameManagement.sharedInstance.actuallyPlayedGameCounter = 0
         GameManagement.sharedInstance.gameStarted = false
         GameManagement.sharedInstance.chosenGames = []
-        GameManagement.sharedInstance.playerCount = 0
-        GameManagement.sharedInstance.playerIndex = 0
+        
+        Factory.shared.playedGame = 0
+        Factory.shared.actuallyPlayer = nil
+        Factory.shared.playerIndex = 0
+        
         self.dismiss(animated: false, completion: nil)
         
         postNotification(name: .endGame)

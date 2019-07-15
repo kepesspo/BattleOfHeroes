@@ -28,7 +28,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 1 koppintás = folytatás" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMq-Ud-YP5">
-                    <rect key="frame" x="25" y="330" width="325" height="24"/>
+                    <rect key="frame" x="25" y="310" width="325" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.3294117647" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4Mg-DF-g0r" secondAttribute="trailing" id="0GP-AA-Mdi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fMq-Ud-YP5" secondAttribute="trailing" constant="25" id="8BL-ZT-Xuc"/>
                 <constraint firstItem="4Mg-DF-g0r" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="UsY-7P-ThW"/>
-                <constraint firstItem="fMq-Ud-YP5" firstAttribute="top" secondItem="4Mg-DF-g0r" secondAttribute="bottom" constant="50" id="fc0-Wv-sDW"/>
+                <constraint firstItem="fMq-Ud-YP5" firstAttribute="top" secondItem="4Mg-DF-g0r" secondAttribute="bottom" constant="30" id="fc0-Wv-sDW"/>
                 <constraint firstItem="fMq-Ud-YP5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="lxZ-g7-KTU"/>
                 <constraint firstItem="4Mg-DF-g0r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uSm-h9-TMU"/>
             </constraints>

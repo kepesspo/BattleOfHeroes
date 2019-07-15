@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 struct Game {
     var id = ""
@@ -21,9 +22,11 @@ struct Game {
     var gameManagement : UIView?
     var downloadsData = false
     var addedScore = 0
+    var funIndex = 0
+    var extraOption = false
 
     
-    init(id : String, name: String, description: String, isSelected: Bool, gameMode: GameMode, gameType: GameType, gameTypeColor: UIColor, gameImage: UIImage, gameManagement: UIView, downloadsData: Bool = false, addedScore : Int) {
+    init(id : String, name: String, description: String, isSelected: Bool, gameMode: GameMode, gameType: GameType, gameTypeColor: UIColor, gameImage: UIImage, gameManagement: UIView, downloadsData: Bool = false, addedScore : Int, funIndex: Int, extraOption: Bool) {
         self.id = id
         self.name = name
         self.description = description
@@ -35,5 +38,8 @@ struct Game {
         self.gameManagement = gameManagement
         self.downloadsData = downloadsData
         self.addedScore = addedScore
+        self.funIndex = funIndex
+        self.extraOption = extraOption
+        
     }
 }

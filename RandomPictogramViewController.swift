@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MDCCommon
+import MDCCommon
 
 class RandomPictogramViewController: UIViewController {
     @IBOutlet weak var pictogramImageView: UIImageView!

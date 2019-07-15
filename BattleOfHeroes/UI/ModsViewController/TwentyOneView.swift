@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class TwentyOneView: GameView {
 
+    @IBOutlet weak var gameLabel: UILabel!
+    @IBOutlet weak var contentView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -26,25 +29,21 @@ class TwentyOneView: GameView {
     
     
     func commonInit() {
-        Bundle.main.loadNibNamed("RockPaperScissorsView", owner: self, options: nil)
-//        addSubview(contentView)
-//        contentView.frame = self.bounds
-//        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        Bundle.main.loadNibNamed("TwentyOneView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         updateUI()
         
     }
     
     func updateUI() {
-        if let player = GameManagement.sharedInstance.getNextGamePlayer() {
-            print("Player: \(player.playerName)")
-            GameManagement.sharedInstance.actuallyPlayer = player
-            GameManagement.sharedInstance.actuallyPlayedGameCounter = GameManagement.sharedInstance.actuallyPlayedGameCounter + 1
-            GameManagement.sharedInstance.actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-            postNotification(name: .updateGameData)
-        }
+        Factory.shared.getNextGamePlayer()
+        Factory.shared.playedGame = Factory.shared.playedGame + 1
+        postNotification(name: .updateGameData)
         
-        let rockPaperScissors = NSMutableAttributedString()
-        rockPaperScissors.appendColored(.black , font: .regular(20), "A játékot kezdéséhez válassz egy játékost jobbról vagy balról akivel megküzdesz\n\n").appendColored(.red, font: .regular(22), "- győzelemnél nem kell innod\n").appendColored(.red, font: .regular(22), " - vereségnél innod kell és megint rajtad a sor\n\n").appendColored(.black, font: .regular(20), "5 csata után a büntetéseket meg kell inni")
-//        rockPaperScissorsViewLabel.attributedText = rockPaperScissors
+        let twentyOne = NSMutableAttributedString()
+        twentyOne.appendColored(.black , font: .regular(20), "Kezdj el számolni 1-től majd a töled jobbra ülő következik\n\n").appendColored(.red, font: .regular(22), "Ősszesen 3-om számot mondhatsz a lényeg hogy egymást kövessék\n\n").appendColored(.black, font: .regular(20), "Aki a végén kimondja a 21-et az vesztet")
+       gameLabel.attributedText = twentyOne
     }
 }

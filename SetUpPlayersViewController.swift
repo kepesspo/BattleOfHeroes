@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MDCCommon
 import FirebaseDatabase
 import Firebase
 import Reachability
 import Panels
 import Lottie
+import MDCCommon
 
 class SetUpPlayersViewController: UIViewController {
     @IBOutlet weak var playerNavigationItem: UINavigationItem!
@@ -29,8 +31,9 @@ class SetUpPlayersViewController: UIViewController {
         playerCollectionView.register(UINib.init(nibName: "PlayerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCollectionViewCell")
          playerCollectionView.register(UINib.init(nibName: "AddPlayerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddPlayerCollectionViewCell")
         
-        subscribeForNotification(name: .updatePlayerCollectionView, selector: #selector(reloadCollectionView))
+        subscribeForNotification(name: .updatePlayerList, selector: #selector(reloadCollectionView))
         subscribeForNotification(name: .gameModeChanged, selector: #selector(gameModeChanged), object: nil)
+        
         showPanel()
        
     }
@@ -43,7 +46,6 @@ class SetUpPlayersViewController: UIViewController {
                 print("hiba")
             } else {
                 GameManagement.sharedInstance.getGames()
-                self.checkGameParam()
             }
         })
         
@@ -58,8 +60,16 @@ class SetUpPlayersViewController: UIViewController {
         
         closeAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             print("Handle Ok logic here")
-            GameManagement.sharedInstance.playerCount = 0
-            self.dismiss(animated: false, completion: nil)
+            Factory.shared.dataManager.deleteRoom(room: Factory.shared.roomID, competionBlock: { (error) in
+                if error == nil {
+                    Factory.shared.playerList = [Player]()
+                    
+                    self.dismiss(animated: false, completion: nil)
+                } else {
+                    print("Delete room not works")
+                }
+            })
+            
         }))
         
         closeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -107,52 +117,31 @@ class SetUpPlayersViewController: UIViewController {
     }
     
     @objc func reloadCollectionView() {
-        NetworkSevice.sharedInstance.getPlayerList { (error) in
+        self.playerList = Factory.shared.playerList
+        Factory.shared.dataManager.getPlayerList { (error) in
             if error == nil {
-                self.playerList = NetworkSevice.sharedInstance.playerList
+                self.playerList = Factory.shared.playerList
                 self.playerCollectionView.reloadData()
+                postNotification(name: .updateStartButton)
             } else {
                 print("Error update collectionView")
             }
         }
-        
     }
     
     func getPlayerData(completionBlock: @escaping(_ error : Error?) -> Void) {
-        self.playerList = NetworkSevice.sharedInstance.playerList
-        NetworkSevice.sharedInstance.getPlayerList(completionBlock: { (error) in
+        self.playerList = Factory.shared.playerList
+        Factory.shared.dataManager.getPlayerList { (error) in
             if error != nil {
                 print("Error")
             } else {
-                self.playerList = NetworkSevice.sharedInstance.playerList
+                self.playerList = Factory.shared.playerList
                 self.playerCollectionView.reloadData()
+                postNotification(name: .updateStartButton)
                 completionBlock(nil)
             }
-        })
-    }
-
-    
-    func checkGameParam() {
-        if playerList.count <=  1 {
-            //self.setupGameBtn.isEnabled = false
-            
-        } else {
-            //self.setupGameBtn.isEnabled = true
-            
         }
-        
     }
-    
-//    func startNormalGame() {
-//        GameManagement.sharedInstance.groupDrinksAllow = false
-//        GameManagement.sharedInstance.randomPictogramAllow = false
-//        GameManagement.sharedInstance.showBonusView = false
-//        GameManagement.sharedInstance.drininkCounterView = false
-//        let gameVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-//        self.present(gameVc, animated: true, completion: nil)
-//    }
-    
-    
 }
 
 extension SetUpPlayersViewController: UICollectionViewDelegate, UICollectionViewDataSource {

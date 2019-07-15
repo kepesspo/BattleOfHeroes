@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 
 @IBDesignable
 open class CheckboxButton: UIControl {

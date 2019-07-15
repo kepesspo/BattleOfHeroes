@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 class GameView : UIView {
     var gameCounter : String?
@@ -46,10 +47,10 @@ class GameView : UIView {
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
             popOverVC.modalPresentationStyle = .overFullScreen
             
-            popOverVC.game = GameManagement.sharedInstance.actuallyGame
-            let player = GameManagement.sharedInstance.actuallyPlayer
+            popOverVC.game = Factory.shared.actuallyGame
+            let player = Factory.shared.actuallyPlayer
             
-            if GameManagement.sharedInstance.actuallyGameType == 0 {
+            if Factory.shared.actuallyGameType == 0 {
                 print("Egyéni")
                 popOverVC.player = player
             } else {

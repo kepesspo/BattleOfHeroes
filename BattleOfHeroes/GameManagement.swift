@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 enum GameMode: String {
     case trueOrFalse = "trueOrFalse"
@@ -37,7 +38,10 @@ enum GameMode: String {
     case theBottle = "theBottle"
     case tapper = "tapper"
     case tickTak = "tickTak"
-    
+    case twentyOne = "twentyOne"
+    case highNoon = "highNoon"
+    case extremeChallenge = "ExtremeChallenge"
+    case collectThings = "collectThings"
     
     func gameTitle() -> String {
         switch self {
@@ -68,6 +72,10 @@ enum GameMode: String {
         case .theBottle: return "GameTitle_theBottle".localized()
         case .tapper: return "GameTitle_tapper".localized()
         case .tickTak: return "GameTitle_TickTak".localized()
+        case .twentyOne: return "GameTitle_twentyOne".localized()
+        case .highNoon: return "GameTitle_highNoon".localized()
+        case .extremeChallenge: return "GameTitle_ExtremeChallenge".localized()
+        case .collectThings: return "GameTitle_CollectThings".localized()
         }
     }
     
@@ -100,6 +108,10 @@ enum GameMode: String {
         case .theBottle: return "GameDescription_theBottle".localized()
         case .tapper: return "GameDescription_tapper".localized()
         case .tickTak: return "GameDescription_TickTak".localized()
+        case .twentyOne: return "GameDescription_twentyOne".localized()
+        case .highNoon: return "GameDescription_highNoon".localized()
+        case .extremeChallenge: return "GameDescription_ExtremeChallenge".localized()
+        case .collectThings: return "GameDescription_CollectThings".localized()
         }
     }
     
@@ -132,38 +144,46 @@ enum GameMode: String {
         case .theBottle: return .theBottle
         case .tapper: return .tapper
         case .tickTak: return .tickTak
+        case .twentyOne: return .twentyOne
+        case .highNoon: return .highNoon
+        case .extremeChallenge: return .extremeChallenge
+        case.collectThings: return .collectThings
         }
     }
     
     func gameType() -> (GameType,UIColor){
         switch self {
         case .trueOrFalse: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .categories: return (.groupWinGame,.init(hexString: "#C1586E"))
-        case .hajime: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .categories: return (.groupWinGame,.init(hexString: "#EE8F9C"))
+        case .hajime: return (.groupWinGame,.init(hexString: "#EE8F9C"))
         case .everybodyDrinks: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .wheelOfFortune:return (.groupLoseGame,.init(hexString: "#7FA16E"))
-        case .upAndDown: return (.groupLoseGame,.init(hexString: "#7FA16E"))
-        case .ringOfFire: return (.groupLoseGame,.init(hexString: "#7FA16E"))
-        case .memory: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .wheelOfFortune:return (.groupLoseGame,.init(hexString: "#46BEA1"))
+        case .upAndDown: return (.groupLoseGame,.init(hexString: "#46BEA1"))
+        case .ringOfFire: return (.groupLoseGame,.init(hexString: "#46BEA1"))
+        case .memory: return (.groupWinGame,.init(hexString: "#EE8F9C"))
         case .musicRecognizer: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .switchHand: return (.groupWinGame,.init(hexString: "#C1586E"))
-        case .rockPaperScissors: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .switchHand: return (.groupWinGame,.init(hexString: "#EE8F9C"))
+        case .rockPaperScissors: return (.groupWinGame,.init(hexString: "#EE8F9C"))
         case .fingerIt: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .cheersToTheGovernor: return (.groupWinGame,.init(hexString: "#C1586E"))
-        case .haveIEverNever: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .cheersToTheGovernor: return (.groupWinGame,.init(hexString: "#EE8F9C"))
+        case .haveIEverNever: return (.groupLoseGame,.init(hexString: "#46BEA1"))
         case .whoAmI: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .spoon: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .spoon: return (.groupWinGame,.init(hexString: "#EE8F9C"))
         case .thePeopleChoice: return (.personalGame,.init(hexString: "#7FA1C3"))
         case .russianRoulette: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .shipTrip: return (.groupWinGame,.init(hexString: "#C1586E"))
-        case .horseRace: return (.groupWinGame,.init(hexString: "#C1586E"))
+        case .shipTrip: return (.groupWinGame,.init(hexString: "#EE8F9C"))
+        case .horseRace: return (.groupWinGame,.init(hexString: "#EE8F9C"))
         case .anagram: return (.personalGame,.init(hexString: "#7FA1C3"))
         case .coinFlip: return (.personalGame,.init(hexString: "#7FA1C3"))
         case .fiveThing: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .collectAndBoom: return (.groupLoseGame,.init(hexString: "#7FA16E"))
-        case .theBottle: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .collectAndBoom: return (.groupLoseGame,.init(hexString: "#46BEA1"))
+        case .theBottle: return (.groupLoseGame,.init(hexString: "#46BEA1"))
         case .tapper: return (.personalGame,.init(hexString: "#7FA1C3"))
-        case .tickTak: return (.groupLoseGame,.init(hexString: "#7FA16E"))
+        case .tickTak: return (.groupLoseGame,.init(hexString: "#46BEA1"))
+        case .twentyOne: return (.groupWinGame,.init(hexString: "#EE8F9C"))
+        case .highNoon: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .extremeChallenge: return (.groupLoseGame,.init(hexString: "#46BEA1"))
+        case .collectThings: return (.personalGame,.init(hexString: "#7FA1C3"))
         }
     }
     
@@ -197,6 +217,10 @@ enum GameMode: String {
         case .theBottle: return TheBottleView()
         case .tapper: return TapperView()
         case .tickTak: return TickTakView()
+        case .twentyOne: return TwentyOneView()
+        case .highNoon: return HighNoonView()
+        case .extremeChallenge: return ExtremeChallengeView()
+        case .collectThings: return CollectThingsView()
         }
     }
     
@@ -239,6 +263,10 @@ enum GameMode: String {
         case .theBottle: return #imageLiteral(resourceName: "012-beer.png")
         case .tapper: return #imageLiteral(resourceName: "016-best-friend.png")
         case .tickTak: return #imageLiteral(resourceName: "048-letter.png")
+        case .twentyOne: return #imageLiteral(resourceName: "001-high-five.png")
+        case .highNoon: return #imageLiteral(resourceName: "009-helping.png")
+        case .extremeChallenge: return #imageLiteral(resourceName: "010-hug.png")
+        case .collectThings: return #imageLiteral(resourceName: "038-pinky-promise.png")
         }
     }
     
@@ -271,8 +299,85 @@ enum GameMode: String {
         case .theBottle: return 2
         case .tapper: return 1
         case .tickTak: return 2
+        case .twentyOne: return 3
+        case .highNoon: return 1
+        case .extremeChallenge: return 1
+        case .collectThings: return 1
         }
     }
+    
+    func gameFun() -> Int {
+        switch self {
+        case .trueOrFalse: return 1
+        case .categories: return 1
+        case .hajime: return 1
+        case .everybodyDrinks: return 1
+        case .wheelOfFortune: return 1
+        case .upAndDown: return 1
+        case .ringOfFire: return 1
+        case .memory: return 1
+        case .musicRecognizer: return 1
+        case .switchHand: return 1
+        case .rockPaperScissors: return 3
+        case .fingerIt: return 1
+        case .cheersToTheGovernor: return 2
+        case .haveIEverNever: return 2
+        case .whoAmI: return 2
+        case .spoon: return 2
+        case .thePeopleChoice: return 2
+        case .russianRoulette: return 2
+        case .shipTrip: return 3
+        case .horseRace: return 4
+        case .anagram: return 5
+        case .coinFlip: return 3
+        case .fiveThing: return 3
+        case .collectAndBoom: return 2
+        case .theBottle: return 3
+        case .tapper: return 4
+        case .tickTak: return 3
+        case .twentyOne: return 3
+        case .highNoon: return 4
+        case .extremeChallenge: return 2
+        case .collectThings: return 2
+        }
+    }
+    
+    func extraOtpion() -> Bool {
+        switch self {
+        case .trueOrFalse: return true
+        case .categories: return false
+        case .hajime: return false
+        case .everybodyDrinks: return false
+        case .wheelOfFortune: return false
+        case .upAndDown: return false
+        case .ringOfFire: return false
+        case .memory: return false
+        case .musicRecognizer: return true
+        case .switchHand: return false
+        case .rockPaperScissors: return false
+        case .fingerIt: return false
+        case .cheersToTheGovernor: return false
+        case .haveIEverNever: return false
+        case .whoAmI: return true
+        case .spoon: return false
+        case .thePeopleChoice: return false
+        case .russianRoulette: return false
+        case .shipTrip: return false
+        case .horseRace: return false
+        case .anagram: return false
+        case .coinFlip: return false
+        case .fiveThing: return false
+        case .collectAndBoom: return false
+        case .theBottle: return false
+        case .tapper: return false
+        case .tickTak: return false
+        case .twentyOne: return false
+        case .highNoon: return false
+        case .extremeChallenge: return false
+        case .collectThings: return false
+        }
+    }
+    
 }
 
 
@@ -384,7 +489,7 @@ class GameManagement {
     // everyBodyDrinks Onece
     var everyBodyDrinksPlayerCountIndex = 0
     
-    
+    var collectThings = ["WC papir","Töltő", "Hajszáritó", "Zokni", "Pénztárca","Power Bank","Korsó","Dárc nyil","Sapka", "Sár","Uszogumi","Ovszer","Kalapács"]
     
     
     // Music Recognizer
@@ -456,8 +561,9 @@ class GameManagement {
     var defChosenGames = [Game]()
     
     var gameModes : [GameMode] = [GameMode]()
-    func getAllGameModes() -> [GameMode] {
-        gameModes = [GameMode.trueOrFalse,
+    func setAllGameModes() {
+        gameModes = [
+            GameMode.trueOrFalse,
                      GameMode.categories,
                      GameMode.hajime,
                      GameMode.everybodyDrinks,
@@ -469,13 +575,13 @@ class GameManagement {
                      GameMode.switchHand,
                      GameMode.rockPaperScissors,
                      GameMode.fingerIt,
-                     //GameMode.cheersToTheGovernor,
+                     GameMode.cheersToTheGovernor,
                      GameMode.haveIEverNever,
                      GameMode.whoAmI,
-                     //GameMode.spoon,
-                     //GameMode.thePeopleChoice,
+                     GameMode.spoon,
+                     GameMode.thePeopleChoice,
                      GameMode.russianRoulette,
-                     //GameMode.shipTrip,
+//                     GameMode.shipTrip,
                      GameMode.horseRace,
                      GameMode.anagram,
                      GameMode.coinFlip,
@@ -483,13 +589,17 @@ class GameManagement {
                      GameMode.collectAndBoom,
                      GameMode.theBottle,
                      GameMode.tapper,
-                     GameMode.tickTak
+                     GameMode.tickTak,
+                     GameMode.twentyOne,
+                     GameMode.highNoon,
+                     GameMode.extremeChallenge,
+                     GameMode.collectThings
         ]
-        return gameModes
     }
     
-    func getOfflineGameModes() -> [GameMode] {
-        gameModes = [//GameMode.trueOrFalse,
+    func setOfflineGameModes() {
+        gameModes = [
+            //GameMode.trueOrFalse,
             GameMode.categories,
             GameMode.hajime,
             GameMode.everybodyDrinks,
@@ -517,33 +627,9 @@ class GameManagement {
             GameMode.tapper,
             GameMode.tickTak
         ]
-        return gameModes
     }
     
-    // Game difficulty
-    var gameDrinkMultiplier : Int = 1
     
-    // Game bonus View
-    var showBonusView : Bool = true
-    
-    // Game Group Drink
-    var groupDrinksAllow : Bool = true
-    var groupDrinkTime : Int = 300
-    
-    // Game Random Pictogram
-    var randomPictogramAllow : Bool = true
-    var randomPictogramTime : Int = 420
-    
-    
-    
-    
-    
-    var actuallyPlayedGameCounter = 0
-    var actuallyPlayer: Player?
-    var actuallyPlayedGameType = #imageLiteral(resourceName: "001-idea.png")
-    var actuallyGameDesc = ""
-    var actuallyGameType = 0
-    var actuallyGame : Game?
     
     var gameStarted = false
     var isSpactate = false
@@ -551,25 +637,9 @@ class GameManagement {
     var selectedSpac = 0
     var online = true
     var drininkCounterView : Bool = true
-    
-    var figures = ["black_figures-1","blue_figures-1","yellow_figures-1",
-                   "pink_figures-1","green_figures-1","gray_figures-1",
-                   "orange_figures-1","dark_figures-1","purple_figures-1","gray_figures-1"]
-    
     var showExtraSetUp = false
-    var playerCount = 0
-    var playerIndex = 0
     
-    func getNextGamePlayer() -> Player? {
-        if  playerIndex == GameManagement.sharedInstance.playerCount {
-            playerIndex = 1
-        } else {
-            playerIndex = playerIndex + 1
-        }
-        let player = NetworkSevice.sharedInstance.playerList[playerIndex - 1]
-        print("----------- Player: \(player.playerName) --------------")
-        return player
-    }
+    
     
     var horseRaceBettingPlayer: [HorseBet] = []
     
@@ -577,7 +647,7 @@ class GameManagement {
     
     var games = [Game]()
     func getGames() -> [Game] {
-        online == true ? getAllGameModes() : getOfflineGameModes()
+        setAllGameModes()
         games.removeAll()
         for game in gameModes {
             let mode = game.gameMode()
@@ -587,6 +657,9 @@ class GameManagement {
             let gameImage = game.gameImage()
             let gameScore = game.gameScore()
             let gameManagement = game.gameManagementView()
+            let gameFun = game.gameFun()
+            let extraOption = game.extraOtpion()
+            
             let gameData = Game(id: "",
                                 name: name,
                                 description: description,
@@ -597,7 +670,9 @@ class GameManagement {
                                 gameImage: gameImage,
                                 gameManagement: gameManagement,
                                 downloadsData: GamesDownloadingData.contains(mode),
-                                addedScore: gameScore)
+                                addedScore: gameScore,
+                                funIndex:gameFun,
+                                extraOption: extraOption)
             games.append(gameData)
         }
         return games

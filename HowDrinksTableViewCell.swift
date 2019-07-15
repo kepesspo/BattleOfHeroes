@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MDCCommon
 
 class HowDrinksTableViewCell: UITableViewCell {
 
     @IBOutlet weak var drinksPlayerLabel: UILabel!
-    
+    var select = false
     var player: Player? {
         didSet {
             loadData()

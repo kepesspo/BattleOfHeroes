@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 import TTSegmentedControl
 
 class ExtraSetUpViewController: UIViewController {
@@ -115,10 +116,10 @@ class ExtraSetUpViewController: UIViewController {
             switch index {
             case 0:
                 print("On")
-                GameManagement.sharedInstance.randomPictogramAllow = true
+                Factory.shared.randomPictogramAllow = true
             case 1:
                 print("Off")
-                GameManagement.sharedInstance.randomPictogramAllow = false
+                Factory.shared.randomPictogramAllow = false
 
             default:
                 print("Default")
@@ -136,11 +137,11 @@ class ExtraSetUpViewController: UIViewController {
             switch index {
             case 0:
                 print("On")
-                GameManagement.sharedInstance.groupDrinksAllow = true
+                Factory.shared.groupDrinksAllow = true
                 
             case 1:
                 print("Off")
-                GameManagement.sharedInstance.groupDrinksAllow = false
+                Factory.shared.groupDrinksAllow = false
             default:
                 print("Default")
             }
@@ -151,10 +152,10 @@ class ExtraSetUpViewController: UIViewController {
     
     @IBAction func randomPictogramAction(_ sender: UISlider) {
         if randomPictogramChecked {
-            GameManagement.sharedInstance.randomPictogramTime = Int.random(in: 10...30)
+            Factory.shared.randomPictogramTime = Int.random(in: 10...30)
         } else {
             let currentValue = Int(sender.value)
-            GameManagement.sharedInstance.randomPictogramTime = currentValue * 60
+            Factory.shared.randomPictogramTime = currentValue * 60
             randomPictogramLabel.text = "\(currentValue) Perc"
         }
         
@@ -162,10 +163,10 @@ class ExtraSetUpViewController: UIViewController {
     
     @IBAction func randomGroupDrinkAction(_ sender: UISlider) {
         if randomGroupDrinkChecked {
-            GameManagement.sharedInstance.groupDrinkTime = Int.random(in: 10...30)
+            Factory.shared.groupDrinkTime = Int.random(in: 10...30)
         } else {
             let currentValue = Int(sender.value)
-            GameManagement.sharedInstance.groupDrinkTime = currentValue * 60
+            Factory.shared.groupDrinkTime = currentValue * 60
             randomGroupDrinkLabel.text = "\(currentValue) Perc"
         }
         
@@ -186,7 +187,7 @@ class ExtraSetUpViewController: UIViewController {
             randomPictorgram.setTitle("", for: .normal)
             randomPictorgram.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
             let currentValue = Int.random(in: 10...30)
-            GameManagement.sharedInstance.groupDrinkTime = currentValue * 60
+            Factory.shared.groupDrinkTime = currentValue * 60
             randomPictogramSlider.isHidden = true
             randomPictogramLabel.isHidden = true
         }
@@ -204,7 +205,7 @@ class ExtraSetUpViewController: UIViewController {
             randomGroupDrink.setTitle("", for: .normal)
             randomGroupDrink.setBackgroundImage(#imageLiteral(resourceName: "check-mark-button.png"), for: .normal)
             let currentValue = Int.random(in: 10...30)
-            GameManagement.sharedInstance.groupDrinkTime = currentValue * 60
+            Factory.shared.groupDrinkTime = currentValue * 60
             randomGroupDrinkingSlider.isHidden = true
             randomGroupDrinkLabel.isHidden = true
         }

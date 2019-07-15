@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 
 enum HorseColor: CaseIterable {
     case none

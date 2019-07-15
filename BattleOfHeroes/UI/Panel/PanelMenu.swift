@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import MDCCommon
 import Panels
 import Arrows
+import MDCCommon
 
 class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     @IBOutlet var headerHeight: NSLayoutConstraint!
@@ -28,11 +30,10 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         subscribeForNotification(name: .updateStartButton, selector: #selector(updateStartButton))
         idLabel.text = "A szoba azonositója: \(roomName!)"
         
-        self.view.addBlurBackground()
         self.curveTopCorners()
         nextButton.layer.cornerRadius = 8
         arrowView.update(to: .up, animated: true)
-        arrowView.arrowColor = #colorLiteral(red: 1, green: 0.5933062434, blue: 0.3104811311, alpha: 1)
+        arrowView.arrowColor = #colorLiteral(red: 0.2745098039, green: 0.7450980392, blue: 0.631372549, alpha: 1)
         
         NetworkSevice.sharedInstance.getGameRunning { (error, value) in
             if value == 1 {
@@ -46,7 +47,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
             }
         }
         
-        if GameManagement.sharedInstance.playerCount < 2 {
+        if Factory.shared.playerList.count < 2 {
             nextButton.isEnabled = false
         } else {
             nextButton.isEnabled = true
@@ -61,7 +62,7 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
 
     
     @objc func updateStartButton() {
-        if GameManagement.sharedInstance.playerCount < 2 {
+        if Factory.shared.playerList.count < 2 {
             nextButton.isEnabled = false
         } else {
             nextButton.isEnabled = true
@@ -122,9 +123,9 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
     
     
     func startGame() {
-        GameManagement.sharedInstance.groupDrinksAllow = false
-        GameManagement.sharedInstance.randomPictogramAllow = false
-        GameManagement.sharedInstance.showBonusView = false
+        Factory.shared.groupDrinksAllow = false
+        Factory.shared.randomPictogramAllow = false
+        Factory.shared.showBonusView = false
         GameManagement.sharedInstance.drininkCounterView = false
         let setUpVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetUpGameViewController") as! SetUpGameViewController
         self.navigationController?.pushViewController(setUpVc, animated: true)

@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'ssh://git@git.sanomamdc.com:7999/sanpod/mdccommon.git'
 # platform :ios, '9.0'
 
 target 'BattleOfHeroes' do
@@ -14,4 +16,7 @@ use_frameworks!
   pod 'TTSegmentedControl', '~>0.3'
   pod 'Panels'
   pod 'Arrows'
+  pod 'RealmSwift'
+  pod 'Cosmos', '~> 19.0'
+  pod 'MDCCommon'
 end

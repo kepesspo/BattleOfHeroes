@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MDCCommon
 import Firebase
 import FirebaseDatabase
 import Reachability
@@ -45,24 +46,20 @@ import SpotifyLogin
         
         // Check Internet Connection
         reachability.whenReachable = { _ in
+             GameManagement.sharedInstance.networkWorks = true
             print("Network works")
-            GameManagement.sharedInstance.networkWorks = true
-            self.dismissErrorPopup()
+             
         }
         
         reachability.whenUnreachable = { _ in
             GameManagement.sharedInstance.networkWorks = false
             self.showNetworkErrorPopup()
+            //postNotification(name: .deselectGame)
             
         }
+        GameManagement.sharedInstance.networkWorks = reachability.isReachable ? true : false
     }
-    func dismissErrorPopup() {
-        print("Dismiss top VC")
-        if let topController = UIApplication.topViewController() {
-            topController.dismiss(animated: true, completion: nil)
-            
-        }
-    }
+    
     func showNetworkErrorPopup() {
         let networkVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NetworkViewController") as! NetworkViewController
         networkVC.modalPresentationStyle = .overFullScreen
@@ -78,9 +75,6 @@ import SpotifyLogin
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
-        
-        
         NetworkSevice.sharedInstance.getGameRunning { (error, run) in
             if run == 1 && GameManagement.sharedInstance.isSpactate {
                 print("No Delete is Run")

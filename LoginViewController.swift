@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDCCommon
 import Reachability
 import TTSegmentedControl
 
@@ -14,8 +15,8 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
 
     @IBOutlet weak var createGame: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
-    @IBOutlet weak var gameTypeSegmentedControl: TTSegmentedControl!
     
+    @IBOutlet weak var spectateButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,25 +24,9 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     }
     
     func setUpView() {
-        gameTypeSegmentedControl.itemTitles = ["Online", "Offline"]
-        gameTypeSegmentedControl.layer.cornerRadius = 7
-        gameTypeSegmentedControl.defaultTextFont = UIFont.rubic(19)
-        gameTypeSegmentedControl.selectedTextFont = UIFont.rubic(19)
-        gameTypeSegmentedControl.defaultTextColor = #colorLiteral(red: 0.01176470588, green: 0.7490196078, blue: 0.7490196078, alpha: 1)
-        gameTypeSegmentedControl.allowChangeThumbWidth = false
-        gameTypeSegmentedControl.didSelectItemWith = { (index, title) -> () in
-            switch index {
-            case 0:
-                print("Online Mode")
-                GameManagement.sharedInstance.online = true
-            case 1:
-                print("Offline Mode")
-                GameManagement.sharedInstance.online = false
-            default:
-                print("Default")
-            }
-            print("Selected item \(index)")  
-        }
+        // Defult GameType : Online
+        Factory.shared.dataManager = OfflineService()
+        self.spectateButton.isHidden = false
         
         if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String,
             let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String{
@@ -62,23 +47,16 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     func startEmptyLogin() {
         let generateRoomId = fourDigitNumber
         print(generateRoomId)
-        NetworkSevice.sharedInstance.checkCreateExistingRoom(gameName: generateRoomId, competionBlock: { (error, success) in
-            if success == true {
-                let room = Room(id: "", gameRoom: generateRoomId, gameRun: false, randomMemberShow: false, playerNameWhoGetDrinks: "")
-                NetworkSevice.sharedInstance.addGameToDatabase(room: room) { (error) in
-                    if error == nil {
-                        UserDefaults.standard.set(generateRoomId, forKey: UserDefaultsKeys.roomName)
-                        print("Success created Game")
-                        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
-                        self.present(vc, animated: true, completion: nil)
-                    } else {
-                        print("Error")
-                    }
-                }
-            } else {
-                self.startEmptyLogin()
+        let room = Room(id: generateRoomId, gameRoom: generateRoomId, gameRun: false, randomMemberShow: false, playerNameWhoGetDrinks: "")
+
+        Factory.shared.dataManager.createRoom(room: room) { (error) in
+            if error == nil {
+                UserDefaults.standard.set(generateRoomId, forKey: UserDefaultsKeys.roomName)
+                print("Success created Game")
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
+                self.present(vc, animated: true, completion: nil)
             }
-        })
+        }
     }
     
     func loginWithSpectate() {
