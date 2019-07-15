@@ -51,7 +51,7 @@
                                 </constraints>
                                 <state key="normal" image="plus-3"/>
                                 <connections>
-                                    <action selector="plusButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jtN-uC-YM9"/>
+                                    <action selector="addPlayer" destination="gTV-IL-0wX" eventType="touchUpInside" id="4G6-uT-cD1"/>
                                 </connections>
                             </button>
                         </subviews>

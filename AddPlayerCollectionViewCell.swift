@@ -25,7 +25,7 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
         dashedLayer.lineDashPattern = [11, 11]
         dashedLayer.lineWidth = 1
         dashedLayer.cornerRadius = 10
-        
+        containerView.addTapGestureRecognizer(action: addPlayer)
     }
     
     override func layoutSubviews() {
@@ -38,7 +38,7 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
         playerCountLabel.text = "\(Factory.shared.playerList.count)\n Játékos"
     }
     
-    @IBAction func plusButtonAction(_ sender: Any) {
+    @IBAction func addPlayer() {
         if Factory.shared.figuresIndex >= Factory.shared.figures.count {
             Factory.shared.figuresIndex = 0
         }
