@@ -47,7 +47,7 @@ class GameView : UIView {
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DrinkCounterViewController") as! DrinkCounterViewController
             popOverVC.modalPresentationStyle = .overFullScreen
             
-            popOverVC.game = Factory.shared.actuallyGame
+            popOverVC.game = Factory.shared.actualGame
             let player = Factory.shared.actuallyPlayer
             
             if Factory.shared.actuallyGameType == 0 {

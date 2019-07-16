@@ -90,7 +90,7 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GameCollectionViewCell else { return }
         let row = indexPath.row
-        if games[indexPath.row].downloadsData == true && !GameManagement.sharedInstance.networkWorks {
+        if games[indexPath.row].downloadsData == true && !GameManagement.sharedInstance.networkAvailable {
             print("Network Don't Working")
             cell.pulseWifiIcon()  
         }

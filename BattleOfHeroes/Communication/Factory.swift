@@ -24,7 +24,7 @@ class Factory {
     
     var playedGame = 0
     var actuallyPlayer: Player?
-    var actuallyGame : Game?
+    var actualGame : Game?
     var actuallyGameType = 0
     
     var figures = ["black_figures-1","blue_figures-1","yellow_figures-1",

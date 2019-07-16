@@ -46,18 +46,18 @@ import SpotifyLogin
         
         // Check Internet Connection
         reachability.whenReachable = { _ in
-             GameManagement.sharedInstance.networkWorks = true
+             GameManagement.sharedInstance.networkAvailable = true
             print("Network works")
              
         }
         
         reachability.whenUnreachable = { _ in
-            GameManagement.sharedInstance.networkWorks = false
+            GameManagement.sharedInstance.networkAvailable = false
             self.showNetworkErrorPopup()
             //postNotification(name: .deselectGame)
             
         }
-        GameManagement.sharedInstance.networkWorks = reachability.isReachable ? true : false
+        GameManagement.sharedInstance.networkAvailable = reachability.isReachable ? true : false
     }
     
     func showNetworkErrorPopup() {

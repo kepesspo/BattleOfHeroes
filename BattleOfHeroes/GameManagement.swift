@@ -460,7 +460,8 @@ enum CardValue: String {
 class GameManagement {
     static let sharedInstance = GameManagement()
     
-    var networkWorks = false
+    var networkAvailable = false
+    var gameDataLoaded = false
     
     func isOnboardingClosed() -> Bool {
         return UserDefaults.standard.string(forKey: UserDefaultsKeys.onboardingClosed) != nil

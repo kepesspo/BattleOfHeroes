@@ -51,7 +51,7 @@ class PanelGames: UIViewController, Panelable {
     @IBAction func nextButtonTapped(_ sender: Any) {
         GameSetup.sharedInstance.createGame { (error) in
             let management = GameManagement.sharedInstance
-            guard management.networkWorks || management.chosenGames.contains(where: { $0.downloadsData == false }) else {
+            guard management.networkAvailable || management.chosenGames.contains(where: { $0.downloadsData == false }) else {
                 MDCAlertPresenter.showAlert(title: "Hiba!",
                                             message: "Nincs internetkapcsolat és nincs kiválasztva olyan játék, ami ne igényelne internet hozzáférést!",
                                             presentingViewController: self,

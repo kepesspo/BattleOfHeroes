@@ -39,6 +39,7 @@ class GameSetup {
         self.showLoaderView()
         self.dissmissLoaderView(completionBlock: {
             self.loadAllGameData { error in
+                GameManagement.sharedInstance.gameDataLoaded = error == nil
                 completionBlock(error)
             }
         })
@@ -46,7 +47,7 @@ class GameSetup {
     
     
     func loadAllGameData(completion: ((_ error: Error?) -> Void)?) {
-        guard GameManagement.sharedInstance.networkWorks else {
+        guard GameManagement.sharedInstance.networkAvailable else {
             completion?(MyError.noInternetAccess)
             return
         }

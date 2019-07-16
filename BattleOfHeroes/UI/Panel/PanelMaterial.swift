@@ -110,7 +110,7 @@ class PanelMaterial: UIViewController, Panelable {
     }
     
     @IBAction func showInfoDesc(_ sender: Any) {
-        if let gameDescription = Factory.shared.actuallyGame?.description {
+        if let gameDescription = Factory.shared.actualGame?.description {
             showInfoView(description: gameDescription)
         }
         

@@ -13,7 +13,7 @@
  
  class GameViewController: UIViewController {
     var gameCounter : Int = 0
-    var previousRandomIndex = 100
+    var previousGame: Game?
     var groupDrinkTimer : Timer?
     var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
@@ -26,7 +26,7 @@
     lazy var panelManager = Panels(target: self)
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var letPlayText: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GameManagement.sharedInstance.isSpactate = false
@@ -45,7 +45,7 @@
         
         timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(showSpectatorBonus), userInfo: nil, repeats: true)
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if GameManagement.sharedInstance.gameStarted == true {
@@ -92,7 +92,7 @@
             print("showSpectatorBonus not worked because it's a Offline game")
         }
     }
-
+    
     @objc func startGameAction() {
         letPlayText.isHidden = true
         startButton.isHidden = true
@@ -154,37 +154,43 @@
     
     
     func showView() {
-        let randomIndex = Int(arc4random_uniform(UInt32(chosenGames.count)))
-        if chosenGames.count == 1 {
-            print("Only 1 game")
-            generateView(indexOfGame: randomIndex)
-        } else {
-            print("More than 1 game")
-            if previousRandomIndex == randomIndex {
-                print("Equal Game")
-                showView()
-            } else {
-                previousRandomIndex = randomIndex
-                print("Minden rendbe")
-                generateView(indexOfGame: randomIndex)
+        DispatchQueue.global(qos: .userInitiated).async {
+            let downloadGroup = DispatchGroup()
+            var availableGames = self.chosenGames
+            
+            if !GameManagement.sharedInstance.gameDataLoaded {
+                downloadGroup.enter()
+                GameSetup.sharedInstance.loadAllGameData { error in
+                    if error != nil {
+                        availableGames = availableGames.filter({ !$0.downloadsData })
+                    }
+                    downloadGroup.leave()
+                }
+            }
+
+            downloadGroup.wait()
+            DispatchQueue.main.async {
+                if availableGames.count > 1, let previous = self.previousGame {
+                    availableGames = availableGames.filter({ $0.name != previous.name})
+                }
+                let chosen = availableGames.randomElement()!
+                self.generateViewWith(game: chosen)
+                self.previousGame = chosen
             }
         }
-        
-        
     }
     
     
-    func generateView(indexOfGame : Int) {
-        if let game = chosenGames[indexOfGame].gameMode?.gameView() {
-            Factory.shared.actuallyGame = chosenGames[indexOfGame]
-            //GameManagement.sharedInstance.actuallyGame = chosenGames[indexOfGame]
-            print("------- Actually Game:  \(chosenGames[indexOfGame].name) ----------")
-            Factory.shared.actuallyGame?.description = chosenGames[indexOfGame].gameMode?.gameDescription() ?? ""
-
-            //GameManagement.sharedInstance.actuallyGameDesc = chosenGames[indexOfGame].gameMode?.gameDescription() ?? ""
-            game.frame = self.view.bounds
-            self.view.insertSubview(game, at: 1)
-            print("Game index : \(indexOfGame)")
+    func generateViewWith(game : Game) {
+        if let gameView = game.gameMode?.gameView() {
+            Factory.shared.actualGame = game
+            //GameManagement.sharedInstance.actuallyGame = game
+            print("------- Actual Game:  \(game.name) ----------")
+            Factory.shared.actualGame?.description = game.gameMode?.gameDescription() ?? ""
+            
+            //GameManagement.sharedInstance.actuallyGameDesc = game.gameMode?.gameDescription() ?? ""
+            gameView.frame = self.view.bounds
+            self.view.insertSubview(gameView, at: 1)
         }
     }
  }
