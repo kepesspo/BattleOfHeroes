@@ -17,10 +17,6 @@
     var groupDrinkTimer : Timer?
     var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
-    var chosenGames: [Game] {
-        get { return GameManagement.sharedInstance.chosenGames }
-        set { GameManagement.sharedInstance.chosenGames = newValue }
-    }
     var timer : Timer?
     
     lazy var panelManager = Panels(target: self)
@@ -48,22 +44,18 @@
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if GameManagement.sharedInstance.gameStarted == true {
-            SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
-                print("Spotify Token: \(token ?? "")")
-                if(token != nil) {
-                    GameManagement.sharedInstance.spotifyToken = token
-                    postNotification(name: .spotiTokenUpdate)
-                } else {
-                    SpotifyLogin.shared.logout()
-                }
-            }
-        } else {
-            GameManagement.sharedInstance.gameStarted = true
-        }
+        GameManagement.sharedInstance.gameStarted = true
         view.addTapGestureRecognizer(numberOfTapsRequired: 1, numberOfTouchesRequired: 5, delegate: nil) {
             self.navigationController?.popToRootViewController(animated: true)
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer?.invalidate()
+        groupDrinkTimer?.invalidate()
+        getPlyarerWhoGetDrinks?.invalidate()
+        randomPictogramTimer?.invalidate()
     }
     
     func showPanel() {
@@ -121,6 +113,7 @@
             }
         }
     }
+    
     @IBAction func gameAction(_ sender: Any) {
         letPlayText.isHidden = true
         startButton.isHidden = true
@@ -154,9 +147,10 @@
     
     
     func showView() {
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
             let downloadGroup = DispatchGroup()
-            var availableGames = self.chosenGames
+            var availableGames = GameManagement.sharedInstance.chosenGames
             
             if !GameManagement.sharedInstance.gameDataLoaded {
                 downloadGroup.enter()
@@ -169,7 +163,8 @@
             }
 
             downloadGroup.wait()
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 if availableGames.count > 1, let previous = self.previousGame {
                     availableGames = availableGames.filter({ $0.name != previous.name})
                 }
