@@ -62,11 +62,13 @@ class SetUpGameViewController: UIViewController {
             games.remove(at: gameIndex)
         }
         GameManagement.sharedInstance.chosenGames = games
+        UIImpactFeedbackGenerator().impactOccurred()
 //        gameCollectionView.reloadData()
     }
     
     func addGame(item: Game) {
         GameManagement.sharedInstance.chosenGames.append(item)
+        UIImpactFeedbackGenerator().impactOccurred()
 //        gameCollectionView.reloadData()
     }
 }
@@ -110,7 +112,7 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 1 - 6, height: gameCollectionView.bounds.height / 5 - 10)
+        return CGSize(width: gameCollectionView.bounds.width / 1 - 6, height: gameCollectionView.bounds.height / 6 - 10)
     }
     
     func collectionView(_ collectionView: UICollectionView,

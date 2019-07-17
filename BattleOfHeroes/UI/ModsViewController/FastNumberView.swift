@@ -1,8 +1,8 @@
 //
-//  GlassBreakerView.swift
+//  FastNumberView.swift
 //  BattleOfHeroes
 //
-//  Created by Mark on 7/12/19.
+//  Created by Mark on 7/15/19.
 //  Copyright © 2019 Mark. All rights reserved.
 //
 
@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 import MDCCommon
 
-class GlassBreakerView: GameView {
-    
-    @IBOutlet weak var contentView: UIView!
+class FastNumberView: GameView {
     @IBOutlet weak var gameLabel: UILabel!
+    @IBOutlet weak var contentView: UIView!
     
     let playersList = NetworkSevice.sharedInstance.playerList
     
@@ -29,7 +28,7 @@ class GlassBreakerView: GameView {
     
     
     func commonInit() {
-        Bundle.main.loadNibNamed("GlassBreakerView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("FastNumberView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -43,7 +42,7 @@ class GlassBreakerView: GameView {
         postNotification(name: .updateGameData)
         
         let fastNumber = NSMutableAttributedString()
-        fastNumber.appendColored(.black , font: .regular(20), "Törj őssze minnál több üvegkockát\n\n").appendColored(.red, font: .regular(22), "He ez a szám több mint 50\n\n").appendColored(.black, font: .regular(20), "Akkor nyertél")
+        fastNumber.appendColored(.black , font: .regular(20), "Kezdj el számolni 1-től. mindenki csak egy számot mondhat\n\n").appendColored(.red, font: .regular(22), "Ha úgyan azt a számot mondjátok akkor innotok kell\n\n").appendColored(.black, font: .regular(20), "Aki a végén kimondja a 10-et az vesztet")
         gameLabel.attributedText = fastNumber
     }
 }

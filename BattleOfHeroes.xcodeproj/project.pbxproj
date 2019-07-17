@@ -156,6 +156,8 @@
 		4DCC02EE211B94BA00D71186 /* ScoreHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02EC211B94BA00D71186 /* ScoreHeaderTableViewCell.swift */; };
 		4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCC02ED211B94BA00D71186 /* ScoreHeaderTableViewCell.xib */; };
 		4DCC02F1211B9D2B00D71186 /* DrinkCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */; };
+		4DDC97F322DCAFA9007672B8 /* FastNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC97F222DCAFA9007672B8 /* FastNumberView.swift */; };
+		4DDC97F522DCAFB4007672B8 /* FastNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC97F422DCAFB4007672B8 /* FastNumberView.xib */; };
 		4DDDEBA121E39898006FDA6E /* WhoAmIManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDEBA021E39897006FDA6E /* WhoAmIManagerView.swift */; };
 		4DDDEBA321E398BD006FDA6E /* WhoAmIManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDDEBA221E398BD006FDA6E /* WhoAmIManagerView.xib */; };
 		4DDEB1A82195B60800C6E8D7 /* ThePeopleChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEB1A72195B60800C6E8D7 /* ThePeopleChoiceView.swift */; };
@@ -372,6 +374,8 @@
 		4DCC02ED211B94BA00D71186 /* ScoreHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCounterViewController.swift; sourceTree = "<group>"; };
 		4DDC97EC22D8B075007672B8 /* MDCCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MDCCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DDC97F222DCAFA9007672B8 /* FastNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastNumberView.swift; sourceTree = "<group>"; };
+		4DDC97F422DCAFB4007672B8 /* FastNumberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FastNumberView.xib; sourceTree = "<group>"; };
 		4DDDEBA021E39897006FDA6E /* WhoAmIManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAmIManagerView.swift; sourceTree = "<group>"; };
 		4DDDEBA221E398BD006FDA6E /* WhoAmIManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhoAmIManagerView.xib; sourceTree = "<group>"; };
 		4DDEB1A72195B60800C6E8D7 /* ThePeopleChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThePeopleChoiceView.swift; sourceTree = "<group>"; };
@@ -551,6 +555,8 @@
 				4D3F0DF722D89742005643A6 /* CollectThingsView.xib */,
 				4D3F0DF922D8A7DB005643A6 /* GlassBreakerView.swift */,
 				4D3F0DFB22D8A7F2005643A6 /* GlassBreakerView.xib */,
+				4DDC97F222DCAFA9007672B8 /* FastNumberView.swift */,
+				4DDC97F422DCAFB4007672B8 /* FastNumberView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -836,7 +842,7 @@
 				4DE1230420EE33C90004C28E /* Sources */,
 				4DE1230520EE33C90004C28E /* Frameworks */,
 				4DE1230620EE33C90004C28E /* Resources */,
-				63ECCEFB4185089F172CF53C /* [CP] Embed Pods Frameworks */,
+				97C137359CB94C234408985F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -942,6 +948,7 @@
 				4D3F0DF422D89252005643A6 /* ExtremeChallengeView.xib in Resources */,
 				4D94B6672167632D002D7B03 /* SpoonView.xib in Resources */,
 				4DDDEBA321E398BD006FDA6E /* WhoAmIManagerView.xib in Resources */,
+				4DDC97F522DCAFB4007672B8 /* FastNumberView.xib in Resources */,
 				4DA36AE221A421FF00B757BE /* i'm_thirsty!.json in Resources */,
 				4D3F0DF822D89742005643A6 /* CollectThingsView.xib in Resources */,
 				4D0711D821F0CD76006D4563 /* ShiptripView.xib in Resources */,
@@ -1058,7 +1065,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63ECCEFB4185089F172CF53C /* [CP] Embed Pods Frameworks */ = {
+		97C137359CB94C234408985F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1209,6 +1216,7 @@
 				4D3D096A210B24BC00C74CC6 /* StringExtensions.swift in Sources */,
 				4D56D4D3214FF403004A591A /* GameInfoViewController.swift in Sources */,
 				4DE1234B20F3512B0004C28E /* Player.swift in Sources */,
+				4DDC97F322DCAFA9007672B8 /* FastNumberView.swift in Sources */,
 				4DE0883C21FB55C200898A9A /* RandomPictogramViewController.swift in Sources */,
 				4DE1234620EF71D80004C28E /* Constants.swift in Sources */,
 				4DA36AD721A40AC600B757BE /* TrueOrFalse.swift in Sources */,

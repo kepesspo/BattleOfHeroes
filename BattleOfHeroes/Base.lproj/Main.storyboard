@@ -2032,7 +2032,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-d6-Lvn">
-                                        <rect key="frame" x="0.0" y="190" width="335" height="317"/>
+                                        <rect key="frame" x="0.0" y="190" width="335" height="377"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="KL5-4L-RUr" customClass="ScoreTableViewCell" customModule="BattleOfHeroes" customModuleProvider="target">
@@ -2074,14 +2074,19 @@
                                     <constraint firstItem="pbl-d6-Lvn" firstAttribute="top" secondItem="aWp-gw-ZMY" secondAttribute="bottom" constant="10" id="77c-dU-hWj"/>
                                     <constraint firstAttribute="trailing" secondItem="Wtx-xJ-Qas" secondAttribute="trailing" id="EQd-ej-Vzp"/>
                                     <constraint firstItem="aWp-gw-ZMY" firstAttribute="centerX" secondItem="E8E-RU-8VB" secondAttribute="centerX" id="FAb-vq-Wah"/>
+                                    <constraint firstAttribute="bottom" secondItem="pbl-d6-Lvn" secondAttribute="bottom" id="Hfu-2U-sPD"/>
                                     <constraint firstAttribute="trailing" secondItem="tmi-TY-vRw" secondAttribute="trailing" constant="10" id="Jix-gC-B7g"/>
-                                    <constraint firstItem="Wtx-xJ-Qas" firstAttribute="top" secondItem="pbl-d6-Lvn" secondAttribute="bottom" id="PNp-rR-Qzd"/>
                                     <constraint firstItem="Wtx-xJ-Qas" firstAttribute="leading" secondItem="E8E-RU-8VB" secondAttribute="leading" id="SBA-l6-MrY"/>
                                     <constraint firstItem="pbl-d6-Lvn" firstAttribute="leading" secondItem="E8E-RU-8VB" secondAttribute="leading" id="W2N-eJ-fOS"/>
                                     <constraint firstAttribute="bottom" secondItem="Wtx-xJ-Qas" secondAttribute="bottom" id="kMU-Kq-W99"/>
                                     <constraint firstItem="aWp-gw-ZMY" firstAttribute="top" secondItem="E8E-RU-8VB" secondAttribute="top" constant="30" id="vGU-Pi-8wO"/>
                                     <constraint firstItem="tmi-TY-vRw" firstAttribute="top" secondItem="E8E-RU-8VB" secondAttribute="top" constant="15" id="vKR-jj-1eH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Wtx-xJ-Qas"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>

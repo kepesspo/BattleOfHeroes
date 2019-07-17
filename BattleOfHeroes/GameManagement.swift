@@ -42,6 +42,8 @@ enum GameMode: String {
     case highNoon = "highNoon"
     case extremeChallenge = "ExtremeChallenge"
     case collectThings = "collectThings"
+    case glassBreaker = "glassBreaker"
+    case fastNumber = "fastNumber"
     
     func gameTitle() -> String {
         switch self {
@@ -76,6 +78,8 @@ enum GameMode: String {
         case .highNoon: return "GameTitle_highNoon".localized()
         case .extremeChallenge: return "GameTitle_ExtremeChallenge".localized()
         case .collectThings: return "GameTitle_CollectThings".localized()
+        case .glassBreaker: return "GameTitle_glassBreaker".localized()
+        case .fastNumber: return "GameTitle_fastNumber".localized()
         }
     }
     
@@ -112,6 +116,8 @@ enum GameMode: String {
         case .highNoon: return "GameDescription_highNoon".localized()
         case .extremeChallenge: return "GameDescription_ExtremeChallenge".localized()
         case .collectThings: return "GameDescription_CollectThings".localized()
+        case .glassBreaker: return "GameDescription_glassBreaker".localized()
+        case .fastNumber: return "GameDescription_fastNumber".localized()
         }
     }
     
@@ -147,7 +153,9 @@ enum GameMode: String {
         case .twentyOne: return .twentyOne
         case .highNoon: return .highNoon
         case .extremeChallenge: return .extremeChallenge
-        case.collectThings: return .collectThings
+        case .collectThings: return .collectThings
+        case .glassBreaker: return .glassBreaker
+        case .fastNumber: return .fastNumber
         }
     }
     
@@ -184,6 +192,8 @@ enum GameMode: String {
         case .highNoon: return (.personalGame,.init(hexString: "#7FA1C3"))
         case .extremeChallenge: return (.groupLoseGame,.init(hexString: "#46BEA1"))
         case .collectThings: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .glassBreaker: return (.personalGame,.init(hexString: "#7FA1C3"))
+        case .fastNumber: return (.groupWinGame,.init(hexString: "#EE8F9C"))
         }
     }
     
@@ -221,6 +231,8 @@ enum GameMode: String {
         case .highNoon: return HighNoonView()
         case .extremeChallenge: return ExtremeChallengeView()
         case .collectThings: return CollectThingsView()
+        case .glassBreaker: return GlassBreakerView()
+        case .fastNumber: return FastNumberView()
         }
     }
     
@@ -267,6 +279,8 @@ enum GameMode: String {
         case .highNoon: return #imageLiteral(resourceName: "009-helping.png")
         case .extremeChallenge: return #imageLiteral(resourceName: "010-hug.png")
         case .collectThings: return #imageLiteral(resourceName: "038-pinky-promise.png")
+        case .glassBreaker: return #imageLiteral(resourceName: "044-best-friends.png")
+        case .fastNumber: return #imageLiteral(resourceName: "049-tree-house.png")
         }
     }
     
@@ -303,6 +317,8 @@ enum GameMode: String {
         case .highNoon: return 1
         case .extremeChallenge: return 1
         case .collectThings: return 1
+        case .glassBreaker: return 1
+        case .fastNumber: return 3
         }
     }
     
@@ -339,6 +355,8 @@ enum GameMode: String {
         case .highNoon: return 4
         case .extremeChallenge: return 2
         case .collectThings: return 2
+        case .glassBreaker: return 3
+        case .fastNumber: return 3
         }
     }
     
@@ -375,6 +393,8 @@ enum GameMode: String {
         case .highNoon: return false
         case .extremeChallenge: return false
         case .collectThings: return false
+        case .glassBreaker: return false
+        case .fastNumber: return false
         }
     }
     
@@ -594,7 +614,9 @@ class GameManagement {
                      GameMode.twentyOne,
                      GameMode.highNoon,
                      GameMode.extremeChallenge,
-                     GameMode.collectThings
+                     GameMode.collectThings,
+                     GameMode.glassBreaker,
+                     GameMode.fastNumber
         ]
     }
     
