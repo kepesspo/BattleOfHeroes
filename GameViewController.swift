@@ -10,6 +10,7 @@
  import MDCCommon
  import Panels
  import SpotifyLogin
+ import Hero
  
  class GameViewController: UIViewController {
     var gameCounter : Int = 0
@@ -18,6 +19,7 @@
     var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
     var timer : Timer?
+    @IBOutlet weak var startImageView: UIImageView!
     @IBOutlet weak var gameContainerView: UIView!
     
     lazy var panelManager = Panels(target: self)
@@ -86,6 +88,7 @@
     }
     
     @objc func startGameAction() {
+        startImageView.isHidden = true
         letPlayText.isHidden = true
         startButton.isHidden = true
         showView()
@@ -183,20 +186,20 @@
             //GameManagement.sharedInstance.actuallyGame = game
             print("------- Actual Game:  \(game.name) ----------")
             Factory.shared.actualGame?.description = game.gameMode?.gameDescription() ?? ""
-            
-            //GameManagement.sharedInstance.actuallyGameDesc = game.gameMode?.gameDescription() ?? ""
             gameView.frame = self.view.bounds
+            gameView.layer.cornerRadius = 20
+            gameView.clipsToBounds = true
+            
             gameContainerView.insertSubview(gameView, at: 0)
-//            if gameContainerView.subviews.count > 1 {
-//                UIView.transition(from: gameContainerView.subviews[1],
-//                                  to: gameContainerView.subviews[0],
-//                                  duration: 0.5, options: .transitionFlipFromLeft) { _ in
-//                    self.gameContainerView.subviews.first!.removeFromSuperview()
-//                }
-//            }
-            gameContainerView.subviews.forEach {
-                if $0 != gameView {
-                    $0.removeFromSuperview()
+            if gameContainerView.subviews.count > 1 {
+                UIView.transition(from: gameContainerView.subviews[1],
+                                  to: gameContainerView.subviews[0],
+                                  duration: 0.6, options: .transitionFlipFromRight) { _ in
+                                    self.gameContainerView.subviews.forEach {
+                                        if $0 != gameView {
+                                            $0.removeFromSuperview()
+                                        }
+                                    }
                 }
             }
         }

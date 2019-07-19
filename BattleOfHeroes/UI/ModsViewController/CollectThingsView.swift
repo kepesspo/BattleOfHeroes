@@ -35,6 +35,7 @@ class CollectThingsView: GameView {
     
     
     func commonInit() {
+        self.tap.isEnabled = false
         Bundle.main.loadNibNamed("CollectThingsView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds

@@ -114,6 +114,7 @@ class HighNoonView: GameView {
     
     func checkGameStart() {
         if secondPlayerTapped && firstPlayerTapped {
+            winnerLabel.text = "A játék elindúlt"
             print("Game Start")
             isGameStarted = true
             let randomTime = randomInterval.randomElement()

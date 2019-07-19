@@ -29,6 +29,7 @@ class GlassBreakerView: GameView {
     
     
     func commonInit() {
+        self.tap.isEnabled = false
         Bundle.main.loadNibNamed("GlassBreakerView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -45,5 +46,6 @@ class GlassBreakerView: GameView {
         let fastNumber = NSMutableAttributedString()
         fastNumber.appendColored(.black , font: .regular(20), "Törj őssze minnál több üvegkockát\n\n").appendColored(.red, font: .regular(22), "He ez a szám több mint 50\n\n").appendColored(.black, font: .regular(20), "Akkor nyertél")
         gameLabel.attributedText = fastNumber
+        self.tap.isEnabled = true
     }
 }

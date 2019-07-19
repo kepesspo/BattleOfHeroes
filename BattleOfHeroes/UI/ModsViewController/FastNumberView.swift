@@ -28,6 +28,7 @@ class FastNumberView: GameView {
     
     
     func commonInit() {
+        self.tap.isEnabled = false
         Bundle.main.loadNibNamed("FastNumberView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -44,5 +45,6 @@ class FastNumberView: GameView {
         let fastNumber = NSMutableAttributedString()
         fastNumber.appendColored(.black , font: .regular(20), "Kezdj el számolni 1-től. mindenki csak egy számot mondhat\n\n").appendColored(.red, font: .regular(22), "Ha úgyan azt a számot mondjátok akkor innotok kell\n\n").appendColored(.black, font: .regular(20), "Aki a végén kimondja a 10-et az vesztet")
         gameLabel.attributedText = fastNumber
+        self.tap.isEnabled = true
     }
 }

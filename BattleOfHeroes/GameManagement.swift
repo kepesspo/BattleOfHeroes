@@ -601,8 +601,8 @@ class GameManagement {
                      GameMode.cheersToTheGovernor,
                      GameMode.haveIEverNever,
                      GameMode.whoAmI,
-                     GameMode.spoon,
-                     GameMode.thePeopleChoice,
+                     //GameMode.spoon,
+                     //GameMode.thePeopleChoice,
                      GameMode.russianRoulette,
 //                     GameMode.shipTrip,
                      GameMode.horseRace,
@@ -617,40 +617,8 @@ class GameManagement {
                      GameMode.highNoon,
                      GameMode.extremeChallenge,
                      GameMode.collectThings,
-                     GameMode.glassBreaker,
+                     //GameMode.glassBreaker,
                      GameMode.fastNumber
-        ]
-    }
-    
-    func setOfflineGameModes() {
-        gameModes = [
-            //GameMode.trueOrFalse,
-            GameMode.categories,
-            GameMode.hajime,
-            GameMode.everybodyDrinks,
-            GameMode.wheelOfFortune,
-            GameMode.upAndDown,
-            GameMode.ringOfFire,
-            GameMode.memory,
-            //GameMode.musicRecognizer,
-            GameMode.switchHand,
-            GameMode.rockPaperScissors,
-            GameMode.fingerIt,
-            //GameMode.cheersToTheGovernor,
-            //GameMode.haveIEverNever,
-            //GameMode.whoAmI,
-            //GameMode.spoon,
-            //GameMode.thePeopleChoice,
-            GameMode.russianRoulette,
-            //GameMode.shipTrip,
-            GameMode.horseRace,
-            //GameMode.anagram,
-            GameMode.coinFlip,
-            GameMode.fiveThing,
-            GameMode.collectAndBoom,
-            GameMode.theBottle,
-            GameMode.tapper,
-            GameMode.tickTak
         ]
     }
     

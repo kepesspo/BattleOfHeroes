@@ -575,7 +575,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.82745098039999998" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bYt-o9-PSq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="2PU-ks-HAZ"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Ksq-uu-Nag" secondAttribute="trailing" id="4oh-Aj-haQ"/>
@@ -604,6 +604,7 @@
                         <outlet property="gameContainerView" destination="Ksq-uu-Nag" id="GJ8-j4-2Ll"/>
                         <outlet property="letPlayText" destination="YXN-Wz-M4w" id="hx0-vY-Pjh"/>
                         <outlet property="startButton" destination="HYy-s6-M09" id="VnP-sz-zIk"/>
+                        <outlet property="startImageView" destination="bYt-o9-PSq" id="v8l-Ho-y63"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -2534,7 +2535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xX6-C4-HB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="1182"/>
+            <point key="canvasLocation" x="-23" y="1145"/>
         </scene>
         <!--Horse Race Bet View Controller-->
         <scene sceneID="0QC-hc-Ly7">
