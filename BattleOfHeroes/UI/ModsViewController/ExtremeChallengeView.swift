@@ -50,7 +50,7 @@ class ExtremeChallengeView: GameView {
         postNotification(name: .updateGameData)
         
         let extremeChallenge = NSMutableAttributedString()
-        extremeChallenge.appendColored(.black , font: .regular(20), "Válasz egy témakört, hivj ki valakit és mond mennyi szot tudsz az adott témakörben \n\n").appendColored(.red, font: .regular(22), "A kihivó dönt hogy elfogadja vagy ő tud többet.\n\n").appendColored(.black, font: .regular(20), "Az nyer akinek igaza lesz")
+        extremeChallenge.appendColored(.black , font: .regular(20), "Válasz egy témakört, hivj ki valakit és mond mennyi szot tudsz az adott témakörben \n\n").appendColored(.red, font: .regular(22), "A kihivó dönt hogy elfogadja vagy ő tud többet.\n").appendColored(.black, font: .regular(20), "Az nyer akinek igaza lesz")
         extremeLabel.attributedText = extremeChallenge
         
         timerLabel.isHidden = true

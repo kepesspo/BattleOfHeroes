@@ -29,31 +29,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueV-RZ-VKX">
-                    <rect key="frame" x="10" y="310" width="355" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRL-qP-Qqq">
-                    <rect key="frame" x="10" y="369" width="355" height="24"/>
+                    <rect key="frame" x="10" y="270" width="355" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memoria" translatesAutoresizingMaskIntoConstraints="NO" id="ub9-t0-AmJ">
-                    <rect key="frame" x="44" y="50" width="287" height="230"/>
+                    <rect key="frame" x="44" y="50" width="287" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="230" id="KJy-Ag-86d"/>
+                        <constraint firstAttribute="height" constant="200" id="KJy-Ag-86d"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="categoryBanner" translatesAutoresizingMaskIntoConstraints="NO" id="ULS-nR-DvG">
-                    <rect key="frame" x="-312.5" y="408" width="1000" height="70"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_girl" translatesAutoresizingMaskIntoConstraints="NO" id="ULS-nR-DvG">
+                    <rect key="frame" x="-312.5" y="324" width="1000" height="270"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="vCJ-ua-ZBO"/>
+                        <constraint firstAttribute="height" constant="270" id="vCJ-ua-ZBO"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFh-bu-QLz">
-                    <rect key="frame" x="155" y="428" width="65.5" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRL-qP-Qqq">
+                    <rect key="frame" x="50" y="360" width="295" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFh-bu-QLz">
+                    <rect key="frame" x="50" y="394" width="295" height="30"/>
                     <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -63,24 +63,24 @@
             <constraints>
                 <constraint firstItem="ub9-t0-AmJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="3E4-Uc-MJP"/>
                 <constraint firstItem="ueV-RZ-VKX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6Zn-rQ-Ufi"/>
-                <constraint firstItem="wRL-qP-Qqq" firstAttribute="top" secondItem="ueV-RZ-VKX" secondAttribute="bottom" constant="35" id="CQa-3I-6ee"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wRL-qP-Qqq" secondAttribute="trailing" constant="10" id="IsH-rT-G0A"/>
-                <constraint firstItem="aFh-bu-QLz" firstAttribute="centerX" secondItem="ULS-nR-DvG" secondAttribute="centerX" id="Mz4-Kf-Z1Q"/>
-                <constraint firstItem="aFh-bu-QLz" firstAttribute="centerY" secondItem="ULS-nR-DvG" secondAttribute="centerY" id="NXp-KU-Eql"/>
-                <constraint firstItem="wRL-qP-Qqq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PDP-Sv-8da"/>
+                <constraint firstItem="aFh-bu-QLz" firstAttribute="top" secondItem="wRL-qP-Qqq" secondAttribute="bottom" constant="10" id="P8c-Lt-KFi"/>
                 <constraint firstItem="ub9-t0-AmJ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Pwy-MV-ixl"/>
-                <constraint firstItem="wRL-qP-Qqq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ZXx-Yl-hAT"/>
-                <constraint firstItem="ueV-RZ-VKX" firstAttribute="top" secondItem="ub9-t0-AmJ" secondAttribute="bottom" constant="30" id="cND-6H-vsT"/>
-                <constraint firstItem="ULS-nR-DvG" firstAttribute="centerX" secondItem="wRL-qP-Qqq" secondAttribute="centerX" id="dIs-HD-FjV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wRL-qP-Qqq" secondAttribute="trailing" constant="30" id="SZh-4Q-Cbe"/>
+                <constraint firstItem="ULS-nR-DvG" firstAttribute="top" secondItem="wRL-qP-Qqq" secondAttribute="bottom" constant="-60" id="TZ8-u1-913"/>
+                <constraint firstItem="ueV-RZ-VKX" firstAttribute="top" secondItem="ub9-t0-AmJ" secondAttribute="bottom" constant="20" id="cND-6H-vsT"/>
+                <constraint firstItem="aFh-bu-QLz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="lWt-Yf-qDf"/>
+                <constraint firstItem="ULS-nR-DvG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="shb-gm-8Tf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aFh-bu-QLz" secondAttribute="trailing" constant="30" id="tiU-wF-aQq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ueV-RZ-VKX" secondAttribute="trailing" constant="10" id="vUV-jj-Iah"/>
+                <constraint firstItem="wRL-qP-Qqq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="wQs-hK-K42"/>
                 <constraint firstItem="ueV-RZ-VKX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="wn4-Uq-6mx"/>
-                <constraint firstItem="ULS-nR-DvG" firstAttribute="top" secondItem="wRL-qP-Qqq" secondAttribute="bottom" constant="15" id="xnA-de-Hky"/>
+                <constraint firstItem="ULS-nR-DvG" firstAttribute="top" secondItem="ueV-RZ-VKX" secondAttribute="bottom" constant="30" id="yc2-8o-EFK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
     <resources>
-        <image name="categoryBanner" width="1000" height="230"/>
+        <image name="board_girl" width="1000" height="750"/>
         <image name="memoria" width="286.5" height="413.5"/>
     </resources>
 </document>

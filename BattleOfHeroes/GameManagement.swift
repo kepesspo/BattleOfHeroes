@@ -507,6 +507,8 @@ class GameManagement {
     var mediumCategies = ["Autó márkák","Már halott emberek","Olimpiai bajnokok","Játék szoftverek","Növények","Kutya Fajták","Alkohol márkák vagy fajta","Tv csatornák"]
     var hardCategories = ["Amerikai Elnőkők","Feltalálok","Programozási kifejezések","Növényevő állatok","Tavak"]
     
+    var allCategories = ["Amerikai Elnőkők","Feltalálok","Programozási kifejezések","Növényevő állatok","Tavak","Autó márkák","Már halott emberek","Olimpiai bajnokok","Játék szoftverek","Növények","Kutya Fajták","Alkohol márkák vagy fajta","Tv csatornák","Film","Zene","Sport","Gaming","Stand","Szépség","Hiresség","Természet","Utazás","Politika","Kaja","Űr","Telefon márka","közösségi Oldalak","Bankok","Tv Csatornák","Délamerika Országok","Afrikai Országok","Ázsiai Országok","Gyűmölcsők","Templomok","Ruha márka","kocsmák","kőltők","autó versenyzők","munkakőr","hangszer","konyhai eszközök","Társasjátékok","Szín","Egyetemek","Humoristák","Sorozat","Parkok","Fesztiválok"]
+
     // everyBodyDrinks Onece
     var everyBodyDrinksPlayerCountIndex = 0
     

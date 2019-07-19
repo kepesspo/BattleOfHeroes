@@ -17,7 +17,7 @@ class MemoryView: GameView {
     @IBOutlet weak var categoriesTextLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
     
-    let categories = GameManagement.sharedInstance.gamesCategories
+    let categories = GameManagement.sharedInstance.allCategories
     let playersList = NetworkSevice.sharedInstance.playerList
     
     override init(frame: CGRect) {
@@ -43,11 +43,7 @@ class MemoryView: GameView {
     func updateUI() {
         memoryTextLabel.text = "Jegyezz meg minden szót!"
         let randomIndex = Int(arc4random_uniform(UInt32(categories.count)))
-        
-        let categoria = NSMutableAttributedString()
-        categoria.appendColored(.black,font: .regular(20), "A kategória a következő :\n ")
-        categoriesTextLabel.attributedText = categoria
-
+        categoriesTextLabel.text = "A kategória a következő :\n"
         
         Factory.shared.getNextGamePlayer()
         Factory.shared.playedGame = Factory.shared.playedGame + 1

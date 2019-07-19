@@ -13,7 +13,7 @@ import MDCCommon
 
 class CategoriesView: GameView {
     
-    let categories = GameManagement.sharedInstance.gamesCategories
+    let categories = GameManagement.sharedInstance.allCategories
     let playersList = NetworkSevice.sharedInstance.playerList
 
 

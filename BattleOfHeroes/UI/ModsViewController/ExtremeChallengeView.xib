@@ -29,13 +29,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4r-vz-m3D">
-                    <rect key="frame" x="158" y="413.5" width="98" height="47"/>
+                    <rect key="frame" x="158" y="373.5" width="98" height="47"/>
                     <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="40"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mondj őt szót az adott témakőrben 5 másodperc alatt." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQI-n0-KDz">
-                    <rect key="frame" x="20" y="294" width="374" height="53"/>
+                    <rect key="frame" x="20" y="284" width="374" height="53"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phq-NU-poA">
-                    <rect key="frame" x="157" y="387" width="100" height="100"/>
+                    <rect key="frame" x="157" y="347" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="phq-NU-poA" secondAttribute="height" multiplier="1:1" id="Vz0-Dv-w2g"/>
                         <constraint firstAttribute="height" constant="100" id="nke-qB-1Nt"/>
@@ -69,8 +69,8 @@
                 <constraint firstItem="Q4r-vz-m3D" firstAttribute="centerY" secondItem="phq-NU-poA" secondAttribute="centerY" id="bjo-cm-mTO"/>
                 <constraint firstItem="phq-NU-poA" firstAttribute="centerX" secondItem="JQI-n0-KDz" secondAttribute="centerX" id="cIx-WI-IVV"/>
                 <constraint firstItem="JQI-n0-KDz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="gGc-Bp-7a1"/>
-                <constraint firstItem="phq-NU-poA" firstAttribute="top" secondItem="JQI-n0-KDz" secondAttribute="bottom" constant="40" id="iRq-Zx-o4z"/>
-                <constraint firstItem="JQI-n0-KDz" firstAttribute="top" secondItem="9E4-0l-hOp" secondAttribute="bottom" constant="20" id="u2v-WH-Mlr"/>
+                <constraint firstItem="phq-NU-poA" firstAttribute="top" secondItem="JQI-n0-KDz" secondAttribute="bottom" constant="10" id="iRq-Zx-o4z"/>
+                <constraint firstItem="JQI-n0-KDz" firstAttribute="top" secondItem="9E4-0l-hOp" secondAttribute="bottom" constant="10" id="u2v-WH-Mlr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
