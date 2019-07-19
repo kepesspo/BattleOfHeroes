@@ -294,7 +294,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "584634976.3770961"
+                  timestampString = "585132499.975347"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -309,7 +309,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "584634976.379496"
+                  timestampString = "585132499.977639"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
@@ -342,7 +342,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "584634976.385475"
+                  timestampString = "585132499.98387"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -357,7 +357,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "584634976.387866"
+                  timestampString = "585132499.986228"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -380,6 +380,22 @@
             startingLineNumber = "134"
             endingLineNumber = "134"
             landmarkName = "addPlayerAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GameViewController.swift"
+            timestampString = "585224484.927845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "generateViewWith(game:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
