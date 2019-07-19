@@ -570,19 +570,27 @@
                                     <action selector="gameAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="kko-tw-MOM"/>
                                 </connections>
                             </button>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ksq-uu-Nag">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bYt-o9-PSq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="2PU-ks-HAZ"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Ksq-uu-Nag" secondAttribute="trailing" id="4oh-Aj-haQ"/>
+                            <constraint firstItem="Ksq-uu-Nag" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="7ux-UP-fOa"/>
                             <constraint firstItem="YXN-Wz-M4w" firstAttribute="centerX" secondItem="bYt-o9-PSq" secondAttribute="centerX" id="V8M-hd-GaE"/>
                             <constraint firstItem="HYy-s6-M09" firstAttribute="height" secondItem="bYt-o9-PSq" secondAttribute="height" id="Y03-oR-0zo"/>
                             <constraint firstItem="YXN-Wz-M4w" firstAttribute="top" secondItem="bYt-o9-PSq" secondAttribute="bottom" constant="-80" id="Y0G-Eu-Pdj"/>
                             <constraint firstItem="HYy-s6-M09" firstAttribute="centerX" secondItem="bYt-o9-PSq" secondAttribute="centerX" id="alT-O2-m0a"/>
+                            <constraint firstItem="Ksq-uu-Nag" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="eEl-H3-537"/>
                             <constraint firstItem="bYt-o9-PSq" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="60" id="g1P-AN-JQe"/>
                             <constraint firstItem="bYt-o9-PSq" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="-40" id="gcN-kR-l71"/>
                             <constraint firstItem="bYt-o9-PSq" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="60" id="n7A-r1-db4"/>
                             <constraint firstItem="HYy-s6-M09" firstAttribute="centerY" secondItem="bYt-o9-PSq" secondAttribute="centerY" id="pls-bp-aQG"/>
                             <constraint firstItem="HYy-s6-M09" firstAttribute="width" secondItem="bYt-o9-PSq" secondAttribute="width" id="tkj-zD-YWa"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="top" secondItem="Ksq-uu-Nag" secondAttribute="top" id="xiW-gP-30R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -593,6 +601,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="LFf-sZ-5KT"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="gameContainerView" destination="Ksq-uu-Nag" id="GJ8-j4-2Ll"/>
                         <outlet property="letPlayText" destination="YXN-Wz-M4w" id="hx0-vY-Pjh"/>
                         <outlet property="startButton" destination="HYy-s6-M09" id="VnP-sz-zIk"/>
                     </connections>

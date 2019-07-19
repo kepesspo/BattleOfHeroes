@@ -18,6 +18,7 @@
     var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
     var timer : Timer?
+    @IBOutlet weak var gameContainerView: UIView!
     
     lazy var panelManager = Panels(target: self)
     @IBOutlet weak var startButton: UIButton!
@@ -26,7 +27,6 @@
     override func viewDidLoad() {
         super.viewDidLoad()
         GameManagement.sharedInstance.isSpactate = false
-        
         
         subscribeForNotification(name: .reloadGroupDrinkTimer, selector: #selector(showGroupDrinkView), object: nil)
         subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
@@ -147,6 +147,7 @@
     
     
     func showView() {
+        gameContainerView.isUserInteractionEnabled = true
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             let downloadGroup = DispatchGroup()
@@ -185,7 +186,19 @@
             
             //GameManagement.sharedInstance.actuallyGameDesc = game.gameMode?.gameDescription() ?? ""
             gameView.frame = self.view.bounds
-            self.view.insertSubview(gameView, at: 1)
+            gameContainerView.insertSubview(gameView, at: 0)
+//            if gameContainerView.subviews.count > 1 {
+//                UIView.transition(from: gameContainerView.subviews[1],
+//                                  to: gameContainerView.subviews[0],
+//                                  duration: 0.5, options: .transitionFlipFromLeft) { _ in
+//                    self.gameContainerView.subviews.first!.removeFromSuperview()
+//                }
+//            }
+            gameContainerView.subviews.forEach {
+                if $0 != gameView {
+                    $0.removeFromSuperview()
+                }
+            }
         }
     }
  }

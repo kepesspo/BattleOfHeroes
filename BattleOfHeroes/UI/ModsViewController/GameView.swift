@@ -60,12 +60,10 @@ class GameView : UIView {
             
             if let topController = UIApplication.topViewController() {
                 topController.present(popOverVC, animated: true, completion: {
-                    self.removeFromSuperview()
                     postNotification(name: .generateNewGame)
                 })
             }
         } else {
-            self.removeFromSuperview()
             postNotification(name: .generateNewGame)
         }
     }
