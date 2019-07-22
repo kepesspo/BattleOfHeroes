@@ -43,6 +43,7 @@
 "GameTitle_CollectThings" = "Szerezd Be";
 "GameTitle_glassBreaker" = "Üveg Törő";
 "GameTitle_fastNumber" = "Fast Number";
+"GameTitle_showMe" = "Mutasd Meg";
 
 "GameDescription_trueOrFalse" = "Játék Típusa: Egyéni \n\nA játékban egy állítás fog megjelenni és elkell dönteni, hogy az igaz, vagy hamis. Ha úgy ítéled meg hogy az állítás igaz, akkor az idő lejárta előtt ezt közölnöd kell a többi játékosal akik ez alapján tudják eldönteni, hogy jól válaszoltál-e. Ugyan ez igaz a Hamis állításra is. Ha nem jó a válaszod akkor sajnos innod kell.";
 
@@ -105,6 +106,7 @@
 "GameDescription_CollectThings" = "Szerezd Be";
 "GameDescription_glassBreaker" = "Üveg Törő";
 "GameDescription_fastNumber" = "Fast Number";
+"GameDescription_showMe" = "Mutasd Meg";
 
 
 

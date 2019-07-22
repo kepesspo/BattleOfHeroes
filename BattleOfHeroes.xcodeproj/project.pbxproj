@@ -49,6 +49,8 @@
 		4D22939321E8C63B0025C5A7 /* TrueOrFalseManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */; };
 		4D22939521E8C8540025C5A7 /* HaveIEverNeverManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */; };
 		4D22939721E8C8600025C5A7 /* HaveIEverNeverManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D22939621E8C8600025C5A7 /* HaveIEverNeverManagerView.xib */; };
+		4D23CA4622E5EB0700A4FA37 /* ShowMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D23CA4522E5EB0600A4FA37 /* ShowMeView.swift */; };
+		4D23CA4822E5EB1E00A4FA37 /* ShowMeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D23CA4722E5EB1E00A4FA37 /* ShowMeView.xib */; };
 		4D27AABF210C87B500716C6D /* TrueOrFalseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D27AABE210C87B400716C6D /* TrueOrFalseView.xib */; };
 		4D28A9C821A2C8F8007F4F0D /* FamousPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28A9C721A2C8F8007F4F0D /* FamousPerson.swift */; };
 		4D3466652188661F00D379A9 /* BonusPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3466632188661F00D379A9 /* BonusPlayerTableViewCell.swift */; };
@@ -265,6 +267,8 @@
 		4D22939221E8C63B0025C5A7 /* TrueOrFalseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueOrFalseManagerView.swift; sourceTree = "<group>"; };
 		4D22939421E8C8540025C5A7 /* HaveIEverNeverManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveIEverNeverManagerView.swift; sourceTree = "<group>"; };
 		4D22939621E8C8600025C5A7 /* HaveIEverNeverManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HaveIEverNeverManagerView.xib; sourceTree = "<group>"; };
+		4D23CA4522E5EB0600A4FA37 /* ShowMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMeView.swift; sourceTree = "<group>"; };
+		4D23CA4722E5EB1E00A4FA37 /* ShowMeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowMeView.xib; sourceTree = "<group>"; };
 		4D27AABE210C87B400716C6D /* TrueOrFalseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrueOrFalseView.xib; sourceTree = "<group>"; };
 		4D28A9C721A2C8F8007F4F0D /* FamousPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamousPerson.swift; sourceTree = "<group>"; };
 		4D3466632188661F00D379A9 /* BonusPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusPlayerTableViewCell.swift; sourceTree = "<group>"; };
@@ -557,6 +561,8 @@
 				4D3F0DFB22D8A7F2005643A6 /* GlassBreakerView.xib */,
 				4DDC97F222DCAFA9007672B8 /* FastNumberView.swift */,
 				4DDC97F422DCAFB4007672B8 /* FastNumberView.xib */,
+				4D23CA4522E5EB0600A4FA37 /* ShowMeView.swift */,
+				4D23CA4722E5EB1E00A4FA37 /* ShowMeView.xib */,
 			);
 			path = ModsViewController;
 			sourceTree = "<group>";
@@ -1000,6 +1006,7 @@
 				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
 				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
 				4D0266F522A54AAE00053894 /* person.json in Resources */,
+				4D23CA4822E5EB1E00A4FA37 /* ShowMeView.xib in Resources */,
 				4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */,
 				4D3466662188661F00D379A9 /* BonusPlayerTableViewCell.xib in Resources */,
 				4DA283F8219B179000F6D377 /* sound_visualizer.json in Resources */,
@@ -1145,6 +1152,7 @@
 				4D211AD02271C7C90065335E /* SpectatePenaltyViewController.swift in Sources */,
 				4DE11B2121F0DA52005A092E /* AnagramView.swift in Sources */,
 				4D8CE61F22B39DA500399344 /* UIView.swift in Sources */,
+				4D23CA4622E5EB0700A4FA37 /* ShowMeView.swift in Sources */,
 				4D77E70821F0E28E00B27E56 /* TheBottleView.swift in Sources */,
 				4D1BDED121130BA900E51AA9 /* HajimeView.swift in Sources */,
 				4DE0883A21FB487A00898A9A /* GroupDrinkViewController.swift in Sources */,

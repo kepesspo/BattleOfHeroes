@@ -858,7 +858,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rRF-VL-KUX">
-                                <rect key="frame" x="85" y="576.5" width="205" height="40"/>
+                                <rect key="frame" x="112.5" y="576.5" width="150" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-1u-WPJ">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -869,16 +869,29 @@
                                         <state key="normal" backgroundImage="004-settings"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M26-I8-7hz">
-                                        <rect key="frame" x="55" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="1ph-uw-9He"/>
+                                            <constraint firstAttribute="width" constant="40" id="JCz-Cm-S0f"/>
+                                        </constraints>
                                         <state key="normal" backgroundImage="002-earth-grid-select-language-button"/>
+                                        <connections>
+                                            <action selector="languangeAction:" destination="P9y-eN-215" eventType="touchUpInside" id="kfN-oz-eVg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swW-Cv-zZB">
-                                        <rect key="frame" x="110" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="55" y="0.0" width="40" height="40"/>
                                         <state key="normal" backgroundImage="003-share"/>
+                                        <connections>
+                                            <action selector="shareAction:" destination="P9y-eN-215" eventType="touchUpInside" id="J2t-BT-tb9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8k2-0y-uQK">
-                                        <rect key="frame" x="165" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="110" y="0.0" width="40" height="40"/>
                                         <state key="normal" backgroundImage="001-instagram-logo"/>
+                                        <connections>
+                                            <action selector="instagramAction:" destination="P9y-eN-215" eventType="touchUpInside" id="pB6-M0-qie"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -889,6 +902,11 @@
                                     <constraint firstItem="swW-Cv-zZB" firstAttribute="width" secondItem="M26-I8-7hz" secondAttribute="width" id="hwL-Y1-xyn"/>
                                     <constraint firstItem="M26-I8-7hz" firstAttribute="width" secondItem="gxR-1u-WPJ" secondAttribute="width" id="jP4-QI-fhl"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="gxR-1u-WPJ"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4k5-CW-di3">
                                 <rect key="frame" x="50" y="445" width="275" height="50"/>

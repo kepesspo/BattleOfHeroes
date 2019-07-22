@@ -10,7 +10,6 @@
  import MDCCommon
  import Panels
  import SpotifyLogin
- import Hero
  
  class GameViewController: UIViewController {
     var gameCounter : Int = 0
@@ -54,6 +53,21 @@
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
+        if GameManagement.sharedInstance.gameStarted == true {
+            SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
+                print("Spotify Token: \(token ?? "")")
+                if(token != nil) {
+                    GameManagement.sharedInstance.spotifyToken = token
+                    postNotification(name: .spotiTokenUpdate)
+                } else {
+                    SpotifyLogin.shared.logout()
+                }
+            }
+        } else {
+            GameManagement.sharedInstance.gameStarted = true
+        }
+
         timer?.invalidate()
         groupDrinkTimer?.invalidate()
         getPlyarerWhoGetDrinks?.invalidate()

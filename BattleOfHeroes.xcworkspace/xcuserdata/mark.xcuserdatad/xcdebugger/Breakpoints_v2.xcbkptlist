@@ -294,7 +294,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "585132499.975347"
+                  timestampString = "585499489.172269"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -309,7 +309,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "585132499.977639"
+                  timestampString = "585499489.1748019"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
@@ -342,7 +342,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "585132499.98387"
+                  timestampString = "585499489.180945"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -357,7 +357,7 @@
                   moduleName = "BattleOfHeroes"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mark/Documents/Develops/BattleOfHeroes/PlayerCollectionViewCell.swift"
-                  timestampString = "585132499.986228"
+                  timestampString = "585499489.18332"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -390,12 +390,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GameViewController.swift"
-            timestampString = "585224484.927845"
+            timestampString = "585499488.557125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "generateViewWith(game:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BattleOfHeroes/UI/ModsViewController/MusicRecognizerHelper.swift"
+            timestampString = "585492220.479624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "updateSpotifyToken()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/SpotifyLogin/Sources/SpotifyLogin.swift"
+            timestampString = "585492590.0206029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "applicationOpenURL(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

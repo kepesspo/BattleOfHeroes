@@ -44,6 +44,7 @@ enum GameMode: String {
     case collectThings = "collectThings"
     case glassBreaker = "glassBreaker"
     case fastNumber = "fastNumber"
+    case showMe = "showMe"
     
     func gameTitle() -> String {
         switch self {
@@ -80,6 +81,7 @@ enum GameMode: String {
         case .collectThings: return "GameTitle_CollectThings".localized()
         case .glassBreaker: return "GameTitle_glassBreaker".localized()
         case .fastNumber: return "GameTitle_fastNumber".localized()
+        case .showMe : return "GameTitle_showMe".localized()
         }
     }
     
@@ -118,6 +120,7 @@ enum GameMode: String {
         case .collectThings: return "GameDescription_CollectThings".localized()
         case .glassBreaker: return "GameDescription_glassBreaker".localized()
         case .fastNumber: return "GameDescription_fastNumber".localized()
+        case .showMe: return "GameDescription_showMe".localized()
         }
     }
     
@@ -156,6 +159,7 @@ enum GameMode: String {
         case .collectThings: return .collectThings
         case .glassBreaker: return .glassBreaker
         case .fastNumber: return .fastNumber
+        case .showMe: return .showMe
         }
     }
     
@@ -194,6 +198,7 @@ enum GameMode: String {
         case .collectThings: return (.personalGame,.init(hexString: "#7FA1C3"))
         case .glassBreaker: return (.personalGame,.init(hexString: "#7FA1C3"))
         case .fastNumber: return (.groupWinGame,.init(hexString: "#EE8F9C"))
+        case .showMe: return (.groupLoseGame,.init(hexString: "#EE8F9C"))
         }
     }
     
@@ -233,6 +238,7 @@ enum GameMode: String {
         case .collectThings: return CollectThingsView()
         case .glassBreaker: return GlassBreakerView()
         case .fastNumber: return FastNumberView()
+        case .showMe: return ShowMeView()
         }
     }
     
@@ -281,6 +287,7 @@ enum GameMode: String {
         case .collectThings: return #imageLiteral(resourceName: "038-pinky-promise.png")
         case .glassBreaker: return #imageLiteral(resourceName: "044-best-friends.png")
         case .fastNumber: return #imageLiteral(resourceName: "049-tree-house.png")
+        case .showMe: return #imageLiteral(resourceName: "042-inner-circle.png")
         }
     }
     
@@ -319,6 +326,7 @@ enum GameMode: String {
         case .collectThings: return 1
         case .glassBreaker: return 1
         case .fastNumber: return 3
+        case .showMe: return 2
         }
     }
     
@@ -357,6 +365,7 @@ enum GameMode: String {
         case .collectThings: return 2
         case .glassBreaker: return 3
         case .fastNumber: return 3
+        case .showMe: return 4
         }
     }
     
@@ -395,6 +404,7 @@ enum GameMode: String {
         case .collectThings: return false
         case .glassBreaker: return false
         case .fastNumber: return false
+        case .showMe: return false
         }
     }
     
@@ -509,11 +519,13 @@ class GameManagement {
     
     var allCategories = ["Amerikai Elnőkők","Feltalálok","Programozási kifejezések","Növényevő állatok","Tavak","Autó márkák","Már halott emberek","Olimpiai bajnokok","Játék szoftverek","Növények","Kutya Fajták","Alkohol márkák vagy fajta","Tv csatornák","Film","Zene","Sport","Gaming","Stand","Szépség","Hiresség","Természet","Utazás","Politika","Kaja","Űr","Telefon márka","közösségi Oldalak","Bankok","Tv Csatornák","Délamerika Országok","Afrikai Országok","Ázsiai Országok","Gyűmölcsők","Templomok","Ruha márka","kocsmák","kőltők","autó versenyzők","munkakőr","hangszer","konyhai eszközök","Társasjátékok","Szín","Egyetemek","Humoristák","Sorozat","Parkok","Fesztiválok"]
 
+    var showMe = ["Traktor","Kocsi","Ház","Tégla","Evőeszkőz"]
     // everyBodyDrinks Onece
     var everyBodyDrinksPlayerCountIndex = 0
     
     var collectThings = ["WC papir","Töltő", "Hajszáritó", "Zokni", "Pénztárca","Power Bank","Korsó","Dárc nyil","Sapka", "Sár","Uszogumi","Ovszer","Kalapács"]
     
+    var activityWordList = ["Ködlámpa","Faág","Éjjeliszekrény","Gondolatolvasás","esőkabát","túristajelzés","madártoll","téliálom","fenyőillat","Kenyérpirító","Családfa","Kutatócsoport","Rakott krumpli","Befőttesüveg","Villámcsapás","Elnökválasztás","Vízipóló","Aranyeső","Gumilabda","Madártej","Paprikajancsi","Tőkehal","Dobverő","Fűszál","Csínytevő","Konyhanyelv","Közellenség","Tejszínhab","Mestermű","Csavarhúzó","Egyirányú utca","Lakat","Satufék","függöny karnis","gondolatolvasó","Gyerekzár","Ruháskosár","Bundás kenyér","Bakkecske","Gyapjúszőnyeg","Babaágy","Selyemhernyó","Almafa","Borbély","Tükörtojás","Elemlámpa","Pásztorkutya","Széldzseki","Jobbkézszabály","Kerékpártároló","Kilométeróra","Körforgalom","Kulcstartó","Tricikli","Lemezlovas","Szolgasors","Ütvefúró","Szorítókötés","Önkritika","Fakír","Repülőtér","Költőpénz","Gyerekjáték","Borospince","Számlatömb","Tűznyelő","Lótetű","Fagyáspont","Télapó","Ádámkosztüm","Visszajátszás","Tojástartó","Távcső","Családtag","Alagút","Jelszó","Szivargyújtó","Varródoboz","Boroshordó","Micimackó","Csepűrágó","Metresz","Körív","Kőolaj","Odvas","Habarcs","Elakadásjelző hárömszög","Kanyarodási szabály","Benzingőz","Fapapucs","Világítótorony","Izzó","üggönykarnis","szobainas","gyökérkezelés","nagyothalló készülék","érintésvédelem","gyerekzár","vesepecsenye","kulturális sokk","munkásosztály","gondolatolvasás","számmisztika","kenyérpirító","családfa","kutatócsoport","szervkereskedelem","Kőolaj","Benzingőz","Gyerekzár","Rokkantkocsi","Ruháskosár","Bundáskenyér","Bakkecske","Gyapjúszőnyeg","Babaágy","Selyemhernyó","Kősó","Almafa","Bordélyház","Borbély","Tükörtojás","Elemlámpa","Pásztorkutya","Tüzifa","Ködlámpa","Faág","Éjjeliszekrény","Széndioxid","Gondolatolvasás","Kenyérpirító","Családfa","Kutatócsoport","Szervkereskedelem","Rakottkrumpli","Befőttesüveg","Villámcsapás","Elnökválasztás","Szövegláda","Vízipóló","Aranyeső","Gumilabda","Nadrágszíj","Szamártej","Madártej","Paprikajancsi","Tőkehal","Dobverő","Bélcsavarodás","Fűszál","Csínytevő","Konyhanyelv","Közellenség","Lemezlovas","Országház","Szolgasors","Ütvefúró","Szorítókötés","Önkritika","Fakír","Repülőtér","Költőpénz","Gyerekjáték","Borospince","Számlatömb","Agydaganat","Tűznyelő","Cimbalomverő","Lótetű","Fagyáspont","Ügyvezető","Télapó","Ádámkosztüm","Visszajátszás","Tojástartó","Távcső","Családtag","Imakönyv","Öregasszony","Alagút","Jelszó","Hullámsír","Tökfödő","Szivargyújtó","Varródoboz","Boroshordó","Fuvarlevél","Tejszínhab","Mestermű","Takarékláng","Vékbélkúp","Bukósisak","Csavarhúzó","Durrdefekt","Egyirányú utca","Gyalogátkelőhely","Lakat","Láncolaj","Láthatósági mellény","Macskaszem","Pótgumi","Satufék","Sebességváltó","Széldzseki","Jobbkézszabály","Kerékpártároló","Kilométeróra","Körforgalom","Kulcstartó","Szelepsapka","Tricikli","Bohóc","Ádámcsutka","Ágytál","Akupunktúra","Akvárium","Állatkert","Antikrisztus","Nyálgombóc","Bakancslista","Bajuszfésű","Banyakemence","Bárányhimlő","Bélpoklos","Gumibogyószörp","Nyálbuborék","Csirkefogó","Dobostorta","Dohánylevél","Húsgombóc","Gitárhúr","Csokigolyó","Göncölszekér","Világháború","Hangverseny","Hattyúdal","Hidegvér","Mellimplantátum","Injekcióstű","Kávébab","Cserépkályha","Katasztrófafilm","Kígyóméreg","Konzervnyitó","Koporsószeg","Korcsolyapálya","Kocsmabútor","Kürtőskalács","Sírásó","Malacfarok","Marslakó","Botmixer","Mogyoróhéj","Mózeskosár","Napraforgó","Négykézláb","Nyúlfarok","Oroszlánszelídítő","Ökörszem","Pápaszem","Pingpongasztal","Olajradiátor","Retekláda","Rókalyuk","Csipkerózsika","Rongybaba","Hétfejű sárkány","Selyemgubó","Sípcsont","Sóbánya","Szerencsevadász","Tábortűz","Űrtartalom","Víztaszító","Sírkő","Tyúkszem","Ugrálóvár","Üvegtigris","Vámpírfog","Zabhegyező","Bowden","Bukósisak","Csavarhúzó","Durrdefekt","Egyirányú utca","Első lámpa","Folyadékpótlás","Gyalogátkelőhely","Hasra esik","Hátsó lámpa","Hegyi kerékpár","Jobbkézszabály","Kerékpártároló","Kerékpárút","Kilométeróra","Királydinnye","Körforgalom","Kulacstartó","Küllő","Lakat","Láncolaj","Lassú defekt","Láthatósági mellény","Ledobja a láncot","Macskaszem","Pótgumi","Satufék","Sebességváltó","Széldzseki","Szelepsapka","Szerelőkészlet","Tárcsafák","Tour de France","Tricikli","Verseny kerékpár"]
     
     // Music Recognizer
     var spotifyToken = UserDefaults.standard.string(forKey: UserDefaultsKeys.spotifyToken) {
@@ -618,7 +630,8 @@ class GameManagement {
                      GameMode.extremeChallenge,
                      GameMode.collectThings,
                      //GameMode.glassBreaker,
-                     GameMode.fastNumber
+                     GameMode.fastNumber,
+                     GameMode.showMe
         ]
     }
     

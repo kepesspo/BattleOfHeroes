@@ -100,6 +100,43 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
         
     }
     
+    @IBAction func instagramAction(_ sender: Any) {
+        let instagramProfile = "instagram://user?username=kepesspo"
+        let instagramUrl = URL(string: instagramProfile)
+        if let instaUrl = instagramUrl, UIApplication.shared.canOpenURL(instagramUrl!) {
+            UIApplication.shared.open(instaUrl, options: [:], completionHandler: nil)
+        } else {
+            //redirect to safari because the user doesn't have Instagram
+            UIApplication.shared.open(URL(string: "http://instagram.com/")!, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func shareAction(_ sender: Any) {
+        // text to share
+        let text = "Még ne oszd meg a játékot mert tesztelés alatt van"
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook, UIActivity.ActivityType.mail, UIActivity.ActivityType.message]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func languangeAction(_ sender: Any) {
+        let hun = MDCAlertAction.init(title: "Magyar")
+        let english = MDCAlertAction.init(title: "Angol")
+        let ok = MDCAlertAction.init(title: "OK",style: .destructive)
+        MDCAlertPresenter.showAlert(title: "Nyelv választó!",
+                                    message:  "Válasz a nyevek kőzűl.",
+                                    presentingViewController: self,
+                                    actions: [hun,english,ok])
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()

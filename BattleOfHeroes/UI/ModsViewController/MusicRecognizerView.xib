@@ -88,7 +88,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6r-uh-UTe" customClass="LOTAnimationView">
-                    <rect key="frame" x="80" y="457" width="215" height="100"/>
+                    <rect key="frame" x="80" y="487" width="215" height="100"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="Esf-Lt-rOC"/>
@@ -104,6 +104,7 @@
             <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="rzc-yh-y6o" firstAttribute="top" secondItem="Tut-9M-Lyh" secondAttribute="bottom" constant="20" id="1VD-NZ-scz"/>
+                <constraint firstItem="Q6r-uh-UTe" firstAttribute="top" secondItem="o4O-qR-rTn" secondAttribute="bottom" id="3Dn-rJ-SfA"/>
                 <constraint firstItem="o4O-qR-rTn" firstAttribute="top" secondItem="rzc-yh-y6o" secondAttribute="bottom" constant="13" id="3OS-SD-gZ6"/>
                 <constraint firstItem="FgD-AV-73H" firstAttribute="top" secondItem="rzc-yh-y6o" secondAttribute="bottom" constant="25" id="3x4-dU-dPk"/>
                 <constraint firstItem="rFI-LY-qBb" firstAttribute="top" secondItem="FgD-AV-73H" secondAttribute="bottom" constant="20" id="6hE-27-iAh"/>
@@ -118,7 +119,6 @@
                 <constraint firstItem="FgD-AV-73H" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-30" id="Qqs-t1-eqn"/>
                 <constraint firstItem="Tut-9M-Lyh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="TOs-R1-NUH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rFI-LY-qBb" secondAttribute="trailing" constant="20" id="UNm-lx-RWG"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Q6r-uh-UTe" secondAttribute="bottom" constant="110" id="W7m-Uy-man"/>
                 <constraint firstItem="faO-t9-nOx" firstAttribute="top" secondItem="rFI-LY-qBb" secondAttribute="bottom" constant="10" id="Wc2-4m-yus"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Q6r-uh-UTe" secondAttribute="trailing" constant="80" id="YW1-St-xpA"/>
                 <constraint firstItem="rFI-LY-qBb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="auZ-FN-O6F"/>
