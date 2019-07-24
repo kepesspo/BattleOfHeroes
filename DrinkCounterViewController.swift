@@ -123,14 +123,14 @@ class DrinkCounterViewController: UIViewController {
     func winGroup() {
         groupView.isHidden = false
         personalGameView.isHidden = true
-        groupValueLabel.text = "Nyertes"
+        groupValueLabel.text = "Válaszd ki hogy kik nyertek. Nekik nem kell innuk"
         groupScoreLabel.text = "+\(game!.addedScore) Pont"
     }
     
     func loseGroup() {
         groupView.isHidden = false
         personalGameView.isHidden = true
-        groupValueLabel.text = "Vesztes"
+        groupValueLabel.text = "Válaszd ki hogy kik vesztettek. Nekik kell innuk."
         groupScoreLabel.text = "+\(game!.addedScore) Pont"
     }
     

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MDCCommon
+import AVFoundation
 
 class ShowMeView: GameView {
     
@@ -57,7 +58,7 @@ class ShowMeView: GameView {
         postNotification(name: .updateGameData)
         word = GameManagement.sharedInstance.activityWordList.randomElement()!
         let showMe = NSMutableAttributedString()
-        showMe.appendColored(.black , font: .regular(20), "Csak a mutogatás érvényes\n\n").appendColored(.black, font: .regular(22), "Vedd magadhóz a telefont és nézd meg.(Long Tap)")
+        showMe.appendColored(.black , font: .regular(20), "Csak a mutogatás érvényes\n\n").appendColored(.black, font: .regular(20), "Vedd magadhóz a telefont és nézd meg.(Long Tap)")
         gameLabel.attributedText = showMe
         self.tap.isEnabled = false
     }
@@ -82,6 +83,7 @@ class ShowMeView: GameView {
             startButton.isEnabled = false
             timerLabel.text = "Vége"
             wordLabel.text = word
+            playSound()
         } else {
             seconds -= 1
             timerLabel.isHidden = false
@@ -94,5 +96,11 @@ class ShowMeView: GameView {
             gameTimer?.invalidate()
             gameTimer = nil
         }
+    }
+    
+    func playSound() {
+        let systemSoundID: SystemSoundID = 1014
+        AudioServicesPlaySystemSound (systemSoundID)
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
     }
 }

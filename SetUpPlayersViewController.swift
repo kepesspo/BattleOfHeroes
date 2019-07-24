@@ -20,6 +20,7 @@ class SetUpPlayersViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var playerCollectionView: UICollectionView!
     @IBOutlet weak var closeRoom: UIButton!
+    @IBOutlet weak var addPlayersLabel: UILabel!
     
     var playerList = [Player]()
     var gameMode = GameManagement.sharedInstance.selectedMode
@@ -33,26 +34,34 @@ class SetUpPlayersViewController: UIViewController {
         
         subscribeForNotification(name: .updatePlayerList, selector: #selector(reloadCollectionView))
         subscribeForNotification(name: .gameModeChanged, selector: #selector(gameModeChanged), object: nil)
-        
         showPanel()
+        addPlayersLabel.text = "Válassz ki legalább 2 játékost a játék inditásához"
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
         getPlayerData(completionBlock: { (error) in
             if error != nil {
                 print("hiba")
             } else {
                 GameManagement.sharedInstance.getGames()
+                self.checkPlayer()
             }
         })
         
         panelManager.collapsePanel()
         self.checkGameRunning()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
         
+    }
+    
+    func checkPlayer() {
+        if Factory.shared.playerList.count > 1 {
+            addPlayersLabel.isHidden = true
+        } else {
+            addPlayersLabel.isHidden = false
+        }
     }
     
     @IBAction func closeRoomAction(_ sender: Any) {
@@ -97,7 +106,11 @@ class SetUpPlayersViewController: UIViewController {
         panelConfiguration.enclosedNavigationBar = true
         panelConfiguration.animateEntry = false
         panelConfiguration.panelVisibleArea = 90
+        panelConfiguration.respondToTap = false
+        panelConfiguration.respondToDrag = false
+        
         panelManager.delegate = panel as? PanelNotifications
+        
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
     
@@ -118,6 +131,7 @@ class SetUpPlayersViewController: UIViewController {
     
     @objc func reloadCollectionView() {
         self.playerList = Factory.shared.playerList
+        checkPlayer()
         Factory.shared.dataManager.getPlayerList { (error) in
             if error == nil {
                 self.playerList = Factory.shared.playerList

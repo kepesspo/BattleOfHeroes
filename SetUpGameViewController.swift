@@ -15,6 +15,7 @@ class SetUpGameViewController: UIViewController {
     
     @IBOutlet weak var gameCollectionView: UICollectionView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
     
     var games = GameManagement.sharedInstance.games
     var chosenGames : [Game] = [Game]()
@@ -28,15 +29,35 @@ class SetUpGameViewController: UIViewController {
         gameCollectionView.register(UINib.init(nibName: "GameCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCollectionViewCell")
         gameCollectionView.showsVerticalScrollIndicator  = false
         subscribeForNotification(name: .gameNext, selector: #selector(showNextView))
+        
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.firstRunClosed) == false {
+            showInfoView()
+        } else {
+            print("Not first run")
+        }
+    }
+    
+    func showInfoView() {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
+        popOverVC.modalPresentationStyle = .overFullScreen
+        if let topController = UIApplication.topViewController() {
+            topController.present(popOverVC, animated: true, completion: nil)
+        }
     }
     
     func showPanel() {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelGames")
-        var panelConfiguration = PanelConfiguration(size: .custom(450))
+        var panelConfiguration = PanelConfiguration(size: .thirdQuarter)
+        panelConfiguration.closeContainerTap = true
         panelConfiguration.animateEntry = false
         panelConfiguration.panelVisibleArea = 90
+        panelConfiguration.closeOutsideTap = true
         panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
+    }
+    
+    @IBAction func infoAction(_ sender: Any) {
+        showInfoView()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

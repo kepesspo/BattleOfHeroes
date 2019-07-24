@@ -101,13 +101,13 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     }
     
     @IBAction func instagramAction(_ sender: Any) {
-        let instagramProfile = "instagram://user?username=kepesspo"
+        let instagramProfile = "instagram://user?username=bottleofheroes"
         let instagramUrl = URL(string: instagramProfile)
         if let instaUrl = instagramUrl, UIApplication.shared.canOpenURL(instagramUrl!) {
             UIApplication.shared.open(instaUrl, options: [:], completionHandler: nil)
         } else {
             //redirect to safari because the user doesn't have Instagram
-            UIApplication.shared.open(URL(string: "http://instagram.com/")!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(URL(string: "http://instagram.com/bottleofheroes")!, options: [:], completionHandler: nil)
         }
     }
     

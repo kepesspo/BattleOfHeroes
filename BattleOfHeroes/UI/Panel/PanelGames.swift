@@ -40,8 +40,21 @@ class PanelGames: UIViewController, Panelable {
         nextButton.layer.cornerRadius = 8
         gameSegmentedControl.defaultTextFont = UIFont.rubic(19)
         gameSegmentedControl.selectedTextFont = UIFont.rubic(19)
-        bonusStackView.isHidden = true
+        bonusStackView.isHidden = false
         
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeDown))
+        swipe.numberOfTouchesRequired = 1
+        swipe.direction = .down
+        dataView.addGestureRecognizer(swipe)
+        scoreCollectCheckBox.on = true
+        GameManagement.sharedInstance.drininkCounterView = true
+        
+        Factory.shared.showBonusView = true
+        bonusCheckBox.on = true
+    }
+    
+    @objc func swipeDown() {
+        self.panelDidCollapse()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,7 +121,6 @@ class PanelGames: UIViewController, Panelable {
     
     @IBAction func scoreCollectAction(_ sender: Any) {
         if scoreCollectCheckBox.on {
-            
             GameManagement.sharedInstance.drininkCounterView = true
             bonusStackView.isHidden = false
             scoreCollectCheckBox.on = true
@@ -151,6 +163,7 @@ extension PanelGames: PanelNotifications {
     
     func panelDidCollapse() {
         arrowView.update(to: .up, animated: true)
+        
     }
     
     func panelDidOpen() {

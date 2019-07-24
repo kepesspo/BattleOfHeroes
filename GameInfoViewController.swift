@@ -20,8 +20,7 @@ class GameInfoViewController: UIViewController {
         self.view.addGestureRecognizer(press)
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
-        
-        infoLabel.text = "Long tap to show game details screen. You can customize the game and you get some information about the game"
+        infoLabel.text = "A játék kiválasztásához nyomd meg a játék ikonját. \n\n Amennyiben szeretnéd személyre szabni a játékot akkor a jobb oldalt megtalálható gombra vagy (long tappel) tudod elérni. \n\n A játék irányító felületén fogsz látni információt a játékról illetve pár tulajdonságot. \n\n Ha az alsó panelt felhúzod a játék menetet tudod szabályozni."
         // Do any additional setup after loading the view.
     }
 
