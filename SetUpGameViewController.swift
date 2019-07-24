@@ -21,6 +21,8 @@ class SetUpGameViewController: UIViewController {
     var chosenGames : [Game] = [Game]()
     lazy var panelManager = Panels(target: self)
     
+    var maskLayer: CALayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showPanel()
@@ -29,17 +31,28 @@ class SetUpGameViewController: UIViewController {
         gameCollectionView.register(UINib.init(nibName: "GameCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCollectionViewCell")
         gameCollectionView.showsVerticalScrollIndicator  = false
         subscribeForNotification(name: .gameNext, selector: #selector(showNextView))
-        
-        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.firstRunClosed) == false {
-            showInfoView()
-        } else {
-            print("Not first run")
-        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.firstRunClosed) == false {
+        showInfoView()
+        //        } else {
+        //            print("Not first run")
+        //        }
     }
     
     func showInfoView() {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameInfoViewController") as! GameInfoViewController
         popOverVC.modalPresentationStyle = .overFullScreen
+
+        // guard
+        
+        popOverVC.masks = [
+            (maskLayer!.convert(maskLayer!.bounds, to: view.layer), maskLayer!.cornerRadius)
+            // tobbi elem
+        ]
+        
         if let topController = UIApplication.topViewController() {
             topController.present(popOverVC, animated: true, completion: nil)
         }
@@ -48,7 +61,6 @@ class SetUpGameViewController: UIViewController {
     func showPanel() {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelGames")
         var panelConfiguration = PanelConfiguration(size: .thirdQuarter)
-        panelConfiguration.closeContainerTap = true
         panelConfiguration.animateEntry = false
         panelConfiguration.panelVisibleArea = 90
         panelConfiguration.closeOutsideTap = true
@@ -107,6 +119,9 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
         cell.delegate = self as CustomCellInfoDelegate
         cell.gameData = games[indexPath.row]
+        if indexPath.row == 0 {
+            maskLayer = cell.layer
+        }
         return cell
     }
     
