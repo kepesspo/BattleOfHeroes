@@ -38,6 +38,7 @@ class PanelGames: UIViewController, Panelable {
         arrowView.update(to: .up, animated: true)
         arrowView.arrowColor = #colorLiteral(red: 0.2745098039, green: 0.7450980392, blue: 0.631372549, alpha: 1)
         nextButton.layer.cornerRadius = 8
+        nextButton.titleLabel?.text = "SetUpGameViewController_nextButton".localized()
         gameSegmentedControl.defaultTextFont = UIFont.rubic(19)
         gameSegmentedControl.selectedTextFont = UIFont.rubic(19)
         bonusStackView.isHidden = false

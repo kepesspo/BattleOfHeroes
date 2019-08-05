@@ -501,6 +501,10 @@ class GameManagement {
         return UserDefaults.standard.string(forKey: UserDefaultsKeys.firstRunClosed) != nil
     }
     
+    func playInfoRun() -> Bool {
+        return UserDefaults.standard.string(forKey: UserDefaultsKeys.playInfo) != nil
+    }
+    
     func getRoomName() -> String {
         return UserDefaults.standard.string(forKey: UserDefaultsKeys.roomName) ?? ""
     }
@@ -598,8 +602,8 @@ class GameManagement {
     var gameModes : [GameMode] = [GameMode]()
     func setAllGameModes() {
         gameModes = [
+            GameMode.categories,
             GameMode.trueOrFalse,
-                     GameMode.categories,
                      GameMode.hajime,
                      GameMode.everybodyDrinks,
                      GameMode.wheelOfFortune,

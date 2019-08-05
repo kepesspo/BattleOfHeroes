@@ -34,6 +34,7 @@ struct UserDefaultsKeys {
     static let roomId = "roomId"
     static let roomName = "roomName"
     static let roomPass = "roomPass"
+    static let playInfo = "playInfo"
 }
 
 struct DevOptions {
@@ -62,6 +63,7 @@ extension Notification.Name {
     
     static let gameNext = Notification.Name("gameNext")
     static let bonus = Notification.Name("bonus")
+    static let activateGame = Notification.Name("activateGame")
     
     
     static let playerListUpdate = Notification.Name("playerListUpdate")

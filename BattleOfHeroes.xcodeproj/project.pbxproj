@@ -136,6 +136,7 @@
 		4DB8BA43210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8BA41210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift */; };
 		4DB8BA48210B27D500DAF932 /* CustomInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */; };
 		4DB8BA49210B27D500DAF932 /* CustomInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8BA47210B27D500DAF932 /* CustomInfoTableViewCell.xib */; };
+		4DB8BD0F22F1DECE00D59855 /* PlayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8BD0E22F1DECE00D59855 /* PlayInfoView.swift */; };
 		4DBF9E4A20F366A8008D4ECD /* NetworkSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */; };
 		4DC09D6522AFE6940037D415 /* PanelGames.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC09D6422AFE6940037D415 /* PanelGames.storyboard */; };
 		4DC09D6722AFE6B40037D415 /* PanelGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC09D6622AFE6B40037D415 /* PanelGames.swift */; };
@@ -187,6 +188,14 @@
 		4DF3E4CF22BCEF4200A6A3EA /* OnlineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3E4CE22BCEF4200A6A3EA /* OnlineService.swift */; };
 		4DF3E4D122BCEF5100A6A3EA /* OfflineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3E4D022BCEF5100A6A3EA /* OfflineService.swift */; };
 		4DF3E4D322BCEFB400A6A3EA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3E4D222BCEFB400A6A3EA /* DataManager.swift */; };
+		4DF5514F22F1E04D0090D944 /* PlayInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5514E22F1E04D0090D944 /* PlayInfoView.xib */; };
+		4DF5515122F30D2A0090D944 /* 1786-profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5515022F30D2A0090D944 /* 1786-profile.json */; };
+		4DF5515322F30F890090D944 /* black_smile.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5515222F30F890090D944 /* black_smile.json */; };
+		4DF5515722F3141D0090D944 /* blue_pulse.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5515622F3141D0090D944 /* blue_pulse.json */; };
+		4DF5515B22F317DF0090D944 /* personAni2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5515A22F317DF0090D944 /* personAni2.json */; };
+		4DF5516522F31E910090D944 /* blue_P.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5516422F31E910090D944 /* blue_P.json */; };
+		4DF5516922F31FE00090D944 /* red_P.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5516822F31FE00090D944 /* red_P.json */; };
+		4DF5516B22F32D4C0090D944 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DF5516A22F32D4B0090D944 /* background.json */; };
 		4DF709EC21C7BE27007A5317 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF709EB21C7BE26007A5317 /* InfoViewController.swift */; };
 		4DF709EE21C93D7D007A5317 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF709ED21C93D7D007A5317 /* EndGameViewController.swift */; };
 		4DF7E65321AEE9FD00BA178F /* MusicRecognizerManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */; };
@@ -355,6 +364,7 @@
 		4DB8BA41210B275700DAF932 /* CustomInfoHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		4DB8BA46210B27D500DAF932 /* CustomInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoTableViewCell.swift; sourceTree = "<group>"; };
 		4DB8BA47210B27D500DAF932 /* CustomInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoTableViewCell.xib; sourceTree = "<group>"; };
+		4DB8BD0E22F1DECE00D59855 /* PlayInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayInfoView.swift; sourceTree = "<group>"; };
 		4DBF9E4920F366A8008D4ECD /* NetworkSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSevice.swift; sourceTree = "<group>"; };
 		4DC09D6422AFE6940037D415 /* PanelGames.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PanelGames.storyboard; sourceTree = "<group>"; };
 		4DC09D6622AFE6B40037D415 /* PanelGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelGames.swift; sourceTree = "<group>"; };
@@ -413,6 +423,14 @@
 		4DF3E4CE22BCEF4200A6A3EA /* OnlineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineService.swift; sourceTree = "<group>"; };
 		4DF3E4D022BCEF5100A6A3EA /* OfflineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineService.swift; sourceTree = "<group>"; };
 		4DF3E4D222BCEFB400A6A3EA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4DF5514E22F1E04D0090D944 /* PlayInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayInfoView.xib; sourceTree = "<group>"; };
+		4DF5515022F30D2A0090D944 /* 1786-profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1786-profile.json"; sourceTree = "<group>"; };
+		4DF5515222F30F890090D944 /* black_smile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_smile.json; sourceTree = "<group>"; };
+		4DF5515622F3141D0090D944 /* blue_pulse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blue_pulse.json; sourceTree = "<group>"; };
+		4DF5515A22F317DF0090D944 /* personAni2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personAni2.json; sourceTree = "<group>"; };
+		4DF5516422F31E910090D944 /* blue_P.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blue_P.json; sourceTree = "<group>"; };
+		4DF5516822F31FE00090D944 /* red_P.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = red_P.json; sourceTree = "<group>"; };
+		4DF5516A22F32D4B0090D944 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
 		4DF709EB21C7BE26007A5317 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4DF709ED21C93D7D007A5317 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		4DF7E65221AEE9FD00BA178F /* MusicRecognizerManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecognizerManagerView.swift; sourceTree = "<group>"; };
@@ -571,19 +589,26 @@
 			isa = PBXGroup;
 			children = (
 				4D0266F822A5529C00053894 /* person3.json */,
+				4DF5515022F30D2A0090D944 /* 1786-profile.json */,
 				4D0266F422A54AAE00053894 /* person.json */,
 				4D0266F622A5503D00053894 /* person2.json */,
 				4D211AD12271EC9E0065335E /* 4031-voice-recognition.json */,
+				4DF5516422F31E910090D944 /* blue_P.json */,
+				4DF5516822F31FE00090D944 /* red_P.json */,
 				4D1A1D972231646C00B7626A /* 4386-connection-error.json */,
 				4DA283F7219B179000F6D377 /* sound_visualizer.json */,
+				4DF5516A22F32D4B0090D944 /* background.json */,
 				4DA36ADF21A421FE00B757BE /* favourite_app_icon.json */,
+				4DF5515222F30F890090D944 /* black_smile.json */,
 				4DA36AE021A421FF00B757BE /* i'm_thirsty!.json */,
+				4DF5515622F3141D0090D944 /* blue_pulse.json */,
 				4D135340228EBB0400B44A80 /* 47-gears.json */,
 				4D3DB0062280587A00DF3091 /* clock.json */,
 				4DA36AE321A4220B00B757BE /* newAnimation.json */,
 				4D12F7C421A7007F004FAB50 /* error_cross.json */,
 				4DA36AE521A447C500B757BE /* drink.json */,
 				4D77255721BE6EC0006ED67C /* phonological.json */,
+				4DF5515A22F317DF0090D944 /* personAni2.json */,
 				4D135703224CD62300894390 /* animation-loading.json */,
 			);
 			path = Animations;
@@ -632,6 +657,8 @@
 				4DFCA2672122DEB8001B2E71 /* GameDetaisViewController.swift */,
 				4D56D4D2214FF403004A591A /* GameInfoViewController.swift */,
 				4D9B7BC22111BFE4000439AB /* GameViewController.swift */,
+				4DB8BD0E22F1DECE00D59855 /* PlayInfoView.swift */,
+				4DF5514E22F1E04D0090D944 /* PlayInfoView.xib */,
 				4D7998642115F388006FE28B /* ScoreViewController.swift */,
 				4DCC02F0211B9D2B00D71186 /* DrinkCounterViewController.swift */,
 				4D94B6682167A08C002D7B03 /* BonusViewController.swift */,
@@ -961,7 +988,9 @@
 				4D92A659225E13120074405E /* PanelMaterial.storyboard in Resources */,
 				4DCC02EF211B94BA00D71186 /* ScoreHeaderTableViewCell.xib in Resources */,
 				4D211AD22271ECA00065335E /* 4031-voice-recognition.json in Resources */,
+				4DF5515322F30F890090D944 /* black_smile.json in Resources */,
 				4D135704224CD62400894390 /* animation-loading.json in Resources */,
+				4DF5515122F30D2A0090D944 /* 1786-profile.json in Resources */,
 				4DA36ADD21A41D9100B757BE /* RussianRouletteView.xib in Resources */,
 				4D1BDED321130BEA00E51AA9 /* HajimeView.xib in Resources */,
 				4D211ACA226864150065335E /* BettingTableViewCell.xib in Resources */,
@@ -979,8 +1008,10 @@
 				4D766E9521F0DDDE0027EF1F /* FiveThingsView.xib in Resources */,
 				4DCA265422AA941300FA8E46 /* PlayerCollectionViewCell.xib in Resources */,
 				4D9B7BC52111ED77000439AB /* CategoriesView.xib in Resources */,
+				4DF5516522F31E910090D944 /* blue_P.json in Resources */,
 				4DE11B2321F0DA5F005A092E /* AnagramView.xib in Resources */,
 				4DFFD5C12135667300A4989B /* Rubik-Black.ttf in Resources */,
+				4DF5516B22F32D4C0090D944 /* background.json in Resources */,
 				4DC8196B2120D50800F09922 /* MusicRecognizerView.xib in Resources */,
 				4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */,
 				4D56D4D721512DC4004A591A /* HaveIEverNeverView.xib in Resources */,
@@ -1001,11 +1032,14 @@
 				4D12F7C521A7007F004FAB50 /* error_cross.json in Resources */,
 				4D69D4D921F0DC5F001A49FD /* CoinFlipView.xib in Resources */,
 				4D0711DA21F0D84C006D4563 /* HorseRaceView.xib in Resources */,
+				4DF5515B22F317DF0090D944 /* personAni2.json in Resources */,
 				4DE1231820EE33C90004C28E /* LaunchScreen.storyboard in Resources */,
 				4D22939721E8C8600025C5A7 /* HaveIEverNeverManagerView.xib in Resources */,
+				4DF5515722F3141D0090D944 /* blue_pulse.json in Resources */,
 				4DC819732120E90400F09922 /* RockPaperScissorsView.xib in Resources */,
 				4DFFD5CA2135667300A4989B /* Rubik-MediumItalic.ttf in Resources */,
 				4D0266F522A54AAE00053894 /* person.json in Resources */,
+				4DF5516922F31FE00090D944 /* red_P.json in Resources */,
 				4D23CA4822E5EB1E00A4FA37 /* ShowMeView.xib in Resources */,
 				4D3E49EB226082920037D899 /* PanelMenu.storyboard in Resources */,
 				4D3466662188661F00D379A9 /* BonusPlayerTableViewCell.xib in Resources */,
@@ -1021,6 +1055,7 @@
 				4D1BDED721131D9600E51AA9 /* EverybodyDrinksView.xib in Resources */,
 				4D906ECF211A443F00B7B7E0 /* MemoryView.xib in Resources */,
 				4DE1234D20F35C1A0004C28E /* GoogleService-Info.plist in Resources */,
+				4DF5514F22F1E04D0090D944 /* PlayInfoView.xib in Resources */,
 				4DA6ED7D21FF3DC100363863 /* CollectAndBoomCollectionViewCell.xib in Resources */,
 				4DC8196F2120E63200F09922 /* SwitchHandView.xib in Resources */,
 				4D79985F21148198006FE28B /* UpAndDownView.xib in Resources */,
@@ -1201,6 +1236,7 @@
 				4DF3E4D322BCEFB400A6A3EA /* DataManager.swift in Sources */,
 				4DF3E4D122BCEF5100A6A3EA /* OfflineService.swift in Sources */,
 				4DC09D6722AFE6B40037D415 /* PanelGames.swift in Sources */,
+				4DB8BD0F22F1DECE00D59855 /* PlayInfoView.swift in Sources */,
 				4D79986321149CD3006FE28B /* GameManagement.swift in Sources */,
 				4D68038B2147CE42008C64AD /* GameSectionHeaderCollectionReusableView.swift in Sources */,
 				4DCC02EA211B8FFD00D71186 /* ScoreTableViewCell.swift in Sources */,

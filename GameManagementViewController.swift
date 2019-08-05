@@ -20,6 +20,14 @@ class GameManagementViewController: UIViewController {
     @IBOutlet weak var informationTextView: UITextView!
     @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var addGameView: UIView!
+    @IBOutlet weak var gameImage: UIImageView!
+    
+    @IBOutlet weak var ratingStackView: UIStackView!
+    @IBOutlet weak var playerStackView: UIStackView!
+    @IBOutlet weak var wifiStackView: UIStackView!
+    @IBOutlet weak var editStackView: UIStackView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var memberLabel: UILabel!
     
     var game: Game?
     var pickerData: [String] = [String]()
@@ -63,8 +71,23 @@ class GameManagementViewController: UIViewController {
         
         setUpGameManagementSegmentedControl()
         
-        informationTextView.text = game?.description
-        gameLabel.text = game?.name
+        if let gameData = game {
+            informationTextView.text = gameData.description
+            gameLabel.text = gameData.name
+            gameImage.image = gameData.gameImage
+            wifiStackView.isHidden = !gameData.downloadsData
+            editStackView.isHidden = !gameData.extraOption
+            ratingLabel.text = "\(gameData.funIndex)/5 Értékelés"
+            memberLabel.text = "2      Játékos"
+            
+        }
+        
+        
+        
+        
+        
+        
+        
         
     }
     

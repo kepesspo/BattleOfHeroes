@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,18 +22,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válasz Categoriát" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTp-L6-2zw">
-                    <rect key="frame" x="93.5" y="30" width="188.5" height="30"/>
+                    <rect key="frame" x="93.5" y="10" width="188.5" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allatok:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQN-qB-k8U">
-                    <rect key="frame" x="20" y="90" width="216" height="24"/>
+                    <rect key="frame" x="20" y="70" width="216" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EzH-Gk-38w">
-                    <rect key="frame" x="306" y="86.5" width="51" height="31"/>
+                    <rect key="frame" x="306" y="66.5" width="51" height="31"/>
                 </switch>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,7 +42,7 @@
                 <constraint firstItem="EzH-Gk-38w" firstAttribute="leading" secondItem="dQN-qB-k8U" secondAttribute="trailing" constant="70" id="BL0-VB-6rz"/>
                 <constraint firstItem="jTp-L6-2zw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bXo-Rg-hFW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EzH-Gk-38w" secondAttribute="trailing" constant="20" id="dE9-pI-kwe"/>
-                <constraint firstItem="jTp-L6-2zw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="nJI-YH-Nqe"/>
+                <constraint firstItem="jTp-L6-2zw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="nJI-YH-Nqe"/>
                 <constraint firstItem="EzH-Gk-38w" firstAttribute="centerY" secondItem="dQN-qB-k8U" secondAttribute="centerY" id="oRP-LU-fHr"/>
                 <constraint firstItem="dQN-qB-k8U" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="t2x-QT-x3Z"/>
             </constraints>

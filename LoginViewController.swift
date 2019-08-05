@@ -24,13 +24,15 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
     }
     
     func setUpView() {
+        createGame.titleLabel?.text = "LoginViewController_LoginButton".localized()
         // Defult GameType : Online
         Factory.shared.dataManager = OfflineService()
         self.spectateButton.isHidden = false
         
         if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String,
             let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String{
-            versionLabel.text = "Verzió: \(appVersion) (\(version))"
+            let version = "LoginViewController_VersionLabel".localized()
+            versionLabel.text = "\(version): \(appVersion) (\(version))"
         }
     }
     

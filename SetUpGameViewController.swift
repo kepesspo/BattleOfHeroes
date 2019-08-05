@@ -22,7 +22,8 @@ class SetUpGameViewController: UIViewController {
     lazy var panelManager = Panels(target: self)
     
     var maskLayer: CALayer?
-    
+    var secondMaskLayer: CALayer?
+    var thirdMaskLayer: CALayer?
     override func viewDidLoad() {
         super.viewDidLoad()
         showPanel()
@@ -32,14 +33,14 @@ class SetUpGameViewController: UIViewController {
         gameCollectionView.showsVerticalScrollIndicator  = false
         subscribeForNotification(name: .gameNext, selector: #selector(showNextView))
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.firstRunClosed) == false {
-        showInfoView()
-        //        } else {
-        //            print("Not first run")
-        //        }
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.firstRunClosed) == false {
+            showInfoView()
+        } else {
+            print("Not first run")
+        }
     }
     
     func showInfoView() {
@@ -47,10 +48,14 @@ class SetUpGameViewController: UIViewController {
         popOverVC.modalPresentationStyle = .overFullScreen
 
         // guard
-        
+        guard let firstMask = maskLayer else { return }
+        guard let secondMask = secondMaskLayer else { return }
+        guard let thirdMask = thirdMaskLayer else { return }
         popOverVC.masks = [
-            (maskLayer!.convert(maskLayer!.bounds, to: view.layer), maskLayer!.cornerRadius)
-            // tobbi elem
+            (firstMask.convert(firstMask.bounds, to: view.layer), firstMask.cornerRadius),
+            (secondMask.convert(secondMask.bounds, to: view.layer), secondMask.cornerRadius),
+            (thirdMask.convert(thirdMask.bounds, to: view.layer), 30)
+            
         ]
         
         if let topController = UIApplication.topViewController() {
@@ -66,10 +71,18 @@ class SetUpGameViewController: UIViewController {
         panelConfiguration.closeOutsideTap = true
         panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
+        thirdMaskLayer = panel.view.layer
     }
     
     @IBAction func infoAction(_ sender: Any) {
-        showInfoView()
+        let indexPath = IndexPath(item: 1, section: 0)
+        
+        UIView.animate(withDuration: 0, animations: {
+            self.gameCollectionView.scrollToItem(at: indexPath, at: .top, animated: false)
+        }) { _ in
+            self.showInfoView()
+        }
+        
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -119,23 +132,34 @@ extension SetUpGameViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
         cell.delegate = self as CustomCellInfoDelegate
         cell.gameData = games[indexPath.row]
-        if indexPath.row == 0 {
+        if indexPath.row == 1 {
             maskLayer = cell.layer
         }
+        if indexPath.row == 2 {
+            secondMaskLayer = cell.layer
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GameCollectionViewCell else { return }
         let row = indexPath.row
-        if games[indexPath.row].downloadsData == true && !GameManagement.sharedInstance.networkAvailable {
-            print("Network Don't Working")
-            cell.pulseWifiIcon()  
-        }
+        
         games[row].isSelected ? removeGame(item: games[row].name) : addGame(item: games[row])
         games[row].isSelected.toggle()
-       cell.blurView.isHidden = games[row].isSelected
+        cell.blurView.isHidden = games[row].isSelected
+        cell.selecte = games[row].isSelected
+        
+        if games[indexPath.row].downloadsData == true && !GameManagement.sharedInstance.networkAvailable {
+            print("Network Don't Working")
+            cell.pulseWifiIcon()
+        }
     }
+    
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//
+//    }
 }
 
 extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
@@ -148,7 +172,7 @@ extension SetUpGameViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: gameCollectionView.bounds.width / 1 - 6, height: gameCollectionView.bounds.height / 5 - 10)
+        return CGSize(width: gameCollectionView.bounds.width / 2 - 6, height: gameCollectionView.bounds.height / 5 - 10)
     }
     
     func collectionView(_ collectionView: UICollectionView,

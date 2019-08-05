@@ -11,22 +11,53 @@ import MDCCommon
 
 class GameInfoViewController: UIViewController {
 
-    var masks: [(rect: CGRect, radius: CGFloat)] = []
+    @IBOutlet weak var firstMaskStackView: UIStackView!
+    @IBOutlet weak var secondMaskStackView: UIStackView!
+    @IBOutlet weak var thirdMaskStackView: UIStackView!
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var thirdLabel: UILabel!
     
+    var masks: [(rect: CGRect, radius: CGFloat)] = []
+    var counter: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let press = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        firstLabel.text = "Játék kijelöléshez nyomd meg a játék ikonját."
+        secondLabel.text = "Nyomd a 3 pontot a játék személyre szabásához."
+        thirdLabel.text = "Játékmenet beállításokért húzd fel a panelt."
+        let press = UITapGestureRecognizer(target: self, action: #selector(nextMask))
         self.view.addGestureRecognizer(press)
-//        contentView.layer.cornerRadius = 10
-//        contentView.layer.masksToBounds = true
-//        infoLabel.text = "A játék kiválasztásához nyomd meg a játék ikonját. \n\n Amennyiben szeretnéd személyre szabni a játékot akkor a jobb oldalt megtalálható gombra vagy (long tappel) tudod elérni. \n\n A játék irányító felületén fogsz látni információt a játékról illetve pár tulajdonságot. \n\n Ha az alsó panelt felhúzod a játék menetet tudod szabályozni."
-        // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    @objc func nextMask() {
+        counter = counter + 1
+        if counter == 0 {
+            setupMaskWith(mask: masks[0])
+            firstMaskStackView.isHidden = false
+            secondMaskStackView.isHidden = true
+            thirdMaskStackView.isHidden = true
+        } else if counter == 1 {
+            setupMaskWith(mask: masks[1])
+            firstMaskStackView.isHidden = true
+            secondMaskStackView.isHidden = false
+            thirdMaskStackView.isHidden = true
+        } else if counter == 2 {
+            setupMaskWith(mask: masks[2])
+            firstMaskStackView.isHidden = true
+            secondMaskStackView.isHidden = true
+            thirdMaskStackView.isHidden = false
+        } else {
+            self.dismissView()
+            counter = 0
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupMaskWith(mask: masks[0])
+        secondMaskStackView.isHidden = true
+        thirdMaskStackView.isHidden = true
+        counter = 0
     }
     
     func setupMaskWith(mask: (rect: CGRect, radius: CGFloat)) {
@@ -34,14 +65,6 @@ class GameInfoViewController: UIViewController {
         shape.frame = view.bounds
         let path = UIBezierPath(rect: view.bounds)
         path.append(UIBezierPath(roundedRect: mask.rect, cornerRadius: mask.radius))
-        
-//        path.append(UIBezierPath(roundedRect: CGRect(x: mask.rect.minX,
-//                                                     y: mask.rect.maxY + 50,
-//                                                     width: mask.rect.width,
-//                                                     height: mask.rect.height),
-//                                 cornerRadius: mask.radius))
-        
-        
         shape.path = path.cgPath
         shape.fillRule = .evenOdd
         view.layer.mask = shape

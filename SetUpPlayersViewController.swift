@@ -35,7 +35,7 @@ class SetUpPlayersViewController: UIViewController {
         subscribeForNotification(name: .updatePlayerList, selector: #selector(reloadCollectionView))
         subscribeForNotification(name: .gameModeChanged, selector: #selector(gameModeChanged), object: nil)
         showPanel()
-        addPlayersLabel.text = "Válassz ki legalább 2 játékost a játék inditásához"
+        addPlayersLabel.text = "SetUpPlayerViewController_playerCountLabel".localized()
        
     }
     
@@ -65,7 +65,9 @@ class SetUpPlayersViewController: UIViewController {
     }
     
     @IBAction func closeRoomAction(_ sender: Any) {
-        let closeAlert = UIAlertController(title: "Kilépés!", message: "Biztos hogy kilépsz a szobából? Ha kilépsz már nem tudsz visszalépni.", preferredStyle: UIAlertController.Style.alert)
+        let closeAlert = UIAlertController(title: "SetUpPlayerViewController_exitAlertTitle".localized(),
+                                           message: "SetUpPlayerViewController_exitAlert".localized(),
+                                           preferredStyle: UIAlertController.Style.alert)
         
         closeAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             print("Handle Ok logic here")

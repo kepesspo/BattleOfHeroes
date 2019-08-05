@@ -22,7 +22,7 @@
 "GameTitle_switchHand" = "Kéz csere";
 "GameTitle_rockPaperScissors" = "Kő Papir Olló";
 "GameTitle_fingerIt" = "Finger It";
-"GameTitle_cheersToTheGovernor" = "A kormányzóra";
+"GameTitle_cheersToTheGovernor" = "Cheers";
 "GameTitle_haveIEverNever" = "Én még soha";
 "GameTitle_whoAmI" = "Ki Vagyok Én";
 "GameTitle_spoon" = "Kanál";
@@ -45,17 +45,17 @@
 "GameTitle_fastNumber" = "Fast Number";
 "GameTitle_showMe" = "Mutasd Meg";
 
-"GameDescription_trueOrFalse" = "Játék Típusa: Egyéni \n\nA játékban egy állítás fog megjelenni és elkell dönteni, hogy az igaz, vagy hamis. Ha úgy ítéled meg hogy az állítás igaz, akkor az idő lejárta előtt ezt közölnöd kell a többi játékosal akik ez alapján tudják eldönteni, hogy jól válaszoltál-e. Ugyan ez igaz a Hamis állításra is. Ha nem jó a válaszod akkor sajnos innod kell.";
+"GameDescription_trueOrFalse" = "A játékban egy állítás fog megjelenni és elkell dönteni, hogy az igaz, vagy hamis. Ha úgy ítéled meg hogy az állítás igaz, akkor az idő lejárta előtt ezt közölnöd kell a többi játékosal akik ez alapján tudják eldönteni, hogy jól válaszoltál-e. Ugyan ez igaz a Hamis állításra is. Ha nem jó a válaszod akkor sajnos innod kell.";
 
-"GameDescription_categories" = "Játék Típusa: Sor \n\nA játék választ egy kategóriát és erre az első embernek kell mondani rá egy szót ami abba a kategóriába beleillik. Ezután a következő játékosnak az előző szónak az utolsó betűjével kell egy szót mondania. Az aki először hibázik az iszik. 5 másodperc a megengedett gondolkodási idő.";
+"GameDescription_categories" = "A játék választ egy kategóriát és erre az első embernek kell mondani rá egy szót ami abba a kategóriába beleillik. Ezután a következő játékosnak az előző szónak az utolsó betűjével kell egy szót mondania. Az aki először hibázik az iszik. 5 másodperc a megengedett gondolkodási idő.";
 
-"GameDescription_hajime" = "Játék Típusa: Sor \n\nSzámolj helyesen. Elkell kezdeni számolni 1-től és ha 5-el vagy 7-el osztható a szám vagy szerepel benne az 5 vagy a 7 akkor 'hajime'-t kell mondani. Aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes 'hajime' után megfordul a kör.";
+"GameDescription_hajime" = "Számolj helyesen. Elkell kezdeni számolni 1-től és ha 5-el vagy 7-el osztható a szám vagy szerepel benne az 5 vagy a 7 akkor 'hajime'-t kell mondani. Aki eltéveszti az iszik. Egy plusz csavar van benne minden egyes 'hajime' után megfordul a kör.";
 
-"GameDescription_everybodyDrinks" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek innia kell. Ezt az app sorsolja ki ha elfogytak az emberek akkor elöről megy a kör.";
+"GameDescription_everybodyDrinks" = "A játék kiválaszt egy játékost akinek innia kell. Ezt az app sorsolja ki ha elfogytak az emberek akkor elöről megy a kör.";
 
-"GameDescription_wheelOfFortune" = "Játék Típusa: Egyéni \n\nA játék kiválaszt egy játékost akinek meg kell pörgetnie a szerencsekereket. Akit a szerencsekerék kisorsol annak innia kell.";
+"GameDescription_wheelOfFortune" = "A játék kiválaszt egy játékost akinek meg kell pörgetnie a szerencsekereket. Akit a szerencsekerék kisorsol annak innia kell.";
 
-"GameDescription_upAndDown" = "Játék Típusa: Sor \n\n A játék úgy kezdődik hogy az app kiválaszt egy játékost aki a sor-t fogja kezdeni. Neki meg kell mondania, hogy a következő szám kisebb, vagy nagyobb lesz mint amit a játék kiír. Ez után a következő játékos jön. Minél tovább megy a játék annál többet kell innia annak aki hibázik.";
+"GameDescription_upAndDown" = "A játék úgy kezdődik hogy az app kiválaszt egy játékost aki a sor-t fogja kezdeni. Neki meg kell mondania, hogy a következő szám kisebb, vagy nagyobb lesz mint amit a játék kiír. Ez után a következő játékos jön. Minél tovább megy a játék annál többet kell innia annak aki hibázik.";
 
 "GameDescription_ringOfFire" = "A Ring of fire játékban fellelhető dolgokat tartalmazza. Választani kell a kártyák közül és a kártyának a leírását kell megcsinálni. Ezek az alábbi szabályok:\n2 - is Choose – Válassz valakit aki iszik\n3 - is Me – Én iszok \n4 - is Whore – Összes lány iszik. \n5 - Thumb Master - Aki kihúzza az lesz a játékmester.Ha az ujját az asztalra helyezi utánozni kell. Aki utoljára utánnoza az iszik \n6 - is Dicks – Összes fiú iszik. \n7 - is Heaven – Felkell mutatni az égre aki utoljára utánozza az iszik. \n8 - is Mate – Válassz valakit aki iszik veled. \n9 - Rhyme  - Aki húzta a lapot annak kell egy szót mondania. Utánna következőnek meg rimelnie kell arra a szoóa. Ha nem sikerül akkor iszik. \n10 - Categories - Választni kell egy kategóriát és utánna abba a kategóriába kell mondani szót. \nJack - Make a Rule – Hozni kell egy szabályt amit utána be kell tartani. \nQueen - Questions – Kérdésekkel kell beszélni egymással \nKing - Pour!- Összekell önteni a piákat. Az utolsó megissza \nA - Waterfall - Addig kell inni ameddig az ászt húzó személy iszik.";
 
@@ -100,13 +100,13 @@
 
 "GameDescription_TickTak" = "Ez a játék egy közös játék. A játék elinditásával elindul egy számláló a háttérben ekkor el kell kezdeni körbeadni egy tárgyat a játékosok között. Mikor az időzitő megszolal annál az embernél akinél épp az adott tárgy van ő vesztett es neki kell a büntetést meginnia.";
 
-"GameDescription_twentyOne" = "Game Of 21";
-"GameDescription_highNoon" = "High Noon";
-"GameDescription_ExtremeChallenge" = "Extreme Challenge";
-"GameDescription_CollectThings" = "Szerezd Be";
+"GameDescription_twentyOne" = "Game Of 21 - Körben ülünk elkell kezdeni számolni az első játékos mondhatja hogy 1-2-3. A második játékos Pedig folytathatja 4-5. Akinál a 21 fog kijönni az fog vesziteni.";
+"GameDescription_highNoon" = "Két játékos játszik. Mind a ketten a készülékre rakját az újjukat. Az app a háttérben elkezd számolni és ha rezeg a készülék vagy hangot ad akkor megkell inni gyorsan egy felest és minnél hamarabb vissza kell rakni az ujjat az appra.";
+"GameDescription_ExtremeChallenge" = "Csapatban kell szerveződni. Egyik csapat választ egy témakört PL: Országok. És utánna mondanak egy számot hogy hányat tudnak megnevezni. A másik csapat dőnt hogy elfogadják a számot vagy ők játszanak és mondanak többet.";
+"GameDescription_CollectThings" = "A játék lényege hogy az app egy random dolgok kiir és azt meg kell szerezni. Ha sikerül a játék jár a pont.";
 "GameDescription_glassBreaker" = "Üveg Törő";
-"GameDescription_fastNumber" = "Fast Number";
-"GameDescription_showMe" = "Mutasd Meg";
+"GameDescription_fastNumber" = "Sorba kell mondani a számokat. Addig kell menni ahány játékos van. Tehát 10 játékosnál 10-ig kell menni. Amennyiben 2 ember ugyan azt a számot mondják ők vesztettek. A játék-ban aki utoljára mondja ki a 10-et az kiesik.";
+"GameDescription_showMe" = "Olyan játék ahol egy ember játszik és ő mutat pl másnak valamit. CELEBRITY. 1 perc lesz rá. Aki kitalálja az kioszhat egy piát ha nem sikerül elmutogatni akkor te iszol.";
 
 
 
@@ -127,3 +127,16 @@
 "EndGameViewController_titleText" = "Játék Vége";
 
 "DrinkCounterViewController_infoText" = "Válaszd ki azt a pia mennyiséget amit ki kell osztani.";
+
+
+"LoginViewController_LoginButton" = "Játék";
+"LoginViewController_VersionLabel" = "Verzió";
+
+"SetUpPlayerViewController_playerCountLabel" = "Válassz ki legalább 2 játékost a játék inditásához";
+"SetUpPlayerViewController_nextButton" = "Tovább";
+"SetUpPlayerViewController_cellLabel" = "Játékos";
+"SetUpPlayerViewController_exitAlert" = "Biztos hogy kilépsz a szobából? Ha kilépsz már nem tudsz visszalépni.";
+"SetUpPlayerViewController_exitAlertTitle" = "Kilépés!";
+
+
+"SetUpGameViewController_nextButton" = "Tovább";

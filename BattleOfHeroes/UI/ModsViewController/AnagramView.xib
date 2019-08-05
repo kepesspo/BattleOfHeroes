@@ -122,7 +122,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="0qj-iZ-ANB" firstAttribute="centerY" secondItem="dUu-9J-78m" secondAttribute="centerY" constant="10" id="1kA-A4-YRz"/>
                 <constraint firstItem="mLr-fY-avV" firstAttribute="centerY" secondItem="h5k-tu-iGf" secondAttribute="centerY" constant="10" id="1nh-BK-skG"/>

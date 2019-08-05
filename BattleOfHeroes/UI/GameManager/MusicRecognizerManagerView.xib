@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,54 +26,54 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válasz zenei korszakot" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9g-Wh-5EO">
-                    <rect key="frame" x="67.000000000000014" y="30" width="241.33333333333337" height="30"/>
+                    <rect key="frame" x="67.000000000000014" y="10" width="241.33333333333337" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1980-as évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMm-sa-cFx">
-                    <rect key="frame" x="20" y="90" width="186" height="24"/>
+                    <rect key="frame" x="20" y="70" width="186" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1990-es évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbh-V6-qfh">
-                    <rect key="frame" x="20.000000000000007" y="134" width="126.66666666666669" height="24"/>
+                    <rect key="frame" x="20.000000000000007" y="114" width="126.66666666666669" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000-es évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22J-GS-EGb">
-                    <rect key="frame" x="20" y="178" width="129.33333333333334" height="24"/>
+                    <rect key="frame" x="20" y="158" width="129.33333333333334" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2010-es évek:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXE-rC-q3b">
-                    <rect key="frame" x="20" y="222" width="126" height="24"/>
+                    <rect key="frame" x="20" y="202" width="126" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Összes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvD-0g-O9M">
-                    <rect key="frame" x="20" y="266" width="64" height="24"/>
+                    <rect key="frame" x="20" y="246" width="64" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tQF-qn-Pub">
-                    <rect key="frame" x="306" y="86.666666666666671" width="51" height="31"/>
+                    <rect key="frame" x="306" y="66.666666666666671" width="51" height="31"/>
                 </switch>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Kq-6v-fMl">
-                    <rect key="frame" x="306" y="174.66666666666666" width="51" height="31"/>
+                    <rect key="frame" x="306" y="154.66666666666666" width="51" height="31"/>
                 </switch>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wym-bR-ZGK">
-                    <rect key="frame" x="306" y="130.66666666666666" width="51" height="31"/>
+                    <rect key="frame" x="306" y="110.66666666666667" width="51" height="31.000000000000014"/>
                 </switch>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FD4-Oz-gOQ">
-                    <rect key="frame" x="306" y="262.66666666666669" width="51" height="31"/>
+                    <rect key="frame" x="306" y="242.66666666666663" width="51" height="31"/>
                 </switch>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nYJ-Fh-cvn">
-                    <rect key="frame" x="306" y="218.66666666666666" width="51" height="31"/>
+                    <rect key="frame" x="306" y="198.66666666666666" width="51" height="31"/>
                 </switch>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="tQF-qn-Pub" firstAttribute="trailing" secondItem="wym-bR-ZGK" secondAttribute="trailing" id="Td9-Qc-rjw"/>
                 <constraint firstItem="FMm-sa-cFx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Vuj-JZ-sgF"/>
                 <constraint firstItem="FMm-sa-cFx" firstAttribute="top" secondItem="v9g-Wh-5EO" secondAttribute="bottom" constant="30" id="h7B-k9-pei"/>
-                <constraint firstItem="v9g-Wh-5EO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="oTO-ti-OdE"/>
+                <constraint firstItem="v9g-Wh-5EO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="oTO-ti-OdE"/>
                 <constraint firstItem="HXE-rC-q3b" firstAttribute="leading" secondItem="22J-GS-EGb" secondAttribute="leading" id="piw-Pt-pnh"/>
                 <constraint firstItem="v9g-Wh-5EO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qsM-PA-OqX"/>
                 <constraint firstItem="4Kq-6v-fMl" firstAttribute="centerY" secondItem="22J-GS-EGb" secondAttribute="centerY" id="rRg-gB-ku8"/>

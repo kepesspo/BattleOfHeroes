@@ -10,14 +10,13 @@ import Foundation
 import UIKit
 import MDCCommon
 import Panels
-import MDCCommon
+import Lottie
 
 class PanelMaterial: UIViewController, Panelable {
     @IBOutlet var headerHeight: NSLayoutConstraint!
     @IBOutlet var headerPanel: UIView!
     @IBOutlet weak var PlayerName: UILabel!
     @IBOutlet weak var playedGameCounter: UILabel!
-    @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var endGameView: UIView!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var nextGameView: UIView!
@@ -25,6 +24,7 @@ class PanelMaterial: UIViewController, Panelable {
     @IBOutlet weak var playerFigureImageView: UIImageView!
     @IBOutlet weak var figureCornerView: UIView!
     @IBOutlet weak var newPlayerView: UIView!
+    @IBOutlet weak var playerAnimationView: LOTAnimationView!
     
     
     override func viewDidLoad() {
@@ -42,19 +42,27 @@ class PanelMaterial: UIViewController, Panelable {
         
         figureCornerView.layer.cornerRadius = figureCornerView.frame.size.width/2
         figureCornerView.clipsToBounds = true
-        
+
         figureCornerView.layer.borderColor = UIColor.white.cgColor
         figureCornerView.layer.borderWidth = 5.0
         
         subscribeForNotification(name: .updateGameData, selector: #selector(updateGameData), object: nil)
         subscribeForNotification(name: .endGame, selector: #selector(dismissGame), object: nil)
-        
+        //playAnimation()
         updateGameData()
+        
+        figureCornerView.isHidden = true
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+    }
+    
+    func playAnimation() {
+        playerAnimationView.loopAnimation = true
+        playerAnimationView.play()
         
     }
     
@@ -93,6 +101,7 @@ class PanelMaterial: UIViewController, Panelable {
     }
     
     @objc func updateGameData() {
+        figureCornerView.isHidden = false
         playedGameCounter.text = "\(Factory.shared.playedGame)"
         PlayerName.text = Factory.shared.actuallyPlayer?.playerName
         if let image =  Factory.shared.actuallyPlayer?.color {

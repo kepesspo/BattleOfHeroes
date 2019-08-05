@@ -10,6 +10,7 @@
  import MDCCommon
  import Panels
  import SpotifyLogin
+ import Lottie
  
  class GameViewController: UIViewController {
     var gameCounter : Int = 0
@@ -18,12 +19,13 @@
     var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
     var timer : Timer?
+    lazy var panelManager = Panels(target: self)
+    
     @IBOutlet weak var startImageView: UIImageView!
     @IBOutlet weak var gameContainerView: UIView!
-    
-    lazy var panelManager = Panels(target: self)
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var letPlayText: UILabel!
+    @IBOutlet weak var backgroundAnimationView: LOTAnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +34,19 @@
         subscribeForNotification(name: .reloadGroupDrinkTimer, selector: #selector(showGroupDrinkView), object: nil)
         subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
         subscribeForNotification(name: .generateNewGame, selector: #selector(startGameAction), object: nil)
+        subscribeForNotification(name: .activateGame, selector: #selector(activateGame), object: nil)
         
         GameManagement.sharedInstance.setCopyCardsList()
-        
+        //backgroundAnimationView.layer.cornerRadius = 20
+        backgroundAnimationView.clipsToBounds = true
         showPanel()
         showPlayerWhoDrinks()
         showGroupDrinkView()
         showRandomPictogram()
+        backgroundAnimationView.isHidden = true
         
         timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(showSpectatorBonus), userInfo: nil, repeats: true)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,13 +80,26 @@
         randomPictogramTimer?.invalidate()
     }
     
+    @objc func activateGame() {
+        startButton.isHidden = false
+        startImageView.isHidden = false
+        letPlayText.isHidden = false
+    }
+    
+    func playAnimation() {
+        backgroundAnimationView.loopAnimation = true
+        backgroundAnimationView.animationSpeed = 1.6
+        backgroundAnimationView.play()
+        
+    }
+    
     func showPanel() {
         let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
         var panelConfiguration = PanelConfiguration(size: .custom(360))
         panelConfiguration.enclosedNavigationBar = true
         panelConfiguration.useSafeArea = true
         panelConfiguration.animateEntry = true
-        panelConfiguration.panelVisibleArea = 100
+        panelConfiguration.panelVisibleArea = 90
         panelManager.delegate = panel as? PanelNotifications
         self.panelManager.show(panel: panel, config: panelConfiguration)
     }
@@ -102,9 +121,6 @@
     }
     
     @objc func startGameAction() {
-        startImageView.isHidden = true
-        letPlayText.isHidden = true
-        startButton.isHidden = true
         showView()
     }
     
@@ -132,9 +148,22 @@
     }
     
     @IBAction func gameAction(_ sender: Any) {
-        letPlayText.isHidden = true
-        startButton.isHidden = true
-        showView()
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.playInfo) == false {
+            letPlayText.isHidden = true
+            startButton.isHidden = true
+            startImageView.isHidden = true
+            
+            let infoView = PlayInfoView()
+            infoView.frame = self.view.bounds
+            infoView.clipsToBounds = true
+            self.view.insertSubview(infoView, at: 0)
+        } else {
+            letPlayText.isHidden = true
+            startButton.isHidden = true
+            startImageView.isHidden = true
+            showView()
+        }
+        
     }
     
     //Extra Game
@@ -162,8 +191,9 @@
         }
     }
     
-    
     func showView() {
+        backgroundAnimationView.isHidden = false
+        playAnimation()
         gameContainerView.isUserInteractionEnabled = true
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
@@ -201,14 +231,15 @@
             print("------- Actual Game:  \(game.name) ----------")
             Factory.shared.actualGame?.description = game.gameMode?.gameDescription() ?? ""
             gameView.frame = self.view.bounds
-            gameView.layer.cornerRadius = 20
+            //gameView.layer.cornerRadius = 20
             gameView.clipsToBounds = true
             
             gameContainerView.insertSubview(gameView, at: 0)
+            
             if gameContainerView.subviews.count > 1 {
                 UIView.transition(from: gameContainerView.subviews[1],
                                   to: gameContainerView.subviews[0],
-                                  duration: 0.6, options: .transitionFlipFromRight) { _ in
+                                  duration: 0.6, options: .transitionCrossDissolve) { _ in
                                     self.gameContainerView.subviews.forEach {
                                         if $0 != gameView {
                                             $0.removeFromSuperview()

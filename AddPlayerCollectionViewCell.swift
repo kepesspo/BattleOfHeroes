@@ -35,7 +35,8 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
         dashedLayer.fillColor = nil
         dashedLayer.path = UIBezierPath(rect: containerView.bounds).cgPath
         containerView.layer.addSublayer(dashedLayer)
-        playerCountLabel.text = "\(Factory.shared.playerList.count)\n Játékos"
+        let playerSting = "SetUpPlayerViewController_cellLabel".localized()
+        playerCountLabel.text = "\(Factory.shared.playerList.count)\n \(playerSting)"
     }
     
     @IBAction func addPlayer() {

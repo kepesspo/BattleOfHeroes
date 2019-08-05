@@ -28,12 +28,12 @@ class PanelMenu: UIViewController, UIScrollViewDelegate, Panelable {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         subscribeForNotification(name: .updateStartButton, selector: #selector(updateStartButton))
-        idLabel.text = "A szoba azonositója: \(roomName!)"
+        //idLabel.text = "A szoba azonositója: \(roomName!)"
         
         self.curveTopCorners()
         nextButton.layer.cornerRadius = 8
+        nextButton.titleLabel?.text = "SetUpPlayerViewController_nextButton".localized()
         arrowView.update(to: .up, animated: true)
-        //arrowView.arrowColor = #colorLiteral(red: 0.2745098039, green: 0.7450980392, blue: 0.631372549, alpha: 1)
         arrowView.arrowColor = .clear
         
         NetworkSevice.sharedInstance.getGameRunning { (error, value) in
