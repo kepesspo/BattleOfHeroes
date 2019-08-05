@@ -14,7 +14,7 @@
 "GameTitle_categories" = "Kategória";
 "GameTitle_hajime" = "Hajime";
 "GameTitle_everybodyDrinks" = "Mindenki Iszik";
-"GameTitle_wheelOfFortune" = "Szerencsekerék";
+"GameTitle_wheelOfFortune" = "Szerencse kerék";
 "GameTitle_upAndDown" = "Kisebb / Nagyobb";
 "GameTitle_ringOfFire" = "Ring of Fire";
 "GameTitle_memory" = "Memória";
@@ -139,4 +139,8 @@
 "SetUpPlayerViewController_exitAlertTitle" = "Kilépés!";
 
 
-"SetUpGameViewController_nextButton" = "Tovább";
+//"SetUpGameViewController_nextButton" = "Tovább";
+//"SetUpPlayerViewController_playerCountLabel" = "A játék elinditásához legalább 2 játékos szükséges.";
+//
+//"SetUpPlayerViewController_exitAlertTitle" = "Kilépés";
+//"SetUpPlayerViewController_exitAlert" = "Ha kilépsz akkor már nem tudsz visszajönni ebbe a szobába";

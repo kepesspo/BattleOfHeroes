@@ -32,7 +32,7 @@ class LoginViewController: UIViewController ,UITextFieldDelegate {
         if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String,
             let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String{
             let version = "LoginViewController_VersionLabel".localized()
-            versionLabel.text = "\(version): \(appVersion) (\(version))"
+            versionLabel.text = "\(version): \(appVersion)"
         }
     }
     

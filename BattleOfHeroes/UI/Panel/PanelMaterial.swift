@@ -50,6 +50,14 @@ class PanelMaterial: UIViewController, Panelable {
         subscribeForNotification(name: .endGame, selector: #selector(dismissGame), object: nil)
         //playAnimation()
         updateGameData()
+        showRoomView.isHidden = true
+        if GameManagement.sharedInstance.drininkCounterView {
+            scoreView.isUserInteractionEnabled = true
+            scoreView.backgroundColor = UIColor(fromHexString: "46BEA1", alpha: 1.0, useDisplayP3RGB: false)
+        } else {
+            scoreView.isUserInteractionEnabled = false
+            scoreView.backgroundColor = UIColor(fromHexString: "46BEA1", alpha: 0.6, useDisplayP3RGB: false)
+        }
         
         figureCornerView.isHidden = true
         

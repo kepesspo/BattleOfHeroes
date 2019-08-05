@@ -91,10 +91,7 @@ class HighNoonView: GameView {
     @IBAction func timerTwoTouchUpAction(_ sender: Any) {
         secondPlayerTapped = false
         if isGameStarted {
-            print("Second Player lose")
-            winnerLabel.text = "Player 2 vesztett"
-            endGame = true
-            stopTimer()
+            stopGame(name: "Player 2 vesztett")
         } else {
             print("")
         }
@@ -103,10 +100,7 @@ class HighNoonView: GameView {
     @IBAction func timerOneTouchUpAction(_ sender: Any) {
         firstPlayerTapped = false
         if isGameStarted {
-            print("First Player lose")
-            winnerLabel.text = "Player 1 vesztett"
-            endGame = true
-            stopTimer()
+            stopGame(name: "Player 1 vesztett")
         } else {
             print("")
         }
@@ -132,6 +126,20 @@ class HighNoonView: GameView {
         } else {
             endTime -= 1
             print(endTime)
+        }
+    }
+    
+    func stopGame(name: String) {
+        print("Second Player lose")
+        winnerLabel.text = name
+        isGameStarted = false
+        endGame = true
+        playerOneButton.isEnabled = false
+        playerTwoButton.isEnabled = false
+        self.tap.isEnabled = true
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
         }
     }
     
