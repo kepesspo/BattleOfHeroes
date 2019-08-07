@@ -305,7 +305,7 @@ enum GameMode: String {
         case .switchHand: return 3
         case .rockPaperScissors: return 3
         case .fingerIt: return 1
-        case .cheersToTheGovernor: return 0
+        case .cheersToTheGovernor: return 2
         case .haveIEverNever: return 2
         case .whoAmI: return 2
         case .spoon: return 0
@@ -648,7 +648,8 @@ class GameManagement {
     var online = true
     var drininkCounterView : Bool = true
     var showExtraSetUp = false
-    
+    var scoreRate = 10
+    var scoreRateIsOn = false
     
     
     var horseRaceBettingPlayer: [HorseBet] = []

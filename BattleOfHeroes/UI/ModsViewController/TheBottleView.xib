@@ -23,20 +23,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pörgessed meg az üveget és akire mutat annak kell innia." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz2-jG-Kjf">
-                    <rect key="frame" x="20" y="250" width="335" height="48"/>
+                    <rect key="frame" x="20" y="220" width="335" height="48"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wine-bottle" translatesAutoresizingMaskIntoConstraints="NO" id="JGb-gE-B4r">
-                    <rect key="frame" x="107.5" y="308" width="160" height="160"/>
+                    <rect key="frame" x="107.5" y="278" width="160" height="160"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="160" id="ZgS-qx-Fiy"/>
                         <constraint firstAttribute="width" secondItem="JGb-gE-B4r" secondAttribute="height" multiplier="1:1" id="k8w-5Y-k9O"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnt-NT-7DP">
-                    <rect key="frame" x="152.5" y="473" width="70" height="70"/>
+                    <rect key="frame" x="152.5" y="443" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="7c8-52-aj6"/>
                         <constraint firstAttribute="width" secondItem="gnt-NT-7DP" secondAttribute="height" multiplier="1:1" id="bbQ-xm-4Co"/>
@@ -49,17 +49,17 @@
                         <action selector="spinnTapped:" destination="-1" eventType="touchUpInside" id="GXY-iR-CdZ"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AzUveg10000" translatesAutoresizingMaskIntoConstraints="NO" id="U2Y-p9-TFn">
-                    <rect key="frame" x="179.5" y="40" width="16" height="200"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_29" translatesAutoresizingMaskIntoConstraints="NO" id="U2Y-p9-TFn">
+                    <rect key="frame" x="179.5" y="50" width="16" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="W35-4V-gRl"/>
+                        <constraint firstAttribute="height" constant="160" id="W35-4V-gRl"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Cz2-jG-Kjf" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="7CU-06-hjF"/>
-                <constraint firstItem="U2Y-p9-TFn" firstAttribute="top" secondItem="06B-sJ-gfr" secondAttribute="top" constant="20" id="8HU-0T-TQg"/>
+                <constraint firstItem="U2Y-p9-TFn" firstAttribute="top" secondItem="06B-sJ-gfr" secondAttribute="top" constant="30" id="8HU-0T-TQg"/>
                 <constraint firstItem="Cz2-jG-Kjf" firstAttribute="top" secondItem="U2Y-p9-TFn" secondAttribute="bottom" constant="10" id="Oak-wP-JZT"/>
                 <constraint firstItem="JGb-gE-B4r" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="Rf0-yI-RqZ"/>
                 <constraint firstItem="gnt-NT-7DP" firstAttribute="centerX" secondItem="1zB-kc-tHW" secondAttribute="centerX" id="lFc-bv-Nh5"/>
@@ -74,7 +74,7 @@
         </view>
     </objects>
     <resources>
-        <image name="AzUveg10000" width="668" height="1000"/>
+        <image name="Icon_29" width="1000" height="1138"/>
         <image name="start_gomb" width="187" height="187"/>
         <image name="wine-bottle" width="128" height="128"/>
     </resources>

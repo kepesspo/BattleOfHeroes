@@ -15,16 +15,19 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var informationTextView: UITextView!
     @IBOutlet weak var infoImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var infoText :String?
     var image: UIImage?
+    var titleText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         popView.layer.cornerRadius = 30
         popView.layer.masksToBounds = true
         informationTextView.text = infoText
-        infoImageView.image = image ?? UIImage()
+        infoImageView.image = image
+        titleLabel.text = titleText
     }
     
 

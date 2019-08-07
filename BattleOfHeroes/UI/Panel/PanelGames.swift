@@ -18,9 +18,12 @@ class PanelGames: UIViewController, Panelable {
     @IBOutlet var headerHeight: NSLayoutConstraint!
     @IBOutlet var headerPanel: UIView!
     @IBOutlet weak var gameSegmentedControl: TTSegmentedControl!
+    @IBOutlet weak var modeSegmentedControl: TTSegmentedControl!
     @IBOutlet weak var dataView: UIView!
     @IBOutlet weak var arrowView: ArrowView!
+    @IBOutlet weak var slider: UISlider!
     
+    @IBOutlet weak var sliderValue: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scoreCollectCheckBox: CheckboxButton!
     @IBOutlet weak var bonusCheckBox: CheckboxButton!
@@ -28,6 +31,7 @@ class PanelGames: UIViewController, Panelable {
     @IBOutlet weak var groupDrinkCheckBox: CheckboxButton!
     
     @IBOutlet weak var bonusStackView: UIStackView!
+    @IBOutlet weak var scoreStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +45,24 @@ class PanelGames: UIViewController, Panelable {
         nextButton.titleLabel?.text = "SetUpGameViewController_nextButton".localized()
         gameSegmentedControl.defaultTextFont = UIFont.rubic(19)
         gameSegmentedControl.selectedTextFont = UIFont.rubic(19)
-        bonusStackView.isHidden = false
+        
+        modeSegmentedControl.defaultTextFont = UIFont.rubic(19)
+        modeSegmentedControl.selectedTextFont = UIFont.rubic(19)
+        modeSegmentedControl.selectItemAt(index: 0)
+        
         
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeDown))
         swipe.numberOfTouchesRequired = 1
         swipe.direction = .down
         dataView.addGestureRecognizer(swipe)
-        scoreCollectCheckBox.on = true
-        GameManagement.sharedInstance.drininkCounterView = true
         
-        Factory.shared.showBonusView = true
+        GameManagement.sharedInstance.drininkCounterView = false
+        Factory.shared.showBonusView = false
+        bonusStackView.isHidden = true
+        scoreStackView.isHidden = true
+        
+        sliderValue.text = "10"
+        
         bonusCheckBox.on = true
     }
     
@@ -120,23 +132,38 @@ class PanelGames: UIViewController, Panelable {
         }
     }
     
-    @IBAction func scoreCollectAction(_ sender: Any) {
-        if scoreCollectCheckBox.on {
-            GameManagement.sharedInstance.drininkCounterView = true
-            bonusStackView.isHidden = false
-            scoreCollectCheckBox.on = true
-            print("Score view ON")
-        } else {
-            GameManagement.sharedInstance.drininkCounterView = false
-            bonusStackView.isHidden = true
-            scoreCollectCheckBox.on = false
-            bonusCheckBox.on = false
-            Factory.shared.showBonusView = false
-            print("Score view OFF")
-        }
-    }
     
     func setUpLevelCounterView() {
+        
+        modeSegmentedControl.itemTitles = ["Sima","Pontgyüjtés"]
+        modeSegmentedControl.layer.cornerRadius = 7
+        modeSegmentedControl.allowChangeThumbWidth = false
+        modeSegmentedControl.didSelectItemWith = { (index, title) -> ()in
+            switch index {
+            case 0:
+                print("Sima")
+                GameManagement.sharedInstance.drininkCounterView = false
+                GameManagement.sharedInstance.scoreRateIsOn = false
+                Factory.shared.showBonusView = false
+                self.bonusStackView.isHidden = true
+                self.scoreStackView.isHidden = true
+                self.bonusCheckBox.on = false
+                
+            case 1:
+                print("Pontgyüjtés")
+                GameManagement.sharedInstance.drininkCounterView = true
+                GameManagement.sharedInstance.scoreRateIsOn = true
+                Factory.shared.showBonusView = true
+                self.bonusStackView.isHidden = false
+                self.scoreStackView.isHidden = false
+                self.bonusCheckBox.on = true
+                print("Score view ON")
+            default:
+                print("Default")
+            }
+            print("Selected item \(index)")
+        }
+        
         gameSegmentedControl.itemTitles = ["Könnyű","Közepes","Nehéz"]
         gameSegmentedControl.layer.cornerRadius = 7
         gameSegmentedControl.allowChangeThumbWidth = false
@@ -155,6 +182,12 @@ class PanelGames: UIViewController, Panelable {
             }
             print("Selected item \(index)")
         }
+    }
+    
+    @IBAction func sliderValueChange(_ sender: Any) {
+        let score = Int(slider.value)
+        sliderValue.text = "\(score)"
+        GameManagement.sharedInstance.scoreRate = score
     }
 }
 extension PanelGames: PanelNotifications {

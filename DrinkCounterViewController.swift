@@ -44,6 +44,7 @@ class DrinkCounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeForNotification(name: .showBonus, selector: #selector(showBonusView(notification:)), object: nil)
+        subscribeForNotification(name: .gameWinner, selector: #selector(showWinner(notification:)), object: nil)
         
         if let gameData = game {
             print("--------- Drink Counter View passed game: \(gameData.name) -------------")
@@ -183,7 +184,11 @@ class DrinkCounterViewController: UIViewController {
     
     
     func checkBonus(bonus: Bool?, playerData: Player?) {
-        if bonus == true {
+        guard let playerScore = player?.allDrink else { return }
+        if playerScore >= GameManagement.sharedInstance.scoreRate {
+            print("<-------------- Játék Vége ------------->")
+            postNotification(name: .gameWinner, object: playerData)
+        } else if bonus == true {
             postNotification(name: .showBonus, object: playerData)
         } else {
             print("No bonus")
@@ -212,7 +217,9 @@ class DrinkCounterViewController: UIViewController {
                     }
                 }
             } else {
-                Factory.shared.dataManager.updatePlayerDrinks(player: player, drinks: game!.addedScore, gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
+                Factory.shared.dataManager.updatePlayerDrinks(player: player,
+                                                              drinks: game!.addedScore,
+                                                              gameType: (game?.gameType!.rawValue)!) { (error, bonus, player)  in
                     if error == nil {
                         print("Success save score")
                         self.dismiss(animated: false, completion: {
@@ -238,8 +245,17 @@ class DrinkCounterViewController: UIViewController {
         if let topController = UIApplication.topViewController() {
             topController.present(vc, animated: true, completion: {
             })
+        }   
+    }
+    
+    @objc func showWinner(notification : Notification) {
+        let player = notification.object as? Player
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BattleResultViewController") as! BattleResultViewController
+        vc.player = player
+        if let topController = UIApplication.topViewController() {
+            topController.present(vc, animated: true, completion: {
+            })
         }
-        
     }
     
 

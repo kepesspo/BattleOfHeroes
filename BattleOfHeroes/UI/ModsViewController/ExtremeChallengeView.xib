@@ -29,25 +29,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4r-vz-m3D">
-                    <rect key="frame" x="158" y="373.5" width="98" height="47"/>
+                    <rect key="frame" x="158" y="333.5" width="98" height="47"/>
                     <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="40"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mondj őt szót az adott témakőrben 5 másodperc alatt." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQI-n0-KDz">
-                    <rect key="frame" x="20" y="284" width="374" height="53"/>
+                    <rect key="frame" x="20" y="244" width="374" height="53"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="extremeChallenge" translatesAutoresizingMaskIntoConstraints="NO" id="9E4-0l-hOp">
-                    <rect key="frame" x="199" y="74" width="16" height="200"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_34" translatesAutoresizingMaskIntoConstraints="NO" id="9E4-0l-hOp">
+                    <rect key="frame" x="199" y="74" width="16" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="pY6-F7-nqY"/>
+                        <constraint firstAttribute="height" constant="160" id="pY6-F7-nqY"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phq-NU-poA">
-                    <rect key="frame" x="157" y="347" width="100" height="100"/>
+                    <rect key="frame" x="157" y="307" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="phq-NU-poA" secondAttribute="height" multiplier="1:1" id="Vz0-Dv-w2g"/>
                         <constraint firstAttribute="height" constant="100" id="nke-qB-1Nt"/>
@@ -76,7 +76,7 @@
         </view>
     </objects>
     <resources>
-        <image name="extremeChallenge" width="1000" height="723"/>
+        <image name="Icon_34" width="1000" height="458"/>
         <image name="start_gomb" width="187" height="187"/>
     </resources>
 </document>

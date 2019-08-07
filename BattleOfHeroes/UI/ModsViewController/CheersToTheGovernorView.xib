@@ -22,15 +22,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncW-20-aCm">
-                    <rect key="frame" x="20" y="323.5" width="335" height="24"/>
+                    <rect key="frame" x="20" y="263.5" width="335" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="governer" translatesAutoresizingMaskIntoConstraints="NO" id="S2T-vm-KWW">
-                    <rect key="frame" x="179.5" y="60" width="16" height="210"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_21" translatesAutoresizingMaskIntoConstraints="NO" id="S2T-vm-KWW">
+                    <rect key="frame" x="-312.5" y="50" width="1000" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="210" id="xae-LA-ELr"/>
+                        <constraint firstAttribute="height" constant="160" id="xae-LA-ELr"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -41,12 +41,12 @@
                 <constraint firstItem="ncW-20-aCm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dW3-MY-KOK"/>
                 <constraint firstItem="ncW-20-aCm" firstAttribute="centerX" secondItem="S2T-vm-KWW" secondAttribute="centerX" id="jtJ-Zn-PYQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ncW-20-aCm" secondAttribute="trailing" constant="20" id="mAe-CI-tlM"/>
-                <constraint firstItem="S2T-vm-KWW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="sNF-GB-8yw"/>
+                <constraint firstItem="S2T-vm-KWW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="sNF-GB-8yw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
     <resources>
-        <image name="governer" width="536" height="426.5"/>
+        <image name="Icon_21" width="1000" height="1153"/>
     </resources>
 </document>

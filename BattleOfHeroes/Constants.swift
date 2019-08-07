@@ -64,6 +64,7 @@ extension Notification.Name {
     static let gameNext = Notification.Name("gameNext")
     static let bonus = Notification.Name("bonus")
     static let activateGame = Notification.Name("activateGame")
+    static let gameWinner = Notification.Name("gameWinner")
     
     
     static let playerListUpdate = Notification.Name("playerListUpdate")

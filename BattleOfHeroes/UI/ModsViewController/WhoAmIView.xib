@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xB6-GU-RqD">
-                    <rect key="frame" x="30" y="489" width="315" height="50"/>
+                    <rect key="frame" x="30" y="464" width="315" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="QEg-NI-s5w"/>
                     </constraints>
@@ -36,13 +36,13 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoFrame5" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-q8-0Tx">
-                    <rect key="frame" x="-312.5" y="230" width="1000" height="270"/>
+                    <rect key="frame" x="179.5" y="205" width="16" height="270"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="270" id="XNd-Fm-kZj"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AH8-Jp-uS0">
-                    <rect key="frame" x="101" y="260" width="175" height="170"/>
+                    <rect key="frame" x="101" y="235" width="175" height="170"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="175" id="Nmr-Yb-UhJ"/>
@@ -50,7 +50,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYJ-8c-9W7">
-                    <rect key="frame" x="52.5" y="435" width="270" height="24"/>
+                    <rect key="frame" x="52.5" y="410" width="270" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="270" id="Zp0-kr-qNl"/>
                     </constraints>
@@ -58,16 +58,16 @@
                     <color key="textColor" red="0.85718107880000005" green="0.36765485679999999" blue="0.50706335619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KiVagyokEn10000" translatesAutoresizingMaskIntoConstraints="NO" id="UYI-Rt-wRw">
-                    <rect key="frame" x="-104.5" y="45" width="584" height="190"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_22" translatesAutoresizingMaskIntoConstraints="NO" id="UYI-Rt-wRw">
+                    <rect key="frame" x="-104.5" y="50" width="584" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="190" id="NIg-Rb-yHX"/>
+                        <constraint firstAttribute="height" constant="160" id="NIg-Rb-yHX"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.82632124419999997" blue="0.57623344659999998" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="UYI-Rt-wRw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="0mN-bs-N8w"/>
+                <constraint firstItem="UYI-Rt-wRw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="0mN-bs-N8w"/>
                 <constraint firstItem="bdO-q8-0Tx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M9Z-mw-Z5n"/>
                 <constraint firstItem="uYJ-8c-9W7" firstAttribute="top" secondItem="AH8-Jp-uS0" secondAttribute="bottom" constant="5" id="MFw-DR-1PW"/>
                 <constraint firstAttribute="trailing" secondItem="xB6-GU-RqD" secondAttribute="trailing" constant="30" id="S8t-qz-dMG"/>
@@ -87,7 +87,7 @@
         </view>
     </objects>
     <resources>
-        <image name="KiVagyokEn10000" width="774" height="1000"/>
+        <image name="Icon_22" width="1000" height="737"/>
         <image name="LoginButton" width="608" height="93"/>
         <image name="photoFrame5" width="1000" height="1100"/>
     </resources>

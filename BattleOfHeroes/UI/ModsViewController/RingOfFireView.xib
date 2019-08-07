@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-f8-3Bv">
-                    <rect key="frame" x="20" y="310.5" width="335" height="160"/>
+                    <rect key="frame" x="20" y="270.5" width="335" height="160"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOt-aJ-Xaw">
                             <rect key="frame" x="0.0" y="0.0" width="101.5" height="160"/>
@@ -58,20 +58,20 @@
                         <constraint firstItem="2vJ-N8-kD8" firstAttribute="width" secondItem="goW-5n-of8" secondAttribute="width" id="x4r-DS-4Gv"/>
                     </constraints>
                 </stackView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ringoffire" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-gx-lXl">
-                    <rect key="frame" x="37" y="50" width="301" height="200"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_13" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-gx-lXl">
+                    <rect key="frame" x="-312.5" y="50" width="1000" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="xBd-SD-r8z"/>
+                        <constraint firstAttribute="height" constant="160" id="xBd-SD-r8z"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válassz egy lapot:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc3-55-RiG">
-                    <rect key="frame" x="118.5" y="270" width="138" height="20.5"/>
+                    <rect key="frame" x="118.5" y="230" width="138" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szabály" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foj-hb-RLD">
-                    <rect key="frame" x="20" y="485.5" width="335" height="19.5"/>
+                    <rect key="frame" x="20" y="445.5" width="335" height="19.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -97,9 +97,9 @@
         </view>
     </objects>
     <resources>
+        <image name="Icon_13" width="1000" height="774"/>
         <image name="kartya1" width="156.5" height="248"/>
         <image name="kartya2" width="155.5" height="248"/>
         <image name="kartya3" width="146" height="248"/>
-        <image name="ringoffire" width="301" height="426"/>
     </resources>
 </document>

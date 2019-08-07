@@ -89,7 +89,9 @@ class PanelMaterial: UIViewController, Panelable {
     func showInfoView(description: String) {
         let infoPopVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
         infoPopVC.infoText = description
-        //infoPopVC.image = GameManagement.sharedInstance.actuallyGame?.gameImage
+        
+        infoPopVC.image = Factory.shared.actualGame?.gameImage
+        infoPopVC.titleText = Factory.shared.actualGame?.name
         infoPopVC.modalPresentationStyle = .overFullScreen
         self.present(infoPopVC, animated: true, completion: nil)
     }

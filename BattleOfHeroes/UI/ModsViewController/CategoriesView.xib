@@ -26,32 +26,32 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kategoriak" translatesAutoresizingMaskIntoConstraints="NO" id="rFM-dw-nR9">
-                    <rect key="frame" x="179.5" y="50" width="16" height="190"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_8" translatesAutoresizingMaskIntoConstraints="NO" id="rFM-dw-nR9">
+                    <rect key="frame" x="-312.5" y="50" width="1000" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="190" id="iTF-HA-Ij0"/>
+                        <constraint firstAttribute="height" constant="160" id="iTF-HA-Ij0"/>
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_man" translatesAutoresizingMaskIntoConstraints="NO" id="Agn-Ug-neN">
-                    <rect key="frame" x="179.5" y="325.5" width="16" height="270"/>
+                    <rect key="frame" x="-312.5" y="295.5" width="1000" height="270"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="270" id="ytE-q3-7oW"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au5-zK-c1j">
-                    <rect key="frame" x="50" y="385.5" width="295" height="29.5"/>
+                    <rect key="frame" x="55" y="355.5" width="285" height="30"/>
                     <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minden szó utolsó betűjével folytasd a sort." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9y-Ky-Ty7">
-                    <rect key="frame" x="20" y="260" width="335" height="45.5"/>
+                    <rect key="frame" x="20" y="230" width="335" height="45.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A kategória a következő:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcQ-qh-jb2">
-                    <rect key="frame" x="50" y="341.5" width="295" height="24"/>
+                    <rect key="frame" x="50" y="311.5" width="295" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -60,10 +60,10 @@
             <color key="backgroundColor" red="0.99950855969999997" green="0.82713145020000001" blue="0.57718551159999998" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="F9y-Ky-Ty7" firstAttribute="centerX" secondItem="rFM-dw-nR9" secondAttribute="centerX" id="4nM-ZR-XTR"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="au5-zK-c1j" secondAttribute="trailing" constant="30" id="4ub-EZ-HPP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="au5-zK-c1j" secondAttribute="trailing" constant="35" id="4ub-EZ-HPP"/>
                 <constraint firstItem="Agn-Ug-neN" firstAttribute="top" secondItem="NcQ-qh-jb2" secondAttribute="bottom" constant="-40" id="8Ap-dh-GEa"/>
                 <constraint firstItem="F9y-Ky-Ty7" firstAttribute="top" secondItem="rFM-dw-nR9" secondAttribute="bottom" constant="20" id="9ok-XL-ykk"/>
-                <constraint firstItem="au5-zK-c1j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="A26-bF-XVv"/>
+                <constraint firstItem="au5-zK-c1j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="55" id="A26-bF-XVv"/>
                 <constraint firstItem="rFM-dw-nR9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Iif-Ml-n8L"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NcQ-qh-jb2" secondAttribute="trailing" constant="30" id="M9L-lv-Tch"/>
                 <constraint firstItem="F9y-Ky-Ty7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="WL2-Sh-A7R"/>
@@ -78,7 +78,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Icon_8" width="1000" height="872"/>
         <image name="board_man" width="1000" height="775"/>
-        <image name="kategoriak" width="1000" height="1571"/>
     </resources>
 </document>

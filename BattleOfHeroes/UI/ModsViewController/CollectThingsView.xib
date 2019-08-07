@@ -32,37 +32,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minden tárgyat találj meg a leggyorsabban" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ME-Iu-yPj">
-                    <rect key="frame" x="20" y="260" width="335" height="45.5"/>
+                    <rect key="frame" x="20" y="230" width="335" height="45.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="categoryBanner" translatesAutoresizingMaskIntoConstraints="NO" id="Zph-XH-7SE">
-                    <rect key="frame" x="179.5" y="349.5" width="16" height="70"/>
+                    <rect key="frame" x="179.5" y="319.5" width="16" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="gAt-QB-NUT"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOc-jc-Fax">
-                    <rect key="frame" x="157" y="369.5" width="61.5" height="30"/>
+                    <rect key="frame" x="157" y="339.5" width="61.5" height="30"/>
                     <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A következő dolog:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFc-It-xy9">
-                    <rect key="frame" x="105.5" y="315.5" width="164.5" height="24"/>
+                    <rect key="frame" x="105.5" y="285.5" width="164.5" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="szerezBe" translatesAutoresizingMaskIntoConstraints="NO" id="Nc6-MV-QAk">
-                    <rect key="frame" x="179.5" y="50" width="16" height="190"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_35" translatesAutoresizingMaskIntoConstraints="NO" id="Nc6-MV-QAk">
+                    <rect key="frame" x="179.5" y="50" width="16" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="190" id="Q9v-RB-p5D"/>
+                        <constraint firstAttribute="height" constant="160" id="Q9v-RB-p5D"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rop-SH-qIA">
-                    <rect key="frame" x="137.5" y="429.5" width="100" height="100"/>
+                    <rect key="frame" x="137.5" y="399.5" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="r11-KZ-gDV"/>
                     </constraints>
@@ -73,7 +73,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2g-ip-MGC">
-                    <rect key="frame" x="138.5" y="456" width="98" height="47"/>
+                    <rect key="frame" x="138.5" y="426" width="98" height="47"/>
                     <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="40"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -103,8 +103,8 @@
         </view>
     </objects>
     <resources>
+        <image name="Icon_35" width="1000" height="806"/>
         <image name="categoryBanner" width="1000" height="230"/>
         <image name="start_gomb" width="187" height="187"/>
-        <image name="szerezBe" width="1000" height="1160"/>
     </resources>
 </document>

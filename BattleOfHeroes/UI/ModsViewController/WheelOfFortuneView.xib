@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7N-l9-s37">
-                    <rect key="frame" x="147.5" y="460" width="80" height="80"/>
+                    <rect key="frame" x="147.5" y="450" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="1uX-0f-oJc"/>
                         <constraint firstAttribute="width" secondItem="k7N-l9-s37" secondAttribute="height" multiplier="1:1" id="LxK-2F-3ft"/>
@@ -38,13 +38,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PÖRGET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-nB-VuW">
-                    <rect key="frame" x="158.5" y="488.5" width="56" height="17"/>
+                    <rect key="frame" x="158.5" y="478.5" width="56" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3K-YW-Ayx" customClass="TTFortuneWheel" customModule="TTFortuneWheel">
-                    <rect key="frame" x="82.5" y="240" width="210" height="210"/>
+                    <rect key="frame" x="82.5" y="230" width="210" height="210"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="210" id="V0q-Sw-HN2"/>
@@ -52,20 +52,20 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="p38-GV-m5W">
-                    <rect key="frame" x="42.5" y="335" width="20" height="20"/>
+                    <rect key="frame" x="42.5" y="325" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="U8i-al-WRC"/>
                         <constraint firstAttribute="width" secondItem="p38-GV-m5W" secondAttribute="height" multiplier="1:1" id="vu0-RG-I0g"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="szerencsekerék" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-5Q-L8U">
-                    <rect key="frame" x="-54.5" y="50" width="484" height="170"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_11" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-5Q-L8U">
+                    <rect key="frame" x="-312.5" y="50" width="1000" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="170" id="uDa-xd-r0B"/>
+                        <constraint firstAttribute="height" constant="160" id="uDa-xd-r0B"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS7-Xw-sZE">
-                    <rect key="frame" x="148.5" y="481" width="78" height="38.5"/>
+                    <rect key="frame" x="148.5" y="471" width="78" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                     <color key="textColor" red="0.0" green="0.3294117647" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -91,8 +91,8 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_11" width="1000" height="543"/>
         <image name="play" width="128" height="128"/>
         <image name="porget_gomb" width="144" height="144"/>
-        <image name="szerencsekerék" width="484" height="336.5"/>
     </resources>
 </document>
