@@ -67,13 +67,13 @@ class ScoreViewController: UIViewController {
             })
             
             
-            NetworkSevice.sharedInstance.getPlayerHowGetDrinks(completionBlock: { (error, valuePlayerShow) in
-                if valuePlayerShow == 1 {
-                    self.addDrinksBtn.isHidden = false
-                } else {
-                    self.addDrinksBtn.isHidden = true
-                }
-            })
+//            NetworkSevice.sharedInstance.getPlayerHowGetDrinks(completionBlock: { (error, valuePlayerShow) in
+//                if valuePlayerShow == 1 {
+//                    self.addDrinksBtn.isHidden = false
+//                } else {
+//                    self.addDrinksBtn.isHidden = true
+//                }
+//            })
             
         }
     }

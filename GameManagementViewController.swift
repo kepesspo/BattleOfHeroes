@@ -158,7 +158,10 @@ class GameManagementViewController: UIViewController {
     }
     
     func setUpGameManagementSegmentedControl() {
-        gameManagmentSegmentedControl.itemTitles = ["Információ","Egyedi Játék","Adat hozzáadás"]
+        gameManagmentSegmentedControl.defaultTextFont = UIFont.rubic(17)
+        gameManagmentSegmentedControl.selectedTextFont = UIFont.rubic(17)
+        
+        gameManagmentSegmentedControl.itemTitles = ["Infó","Játék","Adat"]
         gameManagmentSegmentedControl.selectItemAt(index: 0)
         gameManagmentSegmentedControl.layer.cornerRadius = 5
         gameManagmentSegmentedControl.allowChangeThumbWidth = false

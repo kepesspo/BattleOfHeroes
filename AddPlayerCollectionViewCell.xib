@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +34,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Játékosok: 2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-bw-XYL">
                                         <rect key="frame" x="2" y="135" width="236" height="19"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="inactiveColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -49,7 +50,7 @@
                                     <constraint firstAttribute="width" constant="50" id="7QR-zb-h0J"/>
                                     <constraint firstAttribute="height" constant="50" id="MGk-Bi-MoF"/>
                                 </constraints>
-                                <state key="normal" image="plus-3"/>
+                                <state key="normal" image="plus-4"/>
                                 <connections>
                                     <action selector="addPlayer" destination="gTV-IL-0wX" eventType="touchUpInside" id="4G6-uT-cD1"/>
                                 </connections>
@@ -85,6 +86,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="plus-3" width="128" height="128"/>
+        <image name="plus-4" width="128" height="128"/>
+        <namedColor name="inactiveColor">
+            <color red="0.19607843137254902" green="0.25882352941176473" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

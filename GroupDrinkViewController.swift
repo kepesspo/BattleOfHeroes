@@ -11,10 +11,13 @@ import MDCCommon
 
 class GroupDrinkViewController: UIViewController {
     @IBOutlet weak var drinkView: LottieView!
+    @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         playGroupDrinkAnimation()
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
     }
     
     func playGroupDrinkAnimation() {
@@ -23,7 +26,8 @@ class GroupDrinkViewController: UIViewController {
     }
 
     @IBAction func doneButtonAction(_ sender: Any) {
-        postNotification(name: .reloadGroupDrinkTimer)
+        drinkView.stop()
+        postNotification(name: .showExtraGame)
         self.dismiss(animated: true, completion: nil)
     }
 }

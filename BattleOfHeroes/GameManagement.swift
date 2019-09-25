@@ -648,7 +648,7 @@ class GameManagement {
     var online = true
     var drininkCounterView : Bool = true
     var showExtraSetUp = false
-    var scoreRate = 10
+    var scoreRate = 30
     var scoreRateIsOn = false
     
     

@@ -30,5 +30,6 @@ class BattleResultViewController: UIViewController {
     }
     @IBAction func endGame(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        postNotification(name: .endGame)
     }
 }

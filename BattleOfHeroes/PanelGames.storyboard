@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +38,7 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="DB7-Ut-MzI"/>
                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="20"/>
-                                        <state key="normal" title="Tovább" backgroundImage="zold_gomb">
+                                        <state key="normal" title="Tovább" backgroundImage="Button_1">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -59,7 +60,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="WpZ-n6-8Iw" firstAttribute="top" secondItem="nvg-E0-ava" secondAttribute="top" id="3GK-5L-cuR"/>
                                     <constraint firstItem="mRf-E0-X8T" firstAttribute="leading" secondItem="nvg-E0-ava" secondAttribute="leading" constant="30" id="5dV-3L-KAV"/>
@@ -75,6 +76,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Játékmenet:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTA-7C-TTt">
                                         <rect key="frame" x="30" y="20" width="315" height="23"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
+                                        <color key="textColor" name="inactiveColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzv-wg-b27" customClass="TTSegmentedControl" customModule="TTSegmentedControl">
@@ -88,17 +90,17 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="defaultTextColor">
-                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" name="inactiveColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="useGradient" value="NO"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="containerBackgroundColor">
-                                                <color key="value" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" name="AppColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
-                                                <color key="value" red="0.27417814730000001" green="0.74420785899999997" blue="0.63038516040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" name="inactiveColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="thumbShadowColor">
                                                 <color key="value" red="1" green="0.54682213069999996" blue="0.96889466049999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,22 +112,53 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hrt-k6-u8d">
-                                        <rect key="frame" x="30" y="226" width="315" height="147"/>
+                                        <rect key="frame" x="30" y="226" width="315" height="118"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dku-Ce-Iya">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-EX-e9h">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWa-Bn-Q1e">
+                                                        <rect key="frame" x="0.0" y="0.0" width="264" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" name="inactiveColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlt-4d-28r" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
+                                                        <rect key="frame" x="285" y="0.0" width="30" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="K4O-VB-XQ2"/>
+                                                            <constraint firstAttribute="width" constant="30" id="TTM-CB-qQK"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
+                                                                <color key="value" name="inactiveColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
+                                                                <color key="value" name="inactiveColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="extraGameAction:" destination="00X-8b-icA" eventType="valueChanged" id="aRg-QX-BJf"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dku-Ce-Iya">
+                                                <rect key="frame" x="0.0" y="44" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ponthatár:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4n-CB-59G">
                                                         <rect key="frame" x="0.0" y="0.0" width="75.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="inactiveColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="4Fx-kt-XfJ">
                                                         <rect key="frame" x="83.5" y="0.0" width="188.5" height="31"/>
-                                                        <color key="minimumTrackTintColor" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <color key="maximumTrackTintColor" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <color key="thumbTintColor" red="0.27450980392156865" green="0.74509803921568629" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="minimumTrackTintColor" name="inactiveColor"/>
+                                                        <color key="maximumTrackTintColor" name="inactiveColor"/>
+                                                        <color key="thumbTintColor" name="inactiveColor"/>
                                                         <connections>
                                                             <action selector="sliderValueChange:" destination="00X-8b-icA" eventType="valueChanged" id="6wf-Mf-Fpl"/>
                                                         </connections>
@@ -136,7 +169,7 @@
                                                             <constraint firstAttribute="width" constant="35" id="sFO-vF-wC0"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <color key="textColor" red="0.27450980392156865" green="0.74509803921568629" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" name="inactiveColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -147,28 +180,28 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="hMd-2e-R0q">
-                                                <rect key="frame" x="0.0" y="44" width="315" height="25"/>
+                                                <rect key="frame" x="0.0" y="88" width="315" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonus Képernyő" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWl-9o-yyd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="249" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="244" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="inactiveColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqe-em-xWu" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
-                                                        <rect key="frame" x="290" y="0.0" width="25" height="25"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <rect key="frame" x="285" y="0.0" width="30" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="25" id="2h7-Xd-A38"/>
-                                                            <constraint firstAttribute="height" constant="25" id="pPi-rP-xr4"/>
+                                                            <constraint firstAttribute="width" constant="30" id="2h7-Xd-A38"/>
+                                                            <constraint firstAttribute="height" constant="30" id="pPi-rP-xr4"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" name="inactiveColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" name="inactiveColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -177,80 +210,16 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-EX-e9h">
-                                                <rect key="frame" x="0.0" y="83" width="315" height="25"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Pictogram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWa-Bn-Q1e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="269" height="25"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlt-4d-28r" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
-                                                        <rect key="frame" x="290" y="0.0" width="25" height="25"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="K4O-VB-XQ2"/>
-                                                            <constraint firstAttribute="width" constant="25" id="TTM-CB-qQK"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="randomPictogramAction:" destination="00X-8b-icA" eventType="valueChanged" id="aRg-QX-BJf"/>
-                                                        </connections>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="tsM-KM-fVo">
-                                                <rect key="frame" x="0.0" y="122" width="315" height="25"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Csoportos Ivás" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h25-nl-7N9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="25"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qox-Ub-2WO" customClass="CheckboxButton" customModule="BattleOfHeroes" customModuleProvider="target">
-                                                        <rect key="frame" x="290" y="0.0" width="25" height="25"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="25" id="C9p-mc-Qpy"/>
-                                                            <constraint firstAttribute="height" constant="25" id="Toh-Du-cPF"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="groupDrinkAction:" destination="00X-8b-icA" eventType="valueChanged" id="LjX-Yb-Ayr"/>
-                                                        </connections>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="hMd-2e-R0q" firstAttribute="height" secondItem="RrB-EX-e9h" secondAttribute="height" id="WNC-2d-aRK"/>
                                             <constraint firstItem="hMd-2e-R0q" firstAttribute="width" secondItem="RrB-EX-e9h" secondAttribute="width" id="aUA-vS-X1f"/>
-                                            <constraint firstItem="RrB-EX-e9h" firstAttribute="width" secondItem="tsM-KM-fVo" secondAttribute="width" id="pJo-x5-7cm"/>
-                                            <constraint firstItem="RrB-EX-e9h" firstAttribute="height" secondItem="tsM-KM-fVo" secondAttribute="height" id="zDY-Yn-ufi"/>
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nehézségi Szint:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikn-fQ-heC">
                                         <rect key="frame" x="114.5" y="123" width="146" height="23"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="19"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="inactiveColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-Mp-uth" customClass="TTSegmentedControl" customModule="TTSegmentedControl">
@@ -264,17 +233,17 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="defaultTextColor">
-                                                <color key="value" red="0.27450980390000002" green="0.74509803919999995" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" name="inactiveColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="useGradient" value="NO"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="containerBackgroundColor">
-                                                <color key="value" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" name="AppColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
-                                                <color key="value" red="0.27417814730000001" green="0.74420785899999997" blue="0.63038516040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" name="inactiveColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="thumbShadowColor">
                                                 <color key="value" red="1" green="0.54682213069999996" blue="0.96889466049999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -286,7 +255,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="o3O-Mp-uth" firstAttribute="leading" secondItem="75U-S4-BYH" secondAttribute="leading" constant="30" id="1Ju-LT-glP"/>
                                     <constraint firstItem="Jzv-wg-b27" firstAttribute="top" secondItem="WTA-7C-TTt" secondAttribute="bottom" constant="10" id="9we-DZ-OKl"/>
@@ -326,13 +295,12 @@
                         <outlet property="bonusCheckBox" destination="oqe-em-xWu" id="QVr-Ig-8zZ"/>
                         <outlet property="bonusStackView" destination="hMd-2e-R0q" id="lE3-Cz-VSr"/>
                         <outlet property="dataView" destination="75U-S4-BYH" id="Wkv-Qw-vH7"/>
+                        <outlet property="extraGameCheckBox" destination="mlt-4d-28r" id="OfF-eT-kWz"/>
                         <outlet property="gameSegmentedControl" destination="o3O-Mp-uth" id="nDV-Vo-0g9"/>
-                        <outlet property="groupDrinkCheckBox" destination="Qox-Ub-2WO" id="Hl7-OM-2nh"/>
                         <outlet property="headerHeight" destination="tiK-5J-aQI" id="CJ3-45-cPf"/>
                         <outlet property="headerPanel" destination="nvg-E0-ava" id="i2k-Te-OvG"/>
                         <outlet property="modeSegmentedControl" destination="Jzv-wg-b27" id="WKK-zL-bBR"/>
                         <outlet property="nextButton" destination="mRf-E0-X8T" id="Hzr-Jp-99h"/>
-                        <outlet property="randomPictogramCheckBox" destination="mlt-4d-28r" id="OfF-eT-kWz"/>
                         <outlet property="scoreStackView" destination="dku-Ce-Iya" id="6I9-CM-01e"/>
                         <outlet property="slider" destination="4Fx-kt-XfJ" id="Ouw-rH-btu"/>
                         <outlet property="sliderValue" destination="Gi6-Hy-CYU" id="dmC-nM-mKt"/>
@@ -344,6 +312,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="zold_gomb" width="608" height="93"/>
+        <image name="Button_1" width="1000" height="153"/>
+        <namedColor name="AppColor">
+            <color red="0.85490196078431369" green="0.85490196078431369" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="inactiveColor">
+            <color red="0.19607843137254902" green="0.25882352941176473" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

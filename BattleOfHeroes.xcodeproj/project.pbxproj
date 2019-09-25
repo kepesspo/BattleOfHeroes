@@ -18,6 +18,7 @@
 		4D0E59F821F0E0C60027CCA5 /* CollectAndBoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0E59F721F0E0C60027CCA5 /* CollectAndBoomView.xib */; };
 		4D0E59FA21F0E0D30027CCA5 /* CollectAndBoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E59F921F0E0D30027CCA5 /* CollectAndBoomView.swift */; };
 		4D1046F722F847B600DECBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D1046F922F847B600DECBE4 /* Localizable.strings */; };
+		4D1046FB22FC47E800DECBE4 /* 4883-beer-icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1046FA22FC47E700DECBE4 /* 4883-beer-icon.json */; };
 		4D12F7BB21A6B07F004FAB50 /* GameManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BA21A6B07F004FAB50 /* GameManagementViewController.swift */; };
 		4D12F7BD21A6BB10004FAB50 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BC21A6BB10004FAB50 /* WelcomeViewController.swift */; };
 		4D12F7BF21A6BB84004FAB50 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F7BE21A6BB84004FAB50 /* PageViewController.swift */; };
@@ -245,6 +246,7 @@
 		4D0E59F721F0E0C60027CCA5 /* CollectAndBoomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectAndBoomView.xib; sourceTree = "<group>"; };
 		4D0E59F921F0E0D30027CCA5 /* CollectAndBoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectAndBoomView.swift; sourceTree = "<group>"; };
 		4D1046F822F847B600DECBE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4D1046FA22FC47E700DECBE4 /* 4883-beer-icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4883-beer-icon.json"; sourceTree = "<group>"; };
 		4D12F7BA21A6B07F004FAB50 /* GameManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagementViewController.swift; sourceTree = "<group>"; };
 		4D12F7BC21A6BB10004FAB50 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4D12F7BE21A6BB84004FAB50 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 				4DF5515222F30F890090D944 /* black_smile.json */,
 				4DA36AE021A421FF00B757BE /* i'm_thirsty!.json */,
 				4DF5515622F3141D0090D944 /* blue_pulse.json */,
+				4D1046FA22FC47E700DECBE4 /* 4883-beer-icon.json */,
 				4D135340228EBB0400B44A80 /* 47-gears.json */,
 				4D3DB0062280587A00DF3091 /* clock.json */,
 				4DA36AE321A4220B00B757BE /* newAnimation.json */,
@@ -1013,6 +1016,7 @@
 				4DFFD5C12135667300A4989B /* Rubik-Black.ttf in Resources */,
 				4DF5516B22F32D4C0090D944 /* background.json in Resources */,
 				4DC8196B2120D50800F09922 /* MusicRecognizerView.xib in Resources */,
+				4D1046FB22FC47E800DECBE4 /* 4883-beer-icon.json in Resources */,
 				4D22939121E8C62B0025C5A7 /* TrueOrFalseManagerView.xib in Resources */,
 				4D56D4D721512DC4004A591A /* HaveIEverNeverView.xib in Resources */,
 				4DFFD5C42135667300A4989B /* Rubik-Medium.ttf in Resources */,
@@ -1451,10 +1455,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 33P7Y9GXZB;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3GW2228TNR;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mondriaan.bottleofheroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1470,10 +1476,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 33P7Y9GXZB;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2TUC8G34ZG;
 				INFOPLIST_FILE = BattleOfHeroes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mondriaan.bottleofheroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

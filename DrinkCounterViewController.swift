@@ -71,8 +71,6 @@ class DrinkCounterViewController: UIViewController {
         
         personalGameView.layer.cornerRadius = 10
         personalGameView.layer.masksToBounds = true
-        
-        howDrinksTableView.separatorStyle = .none
        
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -86,8 +84,6 @@ class DrinkCounterViewController: UIViewController {
         
         personalGameView.layer.cornerRadius = 10
         personalGameView.layer.masksToBounds = true
-        
-        howDrinksTableView.separatorStyle = .none
         
     }
 
@@ -103,13 +99,8 @@ class DrinkCounterViewController: UIViewController {
         let drinkV = extraDrink * Factory.shared.gameDrinkMultiplier
         
         for elem in 1...drinkV {
-            //let step = elem * 40
-            let image = UIImage(named: "shot-glass")
+            let image = UIImage(named: "shot_2")
             let imageView = UIImageView(image: image!)
-//            imageView.addConstraint(NSLayoutConstraint(item: self, attribute: .height,
-//                                                       relatedBy: .equal, toItem: nil,
-//                                                       attribute: .notAnAttribute,
-//                                                       multiplier: 1, constant: 40))
             
             drinksStackView.addArrangedSubview(imageView)
             imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width,
@@ -225,7 +216,6 @@ class DrinkCounterViewController: UIViewController {
                         self.dismiss(animated: false, completion: {
                             //self.checkBonus(bonus: bonus, playerData: player)
                         })
-                        
                     } else {
                         print("No success save score")
                     }
@@ -290,11 +280,11 @@ extension DrinkCounterViewController : UITableViewDelegate , UITableViewDataSour
             let updatedPlayer = playersList[indexPath.row]
             
             if currentCell!.select {
-                currentCell?.contentView.backgroundColor = UIColor(hexString: "#FFD393")
+                currentCell?.drinksPlayerLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
                 selectedPlayers.removeAll(where: {$0.playerName == updatedPlayer.playerName})
                 currentCell?.select = false
             } else {
-                currentCell?.contentView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8431372549, blue: 0.168627451, alpha: 1)
+                currentCell?.drinksPlayerLabel.textColor = UIColor.init(hexString: "#F4987B")
                 selectedPlayers.append(updatedPlayer)
                 currentCell?.select = true
             }

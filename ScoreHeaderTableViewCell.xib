@@ -23,17 +23,17 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#   Név" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grZ-yP-vO8">
                         <rect key="frame" x="21" y="11.5" width="54" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="whiteColor"/>
+                        <color key="textColor" name="inactiveColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pont szám" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qq-ZC-2N8">
                         <rect key="frame" x="233.5" y="11.5" width="80.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="whiteColor"/>
+                        <color key="textColor" name="inactiveColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" name="AppColor"/>
                 <constraints>
                     <constraint firstItem="grZ-yP-vO8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="2vk-dy-4ek"/>
                     <constraint firstItem="grZ-yP-vO8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BR6-2g-1ZR"/>
@@ -45,8 +45,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="whiteColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AppColor">
+            <color red="0.85490196078431369" green="0.85490196078431369" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="inactiveColor">
+            <color red="0.19607843137254902" green="0.25882352941176473" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -27,8 +27,7 @@ class PanelGames: UIViewController, Panelable {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scoreCollectCheckBox: CheckboxButton!
     @IBOutlet weak var bonusCheckBox: CheckboxButton!
-    @IBOutlet weak var randomPictogramCheckBox: CheckboxButton!
-    @IBOutlet weak var groupDrinkCheckBox: CheckboxButton!
+    @IBOutlet weak var extraGameCheckBox: CheckboxButton!
     
     @IBOutlet weak var bonusStackView: UIStackView!
     @IBOutlet weak var scoreStackView: UIStackView!
@@ -40,7 +39,7 @@ class PanelGames: UIViewController, Panelable {
         //self.view.addBlurBackground()
         self.curveTopCorners()
         arrowView.update(to: .up, animated: true)
-        arrowView.arrowColor = #colorLiteral(red: 0.2745098039, green: 0.7450980392, blue: 0.631372549, alpha: 1)
+        arrowView.arrowColor = #colorLiteral(red: 0.1960784314, green: 0.2588235294, blue: 0.3176470588, alpha: 1)
         nextButton.layer.cornerRadius = 8
         nextButton.titleLabel?.text = "SetUpGameViewController_nextButton".localized()
         gameSegmentedControl.defaultTextFont = UIFont.rubic(19)
@@ -108,33 +107,23 @@ class PanelGames: UIViewController, Panelable {
         }
     }
     
-    @IBAction func randomPictogramAction(_ sender: Any) {
-        if randomPictogramCheckBox.on {
+    @IBAction func extraGameAction(_ sender: Any) {
+        if extraGameCheckBox.on {
             Factory.shared.randomPictogramAllow = true
-            randomPictogramCheckBox.on = true
+            Factory.shared.groupDrinksAllow = true
+            extraGameCheckBox.on = true
             print("Random Pictogram view ON")
         } else {
             Factory.shared.randomPictogramAllow = false
-            randomPictogramCheckBox.on = false
+            Factory.shared.groupDrinksAllow = false
+            extraGameCheckBox.on = false
             print("Random Pictogram view OFF")
         }
     }
-    
-    @IBAction func groupDrinkAction(_ sender: Any) {
-        if groupDrinkCheckBox.on {
-            Factory.shared.groupDrinksAllow = true
-            groupDrinkCheckBox.on = true
-            print("Group Drink view ON")
-        } else {
-            Factory.shared.groupDrinksAllow = false
-            groupDrinkCheckBox.on = false
-            print("Group Drink view OFF")
-        }
-    }
+
     
     
     func setUpLevelCounterView() {
-        
         modeSegmentedControl.itemTitles = ["Sima","Pontgyüjtés"]
         modeSegmentedControl.layer.cornerRadius = 7
         modeSegmentedControl.allowChangeThumbWidth = false

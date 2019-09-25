@@ -21,7 +21,7 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         dashedLayer = CAShapeLayer()
-        dashedLayer.strokeColor = UIColor.white.cgColor
+        dashedLayer.strokeColor = #colorLiteral(red: 0.1960784314, green: 0.2588235294, blue: 0.3176470588, alpha: 1)
         dashedLayer.lineDashPattern = [11, 11]
         dashedLayer.lineWidth = 1
         dashedLayer.cornerRadius = 10

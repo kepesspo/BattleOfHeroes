@@ -40,12 +40,14 @@ class Factory {
     
     // Game Group Drink
     var groupDrinksAllow : Bool = true
-    var groupDrinkTime : Int = 300
+    
     
     // Game Random Pictogram
     var randomPictogramAllow : Bool = true
-    var randomPictogramTime : Int = 420
-    
+    var extraGameInter = 100...300
+    var playersPaired = false
+    var isPersonalGame = false
+    var playerCounter = 0
     private init() {
         dataManager = OfflineService()
     }

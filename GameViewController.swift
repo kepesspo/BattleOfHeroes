@@ -18,9 +18,8 @@
     var groupDrinkTimer : Timer?
     var getPlyarerWhoGetDrinks: Timer?
     var randomPictogramTimer : Timer?
-    var timer : Timer?
     lazy var panelManager = Panels(target: self)
-    
+    var extraToggle = 0
     @IBOutlet weak var startImageView: UIImageView!
     @IBOutlet weak var gameContainerView: UIView!
     @IBOutlet weak var startButton: UIButton!
@@ -31,8 +30,7 @@
         super.viewDidLoad()
         GameManagement.sharedInstance.isSpactate = false
         
-        subscribeForNotification(name: .reloadGroupDrinkTimer, selector: #selector(showGroupDrinkView), object: nil)
-        subscribeForNotification(name: .randomPictogram, selector: #selector(showRandomPictogram), object: nil)
+        subscribeForNotification(name: .showExtraGame, selector: #selector(showExtraGame), object: nil)
         subscribeForNotification(name: .generateNewGame, selector: #selector(startGameAction), object: nil)
         subscribeForNotification(name: .activateGame, selector: #selector(activateGame), object: nil)
         
@@ -40,13 +38,9 @@
         //backgroundAnimationView.layer.cornerRadius = 20
         backgroundAnimationView.clipsToBounds = true
         showPanel()
-        showPlayerWhoDrinks()
-        showGroupDrinkView()
-        showRandomPictogram()
+        //showPlayerWhoDrinks()
+        showExtraGame()
         backgroundAnimationView.isHidden = true
-        
-        timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(showSpectatorBonus), userInfo: nil, repeats: true)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,8 +67,6 @@
         } else {
             GameManagement.sharedInstance.gameStarted = true
         }
-
-        timer?.invalidate()
         groupDrinkTimer?.invalidate()
         getPlyarerWhoGetDrinks?.invalidate()
         randomPictogramTimer?.invalidate()
@@ -166,30 +158,31 @@
         
     }
     
-    //Extra Game
-    @objc func showGroupDrinkView() {
-        let time = Factory.shared.groupDrinkTime
-        if Factory.shared.groupDrinksAllow == true {
-            self.groupDrinkTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(time) , repeats: true, block: { _ in
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GroupDrinkViewController") as! GroupDrinkViewController
-                self.present(vc, animated: true, completion: nil)
-                self.groupDrinkTimer?.invalidate()
-                
-            })
+    @objc func showExtraGame() {
+        guard let randTime = Factory.shared.extraGameInter.randomElement() else { return }
+        print("Random Extra View Time: \(randTime) sec")
+        if extraToggle == 0 {
+            if Factory.shared.groupDrinksAllow == true {
+                self.groupDrinkTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(randTime) , repeats: true, block: { _ in
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GroupDrinkViewController") as! GroupDrinkViewController
+                    self.present(vc, animated: true, completion: nil)
+                    self.groupDrinkTimer?.invalidate()
+                    self.extraToggle = 1
+                })
+            }
+        } else {
+            if Factory.shared.randomPictogramAllow == true {
+                self.randomPictogramTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(randTime) , repeats: true, block: { _ in
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RandomPictogramViewController") as! RandomPictogramViewController
+                    self.present(vc, animated: true, completion: nil)
+                    self.randomPictogramTimer?.invalidate()
+                    self.extraToggle = 0
+                    
+                })
+            }
         }
     }
     
-    @objc func showRandomPictogram() {
-        let time = Factory.shared.randomPictogramTime
-        if Factory.shared.randomPictogramAllow == true {
-            self.randomPictogramTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(time) , repeats: true, block: { _ in
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RandomPictogramViewController") as! RandomPictogramViewController
-                self.present(vc, animated: true, completion: nil)
-                self.randomPictogramTimer?.invalidate()
-                
-            })
-        }
-    }
     
     func showView() {
         backgroundAnimationView.isHidden = false
@@ -216,11 +209,50 @@
                 if availableGames.count > 1, let previous = self.previousGame {
                     availableGames = availableGames.filter({ $0.name != previous.name})
                 }
-                let chosen = availableGames.randomElement()!
-                self.generateViewWith(game: chosen)
+               
+                Factory.shared.playersPaired = Factory.shared.playerList.count % 2 == 0
+                var valueOfGameType : Bool?
+                
+                if Factory.shared.playersPaired == false {
+                    valueOfGameType = self.groupOrPersonal()
+                } else {
+                    if Factory.shared.playerList.count == Factory.shared.playerCounter {
+                        Factory.shared.isPersonalGame = !Factory.shared.isPersonalGame
+                        Factory.shared.playerCounter = 0
+                        valueOfGameType = self.groupOrPersonal()
+                    } else {
+                        Factory.shared.playerCounter = Factory.shared.playerCounter + 1
+                        valueOfGameType = self.groupOrPersonal()
+                    }
+                }
+                var chosen : Game?
+                if valueOfGameType == false {
+                    let gameChosen = availableGames.filter( {$0.gameType!.rawValue == "personal"})
+                    chosen = gameChosen.randomElement()
+                    print("Personal")
+                } else {
+                    let gameChosen = availableGames.filter( {
+                        $0.gameType!.rawValue == "winGroup" ||
+                            $0.gameType!.rawValue == "LoseGroup"})
+                    chosen = gameChosen.randomElement()
+                    print("Group")
+                }
+                
+                self.generateViewWith(game: chosen!)
                 self.previousGame = chosen
             }
         }
+    }
+    
+    func groupOrPersonal() -> Bool {
+        if Factory.shared.isPersonalGame == false {
+            print("Group")
+            Factory.shared.isPersonalGame = true
+        } else {
+            print("Personal")
+            Factory.shared.isPersonalGame = false
+        }
+        return Factory.shared.isPersonalGame
     }
     
     

@@ -37,13 +37,12 @@ class PanelMaterial: UIViewController, Panelable {
         showRoomView.layer.cornerRadius = 10
         newPlayerView.layer.cornerRadius = 10
         
-        headerPanel.backgroundColor = .white
         headerPanel.curveTopCorners()
         
         figureCornerView.layer.cornerRadius = figureCornerView.frame.size.width/2
         figureCornerView.clipsToBounds = true
 
-        figureCornerView.layer.borderColor = UIColor.white.cgColor
+        figureCornerView.layer.borderColor = UIColor.init(hexString: "#EEEEE1").cgColor
         figureCornerView.layer.borderWidth = 5.0
         
         subscribeForNotification(name: .updateGameData, selector: #selector(updateGameData), object: nil)
@@ -53,10 +52,10 @@ class PanelMaterial: UIViewController, Panelable {
         showRoomView.isHidden = true
         if GameManagement.sharedInstance.drininkCounterView {
             scoreView.isUserInteractionEnabled = true
-            scoreView.backgroundColor = UIColor(fromHexString: "46BEA1", alpha: 1.0, useDisplayP3RGB: false)
+            scoreView.backgroundColor = UIColor(fromHexString: "324251", alpha: 1.0, useDisplayP3RGB: false)
         } else {
             scoreView.isUserInteractionEnabled = false
-            scoreView.backgroundColor = UIColor(fromHexString: "46BEA1", alpha: 0.6, useDisplayP3RGB: false)
+            scoreView.backgroundColor = UIColor(fromHexString: "324251", alpha: 0.6, useDisplayP3RGB: false)
         }
         
         figureCornerView.isHidden = true
