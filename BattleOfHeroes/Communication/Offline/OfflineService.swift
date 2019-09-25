@@ -70,7 +70,7 @@ class OfflineService: DataManager {
             if playerDrinks % 10 == 0 || notShowedBonus &&  player.allDrink != 0 && Factory.shared.showBonusView == true {
                 competionBlock(nil, true, player)
             } else {
-                competionBlock(nil, false, nil)
+                competionBlock(nil, false, player)
             }
         } else {
             competionBlock(nil, false, nil)

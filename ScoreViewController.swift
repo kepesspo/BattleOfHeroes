@@ -15,6 +15,7 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var BackButton: UIButton!
     @IBOutlet weak var addDrinksBtn: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     var playersList = Factory.shared.playerList
     var timer : Timer?
@@ -23,6 +24,12 @@ class ScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeForNotification(name: .reloadScoreTableView, selector: #selector(reloadScoreTableView), object: nil)
+        if GameManagement.sharedInstance.scoreRateIsOn {
+            scoreLabel.text = "A játék \(GameManagement.sharedInstance.scoreRate) pontig megy"
+        } else {
+            scoreLabel.text = ""
+        }
+        
         scoreTableView.separatorStyle = .none
         popView.layer.cornerRadius = 30
         popView.layer.masksToBounds = true

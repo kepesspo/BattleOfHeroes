@@ -46,6 +46,10 @@ class EndGameViewController: UIViewController {
         Factory.shared.actuallyPlayer = nil
         Factory.shared.playerIndex = 0
         
+        Factory.shared.playersPaired = false
+        Factory.shared.isPersonalGame = false
+        Factory.shared.playerCounter = 0
+        
         self.dismiss(animated: false, completion: nil)
         
         postNotification(name: .endGame)
